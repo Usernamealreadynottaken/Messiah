@@ -1,5 +1,9 @@
 from django.db import models
 
+# TODO:
+# - przejrzec upload_to dla wszystkich obrazkow i uzgodnic strukture folderow z mediami
+# - ustalic ktore wartosci moga byc NULL
+
 
 class Rezerwacja(models.Model):
     poczatek_pobytu = models.DateTimeField('Poczatek pobytu')
@@ -36,7 +40,7 @@ class Pokoj(models.Model):
 
 
 class ZdjeciaPokojow(models.Model):
-    zdjecie = models.ImageField()
+    zdjecie = models.ImageField(upload_to='pokoje')
     pokoj = models.ForeignKey(Pokoj)
 
 
@@ -48,7 +52,7 @@ class Jedzenie(models.Model):
     nazwa = models.CharField(max_length=100)
     cena = models.FloatField()
     opis = models.TextField()
-    zdjecie = models.ImageField()
+    zdjecie = models.ImageField(upload_to='jedzenie')
 
     kategoria = models.ForeignKey(KategoriaJedzenia)
 
@@ -68,7 +72,7 @@ class OpisHotelu(models.Model):
     url_mapy = models.URLField(max_length=1000)
 
     # Logo
-    logo = models.ImageField()
+    logo = models.ImageField(upload_to='hotel')
     tekst_logo = models.CharField(max_length=30)
     tekst_logo_widoczny = models.BooleanField()
     # Wartosc pola sklada sie z dwoch liter:
@@ -76,7 +80,7 @@ class OpisHotelu(models.Model):
     # druga to polozenie tekstu w stosunku do logo: 'G' - gore, 'D' - dol, 'P' - prawo, 'L' - lewo
     UKLAD_CHOICES = (
         ('DD', 'Duze logo, tekst pod spodem'),
-        ('DG', 'Duze logo, tekst na gorze')
+        ('DG', 'Duze logo, tekst na gorze'),
         ('ML', 'Male logo, tekst z lewej strony'),
         ('MP', 'Male logo, tekst z prawej strony'),
     )
@@ -84,7 +88,7 @@ class OpisHotelu(models.Model):
 
 
 class ZdjeciaHotelu(models.Model):
-    zdjecie = models.ImageField()
+    zdjecie = models.ImageField(upload_to='hotel/galeria')
 
 
 class Wiadomosc(models.Model):
