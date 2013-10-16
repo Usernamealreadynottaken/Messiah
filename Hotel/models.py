@@ -14,6 +14,7 @@ class Pokoj(models.Model):
     rozmiar = models.IntegerField()        # Ilosc osob.
     ilosc_lozek = models.IntegerField(null=True)
     opis = models.TextField(null=True)
+    opis_combo = models.CharField(max_length=30)
     dostepnosc = models.NullBooleanField()
     cena = models.DecimalField(max_digits=6, decimal_places=2)
 
@@ -62,6 +63,10 @@ class Jedzenie(models.Model):
 
 
 class OpisHotelu(models.Model):
+    # Dane techniczne
+    cena_dorosly = models.DecimalField(max_digits=6, decimal_places=2)
+    cena_dziecko = models.DecimalField(max_digits=6, decimal_places=2)
+
     # Opis na stronie glownej
     opis_hotelu = models.TextField()
     # meta description
