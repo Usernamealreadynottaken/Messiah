@@ -15,11 +15,7 @@ class Rezerwacja(models.Model):
     nazwisko = models.CharField(max_length=50)
     dodatkowe_instrukcje = models.TextField()
     kod = models.CharField(max_length=12)
-    uslugi = models.TextField()
 
-    # Pokoj
-    numer_pokoju = models.IntegerField()
-    opis_pokoju = models.TextField()
 
 
 class Usluga(models.Model):
