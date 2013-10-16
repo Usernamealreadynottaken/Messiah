@@ -1,0 +1,68 @@
+{% extends "Hotel/base.html" %}
+
+{% block title %}Hotel Messiah - Rezerwacje{% endblock %}
+
+{% block content %}
+
+<div id="reservations">
+
+    <div class="title">
+        <h1>Rezerwacje</h1>
+    </div> <!-- .title -->
+
+    <div class="reservations-content">
+
+        <form action="" method="post">
+            <table>
+                <tr>
+                    <td>Imie i nazwisko:</td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td>Telefon:</td>
+                    <td><input type="tel" name="tel"></td>
+                </tr>
+                <tr>
+                    <td>E-mail:</td>
+                    <td><input type="email" name="email"></td>
+                </tr>
+                <tr>
+                    <td>Poczatek pobyty:</td>
+                    <td><input class="date-from" type="text" name="date-from"></td>
+                </tr>
+                <tr>
+                    <td>Koniec pobyty:</td>
+                    <td><input class="date-to" type="text" name="date-to"></td>
+                </tr>
+                <tr>
+                    <td>Dorosli:</td>
+                    <td><input type="number" name="dorosli" value="0"></td>
+                </tr>
+                <tr>
+                    <td>Dzieci:</td>
+                    <td><input type="number" name="dzieci" value="0"></td>
+                </tr>
+                <tr>
+                    <td>Wybierz pokoj:</td>
+                    <td><input type="text" name="pokoj"></td>
+                </tr>
+            </table>
+
+            <div class="calendars">
+                <p>Wybierz date przyjazdu</p>
+                <div class="datepicker-from"></div>
+                <p>Wybierz date wyjazdu</p>
+                <div class="datepicker-to"></div>
+            </div>
+
+            <p>Cena pobytu za wynajem x pokoi na y nocy:
+                <input class="price" type="text" name="price" disabled="disabled"></p>
+            <p>Wybierz <a href="">Opcje dodatkowe</a> lub <a href="">Zarezerwuj</a></p>
+
+        </form>
+
+    </div> <!-- .reservations.content -->
+
+</div> <!-- .reservations -->
+
+{% endblock %}
