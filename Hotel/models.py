@@ -16,6 +16,7 @@ class Pokoj(models.Model):
     opis = models.TextField(null=True)
     opis_combo = models.CharField(max_length=30)
     dostepnosc = models.NullBooleanField()
+    cena = models.DecimalField(max_digits=6, decimal_places=2)
 
 
 class ZdjeciaPokojow(models.Model):
@@ -50,8 +51,6 @@ class UslugaNaRezerwacji(models.Model):
     rezerwacja = models.ForeignKey(Rezerwacja)
     usluga = models.ForeignKey(Usluga)
     cena = models.DecimalField(max_digits=6, decimal_places=2)
-    poczatek = models.DateField('Rozpoczecie uslugi', null=True)
-    koniec = models.DateField('Zakonczenie uslugi', null=True)
 
 
 class KategoriaJedzenia(models.Model):
