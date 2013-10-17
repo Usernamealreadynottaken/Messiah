@@ -1,0 +1,820 @@
+[
+  {
+    "model": "Hotel.KategoriaJedzenia",
+    "pk": 1,
+    "fields": {
+      "nazwa": "Przystawki"
+    }
+  },
+  {
+    "model": "Hotel.KategoriaJedzenia",
+    "pk": 2,
+    "fields": {
+      "nazwa": "Zupy"
+    }
+  },
+  {
+    "model": "Hotel.KategoriaJedzenia",
+    "pk": 3,
+    "fields": {
+      "nazwa": "Dania Główne"
+    }
+  },
+  {
+    "model": "Hotel.KategoriaJedzenia",
+    "pk": 4,
+    "fields": {
+      "nazwa": "Dodatki"
+    }
+  },
+  {
+    "model": "Hotel.KategoriaJedzenia",
+    "pk": 5,
+    "fields": {
+      "nazwa": "Surówki"
+    }
+  },
+  {
+    "model": "Hotel.KategoriaJedzenia",
+    "pk": 6,
+    "fields": {
+      "nazwa": "Desery"
+    }
+  },
+  {
+    "model": "Hotel.KategoriaJedzenia",
+    "pk": 7,
+    "fields": {
+      "nazwa": "Napoje"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 1,
+    "fields": {
+      "nazwa": "Róża z łososia na zielonej sałacie",
+      "cena": "8.00",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "1"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 2,
+    "fields": {
+      "nazwa": "Caprese",
+      "cena": "7.00",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "1"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 3,
+    "fields": {
+      "nazwa": "Zapiekany camembert z żurawiną i grzankami",
+      "cena": "9.50",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "1"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 4,
+    "fields": {
+      "nazwa": "Schab w galarecie",
+      "cena": "6.50",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "1"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 5,
+    "fields": {
+      "nazwa": "Mix kolorowych sałat z grilowanym kurczakiem i serem pleśniowym",
+      "cena": "12.50",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "1"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 6,
+    "fields": {
+      "nazwa": "Rosół z makaronem",
+      "cena": "5.00",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "2"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 7,
+    "fields": {
+      "nazwa": "Rosół z jajkiem przepiórczym i szynką",
+      "cena": "7.00",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "2"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 8,
+    "fields": {
+      "nazwa": "Zupa grzybowa w czarce chlebowej",
+      "cena": "7.60",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "2"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 9,
+    "fields": {
+      "nazwa": "Krem z brokułów/ zielonego groszku/ selera z prażonymi migdałami",
+      "cena": "4.70",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "2"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 10,
+    "fields": {
+      "nazwa": "Zupa serowa z grzankami",
+      "cena": "6.70",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "2"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 11,
+    "fields": {
+      "nazwa": "Schab pieczony w sosie własnym",
+      "cena": "8.70",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "3"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 12,
+    "fields": {
+      "nazwa": "Filet z pstrąga w sosie cytrynowym",
+      "cena": "9.70",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "3"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 13,
+    "fields": {
+      "nazwa": "Polędwiczki wieprzowe w sosie borowikowym",
+      "cena": "10.70",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "3"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 14,
+    "fields": {
+      "nazwa": "Plater 3 mięs",
+      "cena": "12.90",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "3"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 15,
+    "fields": {
+      "nazwa": "Rolada z indyka nadziewana szpinakiem i serem feta",
+      "cena": "14.20",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "3"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 16,
+    "fields": {
+      "nazwa": "Cielęce zrazy zawijane",
+      "cena": "9.20",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "3"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 17,
+    "fields": {
+      "nazwa": "Kotlet po szwajcarsku nadziewany serem i szynką",
+      "cena": "15.00",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "3"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 18,
+    "fields": {
+      "nazwa": "Ziemniaki gotowane",
+      "cena": "3.00",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "4"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 19,
+    "fields": {
+      "nazwa": "Ziemniaki opiekane",
+      "cena": "4.00",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "4"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 20,
+    "fields": {
+      "nazwa": "Frytki",
+      "cena": "5.50",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "4"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 21,
+    "fields": {
+      "nazwa": "Dufinki",
+      "cena": "6.00",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "4"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 22,
+    "fields": {
+      "nazwa": "Kopytka",
+      "cena": "5.40",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "4"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 23,
+    "fields": {
+      "nazwa": "Kluski śląskie",
+      "cena": "4.40",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "4"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 24,
+    "fields": {
+      "nazwa": "Ryż",
+      "cena": "4.00",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "4"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 25,
+    "fields": {
+      "nazwa": "Jarzyny gotowane lub grillowanie",
+      "cena": "7.00",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "4"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 26,
+    "fields": {
+      "nazwa": "Mizeria",
+      "cena": "3.50",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "5"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 27,
+    "fields": {
+      "nazwa": "Seler",
+      "cena": "2.50",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "5"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 28,
+    "fields": {
+      "nazwa": "Marchewka z jabłkiem",
+      "cena": "3.20",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "5"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 29,
+    "fields": {
+      "nazwa": "Wiosenna",
+      "cena": "5.20",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "5"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 30,
+    "fields": {
+      "nazwa": "Biała kapusta",
+      "cena": "4.00",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "5"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 31,
+    "fields": {
+      "nazwa": "Czerwona Kapusta",
+      "cena": "4.50",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "5"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 32,
+    "fields": {
+      "nazwa": "Kapusta zasmażana",
+      "cena": "5.20",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "5"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 33,
+    "fields": {
+      "nazwa": "Ćwikła z chrzanem",
+      "cena": "3.40",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "5"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 34,
+    "fields": {
+      "nazwa": "Buraczki zasmażane",
+      "cena": "4.40",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "5"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 35,
+    "fields": {
+      "nazwa": "Lody z owocami i bitą śmietaną",
+      "cena": "3.50",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "6"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 36,
+    "fields": {
+      "nazwa": "Szarlotka na ciepło z sosem waniliowym i gałką lodów",
+      "cena": "5.50",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "6"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 37,
+    "fields": {
+      "nazwa": "Szarlotka na ciepło z sosem waniliowym i gałką lodów",
+      "cena": "6.00",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "6"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 38,
+    "fields": {
+      "nazwa": "Galaretka ze świeżymi owocami",
+      "cena": "3.00",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "6"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 39,
+    "fields": {
+      "nazwa": "Panacotta z sosem malinowym",
+      "cena": "4.00",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "6"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 40,
+    "fields": {
+      "nazwa": "Koktajl ze świeżych owoców",
+      "cena": "5.40",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "6"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 41,
+    "fields": {
+      "nazwa": "Napoje gorące (kawa, herbata) nielimitowane",
+      "cena": "5.50",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "7"
+    }
+  },
+  {
+    "model": "Hotel.Jedzenie",
+    "pk": 42,
+    "fields": {
+      "nazwa": "Napoje zimne (soki, woda mineralna, Coca cola, Fanta, Sprite) nielimitowane",
+      "cena": "6.50",
+      "opis": "",
+      "zdjecie": "",
+      "kategoria": "7"
+    }
+  },
+  {
+    "model": "Hotel.Usluga",
+    "pk": 1,
+    "fields": {
+      "nazwa": "Pralnia",
+      "cena": "10.00",
+      "opis": "Podana cena dotyczy udostępnienia jednej pralki na czas jednego prania.",
+      "dostepnosc": "True",
+      "zewnetrzna": "False"
+    }
+  },
+  {
+    "model": "Hotel.Usluga",
+    "pk": 2,
+    "fields": {
+      "nazwa": "Opieka nad dziećmi",
+      "cena": "10.00",
+      "opis": "Podana cena, to cena za godzine opieki.",
+      "dostepnosc": "True",
+      "zewnetrzna": "False"
+    }
+  },
+  {
+    "model": "Hotel.Usluga",
+    "pk": 3,
+    "fields": {
+      "nazwa": "Sejf/Depozyt",
+      "cena": "5.00",
+      "opis": "Cena zależna od wielkości przedmiotu. Podana cena dotyczy przechowywania przedmiotu wielkości dużego jabłka przez okres jednego dnia.",
+      "dostepnosc": "True",
+      "zewnetrzna": "False"
+    }
+  },
+  {
+    "model": "Hotel.Usluga",
+    "pk": 4,
+    "fields": {
+      "nazwa": "Sauna",
+      "cena": "12.00",
+      "opis": "Cena za godzinę przebywania w Saunie. Sauna znajduje się 200 metrów od naszego hotelu.",
+      "dostepnosc": "True",
+      "zewnetrzna": "True"
+    }
+  },
+  {
+    "model": "Hotel.Usluga",
+    "pk": 5,
+    "fields": {
+      "nazwa": "Basen",
+      "cena": "10.00",
+      "opis": "Cena za godzinę przebywania na terenie basenu. Jest to basen kryty. Basen znajduje się w odległości 300 metrów od naszego hotelu.",
+      "dostepnosc": "True",
+      "zewnetrzna": "True"
+    }
+  },
+  {
+    "model": "Hotel.Usluga",
+    "pk": 6,
+    "fields": {
+      "nazwa": "Kort tenisowy",
+      "cena": "20.00",
+      "opis": "Cena za wynajęcie kortu na godzinę. Niezależna od ilości graczy. Korty znajdują się 500 metrów od naszego hotelu.",
+      "dostepnosc": "True",
+      "zewnetrzna": "True"
+    }
+  },
+  {
+    "model": "Hotel.Pokoj",
+    "pk": 1,
+    "fields": {
+      "numer": "1",
+      "rozmiar": "2",
+      "ilosc_lozek": "2",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Duża łazienka, dobry widok",
+      "dostepnosc": "True"
+    }
+  },
+  {
+    "model": "Hotel.Pokoj",
+    "pk": 2,
+    "fields": {
+      "numer": "2",
+      "rozmiar": "1",
+      "ilosc_lozek": "1",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Mała łazienka, 50 calowy tv",
+      "dostepnosc": "True"
+    }
+  },
+  {
+    "model": "Hotel.Pokoj",
+    "pk": 3,
+    "fields": {
+      "numer": "3",
+      "rozmiar": "3",
+      "ilosc_lozek": "2",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Świeżo malowany, kołyska",
+      "dostepnosc": "True"
+    }
+  },
+  {
+    "model": "Hotel.Pokoj",
+    "pk": 4,
+    "fields": {
+      "numer": "4",
+      "rozmiar": "2",
+      "ilosc_lozek": "1",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Tani, nowe łóżka",
+      "dostepnosc": "True"
+    }
+  },
+  {
+    "model": "Hotel.Pokoj",
+    "pk": 5,
+    "fields": {
+      "numer": "5",
+      "rozmiar": "2",
+      "ilosc_lozek": "2",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Łazienka z wanną, kuchnia",
+      "dostepnosc": "True"
+    }
+  },
+  {
+    "model": "Hotel.Pokoj",
+    "pk": 6,
+    "fields": {
+      "numer": "6",
+      "rozmiar": "4",
+      "ilosc_lozek": "3",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "2 pomieszczenia sypialne",
+      "dostepnosc": "True"
+    }
+  },
+  {
+    "model": "Hotel.Pokoj",
+    "pk": 7,
+    "fields": {
+      "numer": "7",
+      "rozmiar": "2",
+      "ilosc_lozek": "1",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Obrazy, ładny wystrój",
+      "dostepnosc": "True"
+    }
+  },
+  {
+    "model": "Hotel.Pokoj",
+    "pk": 8,
+    "fields": {
+      "numer": "8",
+      "rozmiar": "2",
+      "ilosc_lozek": "2",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Nowoczesny pokój dla dwojga",
+      "dostepnosc": "True"
+    }
+  },
+  {
+    "model": "Hotel.Pokoj",
+    "pk": 9,
+    "fields": {
+      "numer": "9",
+      "rozmiar": "2",
+      "ilosc_lozek": "2",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Pokój z wyższej półki dla 2",
+      "dostepnosc": "True"
+    }
+  },
+  {
+    "model": "Hotel.Pokoj",
+    "pk": 10,
+    "fields": {
+      "numer": "10",
+      "rozmiar": "3",
+      "ilosc_lozek": "2",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Ładny widok, pokój na parterze",
+      "dostepnosc": "True"
+    }
+  },
+  {
+    "model": "Hotel.Pokoj",
+    "pk": 11,
+    "fields": {
+      "numer": "11",
+      "rozmiar": "1",
+      "ilosc_lozek": "1",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Najlepszy wybór dla singla",
+      "dostepnosc": "False"
+    }
+  },
+  {
+    "model": "Hotel.Wiadomosc",
+    "pk": 1,
+    "fields": {
+      "email": "xxx69@op.pl",
+      "nazwisko": "Nowak",
+      "tresc": "Witam, proszę o opisanie wielkości łóżek w pokoju numer 4."
+    }
+  },
+  {
+    "model": "Hotel.Wiadomosc",
+    "pk": 2,
+    "fields": {
+      "email": "dziadzia@gmail.com",
+      "nazwisko": "Dziadek",
+      "tresc": "Chciałbym się dowiedzieć jakie kanały są dostępne w tv. Chodzi o pokój numer 2."
+    }
+  },
+  {
+    "model": "Hotel.Wiadomosc",
+    "pk": 3,
+    "fields": {
+      "email": "wielki_misio@o2.pl",
+      "nazwisko": "",
+      "tresc": "Chciałbym się dowiedzieć, czy jest możliwość wyścielenia łóżka różami przed moim rpzyjazdem do hotelu? Oczywiście zapłacę."
+    }
+  },
+  {
+    "model": "Hotel.Wiadomosc",
+    "pk": 4,
+    "fields": {
+      "email": "",
+      "nazwisko": "",
+      "tresc": "Dół waszej strony źle wyświetla się na moim telefonie - samsung galaxy 4. Defaultowa przeglądarka z jej aktualną wersją."
+    }
+  },
+  {
+    "model": "Hotel.OpisHotelu",
+    "pk": 1,
+    "fields": {
+      "cena_dorosly": "40.00",
+      "cena_dziecko": "25.00",
+      "opis_hotelu": "Hotel XXXXX położony jest w Krakowie przy ulicy Aleksandry 30, przy trasie międzynarodowej E4 i obwodnicy krakowskiej. Hotel posiada dogodne i szybkie połączenia z Wawelem (6 km), Wieliczką (3 km), Kazimierzem (4 km) i Portem Lotniczym w Balicach (22 km). Położenie Hotelu XXXXX umożliwia wygodne planowanie dalszych wycieczek turystycznych do m.in. Zakopanego, Oświęcimia i Częstochowy oraz doskonałe połączenie tramwajowe i autobusowe z ważniejszymi częściami Krakowa. Obiekt usytuowany jest wśród zieleni, co gwarantuje naszym Gościom indywidualnym, biznesowym oraz grupom turystycznym, wypoczynek w ciszy i spokoju, z dala od ulicznego zgiełku i hałasu, o każdej porze roku. Gwarantujemy miłą, profesjonalną obsługę oraz wygodę i domową atmosferę. Recepcja służy Państwu pomocą 24h/dobę. Hotel oferuje standard 3-gwiazdkowy plus w cenie 2-gwiazdkowej.",
+      "opis_google": "",
+      "skype": "",
+      "gadu_gadu": "",
+      "email": "",
+      "facebook": "",
+      "twitter": "",
+      "wyswietlaj_mape": "True",
+      "url_mapy": "",
+      "logo": "",
+      "tekst_logo": "Nowy Tani 3 Gwiazdkowy Hotel",
+      "tekst_logo_widoczny": "True",
+      "uklad": "ML"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 1,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "1"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaHotelu",
+    "pk": 1,
+    "fields": {
+      "zdjecie": ""
+    }
+  },
+  {
+    "model": "Hotel.Rezerwacja",
+    "pk": 1,
+    "fields": {
+      "poczatek_pobytu": "2013-10-17",
+      "koniec_pobytu": "2013-10-20",
+      "doroslych": "1",
+      "dzieci": "1",
+      "email": "random_email@gmail.com",
+      "telefon": "111234528",
+      "nazwisko": "Kowalski",
+      "dodatkowe_instrukcje": "Proszę o wysypanie wiadra cukierków - krówek - na łóżko",
+      "kod": "1f5Tf78Wmm91"
+    }
+  },
+  {
+    "model": "Hotel.UslugaNaRezerwacji",
+    "pk": 1,
+    "fields": {
+      "rezerwacja": "1",
+      "usluga": "3",
+      "cena": "40",
+      "poczatek": "2013-10-17",
+      "koniec": "2013-10-25"
+    }
+  },
+  {
+    "model": "Hotel.UslugaNaRezerwacji",
+    "pk": 2,
+    "fields": {
+      "rezerwacja": "1",
+      "usluga": "3",
+      "cena": "40",
+      "poczatek": "2013-10-17",
+      "koniec": "2013-10-25"
+    }
+  }
+]

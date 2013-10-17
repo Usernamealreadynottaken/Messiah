@@ -46,7 +46,7 @@
                 </tr>
                 <tr>
                     <td>Wybierz pokoj:</td>
-                    <td><input type="text" name="pokoj"></td>
+                    <td><input type="text" id="pokoj" name="pokoj"></td>
                 </tr>
             </table>
 
@@ -59,7 +59,15 @@
 
             <p>Cena pobytu za wynajem x pokoi na y nocy:
                 <input class="price" type="text" name="price" disabled="disabled"></p>
-            <p>Wybierz <a href="">Opcje dodatkowe</a> lub <a id="clickity" href="">Zarezerwuj</a></p>
+            <p>Wybierz <a href="">Opcje dodatkowe</a> lub <a href="">Zarezerwuj</a></p>
+
+            <!-- ponizsze 2 sa tylko do testowania ajaxa -->
+            <label id="clickity">CLICK</label>
+            <p id="message">
+                {% for p in pokoje %}
+                {{ p.pk }} - {{ p.opis_combo }}<br />
+                {% endfor %}
+            </p>
 
         </form>
 
@@ -71,25 +79,27 @@
 
 {% block scripts %}
 
+<!-- skrypt jest wysoce tymczasowy, tylko do testowania ajaxa -->
 <script>
 function ajaxTest() {
     $.ajax({
         type: 'GET',
+        dataType: 'html',
         url: 'http://127.0.0.1:8000/rezerwacje/check',
         data: {
             csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
-            pokoj: 1 // $("input[name$='pokoj']")
+            pokoj: $("#pokoj").val()
         }
     })
         .done(function(data) {
-             alert(data);
+            $("#message").html(data + "<br /><br />");
         })
         .fail(function(xhr, textStatus, errorThrown) {
             alert("Error: " + errorThrown + xhr.status + xhr.responseText);
         });
 }
 
-window.onclick = function() {
+document.getElementById("clickity").onclick = function() {
     ajaxTest();
 }
 </script>

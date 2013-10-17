@@ -1,1 +1,5 @@
-{{ message }}
+{% if error_message %}
+    {{ error_message }}
+{% else %}
+    Wybrano pokoj numer {{ pokoj }}
+{% endif %}
