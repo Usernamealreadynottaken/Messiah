@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS "Hotel_opishotelu";
 DROP TABLE IF EXISTS "Hotel_wiadomosc";
 DROP TABLE IF EXISTS "Hotel_zdjeciahotelu";
 DROP TABLE IF EXISTS "Hotel_zdjeciapokojow";
-DROP TABLE IF EXISTS "Hotel_rezerwacja_pokoje";
+DROP TABLE IF EXISTS "Hotel_pokojnarezerwacji";
 DROP TABLE IF EXISTS "Hotel_pokoj";
 DROP TABLE IF EXISTS "Hotel_usluganarezerwacji";
 DROP TABLE IF EXISTS "Hotel_usluga";
