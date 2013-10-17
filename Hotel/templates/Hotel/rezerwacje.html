@@ -13,6 +13,8 @@
     <div class="reservations-content">
 
         <form action="" method="post">
+            {% csrf_token %}
+
             <table>
                 <tr>
                     <td>Imie i nazwisko:</td>
@@ -27,11 +29,11 @@
                     <td><input type="email" name="email"></td>
                 </tr>
                 <tr>
-                    <td>Poczatek pobyty:</td>
+                    <td>Poczatek pobytu:</td>
                     <td><input class="date-from" type="text" name="date-from"></td>
                 </tr>
                 <tr>
-                    <td>Koniec pobyty:</td>
+                    <td>Koniec pobytu:</td>
                     <td><input class="date-to" type="text" name="date-to"></td>
                 </tr>
                 <tr>
@@ -57,12 +59,39 @@
 
             <p>Cena pobytu za wynajem x pokoi na y nocy:
                 <input class="price" type="text" name="price" disabled="disabled"></p>
-            <p>Wybierz <a href="">Opcje dodatkowe</a> lub <a href="">Zarezerwuj</a></p>
+            <p>Wybierz <a href="">Opcje dodatkowe</a> lub <a id="clickity" href="">Zarezerwuj</a></p>
 
         </form>
 
     </div> <!-- .reservations.content -->
 
 </div> <!-- .reservations -->
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+function ajaxTest() {
+    $.ajax({
+        type: 'GET',
+        url: 'http://127.0.0.1:8000/rezerwacje/check',
+        data: {
+            csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
+            pokoj: 1 // $("input[name$='pokoj']")
+        }
+    })
+        .done(function(data) {
+             alert(data);
+        })
+        .fail(function(xhr, textStatus, errorThrown) {
+            alert("Error: " + errorThrown + xhr.status + xhr.responseText);
+        });
+}
+
+window.onclick = function() {
+    ajaxTest();
+}
+</script>
 
 {% endblock %}
