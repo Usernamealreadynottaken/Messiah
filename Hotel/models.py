@@ -16,7 +16,6 @@ class Pokoj(models.Model):
     opis = models.TextField(null=True)
     opis_combo = models.CharField(max_length=30)
     dostepnosc = models.NullBooleanField()
-    cena = models.DecimalField(max_digits=6, decimal_places=2)
 
 
 class ZdjeciaPokojow(models.Model):
@@ -36,7 +35,13 @@ class Rezerwacja(models.Model):
     kod = models.CharField(max_length=12)
 
     uslugi = models.ManyToManyField(Usluga, through='UslugaNaRezerwacji')
-    pokoje = models.ManyToManyField(Pokoj)
+    pokoje = models.ManyToManyField(Pokoj, through='PokojNaRezerwacji')
+
+
+class PokojNaRezerwacji(models.Model):
+    rezerwacja = models.ForeignKey(Rezerwacja)
+    pokoj = models.ForeignKey(Pokoj)
+    cena = models.DecimalField(max_digits=6, decimal_places=2)
 
 
 # Model reprezentujacy tabelke pomiedzy Rezerwacja a Usluga
