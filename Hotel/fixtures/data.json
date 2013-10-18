@@ -585,7 +585,8 @@
       "ilosc_lozek": "2",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Duża łazienka, dobry widok",
-      "dostepnosc": "True"
+      "dostepnosc": "True",
+      "cena": "120.00"
     }
   },
   {
@@ -597,7 +598,8 @@
       "ilosc_lozek": "1",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Mała łazienka, 50 calowy tv",
-      "dostepnosc": "True"
+      "dostepnosc": "True",
+      "cena": "75.00"
     }
   },
   {
@@ -609,7 +611,8 @@
       "ilosc_lozek": "2",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Świeżo malowany, kołyska",
-      "dostepnosc": "True"
+      "dostepnosc": "True",
+      "cena": "160.00"
     }
   },
   {
@@ -621,7 +624,8 @@
       "ilosc_lozek": "1",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Tani, nowe łóżka",
-      "dostepnosc": "True"
+      "dostepnosc": "True",
+      "cena": "100.00"
     }
   },
   {
@@ -633,7 +637,8 @@
       "ilosc_lozek": "2",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Łazienka z wanną, kuchnia",
-      "dostepnosc": "True"
+      "dostepnosc": "True",
+      "cena": "140.00"
     }
   },
   {
@@ -645,7 +650,8 @@
       "ilosc_lozek": "3",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "2 pomieszczenia sypialne",
-      "dostepnosc": "True"
+      "dostepnosc": "True",
+      "cena": "200.00"
     }
   },
   {
@@ -657,7 +663,8 @@
       "ilosc_lozek": "1",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Obrazy, ładny wystrój",
-      "dostepnosc": "True"
+      "dostepnosc": "True",
+      "cena": "110.00"
     }
   },
   {
@@ -669,7 +676,8 @@
       "ilosc_lozek": "2",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Nowoczesny pokój dla dwojga",
-      "dostepnosc": "True"
+      "dostepnosc": "True",
+      "cena": "150.00"
     }
   },
   {
@@ -681,7 +689,8 @@
       "ilosc_lozek": "2",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Pokój z wyższej półki dla 2",
-      "dostepnosc": "True"
+      "dostepnosc": "True",
+      "cena": "170.00"
     }
   },
   {
@@ -693,7 +702,8 @@
       "ilosc_lozek": "2",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Ładny widok, pokój na parterze",
-      "dostepnosc": "True"
+      "dostepnosc": "True",
+      "cena": "150.00"
     }
   },
   {
@@ -705,7 +715,8 @@
       "ilosc_lozek": "1",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Najlepszy wybór dla singla",
-      "dostepnosc": "False"
+      "dostepnosc": "False",
+      "cena": "50.00"
     }
   },
   {
@@ -796,14 +807,147 @@
     }
   },
   {
+    "model": "Hotel.Rezerwacja",
+    "pk": 2,
+    "fields": {
+      "poczatek_pobytu": "2013-10-24",
+      "koniec_pobytu": "2013-10-30",
+      "doroslych": "2",
+      "dzieci": "0",
+      "email": "randomszx_email@op.pl",
+      "telefon": "124235633",
+      "nazwisko": "Nowak",
+      "dodatkowe_instrukcje": "Proszę o przygotowanie różnego rodzaju olejków do kąpieli w łazience.",
+      "kod": "T2s44Ghj812c"
+    }
+  },
+  {
+    "model": "Hotel.Rezerwacja",
+    "pk": 3,
+    "fields": {
+      "poczatek_pobytu": "2013-11-02",
+      "koniec_pobytu": "2013-11-05",
+      "doroslych": "1",
+      "dzieci": "0",
+      "email": "prawdziwymail@hotmail.com",
+      "telefon": "",
+      "nazwisko": "Czosnek",
+      "dodatkowe_instrukcje": "",
+      "kod": "sau72N9aA9md"
+    }
+  },
+  {
+    "model": "Hotel.Rezerwacja",
+    "pk": 4,
+    "fields": {
+      "poczatek_pobytu": "2013-09-01",
+      "koniec_pobytu": "2013-09-04",
+      "doroslych": "3",
+      "dzieci": "0",
+      "email": "mojmail@hotmail.com",
+      "telefon": "212578933",
+      "nazwisko": "Brzoza",
+      "dodatkowe_instrukcje": "",
+      "kod": "as9dmaAdd219"
+    }
+  },
+  {
+    "model": "Hotel.Rezerwacja",
+    "pk": 5,
+    "fields": {
+      "poczatek_pobytu": "2013-08-12",
+      "koniec_pobytu": "2013-08-15",
+      "doroslych": "2",
+      "dzieci": "0",
+      "email": "mariusz.jankowski@hotmail.com",
+      "telefon": "712939152",
+      "nazwisko": "Janowski",
+      "dodatkowe_instrukcje": "Domagam się różowych zasłon!",
+      "kod": "Axi8291oaAAx"
+    }
+  },
+  {
+    "model": "Hotel.Rezerwacja",
+    "pk": 6,
+    "fields": {
+      "poczatek_pobytu": "2013-11-02",
+      "koniec_pobytu": "2013-11-05",
+      "doroslych": "2",
+      "dzieci": "0",
+      "email": "emilia.cwierk@hotmail.com",
+      "telefon": "",
+      "nazwisko": "Ćwierk",
+      "dodatkowe_instrukcje": "",
+      "kod": "2i9XaZ01su2I"
+    }
+  },
+  {
+    "model": "Hotel.Rezerwacja",
+    "pk": 7,
+    "fields": {
+      "poczatek_pobytu": "2013-11-06",
+      "koniec_pobytu": "2013-11-15",
+      "doroslych": "1",
+      "dzieci": "0",
+      "email": "piotr.ziele@hotmail.com",
+      "telefon": "880124512",
+      "nazwisko": "Ziele",
+      "dodatkowe_instrukcje": "",
+      "kod": "si2maAx2kA1d"
+    }
+  },
+  {
+    "model": "Hotel.Rezerwacja",
+    "pk": 8,
+    "fields": {
+      "poczatek_pobytu": "2013-07-08",
+      "koniec_pobytu": "2013-07-11",
+      "doroslych": "2",
+      "dzieci": "1",
+      "email": "bogdan.sienkiewicz@hotmail.com",
+      "telefon": "235235623623",
+      "nazwisko": "Sienkiewicz",
+      "dodatkowe_instrukcje": "",
+      "kod": "op01mS91am22"
+    }
+  },
+  {
+    "model": "Hotel.Rezerwacja",
+    "pk": 9,
+    "fields": {
+      "poczatek_pobytu": "2013-07-22",
+      "koniec_pobytu": "2013-07-25",
+      "doroslych": "2",
+      "dzieci": "0",
+      "email": "toberus@gmail.com",
+      "telefon": "",
+      "nazwisko": "Tober",
+      "dodatkowe_instrukcje": "",
+      "kod": "25kax0La1Xa1"
+    }
+  },
+  {
+    "model": "Hotel.Rezerwacja",
+    "pk": 10,
+    "fields": {
+      "poczatek_pobytu": "2013-12-02",
+      "koniec_pobytu": "2013-12-05",
+      "doroslych": "3",
+      "dzieci": "0",
+      "email": "turkos555@hotmail.com",
+      "telefon": "4256626243246",
+      "nazwisko": "Turkos",
+      "dodatkowe_instrukcje": "",
+      "kod": "91mx9am1ssja"
+    }
+  },
+  {
     "model": "Hotel.UslugaNaRezerwacji",
     "pk": 1,
     "fields": {
       "rezerwacja": "1",
       "usluga": "3",
-      "cena": "40",
-      "poczatek": "2013-10-17",
-      "koniec": "2013-10-25"
+      "cena": "40.00"
     }
   },
   {
@@ -811,10 +955,161 @@
     "pk": 2,
     "fields": {
       "rezerwacja": "1",
-      "usluga": "3",
-      "cena": "40",
-      "poczatek": "2013-10-17",
-      "koniec": "2013-10-25"
+      "usluga": "1",
+      "cena": "10.00"
+    }
+  },
+  {
+    "model": "Hotel.UslugaNaRezerwacji",
+    "pk": 3,
+    "fields": {
+      "rezerwacja": "2",
+      "usluga": "4",
+      "cena": "36.00"
+    }
+  },
+  {
+    "model": "Hotel.UslugaNaRezerwacji",
+    "pk": 4,
+    "fields": {
+      "rezerwacja": "3",
+      "usluga": "5",
+      "cena": "30.00"
+    }
+  },
+  {
+    "model": "Hotel.UslugaNaRezerwacji",
+    "pk": 5,
+    "fields": {
+      "rezerwacja": "4",
+      "usluga": "6",
+      "cena": "40.00"
+    }
+  },
+  {
+    "model": "Hotel.UslugaNaRezerwacji",
+    "pk": 6,
+    "fields": {
+      "rezerwacja": "5",
+      "usluga": "2",
+      "cena": "50.00"
+    }
+  },
+  {
+    "model": "Hotel.UslugaNaRezerwacji",
+    "pk": 7,
+    "fields": {
+      "rezerwacja": "6",
+      "usluga": "5",
+      "cena": "30.00"
+    }
+  },
+  {
+    "model": "Hotel.UslugaNaRezerwacji",
+    "pk": 8,
+    "fields": {
+      "rezerwacja": "6",
+      "usluga": "4",
+      "cena": "12.00"
+    }
+  },
+  {
+    "model": "Hotel.PokojNaRezerwacji",
+    "pk": 1,
+    "fields": {
+      "rezerwacja": "1",
+      "pokoj": "1",
+      "cena": "270.00"
+    }
+  },
+  {
+    "model": "Hotel.PokojNaRezerwacji",
+    "pk": 2,
+    "fields": {
+      "rezerwacja": "2",
+      "pokoj": "8",
+      "cena": "900.00"
+    }
+  },
+  {
+    "model": "Hotel.PokojNaRezerwacji",
+    "pk": 3,
+    "fields": {
+      "rezerwacja": "3",
+      "pokoj": "2",
+      "cena": "225.00"
+    }
+  },
+  {
+    "model": "Hotel.PokojNaRezerwacji",
+    "pk": 4,
+    "fields": {
+      "rezerwacja": "4",
+      "pokoj": "3",
+      "cena": "480.00"
+    }
+  },
+  {
+    "model": "Hotel.PokojNaRezerwacji",
+    "pk": 5,
+    "fields": {
+      "rezerwacja": "5",
+      "pokoj": "9",
+      "cena": "510.00"
+    }
+  },
+  {
+    "model": "Hotel.PokojNaRezerwacji",
+    "pk": 6,
+    "fields": {
+      "rezerwacja": "6",
+      "pokoj": "5",
+      "cena": "420.00"
+    }
+  },
+  {
+    "model": "Hotel.PokojNaRezerwacji",
+    "pk": 7,
+    "fields": {
+      "rezerwacja": "7",
+      "pokoj": "2",
+      "cena": "675.00"
+    }
+  },
+  {
+    "model": "Hotel.PokojNaRezerwacji",
+    "pk": 8,
+    "fields": {
+      "rezerwacja": "8",
+      "pokoj": "10",
+      "cena": "450.00"
+    }
+  },
+  {
+    "model": "Hotel.PokojNaRezerwacji",
+    "pk": 9,
+    "fields": {
+      "rezerwacja": "9",
+      "pokoj": "1",
+      "cena": "360.00"
+    }
+  },
+  {
+    "model": "Hotel.PokojNaRezerwacji",
+    "pk": 10,
+    "fields": {
+      "rezerwacja": "10",
+      "pokoj": "2",
+      "cena": "225.00"
+    }
+  },
+  {
+    "model": "Hotel.PokojNaRezerwacji",
+    "pk": 11,
+    "fields": {
+      "rezerwacja": "10",
+      "pokoj": "9",
+      "cena": "510.00"
     }
   }
 ]
