@@ -3,7 +3,7 @@ from django.db import models
 
 class Usluga(models.Model):
     nazwa = models.CharField(max_length=60)
-    cena = models.DecimalField(max_digits=6, decimal_places=2)
+    cena = models.CharField(max_length=100)
     opis = models.TextField(null=True)
     dostepnosc = models.BooleanField()
     zewnetrzna = models.BooleanField()
@@ -12,7 +12,6 @@ class Usluga(models.Model):
 class Pokoj(models.Model):
     numer = models.IntegerField()
     rozmiar = models.IntegerField()        # Ilosc osob.
-    ilosc_lozek = models.IntegerField(null=True)
     opis = models.TextField(null=True)
     opis_combo = models.CharField(max_length=30)
     dostepnosc = models.NullBooleanField()
@@ -25,16 +24,13 @@ class ZdjeciaPokojow(models.Model):
 
 
 class Rezerwacja(models.Model):
-    poczatek_pobytu = models.DateField('Poczatek pobytu')
-    koniec_pobytu = models.DateField('Koniec pobytu')
-    doroslych = models.IntegerField(null=True)
-    dzieci = models.IntegerField(null=True)
     email = models.EmailField(max_length=254)
     telefon = models.CharField(max_length=40, null=True)
     nazwisko = models.CharField(max_length=50)
     dodatkowe_instrukcje = models.TextField()
     kod = models.CharField(max_length=12)
 
+    cena_za_osobe = models.DecimalField(max_digits=6, decimal_places=2)
     uslugi = models.ManyToManyField(Usluga, through='UslugaNaRezerwacji')
     pokoje = models.ManyToManyField(Pokoj, through='PokojNaRezerwacji')
 
@@ -43,6 +39,10 @@ class PokojNaRezerwacji(models.Model):
     rezerwacja = models.ForeignKey(Rezerwacja)
     pokoj = models.ForeignKey(Pokoj)
     cena = models.DecimalField(max_digits=6, decimal_places=2)
+    poczatek_pobytu = models.DateField('Poczatek pobytu')
+    koniec_pobytu = models.DateField('Koniec pobytu')
+    osob = models.IntegerField(null=True)
+
 
 
 # Model reprezentujacy tabelke pomiedzy Rezerwacja a Usluga
@@ -55,6 +55,7 @@ class UslugaNaRezerwacji(models.Model):
 
 class KategoriaJedzenia(models.Model):
     nazwa = models.CharField(max_length=30)
+    opis = models.TextField()
 
 
 class Jedzenie(models.Model):
@@ -68,11 +69,11 @@ class Jedzenie(models.Model):
 
 class OpisHotelu(models.Model):
     # Dane techniczne
-    cena_dorosly = models.DecimalField(max_digits=6, decimal_places=2)
-    cena_dziecko = models.DecimalField(max_digits=6, decimal_places=2)
+    cena_za_osobe = models.DecimalField(max_digits=6, decimal_places=2)
 
     # Opis na stronie glownej
     opis_hotelu = models.TextField()
+    zdjecie = models.ImageField(upload_to='hotel')
     # meta description
     opis_google = models.CharField(max_length=200)
 
@@ -88,7 +89,7 @@ class OpisHotelu(models.Model):
     url_mapy = models.URLField(max_length=1000, null=True)
 
     # Logo
-    logo = models.ImageField(upload_to='hotel')
+    logo = models.ImageField(upload_to='hotel/logo')
     tekst_logo = models.CharField(max_length=30, null=True)
     tekst_logo_widoczny = models.BooleanField()
     # Wartosc pola sklada sie z dwoch liter:
