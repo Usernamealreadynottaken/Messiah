@@ -13,7 +13,7 @@ def glowna(request):
 
 
 def rezerwacje(request):
-    return render(request, 'hotel/rezerwacje.html', {'pokoje': Pokoj.objects})
+    return render(request, 'hotel/rezerwacje.html', {'pokoje': Pokoj.objects.all()})
 
 
 def rezerwacje_check(request):
