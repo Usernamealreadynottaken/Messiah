@@ -107,6 +107,7 @@ body {
 
 #reservations {
     background-color: #ff5555;
+    padding: 0 0 50px 0;
 
     .title {
         padding: 20px 0;
@@ -123,10 +124,27 @@ body {
         width: 900px;
 
         form {
-            padding: 50px 0 0 50px;
+            padding: 50px;
 
-            input {
+            &>table {
+                height: 280px;
+                vertical-align: text-top;
+
+                .room2, .room3 {
+                    display: none;
+                }
+            }
+
+            table input {
                 width: 200px;
+            }
+
+            table .rooms {
+                width: 204px;
+            }
+
+            table select {
+                width: 77px;
             }
 
             &>table {
@@ -136,10 +154,47 @@ body {
 
             .calendars {
                 display: inline-block;
+                margin: 0 0 0 50px;
+                position: relative;
 
                 p {
                     margin: 0;
                 }
+
+                &>div {
+                    position: absolute;
+                    top: 0;
+                }
+
+                .calendar-to {
+                    left: 200px;
+                }
+            }
+
+            .additions {
+
+                div {
+                    display: inline-block;
+                    vertical-align: text-top;
+                    width: 45%;
+                }
+
+                ul {
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+
+        .summary {
+
+            textarea {
+                resize: none;
+            }
+
+            a {
+                display: block;
+                text-align: center;
             }
         }
     }

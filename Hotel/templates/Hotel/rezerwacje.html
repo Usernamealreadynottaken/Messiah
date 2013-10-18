@@ -18,56 +18,177 @@
             <table>
                 <tr>
                     <td>Imie i nazwisko:</td>
-                    <td><input type="text" name="name"></td>
+                    <td colspan="3"><input type="text" name="name"></td>
                 </tr>
                 <tr>
                     <td>Telefon:</td>
-                    <td><input type="tel" name="tel"></td>
+                    <td colspan="3"><input type="tel" name="tel"></td>
                 </tr>
                 <tr>
                     <td>E-mail:</td>
-                    <td><input type="email" name="email"></td>
+                    <td colspan="3"><input type="email" name="email"></td>
                 </tr>
                 <tr>
                     <td>Poczatek pobytu:</td>
-                    <td><input class="date-from" type="text" name="date-from"></td>
+                    <td colspan="3"><input class="date-from" type="text" name="date-from"></td>
                 </tr>
                 <tr>
                     <td>Koniec pobytu:</td>
-                    <td><input class="date-to" type="text" name="date-to"></td>
+                    <td colspan="3"><input class="date-to" type="text" name="date-to"></td>
                 </tr>
                 <tr>
+                    <td>Liczba pokoi:</td>
+                    <td colspan="3">
+                        <select class="rooms" name="rooms">
+                            <option value="1">1 Pokoj</option>
+                            <option value="2">2 Pokoje</option>
+                            <option value="3">3 Pokoje</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="room1">
                     <td>Dorosli:</td>
-                    <td><input type="number" name="dorosli" value="0"></td>
-                </tr>
-                <tr>
+                    <td>
+                        <select name="adults1">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
                     <td>Dzieci:</td>
-                    <td><input type="number" name="dzieci" value="0"></td>
+                    <td>
+                        <select name="kids1">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
                 </tr>
-                <tr>
-                    <td>Wybierz pokoj:</td>
-                    <td><input type="text" id="pokoj" name="pokoj"></td>
+                <tr class="room2">
+                    <td>Dorosli:</td>
+                    <td>
+                        <select name="adults2">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
+                    <td>Dzieci:</td>
+                    <td>
+                        <select name="kids2">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="room3">
+                    <td>Dorosli:</td>
+                    <td>
+                        <select name="adults3">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
+                    <td>Dzieci:</td>
+                    <td>
+                        <select name="kids3">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
                 </tr>
             </table>
 
             <div class="calendars">
-                <p>Wybierz date przyjazdu</p>
-                <div class="datepicker-from"></div>
-                <p>Wybierz date wyjazdu</p>
-                <div class="datepicker-to"></div>
-            </div>
+                <div class="calendar-from">
+                    <p>Wybierz date przyjazdu</p>
+                    <div class="datepicker-from"></div>
+                </div>
+                <div class="calendar-to">
+                    <p>Wybierz date wyjazdu</p>
+                    <div class="datepicker-to"></div>
+                </div>
+
+            </div> <!-- .calendars -->
 
             <p>Cena pobytu za wynajem x pokoi na y nocy:
                 <input class="price" type="text" name="price" disabled="disabled"></p>
             <p>Wybierz <a href="">Opcje dodatkowe</a> lub <a href="">Zarezerwuj</a></p>
 
             <!-- ponizsze 2 sa tylko do testowania ajaxa -->
+            {% comment %}
             <label id="clickity">CLICK</label>
             <p id="message">
                 {% for p in pokoje %}
                 {{ p.pk }} - {{ p.opis_combo }}<br />
                 {% endfor %}
             </p>
+            {% endcomment %}
+
+            <div class="additions">
+                <h2>Dodatki:</h2>
+
+                <div class="in">
+                    <ul>
+                        <label>
+                            <input type="checkbox" name="in1" value="in1"> Option1
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="in2" value="in2"> Option2
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="in3" value="in3"> Option3
+                        </label><br>
+                    </ul>
+                </div> <!-- .in -->
+
+                <div class="out">
+                    <ul>
+                        <label>
+                            <input type="checkbox" name="out1" value="out1"> Option1
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="out2" value="out2"> Option2
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="out3" value="out3"> Option3
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="out1" value="out1"> Option1
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="out2" value="out2"> Option2
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="out3" value="out3"> Option3
+                        </label><br>
+                    </ul>
+                </div> <!-- .out -->
+
+            </div> <!-- .additions -->
+
+            <div class="summary">
+                <h3>Twoje zyczenia</h3>
+                <textarea rows="4" cols="50"></textarea>
+                <p>Cena pobytu za wynajem x pokoi na y nocy:
+                    <input class="price" type="text" name="price" disabled="disabled"></p>
+                <a href="">Zarezerwuj</a>
+            </div>
 
         </form>
 
