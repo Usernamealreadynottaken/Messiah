@@ -1,5 +1,7 @@
 {% extends "Hotel/base.html" %}
 
+{% load staticfiles %}
+
 {% block title %}Hotel Messiah - Rezerwacje{% endblock %}
 
 {% block content %}
@@ -132,18 +134,16 @@
 
             </div> <!-- .calendars -->
 
-            <p>Cena pobytu za wynajem x pokoi na y nocy:
-                <input class="price" type="text" name="price" disabled="disabled"></p>
-            <p>Wybierz <a href="">Opcje dodatkowe</a> lub <a href="">Zarezerwuj</a></p>
-
             <p id="clickity">AJAX</p>
 
             {% if uslugi_all %}
             <div class="additions">
-                <h2>Dodatki:</h2>
+                <h2>Wybierz dodatki
+                    <img src="{% static 'Hotel/img/placeholder.png' %}" alt="arrow"/></h2>
 
                 {% if uslugi_wewnetrzne %}
                 <div class="in">
+                    <h3>Uslugi wewnetrze: </h3>
                     <ul>
                         {% for usluga in uslugi_wewnetrzne %}
                         <label>
@@ -156,6 +156,7 @@
 
                 {% if uslugi_zewnetrzne %}
                 <div class="out">
+                    <h3>Uslugi zewnetrzne: </h3>
                     <ul>
                         {% for usluga in uslugi_zewnetrzne %}
                         <label>

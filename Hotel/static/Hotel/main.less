@@ -8,9 +8,14 @@
     background: linear-gradient(top,  @from 0%,@to 100%);
 }
 
+html {
+    min-height: 100%;
+}
+
 body {
+    background-repeat: no-repeat;
     margin: 0;
-    .gradient(#f9e7bb, #e2b661);
+    .gradient(#f2e1c5, #ecc176);
 }
 
 .page {
@@ -118,8 +123,7 @@ body {
 
 #reservations {
     .gradient(#08af9d, #1e777f);
-    background-color: #ff5555;
-    padding: 0 0 50px 0;
+    background-color: #ff5555;    padding: 0 0 50px 0;
 
     .title {
         padding: 20px 0;
@@ -137,6 +141,11 @@ body {
 
         form {
             padding: 50px;
+
+            a {
+                cursor: pointer;
+                color: #0000ff;
+            }
 
             &>table {
                 height: 280px;
@@ -183,7 +192,23 @@ body {
                 }
             }
 
+            .submit-button {
+                display: block;
+            }
+
             .additions {
+                overflow: hidden;
+
+                h2 {
+                    position: relative;
+
+                    img {
+                        height: 25px;
+                        position: absolute;
+                        right: 200px;
+                        width: 25px;
+                    }
+                }
 
                 div {
                     display: inline-block;
