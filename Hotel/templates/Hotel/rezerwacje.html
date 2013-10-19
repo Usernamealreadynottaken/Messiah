@@ -1,5 +1,7 @@
 {% extends "Hotel/base.html" %}
 
+{% load staticfiles %}
+
 {% block title %}Hotel Messiah - Rezerwacje{% endblock %}
 
 {% block content %}
@@ -126,10 +128,6 @@
 
             </div> <!-- .calendars -->
 
-            <p>Cena pobytu za wynajem x pokoi na y nocy:
-                <input class="price" type="text" name="price" disabled="disabled"></p>
-            <p>Wybierz <a href="">Opcje dodatkowe</a> lub <a href="">Zarezerwuj</a></p>
-
             <!-- ponizsze 2 sa tylko do testowania ajaxa -->
             {% comment %}
             <label id="clickity">CLICK</label>
@@ -141,9 +139,11 @@
             {% endcomment %}
 
             <div class="additions">
-                <h2>Dodatki:</h2>
+                <h2>Wybierz dodatki
+                    <img src="{% static 'Hotel/img/placeholder.png' %}" alt="arrow"/></h2>
 
                 <div class="in">
+                    <h3>Uslugi wewnetrze: </h3>
                     <ul>
                         <label>
                             <input type="checkbox" name="in1" value="in1"> Option1
@@ -158,6 +158,7 @@
                 </div> <!-- .in -->
 
                 <div class="out">
+                    <h3>Uslugi zewnetrzne: </h3>
                     <ul>
                         <label>
                             <input type="checkbox" name="out1" value="out1"> Option1
