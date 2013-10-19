@@ -24,25 +24,27 @@ class ZdjeciaPokojow(models.Model):
 
 
 class Rezerwacja(models.Model):
+    poczatek_pobytu = models.DateField('Poczatek pobytu')
+    koniec_pobytu = models.DateField('Koniec pobytu')
     email = models.EmailField(max_length=254)
     telefon = models.CharField(max_length=40, null=True)
     nazwisko = models.CharField(max_length=50)
-    dodatkowe_instrukcje = models.TextField()
+    dodatkowe_instrukcje = models.TextField(null=True)
     kod = models.CharField(max_length=12)
+    notatka = models.TextField(null=True)
 
-    cena_za_osobe = models.DecimalField(max_digits=6, decimal_places=2)
+    cena_dorosly = models.DecimalField(max_digits=6, decimal_places=2)
+    cena_dziecko = models.DecimalField(max_digits=6, decimal_places=2)
     uslugi = models.ManyToManyField(Usluga, through='UslugaNaRezerwacji')
     pokoje = models.ManyToManyField(Pokoj, through='PokojNaRezerwacji')
 
 
+# Model reprezentujacy tabelke pomiedzy Rezerwacja a Pokojem
+# w many-to-many relationship
 class PokojNaRezerwacji(models.Model):
     rezerwacja = models.ForeignKey(Rezerwacja)
     pokoj = models.ForeignKey(Pokoj)
     cena = models.DecimalField(max_digits=6, decimal_places=2)
-    poczatek_pobytu = models.DateField('Poczatek pobytu')
-    koniec_pobytu = models.DateField('Koniec pobytu')
-    osob = models.IntegerField(null=True)
-
 
 
 # Model reprezentujacy tabelke pomiedzy Rezerwacja a Usluga
@@ -55,7 +57,7 @@ class UslugaNaRezerwacji(models.Model):
 
 class KategoriaJedzenia(models.Model):
     nazwa = models.CharField(max_length=30)
-    opis = models.TextField()
+    opis = models.TextField(null=True)
 
 
 class Jedzenie(models.Model):
@@ -69,7 +71,8 @@ class Jedzenie(models.Model):
 
 class OpisHotelu(models.Model):
     # Dane techniczne
-    cena_za_osobe = models.DecimalField(max_digits=6, decimal_places=2)
+    cena_dorosly = models.DecimalField(max_digits=6, decimal_places=2)
+    cena_dziecko = models.DecimalField(max_digits=6, decimal_places=2)
 
     # Opis na stronie glownej
     opis_hotelu = models.TextField()
@@ -112,3 +115,5 @@ class Wiadomosc(models.Model):
     email = models.EmailField(max_length=254)
     nazwisko = models.CharField(max_length=50)
     tresc = models.TextField()
+    odpowiedz = models.TextField(null=True)
+    wyslano_odpowiedz = models.BooleanField()
