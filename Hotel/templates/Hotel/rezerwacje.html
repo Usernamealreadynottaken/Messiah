@@ -49,7 +49,8 @@
                 <tr class="room1">
                     <td>Dorosli:</td>
                     <td>
-                        <select name="adults1">
+                        <select class="adults1" name="adults1">
+                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -59,7 +60,8 @@
                     </td>
                     <td>Dzieci:</td>
                     <td>
-                        <select name="kids1">
+                        <select class="kids1" name="kids1">
+                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -71,7 +73,8 @@
                 <tr class="room2">
                     <td>Dorosli:</td>
                     <td>
-                        <select name="adults2">
+                        <select class="adults2" name="adults2">
+                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -81,7 +84,8 @@
                     </td>
                     <td>Dzieci:</td>
                     <td>
-                        <select name="kids2">
+                        <select class="kids2" name="kids2">
+                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -93,7 +97,8 @@
                 <tr class="room3">
                     <td>Dorosli:</td>
                     <td>
-                        <select name="adults3">
+                        <select class="adults3" name="adults3">
+                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -103,7 +108,8 @@
                     </td>
                     <td>Dzieci:</td>
                     <td>
-                        <select name="kids3">
+                        <select class="kids3" name="kids3">
+                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -130,57 +136,38 @@
                 <input class="price" type="text" name="price" disabled="disabled"></p>
             <p>Wybierz <a href="">Opcje dodatkowe</a> lub <a href="">Zarezerwuj</a></p>
 
-            <!-- ponizsze 2 sa tylko do testowania ajaxa -->
-            {% comment %}
-            <label id="clickity">CLICK</label>
-            <p id="message">
-                {% for p in pokoje %}
-                {{ p.pk }} - {{ p.opis_combo }}<br />
-                {% endfor %}
-            </p>
-            {% endcomment %}
+            <p id="clickity">AJAX</p>
 
+            {% if uslugi_all %}
             <div class="additions">
                 <h2>Dodatki:</h2>
 
+                {% if uslugi_wewnetrzne %}
                 <div class="in">
                     <ul>
+                        {% for usluga in uslugi_wewnetrzne %}
                         <label>
-                            <input type="checkbox" name="in1" value="in1"> Option1
+                            <input type="checkbox" name="in{{ forloop.counter }}" value="{{ usluga.pk }}"> {{ usluga.nazwa }}
                         </label><br>
-                        <label>
-                            <input type="checkbox" name="in2" value="in2"> Option2
-                        </label><br>
-                        <label>
-                            <input type="checkbox" name="in3" value="in3"> Option3
-                        </label><br>
+                        {% endfor %}
                     </ul>
                 </div> <!-- .in -->
+                {% endif %} {# if uslugi_wewnetrzne #}
 
+                {% if uslugi_zewnetrzne %}
                 <div class="out">
                     <ul>
+                        {% for usluga in uslugi_zewnetrzne %}
                         <label>
-                            <input type="checkbox" name="out1" value="out1"> Option1
+                            <input type="checkbox" name="out{{ forloop.counter }}" value="{{ usluga.pk }}"> {{ usluga.nazwa }}
                         </label><br>
-                        <label>
-                            <input type="checkbox" name="out2" value="out2"> Option2
-                        </label><br>
-                        <label>
-                            <input type="checkbox" name="out3" value="out3"> Option3
-                        </label><br>
-                        <label>
-                            <input type="checkbox" name="out1" value="out1"> Option1
-                        </label><br>
-                        <label>
-                            <input type="checkbox" name="out2" value="out2"> Option2
-                        </label><br>
-                        <label>
-                            <input type="checkbox" name="out3" value="out3"> Option3
-                        </label><br>
+                        {% endfor %}
                     </ul>
                 </div> <!-- .out -->
+                {% endif %} {# if uslugi_zewnetrzne #}
 
             </div> <!-- .additions -->
+            {% endif %} {# if uslugi_all #}
 
             <div class="summary">
                 <h3>Twoje zyczenia</h3>
@@ -188,7 +175,7 @@
                 <p>Cena pobytu za wynajem x pokoi na y nocy:
                     <input class="price" type="text" name="price" disabled="disabled"></p>
                 <a href="">Zarezerwuj</a>
-            </div>
+            </div> <!-- .summary -->
 
         </form>
 
@@ -203,17 +190,26 @@
 <!-- skrypt jest wysoce tymczasowy, tylko do testowania ajaxa -->
 <script>
 function ajaxTest() {
+    toSend = {
+            csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
+            poczatekPobytu: $('.date-from').val(),
+            koniecPobytu: $('.date-to').val(),
+            iloscPokojow: $('.rooms').val(),
+            dorosli1: $('.adults1').val(),
+            dzieci1: $('.kids1').val(),
+            dorosli2: $('.adults2').val(),
+            dzieci2: $('.kids2').val(),
+            dorosli3: $('.adults3').val(),
+            dzieci3: $('.kids3').val()
+        };
     $.ajax({
         type: 'GET',
         dataType: 'html',
         url: 'http://127.0.0.1:8000/rezerwacje/check',
-        data: {
-            csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
-            pokoj: $("#pokoj").val()
-        }
+        data: toSend
     })
         .done(function(data) {
-            $("#message").html(data + "<br /><br />");
+            alert(data);
         })
         .fail(function(xhr, textStatus, errorThrown) {
             alert("Error: " + errorThrown + xhr.status + xhr.responseText);
