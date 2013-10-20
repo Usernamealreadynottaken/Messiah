@@ -4,18 +4,24 @@ from django.db import models
 class Usluga(models.Model):
     nazwa = models.CharField(max_length=60)
     cena = models.CharField(max_length=100)
-    opis = models.TextField(null=True)
+    opis = models.TextField(blank=True)
     dostepnosc = models.BooleanField()
     zewnetrzna = models.BooleanField()
+
+    def __unicode__(self):
+        return self.nazwa
 
 
 class Pokoj(models.Model):
     numer = models.IntegerField()
     rozmiar = models.IntegerField()        # Ilosc osob.
-    opis = models.TextField(null=True)
+    opis = models.TextField(blank=True)
     opis_combo = models.CharField(max_length=30)
-    dostepnosc = models.NullBooleanField()
+    dostepnosc = models.BooleanField(default=True)
     cena = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __unicode__(self):
+        return '%d, rozmiar - %d' % (self.numer, self.rozmiar,)
 
 
 class ZdjeciaPokojow(models.Model):
@@ -27,16 +33,19 @@ class Rezerwacja(models.Model):
     poczatek_pobytu = models.DateField('Poczatek pobytu')
     koniec_pobytu = models.DateField('Koniec pobytu')
     email = models.EmailField(max_length=254)
-    telefon = models.CharField(max_length=40, null=True)
+    telefon = models.CharField(max_length=40, blank=True)
     nazwisko = models.CharField(max_length=50)
-    dodatkowe_instrukcje = models.TextField(null=True)
+    dodatkowe_instrukcje = models.TextField(blank=True)
     kod = models.CharField(max_length=12)
-    notatka = models.TextField(null=True)
+    notatka = models.TextField(blank=True)
 
     cena_dorosly = models.DecimalField(max_digits=6, decimal_places=2)
     cena_dziecko = models.DecimalField(max_digits=6, decimal_places=2)
     uslugi = models.ManyToManyField(Usluga, through='UslugaNaRezerwacji')
     pokoje = models.ManyToManyField(Pokoj, through='PokojNaRezerwacji')
+
+    def __unicode__(self):
+        return self.email
 
 
 # Model reprezentujacy tabelke pomiedzy Rezerwacja a Pokojem
@@ -44,6 +53,8 @@ class Rezerwacja(models.Model):
 class PokojNaRezerwacji(models.Model):
     rezerwacja = models.ForeignKey(Rezerwacja)
     pokoj = models.ForeignKey(Pokoj)
+    doroslych = models.IntegerField(blank=True)
+    dzieci = models.IntegerField(blank=True)
     cena = models.DecimalField(max_digits=6, decimal_places=2)
 
 
@@ -52,19 +63,19 @@ class PokojNaRezerwacji(models.Model):
 class UslugaNaRezerwacji(models.Model):
     rezerwacja = models.ForeignKey(Rezerwacja)
     usluga = models.ForeignKey(Usluga)
-    cena = models.DecimalField(max_digits=6, decimal_places=2)
+    cena = models.DecimalField(max_digits=6, decimal_places=2, blank=True)
 
 
 class KategoriaJedzenia(models.Model):
     nazwa = models.CharField(max_length=30)
-    opis = models.TextField(null=True)
+    opis = models.TextField(blank=True)
 
 
 class Jedzenie(models.Model):
     nazwa = models.CharField(max_length=100)
     cena = models.DecimalField(max_digits=6, decimal_places=2)
-    opis = models.TextField(null=True)
-    zdjecie = models.ImageField(upload_to='jedzenie', null=True)
+    opis = models.TextField(blank=True)
+    zdjecie = models.ImageField(upload_to='jedzenie', blank=True)
 
     kategoria = models.ForeignKey(KategoriaJedzenia)
 
@@ -81,19 +92,19 @@ class OpisHotelu(models.Model):
     opis_google = models.CharField(max_length=200)
 
     # Stopka
-    skype = models.CharField(max_length=30, null=True)
-    gadu_gadu = models.CharField(max_length=15, null=True)
-    email = models.EmailField(max_length=254, null=True)
-    facebook = models.URLField(null=True)         # Default max_length = 200
-    twitter = models.CharField(max_length=40, null=True)
+    skype = models.CharField(max_length=30, blank=True)
+    gadu_gadu = models.CharField(max_length=15, blank=True)
+    email = models.EmailField(max_length=254, blank=True)
+    facebook = models.URLField(blank=True)         # Default max_length = 200
+    twitter = models.CharField(max_length=40, blank=True)
 
     # Google Maps
     wyswietlaj_mape = models.BooleanField()
-    url_mapy = models.URLField(max_length=1000, null=True)
+    url_mapy = models.URLField(max_length=1000, blank=True)
 
     # Logo
     logo = models.ImageField(upload_to='hotel/logo')
-    tekst_logo = models.CharField(max_length=30, null=True)
+    tekst_logo = models.CharField(max_length=30, blank=True)
     tekst_logo_widoczny = models.BooleanField()
     # Wartosc pola sklada sie z dwoch liter:
     # pierwsza to rozmiar logo: 'D' - duze, 'M' - male
@@ -115,5 +126,5 @@ class Wiadomosc(models.Model):
     email = models.EmailField(max_length=254)
     nazwisko = models.CharField(max_length=50)
     tresc = models.TextField()
-    odpowiedz = models.TextField(null=True)
+    odpowiedz = models.TextField(blank=True)
     wyslano_odpowiedz = models.BooleanField()
