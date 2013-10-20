@@ -84,8 +84,8 @@ body {
         position: relative;
 
         &:before {
-            content: "border";
-            background-image: url(img/placeholder.png);
+            content: " ";
+            background-image: url(img/border.jpg);
             height: 20px;
             position: absolute;
             left: 0;
@@ -156,8 +156,8 @@ body {
     }
 
     &:before {
-        content: "border";
-        background-image: url(img/placeholder.png);
+        content: " ";
+        background-image: url(img/border.jpg);
         height: 20px;
         position: absolute;
         left: 0;
@@ -201,7 +201,11 @@ body {
         text-align: center;
 
         h1 {
-            margin: 0;
+            background-image: url(img/title-head.jpg);
+            height: 50px;
+            line-height: 50px;
+            margin: 0 auto;
+            width: 600px;
         }
     }
 
@@ -212,7 +216,7 @@ body {
         width: 900px;
 
         &:before {
-            background-image: url('img/content-nw.png');
+            background-image: url(img/content-nw.png);
             top: -10px;
             content: " ";
             height: 200px;
