@@ -14,7 +14,7 @@
 
     <div class="reservations-content">
 
-        <form action="" method="post">
+        <form action="{% url 'hotel:rezerwacje_wyslij' %}" method="post" class="resform">
             {% csrf_token %}
 
             <table>
@@ -134,7 +134,10 @@
 
             </div> <!-- .calendars -->
 
-            <p id="clickity">AJAX</p>
+            <!-- klikniecie w clickity wysyla zapytanie sprawdzajace czy zaznaczone pokoje sa ok -->
+            <p class="clickity">AJAX</p>
+            <!-- w error jest wyswietlany wynik powyzszego zapytania w formie w miare user friendly -->
+            <p class="error"></p>
 
             {% if uslugi_all %}
             <div class="additions">
@@ -172,15 +175,19 @@
 
             <div class="summary">
                 <h3>Twoje zyczenia</h3>
-                <textarea rows="4" cols="50"></textarea>
+                <textarea name="requests" rows="4" cols="50"></textarea>
                 <p>Cena pobytu za wynajem x pokoi na y nocy:
                     <input class="price" type="text" name="price" disabled="disabled"></p>
-                <a href="">Zarezerwuj</a>
+                <a class="send">Zarezerwuj</a>
             </div> <!-- .summary -->
 
         </form>
 
-    </div> <!-- .reservations.content -->
+    </div> <!-- .reservations-content -->
+
+    <div class="success">
+        No post.
+    </div> <!-- .success -->
 
 </div> <!-- .reservations -->
 
@@ -188,9 +195,11 @@
 
 {% block scripts %}
 
-<!-- skrypt jest wysoce tymczasowy, tylko do testowania ajaxa -->
+<script src="{% static 'Hotel/js/jquery.form.js' %}"></script>
+
+<!-- skrypt powinien w ktoryms momencie wyladowac w osobnym pliku ale poki co nie chce mi sie przenosic -->
 <script>
-function ajaxTest() {
+function sprawdzPoprawnosc() {
     toSend = {
             csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
             poczatekPobytu: $('.date-from').val(),
@@ -204,22 +213,76 @@ function ajaxTest() {
             dzieci3: $('.kids3').val()
         };
     $.ajax({
-        type: 'GET',
-        dataType: 'html',
-        url: 'http://127.0.0.1:8000/rezerwacje/check',
+        type: "GET",
+        dataType: "html",
+        url: "{% url 'hotel:rezerwacje_sprawdz' %}",
         data: toSend
     })
         .done(function(data) {
-            alert(data);
+            var parsed = $.parseJSON(data);
+
+            // Patrzymy na tyle pokojow ile mamy zaznaczone i czy sa tam liczby
+            var error = "";
+            for ( var i = 1; i <= $(".rooms").val(); i++ ) {
+                var cur_pokoj = "pokoj" + i
+                if (parsed[cur_pokoj]) {
+                    if (!$.isNumeric(parsed[cur_pokoj])) {
+
+                        // Jesli w otrzymanym JSONie pod haslem 'pokojN' nie ma liczby (pk pokoju)
+                        // to znaczy ze jest jakis blad, wiec wypisujemy stosowny message
+                        if (parsed[cur_pokoj] == "not_checked") {
+                            error += "Pokoj " + i + " nie zostal zweryfikowany przez serwer.<br />";
+                        } else if (parsed[cur_pokoj] == "zero_selected") {
+                            error += "W pokoju nr " + i + " jest wybrane 0 osob.<br />";
+                        } else if (parsed[cur_pokoj] == "over_max_capacity") {
+                            error += "Pokoj " + i + " - za duzo osob.<br />";
+                        } else if (parsed[cur_pokoj] == "no_free_rooms") {
+                            error += "Pokoj " + i + " - brak wolnych pokojow.<br />";
+                        } else {
+                            error += "Wystapil blad ktory powinien nie istniec.<br />";
+                        }
+
+                    }
+
+                } else {
+                    // Mimo zaznaczonej ilosci pokojow z jakiegos powodu nie dostalismy w ogole
+                    // informacji o n-tym pokoju od serwera
+                    error += "Pokoj " + i + " - blad po stronie serwera.<br />"
+                }
+            }
+
+            // Jesli byly bledy zwiazane z jakims pokojem to wypisujemy na stronie
+            $(".error").html(error);
         })
         .fail(function(xhr, textStatus, errorThrown) {
             alert("Error: " + errorThrown + xhr.status + xhr.responseText);
         });
 }
 
-document.getElementById("clickity").onclick = function() {
-    ajaxTest();
-}
+$(".clickity").click(function() {
+    sprawdzPoprawnosc();
+})
+
+$(".send").click(function() {
+    $("form").ajaxForm(function(data) {
+        var parsed = $.parseJSON(data);
+
+        if (parsed["message"] && parsed["message"] == "success") {
+            if (parsed["kod"]) {
+                $(".success").html("Udalo sie zarezerwowac!<br /><br >Twoj kod rezerwacji to: " + parsed["kod"]);
+            } else {
+                $(".success").html("Udalo sie zarezerwowac!<br /><br >Serwer nie wyslal kodu rezerwacji!");
+            }
+        } else if (parsed["message"] && parsed["message"] == "validation_error") {
+            $(".success").html("Nie mozna zarezerwowac tego pokoju na ten termin.");
+        } else if (parsed["message"] && parsed["message"] == "site_error") {
+            $(".success").html("Serwer otrzymal uszkodzone dane.");
+        } else {
+            $(".success").html("Stalo sie cos czego nawet programista nie przewidzial.");
+        }
+    });
+    $("form").submit();
+})
 </script>
 
 {% endblock %}
