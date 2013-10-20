@@ -1,11 +1,8 @@
 from datetime import date
 from django.shortcuts import render
-<<<<<<< HEAD
 import random
-=======
 from django.contrib.auth.decorators import login_required
 
->>>>>>> 0ee5574d7b041b8219488072a1648059562409c7
 
 # Zeby skorzystac z ajaxa potrzebujemy zwrocic HttpResponse object.
 # Jesli korzystamy ze skrotu ajax po prostu zwraca error.
