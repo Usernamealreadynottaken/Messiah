@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from Hotel.models import Rezerwacja, Pokoj, Usluga, UslugaNaRezerwacji, PokojNaRezerwacji
+from django.core import urlresolvers
 
 
 class UslugaInline(admin.TabularInline):

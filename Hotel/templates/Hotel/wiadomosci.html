@@ -1,0 +1,98 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block title %}Wiadomosci{% endblock %}
+
+{% block breadcrumbs %}
+
+    <div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> &rsaquo;
+    <a href="../">{% trans 'Hotel' %}</a> &rsaquo;
+    {% trans 'Wiadomosci' %}
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+<div id="messages">
+
+    <h1>Wiadomosci</h1>
+
+    <div class="messages-content">
+
+        <ul>
+            <li>
+                <div class="message">
+                    <p>Wiadomosc od: X</p>
+                    <p>Tresc: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est.</p>
+                    <p>Data</p>
+                    <input type="checkbox" name="delete" value="delete"/>
+                </div>
+                <div class="answer">
+                    <p>Twoja wiadomosc do: X</p>
+                    <textarea></textarea>
+                    <a>Wyslij</a>
+                </div>
+            </li>
+            <li>
+                <div class="message">
+                    <p>Wiadomosc od: X</p>
+                    <p>Tresc: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est.</p>
+                    <p>Data</p>
+                    <input type="checkbox" name="delete" value="delete"/>
+                </div>
+                <div class="answer">
+                    <p>Twoja wiadomosc do: X</p>
+                    <textarea></textarea>
+                    <a>Wyslij</a>
+                </div>
+            </li>
+            <li>
+                <div class="message">
+                    <p>Wiadomosc od: X</p>
+                    <p>Tresc: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est.</p>
+                    <p>Data</p>
+                    <input type="checkbox" name="delete" value="delete"/>
+                </div>
+                <div class="answer">
+                    <p>Twoja wiadomosc do: X</p>
+                    <textarea></textarea>
+                    <a>Wyslij</a>
+                </div>
+            </li>
+            <li>
+                <div class="message">
+                    <p>Wiadomosc od: X</p>
+                    <p>Tresc: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est.</p>
+                    <p>Data</p>
+                    <input type="checkbox" name="delete" value="delete"/>
+                </div>
+                <div class="answer">
+                    <p>Twoja wiadomosc do: X</p>
+                    <textarea></textarea>
+                    <a>Wyslij</a>
+                </div>
+            </li>
+            <li>
+                <div class="message">
+                    <p>Wiadomosc od: X</p>
+                    <p>Tresc: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est.</p>
+                    <p>Data</p>
+                    <input type="checkbox" name="delete" value="delete"/>
+                </div>
+                <div class="answer">
+                    <p>Twoja wiadomosc do: X</p>
+                    <textarea></textarea>
+                    <a>Wyslij</a>
+                </div>
+            </li>
+        </ul>
+
+
+
+    </div>
+
+</div>
+
+{% endblock %}

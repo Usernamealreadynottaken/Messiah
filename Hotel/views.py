@@ -1,12 +1,19 @@
 import datetime
 from datetime import date
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
 
 # Zeby skorzystac z ajaxa potrzebujemy zwrocic HttpResponse object.
 # Jesli korzystamy ze skrotu ajax po prostu zwraca error.
 from django.http import HttpResponse, Http404
 
 from Hotel.models import Usluga, Pokoj, PokojNaRezerwacji, Rezerwacja
+
+
+@login_required
+def wiadomosci(request):
+    return render(request, 'hotel/wiadomosci.html')
 
 
 def glowna(request):
