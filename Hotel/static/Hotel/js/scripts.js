@@ -6,32 +6,35 @@ function animateAdditions() {
         $(".additions").animate({
             "height": "75",
         }, 500, "easeInOutQuad");
-        $('.additions h2 img').animate({  borderSpacing: -180 }, {
-            step: function(now,fx) {
-              $(this).css('-webkit-transform','rotate('+now+'deg)');
-              $(this).css('-moz-transform','rotate('+now+'deg)');
-              $(this).css('-ms-transform','rotate('+now+'deg)');
-              $(this).css('-o-transform','rotate('+now+'deg)');
-              $(this).css('transform','rotate('+now+'deg)');
-            },
-            duration: 500
-        },'linear');
+        $('.additions h2 img').animateRotate(-180, -360, 500, 'easeInSine', null);
     } else {
         $(".additions").animate({
             "height": currentHeight,
         }, 500, "easeInOutQuad");
-        $('.additions h2 img').animate({  borderSpacing: -180 }, {
-            step: function(now,fx) {
-              $(this).css('-webkit-transform','rotate('+now+'deg)');
-              $(this).css('-moz-transform','rotate('+now+'deg)');
-              $(this).css('-ms-transform','rotate('+now+'deg)');
-              $(this).css('-o-transform','rotate('+now+'deg)');
-              $(this).css('transform','rotate('+now+'deg)');
-            },
-            duration: 500
-        },'linear');
+        $('.additions h2 img').animateRotate(0, -180, 500, 'easeInSine', null);
     }
 }
+
+$.fn.animateRotate = function(startAngle, endAngle, duration, easing, complete){
+    return this.each(function(){
+        var elem = $(this);
+
+        $({deg: startAngle}).animate({deg: endAngle}, {
+            duration: duration,
+            easing: easing,
+            step: function(now){
+                elem.css({
+                  '-moz-transform':'rotate('+now+'deg)',
+                  '-webkit-transform':'rotate('+now+'deg)',
+                  '-o-transform':'rotate('+now+'deg)',
+                  '-ms-transform':'rotate('+now+'deg)',
+                  'transform':'rotate('+now+'deg)'
+                });
+            },
+            complete: complete || $.noop
+        });
+    });
+};
 
 $(".datepicker-from").datepicker({altField: ".date-from"});
 $(".datepicker-to").datepicker({
