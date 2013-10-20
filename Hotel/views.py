@@ -1,14 +1,15 @@
-import datetime
 from datetime import date
 from django.shortcuts import render
+import random
 from django.contrib.auth.decorators import login_required
 
 
 # Zeby skorzystac z ajaxa potrzebujemy zwrocic HttpResponse object.
 # Jesli korzystamy ze skrotu ajax po prostu zwraca error.
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
-from Hotel.models import Usluga, Pokoj, PokojNaRezerwacji, Rezerwacja
+from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji
 
 
 @login_required
@@ -30,6 +31,112 @@ def rezerwacje(request):
     })
 
 
+def kod_rezerwacji():
+    symbols = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+    kod = ''
+    for i in range(0, 12):
+        kod += random.choice(symbols)
+    return kod
+
+
+def rezerwacje_wyslij(request):
+    response_message = 'success'
+    try:
+        test_post = request.POST['name']
+
+        # Pewne rzeczy POST przekazuje w stringu wiec musimy je skonwertowac
+        # Daty
+        poczatek_pobytu_split = request.POST['date-from'].split('/')
+        koniec_pobytu_split = request.POST['date-to'].split('/')
+        poczatek_pobytu = date(int(poczatek_pobytu_split[2]), int(poczatek_pobytu_split[0]), int(poczatek_pobytu_split[1]))
+        koniec_pobytu = date(int(koniec_pobytu_split[2]), int(koniec_pobytu_split[0]), int(koniec_pobytu_split[1]))
+
+        # Ilosc pokojow
+        ilosc_pokojow = int(request.POST['rooms'])
+
+        # Ilosc doroslych i dzieci w pokojach
+        dorosli = []
+        dzieci = []
+        for i in range(1, ilosc_pokojow + 1):
+            dorosli.append(int(request.POST['adults%d' % (i,)]))
+            dzieci.append(int(request.POST['kids%d' % (i,)]))
+
+        # Chcemy sprawdzic czy wybrane pokoje sa dostepne. Do tego potrzebujemy dat (sa wyzej)
+        # oraz specjalnie przygotowanego slownika
+        wymagane_pokoje = {'ilosc': ilosc_pokojow}
+        for i in range(1, ilosc_pokojow + 1):
+            wymagane_pokoje['pokoj%d' % (i,)] = dorosli[i-1] + dzieci[i-1]
+
+        # Funckja ktora jest rowniez wykorzystywana do ajaxa zwraca liste statusow, czyli pk
+        # jesli pokoj jest wolny, jesli nie to status z bledem (string)
+        list_of_pks_str = wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje)
+
+        # Mozemy stworzyc rezerwacje tylko jesli otrzymalismy pk dla wszystkich zamawianych pokojow
+        try:
+            list_of_pks = []
+            for i in range(1, ilosc_pokojow + 1):
+                list_of_pks.append(int(list_of_pks_str['pokoj%d' % (i,)]))
+
+            # Tworzymy liste pk zamowionych uslug
+            uslugi = []
+            for k, v in request.POST.items():
+                if k.startswith('in') or k.startswith('out'):
+                    uslugi.append(int(v))
+
+            # Pozostale rzeczy mozemy po prostu przepisac z POSTa do rezerwacji
+            # Teraz tworzymy instancje wszystkich klas po kolei
+            # Rezerwacja
+            cena_dorosly = OpisHotelu.objects.filter()[0].cena_dorosly
+            cena_dziecko = OpisHotelu.objects.filter()[0].cena_dziecko
+            nowa_rezerwacja = Rezerwacja(poczatek_pobytu=poczatek_pobytu,
+                                         koniec_pobytu=koniec_pobytu,
+                                         email=request.POST['email'],
+                                         telefon=request.POST['tel'],
+                                         nazwisko=request.POST['name'],
+                                         dodatkowe_instrukcje=request.POST['requests'],
+                                         kod=kod_rezerwacji(),
+                                         cena_dorosly=cena_dorosly,
+                                         cena_dziecko=cena_dziecko)
+            nowa_rezerwacja.save()
+
+            # PokojNaRezerwacji
+            for i in range(0, ilosc_pokojow):
+                nowy_pnr = PokojNaRezerwacji(rezerwacja=nowa_rezerwacja,
+                                             pokoj=Pokoj.objects.get(pk=list_of_pks[i]),
+                                             doroslych=dorosli[i],
+                                             dzieci=dzieci[i],
+                                             cena=Pokoj.objects.get(pk=list_of_pks[i]).cena)
+                nowy_pnr.save()
+
+            # UslugaNaRezerwacji
+            # Tylko w sytuacji, gdy zostaly wybrane jakies uslugi
+            for u in uslugi:
+                nowa_unr = UslugaNaRezerwacji(rezerwacja=nowa_rezerwacja,
+                                              usluga=Usluga.objects.get(pk=u),
+                                              cena=0)
+                nowa_unr.save()
+
+        # Ten ValueError zostanie zwrocony jezeli probojemy zarezerwowac pokoje w momencie kiedy
+        # funkcja sprawdzajaca dostepnosc zwrocila inne wiadomosci niz same pk pokojow
+        except ValueError:
+            response_message = 'validation_error'
+
+    except ValueError:
+        response_message = 'site_error'
+
+    except KeyError:
+        # Nie zostal przekazany POST
+        raise Http404
+
+    response = '{"message": "' + response_message + '"'
+    if response_message == 'success':
+        response += ', "kod": "' + nowa_rezerwacja.kod + '"'
+    response += '}'
+    return HttpResponse(response)
+
+
+# Ta funkcja sama w sobie to nie jest view
+# Jest to funkcja pomocnicza do sprawdzania czy zaznaczone pokoje sa dostepne
 def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje):
     return_status = {'pokoj1': 'not_checked', 'pokoj2': 'not_checked', 'pokoj3': 'not_checked'}
 
@@ -52,34 +159,21 @@ def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje):
         # Pokoj ma normalna ilosc osob, szukamy czy jest wolny
         else:
 
-            print 'POKOJ %d' % (i,)
-
              # Stworzmy liste pk pokojow o odpowiednim rozmiarze
             viable_rooms = []
             for p in Pokoj.objects.all():
-                print '  iter pokoj %d' % (p.pk,)
                 if p.rozmiar == wymagane_pokoje[pokoj_i]:
-                    print '    viable_rooms + %d' % (p.pk,)
                     viable_rooms.append(p.pk)
-
-            vr_print = ''
-            for room in viable_rooms:
-                vr_print += '%d, ' % (room,)
-            print vr_print
 
             # Lecimy po rezerwacjach i jezeli istnieje taka rezerwacja ze w podanej dacie pokoj
             # jest zajety to usuwamy go z listy
             rooms_to_remove = []
             for room in viable_rooms:
-                print '  iter viable_rooms %d' % (room,)
                 for r in Rezerwacja.objects.all():
-                    print '    iter reservation %s' % (r.email,)
                     if poczatek_pobytu <= r.poczatek_pobytu <= koniec_pobytu or \
                             koniec_pobytu >= r.koniec_pobytu >= poczatek_pobytu or \
                             r.poczatek_pobytu <= poczatek_pobytu <= r.koniec_pobytu:
-                        print '      date collide'
                         if r.pokojnarezerwacji_set.filter(pokoj__pk=room):
-                            print '      res collide with %d' % (room,)
                             rooms_to_remove.append(room)
 
             # Usuwamy znalezione zajete pokoje
@@ -109,7 +203,7 @@ def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje):
     return return_status
 
 
-def rezerwacje_check(request):
+def rezerwacje_sprawdz(request):
     if request.is_ajax():
 
         try:
@@ -121,18 +215,36 @@ def rezerwacje_check(request):
 
             # Slownik z wymaganymi rozmiarami pokojow
             wymagane_pokoje = {'ilosc': int(request.GET['iloscPokojow'])}
+            dorosli_dzieci = {}
             for i in range(1, wymagane_pokoje['ilosc'] + 1):
-                wymagane_pokoje['pokoj%d' % (i,)] = int(request.GET['dorosli%d' % (i,)]) + int(request.GET['dzieci%d' % (i,)])
+                dorosli = int(request.GET['dorosli%d' % (i,)])
+                dzieci = int(request.GET['dzieci%d' % (i,)])
+                wymagane_pokoje['pokoj%d' % (i,)] = dorosli + dzieci
+                dorosli_dzieci['dorosli%d' % (i,)] = dorosli
+                dorosli_dzieci['dzieci%d' % (i,)] = dzieci
 
-            # Tymczasowy wynik
             list_of_pks = wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje)
 
+            # Tworzymy JSON zawierajacy statusy wszyskich pokojow
             response = '{'
             for i in range(1, wymagane_pokoje['ilosc'] + 1):
-                if i > 1:
-                    response += ', '
-                response += '"pokoj%d": "%s"' % (i, str(list_of_pks['pokoj%d' % (i,)]))
-            response += '}'
+                response += '"pokoj%d": "%s", ' % (i, str(list_of_pks['pokoj%d' % (i,)]))
+
+            # Dodajemy do JSONa koszt wynajecia pokoju na tyle dni
+            cena_dorosly = OpisHotelu.objects.filter()[0].cena_dorosly
+            cena_dziecko = OpisHotelu.objects.filter()[0].cena_dziecko
+            ile_dni = (koniec_pobytu - poczatek_pobytu).days + 1
+            cena = 0
+            for i in range(1, wymagane_pokoje['ilosc'] + 1):
+                try:
+                    p = Pokoj.objects.get(pk=int(list_of_pks['pokoj%d' % (i,)]))
+                    cena += p.cena * ile_dni
+                    cena += cena_dorosly * ile_dni * dorosli_dzieci['dorosli%d' % (i,)]
+                    cena += cena_dziecko * ile_dni * dorosli_dzieci['dzieci%d' % (i,)]
+                except ValueError:
+                    pass
+
+            response += '"cena": "%d"}' % (cena,)
 
         # Czegos brakuje w requescie
         except KeyError, key:
