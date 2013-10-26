@@ -1,5 +1,9 @@
 from django.db import models
 
+# Rzeczy do dodania do modelu:
+# - rezerwacja - cos jak boolean czy jest aktywna czy nie
+# - wiadomosci - data
+
 
 class Usluga(models.Model):
     nazwa = models.CharField(max_length=60)

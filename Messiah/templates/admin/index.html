@@ -48,7 +48,7 @@
 {% else %}
     <p>{% trans "You don't have permission to edit anything." %}</p>
 {% endif %}
-<a href="Hotel/wiadomosci">Wiadomosci</a>
+<a href="{% url 'admin_custom:wiadomosci' %}">Wiadomosci</a>
 </div>
 {% endblock %}
 

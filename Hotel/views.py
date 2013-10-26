@@ -6,15 +6,14 @@ from django.contrib.auth.decorators import login_required
 
 # Zeby skorzystac z ajaxa potrzebujemy zwrocic HttpResponse object.
 # Jesli korzystamy ze skrotu ajax po prostu zwraca error.
-from django.http import HttpResponse, Http404, HttpResponseRedirect
-from django.core.urlresolvers import reverse
+from django.http import HttpResponse, Http404
 
-from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji
+from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji, Wiadomosc
 
 
 @login_required
 def wiadomosci(request):
-    return render(request, 'hotel/wiadomosci.html')
+    return render(request, 'hotel/wiadomosci.html', {'wiadomosci': Wiadomosc.objects.all()})
 
 
 def glowna(request):
@@ -32,13 +31,25 @@ def rezerwacje(request):
 
 
 def kod_rezerwacji():
+    # Najpierw zbierzmy wszystkie kody jakie zostaly juz przydzielone
+    kody = []
+    for r in Rezerwacja.objects.all():
+        kody.append(r.kod)
+
     symbols = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
     kod = ''
-    for i in range(0, 12):
-        kod += random.choice(symbols)
+    while True:
+        for i in range(0, 12):
+            kod += random.choice(symbols)
+        if not kod in kody:
+            break
+
     return kod
 
 
+# Widok do wykonania rezerwacji
+# Sprawdza czy zaznaczone przez uzytkownika pokoje/liczba osob w ogole mozna wynajac
+# i jesli mozna to tworzy w bazie danych odpowiednia rezerwacje
 def rezerwacje_wyslij(request):
     response_message = 'success'
     try:
@@ -203,6 +214,8 @@ def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje):
     return return_status
 
 
+# Ten widok obsluguje zapytanie asynchroniczne w momencie wybierania pokojow/ilosci osob
+# i sprawdza czy zaznaczone przez uzytkownika pokoje w ogole mozna wynajac
 def rezerwacje_sprawdz(request):
     if request.is_ajax():
 

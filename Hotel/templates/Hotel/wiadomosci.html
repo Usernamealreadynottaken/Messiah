@@ -21,73 +21,36 @@
 
     <div class="messages-content">
 
+        {% if wiadomosci %}
         <ul>
+            {% for wiadomosc in wiadomosci %}
             <li>
                 <div class="message">
-                    <p>Wiadomosc od: X</p>
-                    <p>Tresc: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est.</p>
+                    <p>Wiadomosc od: {{ wiadomosc.nazwisko }}</p>
+                    <p>E-mail: {{ wiadomosc.email }}</p>
+                    <p>Tresc: {{ wiadomosc.tresc }}</p>
                     <p>Data</p>
                     <input type="checkbox" name="delete" value="delete"/>
                 </div>
                 <div class="answer">
-                    <p>Twoja wiadomosc do: X</p>
+                    {% if wiadomosc.odpowiedz %}
+                    <p>Twoja odpowiedz do: {{ nazwisko }}</p>
+                    <p>{{ wiadomosc.odpowiedz }}</p>
+                    {% elif wiadomosc.wyslano_odpowiedz %}
+                    <p>Checkbox jest zaznaczony. Cos na to trzeba zrobic.</p>
+                    {% else %}
+                    <p>Twoja odpowiedz do: {{ nazwisko }}</p>
                     <textarea></textarea>
                     <a>Wyslij</a>
+                    {% endif %}
                 </div>
             </li>
-            <li>
-                <div class="message">
-                    <p>Wiadomosc od: X</p>
-                    <p>Tresc: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est.</p>
-                    <p>Data</p>
-                    <input type="checkbox" name="delete" value="delete"/>
-                </div>
-                <div class="answer">
-                    <p>Twoja wiadomosc do: X</p>
-                    <textarea></textarea>
-                    <a>Wyslij</a>
-                </div>
-            </li>
-            <li>
-                <div class="message">
-                    <p>Wiadomosc od: X</p>
-                    <p>Tresc: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est.</p>
-                    <p>Data</p>
-                    <input type="checkbox" name="delete" value="delete"/>
-                </div>
-                <div class="answer">
-                    <p>Twoja wiadomosc do: X</p>
-                    <textarea></textarea>
-                    <a>Wyslij</a>
-                </div>
-            </li>
-            <li>
-                <div class="message">
-                    <p>Wiadomosc od: X</p>
-                    <p>Tresc: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est.</p>
-                    <p>Data</p>
-                    <input type="checkbox" name="delete" value="delete"/>
-                </div>
-                <div class="answer">
-                    <p>Twoja wiadomosc do: X</p>
-                    <textarea></textarea>
-                    <a>Wyslij</a>
-                </div>
-            </li>
-            <li>
-                <div class="message">
-                    <p>Wiadomosc od: X</p>
-                    <p>Tresc: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est.</p>
-                    <p>Data</p>
-                    <input type="checkbox" name="delete" value="delete"/>
-                </div>
-                <div class="answer">
-                    <p>Twoja wiadomosc do: X</p>
-                    <textarea></textarea>
-                    <a>Wyslij</a>
-                </div>
-            </li>
+            {% endfor %}
         </ul>
+        {% else %}
+        <!-- to powinno pewnie zostac zamienione na cos rozsadniejszego -->
+        <p>Brak wiadomosci.</p>
+        {% endif %}
 
 
 
