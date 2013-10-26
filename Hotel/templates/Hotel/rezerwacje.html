@@ -20,7 +20,8 @@
             <table>
                 <tr>
                     <td>Imie i nazwisko:</td>
-                    <td colspan="3"><input type="text" name="name"></td>
+                    <td colspan="3"><input type="text" name="name"
+                            required autofocus></td>
                 </tr>
                 <tr>
                     <td>Telefon:</td>
@@ -28,15 +29,20 @@
                 </tr>
                 <tr>
                     <td>E-mail:</td>
-                    <td colspan="3"><input type="email" name="email"></td>
+                    <td colspan="3"><input type="email" name="email"
+                                           placeholder="email@example.com" required></td>
                 </tr>
                 <tr>
                     <td>Poczatek pobytu:</td>
-                    <td colspan="3"><input class="date-from" type="text" name="date-from"></td>
+                    <td colspan="3"><input class="date-from" type="text" name="date-from"
+                            required
+                            pattern="(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])/31))/[0-9]{4}"></td>
                 </tr>
                 <tr>
                     <td>Koniec pobytu:</td>
-                    <td colspan="3"><input class="date-to" type="text" name="date-to"></td>
+                    <td colspan="3"><input class="date-to" type="text" name="date-to"
+                            required
+                            pattern="(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])/31))/[0-9]{4}"></td>
                 </tr>
                 <tr>
                     <td>Liczba pokoi:</td>
@@ -53,7 +59,7 @@
                     <td>
                         <select class="adults1" name="adults1">
                             <option value="0">0</option>
-                            <option value="1">1</option>
+                            <option value="1" selected>1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
@@ -77,7 +83,7 @@
                     <td>
                         <select class="adults2" name="adults2">
                             <option value="0">0</option>
-                            <option value="1">1</option>
+                            <option value="1" selected>1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
@@ -101,7 +107,7 @@
                     <td>
                         <select class="adults3" name="adults3">
                             <option value="0">0</option>
-                            <option value="1">1</option>
+                            <option value="1" selected>1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
@@ -176,9 +182,10 @@
             <div class="summary">
                 <h3>Twoje zyczenia</h3>
                 <textarea name="requests" rows="4" cols="50"></textarea>
-                <p>Cena pobytu za wynajem x pokoi na y nocy:
+                <p>Cena pobytu za wynajem <span class="NoRooms">x</span>
+                    pokoi na <span class="NoNights">y</span> nocy:
                     <input class="price" type="text" name="price" disabled="disabled"></p>
-                <a class="send">Zarezerwuj</a>
+                <input type="submit" class="send" value="Zarezerwuj" />
             </div> <!-- .summary -->
 
         </form>
@@ -264,24 +271,40 @@ $(".clickity").click(function() {
 })
 
 $(".send").click(function() {
-    $("form").ajaxForm(function(data) {
-        var parsed = $.parseJSON(data);
+    var currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() -1);
+    var days = $(".datepicker-from").datepicker("getDate").getDate();
+    var months = $(".datepicker-from").datepicker("getDate").getMonth();
+    var years = $(".datepicker-from").datepicker("getDate").getFullYear();
+    var dateFrom = new Date(years, months, days);
+    if (currentDate < dateFrom) {
+        days = $(".datepicker-to").datepicker("getDate").getDate();
+        months = $(".datepicker-to").datepicker("getDate").getMonth();
+        years = $(".datepicker-to").datepicker("getDate").getFullYear();
+        var dateTo = new Date(years, months, days);
+        if (dateFrom < dateTo) {
+            $("form").ajaxForm(function(data) {
+                var parsed = $.parseJSON(data);
 
-        if (parsed["message"] && parsed["message"] == "success") {
-            if (parsed["kod"]) {
-                $(".success").html("Udalo sie zarezerwowac!<br /><br >Twoj kod rezerwacji to: " + parsed["kod"]);
-            } else {
-                $(".success").html("Udalo sie zarezerwowac!<br /><br >Serwer nie wyslal kodu rezerwacji!");
-            }
-        } else if (parsed["message"] && parsed["message"] == "validation_error") {
-            $(".success").html("Nie mozna zarezerwowac tego pokoju na ten termin.");
-        } else if (parsed["message"] && parsed["message"] == "site_error") {
-            $(".success").html("Serwer otrzymal uszkodzone dane.");
+                if (parsed["message"] && parsed["message"] == "success") {
+                    if (parsed["kod"]) {
+                        $(".success").html("Udalo sie zarezerwowac!<br /><br >Twoj kod rezerwacji to: " + parsed["kod"]);
+                    } else {
+                        $(".success").html("Udalo sie zarezerwowac!<br /><br >Serwer nie wyslal kodu rezerwacji!");
+                    }
+                } else if (parsed["message"] && parsed["message"] == "validation_error") {
+                    $(".success").html("Nie mozna zarezerwowac tego pokoju na ten termin.");
+                } else if (parsed["message"] && parsed["message"] == "site_error") {
+                    $(".success").html("Serwer otrzymal uszkodzone dane.");
+                } else {
+                    $(".success").html("Stalo sie cos czego nawet programista nie przewidzial.");
+                }
+            });
+            $("form").submit();
         } else {
-            $(".success").html("Stalo sie cos czego nawet programista nie przewidzial.");
+            $(".success").html("Bledne daty!");
         }
-    });
-    $("form").submit();
+    }
 })
 </script>
 

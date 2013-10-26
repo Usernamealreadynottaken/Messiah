@@ -36,7 +36,9 @@ $.fn.animateRotate = function(startAngle, endAngle, duration, easing, complete){
     });
 };
 
-$(".datepicker-from").datepicker({altField: ".date-from"});
+$(".datepicker-from").datepicker({
+    altField: ".date-from",
+});
 $(".datepicker-to").datepicker({
     altField: ".date-to",
 });
@@ -68,3 +70,4 @@ $( "#clickme" ).click(function() {
     // Animation complete.
   });
 });
+
