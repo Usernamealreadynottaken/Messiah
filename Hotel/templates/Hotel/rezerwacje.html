@@ -313,15 +313,12 @@ $(".code-send").click(function() {
             .fail(function(xhr, textStatus, errorThrown) {
                 alert("Error: " + errorThrown + xhr.status + xhr.responseText);
             });
-<<<<<<< HEAD
-=======
             $("form").submit();
         } else {
             $(".success").html("Bledne daty!");
         }
     } else {
         $(".success").html("Za wczesna data!");
->>>>>>> c4ec14d65691e6691feda6132d12d4dcaea84709
     }
 })
 

@@ -8,12 +8,8 @@ from django.core.exceptions import ObjectDoesNotExist
 # Jesli korzystamy ze skrotu ajax po prostu zwraca error.
 from django.http import HttpResponse, Http404
 
-<<<<<<< HEAD
 # Nasze modele
-from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji, Wiadomosc
-=======
 from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie
->>>>>>> c4ec14d65691e6691feda6132d12d4dcaea84709
 
 
 @login_required
