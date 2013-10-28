@@ -2,12 +2,13 @@ from datetime import date
 from django.shortcuts import render
 import random
 from django.contrib.auth.decorators import login_required
-
+from django.core.exceptions import ObjectDoesNotExist
 
 # Zeby skorzystac z ajaxa potrzebujemy zwrocic HttpResponse object.
 # Jesli korzystamy ze skrotu ajax po prostu zwraca error.
 from django.http import HttpResponse, Http404
 
+# Nasze modele
 from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji, Wiadomosc
 
 
@@ -186,22 +187,20 @@ def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje):
                             r.poczatek_pobytu <= poczatek_pobytu <= r.koniec_pobytu:
                         if r.pokojnarezerwacji_set.filter(pokoj__pk=room):
                             rooms_to_remove.append(room)
+                            break
 
             # Usuwamy znalezione zajete pokoje
             for room in rooms_to_remove:
                 try:
                     viable_rooms.remove(room)
-                except KeyError:
+                except ValueError:
                     pass
 
             # Do tego trzeba usunac wszystkie pokoje ktore juz sa na liscie zwracanej
             for key, value in return_status.items():
                 try:
                     rpk = int(value)
-                    try:
-                        viable_rooms.remove(rpk)
-                    except KeyError:
-                        pass
+                    viable_rooms.remove(rpk)
                 except ValueError:
                     pass
 
@@ -273,4 +272,67 @@ def rezerwacje_sprawdz(request):
 
         return HttpResponse(response)
     else:
+        raise Http404
+
+
+# Widok do ajaxa sprawdzajacego czy rezerwacja o podanym numerze rezerwacji istnieje
+def rezerwacje_sprawdz_kod(request, code):
+    if request.is_ajax():
+        try:
+            requested_res = Rezerwacja.objects.get(kod=code)
+            response = "true"
+        except ObjectDoesNotExist:
+            response = "false"
+        return HttpResponse(response)
+    else:
+        raise Http404
+
+
+def rezerwacje_kod(request, code):
+    try:
+        requested_res = Rezerwacja.objects.get(kod=code)
+
+        # Daty wyswietlane na stronie maja inny format niz __unicode__ clasy data
+        # wiec trzeba przekonwertowac
+        dzien = str(requested_res.poczatek_pobytu.day)
+        if len(dzien) == 1:
+            dzien = '0' + dzien
+        miesiac = str(requested_res.poczatek_pobytu.month)
+        if len(miesiac) == 1:
+            miesiac = '0' + miesiac
+        poczatek_pobytu = '%s/%s/%d' % (miesiac, dzien, requested_res.poczatek_pobytu.year,)
+
+        dzien = str(requested_res.koniec_pobytu.day)
+        if len(dzien) == 1:
+            dzien = '0' + dzien
+        miesiac = str(requested_res.koniec_pobytu.month)
+        if len(miesiac) == 1:
+            miesiac = '0' + miesiac
+        koniec_pobytu = '%s/%s/%d' % (miesiac, dzien, requested_res.koniec_pobytu.year,)
+        print koniec_pobytu
+
+        # Liczba pokoi
+        liczba_pokoi = PokojNaRezerwacji.objects.filter(rezerwacja=requested_res).count()
+
+        # Lista uslug ktore sa na tej rezerwacji
+        uslugi = []
+        for unr in UslugaNaRezerwacji.objects.filter(rezerwacja=requested_res):
+            uslugi.append(unr.usluga.pk)
+
+        # Lista uslug jest potrzebna zeby w ogole wyrenderowac strone
+        uslugi_wewnetrzne = Usluga.objects.filter(zewnetrzna=False)
+        uslugi_zewnetrzne = Usluga.objects.filter(zewnetrzna=True)
+
+        return render(request, 'hotel/rezerwacje.html', {
+            'uslugi_all': Usluga.objects.all(),
+            'uslugi_wewnetrzne': uslugi_wewnetrzne,
+            'uslugi_zewnetrzne': uslugi_zewnetrzne,
+            'rezerwacja_do_edycji': requested_res,
+            'poczatek_pobytu': poczatek_pobytu,
+            'koniec_pobytu': koniec_pobytu,
+            'liczba_pokoi': liczba_pokoi,
+            'uslugi': uslugi
+        })
+
+    except ObjectDoesNotExist:
         raise Http404
