@@ -62,5 +62,7 @@ $(".send").click(function() {
         } else {
             $(".success").html("Bledne daty!");
         }
+    } else {
+        $(".success").html("Za wczesna data poczatkowa!");
     }
 })
