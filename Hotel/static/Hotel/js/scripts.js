@@ -36,13 +36,6 @@ $.fn.animateRotate = function(startAngle, endAngle, duration, easing, complete){
     });
 };
 
-$(".datepicker-from").datepicker({
-    altField: ".date-from",
-});
-$(".datepicker-to").datepicker({
-    altField: ".date-to",
-});
-
 $(".rooms").change(function() {
     var value = $(".rooms option:selected").val();
     if (value == 1) {

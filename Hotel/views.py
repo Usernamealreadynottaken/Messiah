@@ -227,14 +227,16 @@ def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje):
 # i sprawdza czy zaznaczone przez uzytkownika pokoje w ogole mozna wynajac
 def rezerwacje_sprawdz(request):
     if request.is_ajax():
-
         try:
             # Konwersja dat ze stringow do date
             poczatek_pobytu_split = request.GET['poczatekPobytu'].split('/')
             koniec_pobytu_split = request.GET['koniecPobytu'].split('/')
-            poczatek_pobytu = date(int(poczatek_pobytu_split[2]), int(poczatek_pobytu_split[0]), int(poczatek_pobytu_split[1]))
-            koniec_pobytu = date(int(koniec_pobytu_split[2]), int(koniec_pobytu_split[0]), int(koniec_pobytu_split[1]))
-
+            poczatek_pobytu = date(int(poczatek_pobytu_split[2]),
+                                   int(poczatek_pobytu_split[0]),
+                                   int(poczatek_pobytu_split[1]))
+            koniec_pobytu = date(int(koniec_pobytu_split[2]),
+                                 int(koniec_pobytu_split[0]),
+                                 int(koniec_pobytu_split[1]))
             # Slownik z wymaganymi rozmiarami pokojow
             wymagane_pokoje = {'ilosc': int(request.GET['iloscPokojow'])}
             dorosli_dzieci = {}

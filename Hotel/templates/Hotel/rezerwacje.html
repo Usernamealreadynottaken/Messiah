@@ -49,15 +49,13 @@
                             {% if poczatek_pobytu %}
                             value="{{ poczatek_pobytu }}"
                             {% endif %}
-                            required
-                            pattern="(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])/31))/[0-9]{4}"></td>
+                            required></td>
                 </tr>
                 <tr>
                     <td>Koniec pobytu:</td>
                     <td colspan="3"><input class="date-to" type="text" name="date-to"
                             {% if koniec_pobytu %} value="{{ koniec_pobytu }}"{% endif %}
-                            required
-                            pattern="(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])/31))/[0-9]{4}"></td>
+                            required></td>
                 </tr>
                 <tr>
                     <td>Liczba pokoi:</td>
@@ -70,7 +68,7 @@
                     </td>
                 </tr>
                 <tr class="room1">
-                    <td>Dorosli:</td>
+                    <td>Pokoj 1 - Dorosli:</td>
                     <td>
                         <select class="adults1" name="adults1">
                             <option value="0">0</option>
@@ -94,7 +92,7 @@
                     </td>
                 </tr>
                 <tr class="room2">
-                    <td>Dorosli:</td>
+                    <td>Pokoj 2 - Dorosli:</td>
                     <td>
                         <select class="adults2" name="adults2">
                             <option value="0">0</option>
@@ -118,7 +116,7 @@
                     </td>
                 </tr>
                 <tr class="room3">
-                    <td>Dorosli:</td>
+                    <td>Pokoj 3 - Dorosli:</td>
                     <td>
                         <select class="adults3" name="adults3">
                             <option value="0">0</option>
@@ -200,17 +198,12 @@
                 <p>Cena pobytu za wynajem <span class="NoRooms">x</span>
                     pokoi na <span class="NoNights">y</span> nocy:
                     <input class="price" type="text" name="price" disabled="disabled"></p>
-                <input type="button" class="send" value="Zarezerwuj" />
-                <p class="send">Wyslij TEST</p>
+                <a class="send">Zarezerwuj</a>
             </div> <!-- .summary -->
 
         </form>
 
     </div> <!-- .reservations-content -->
-
-    <div class="success">
-        No post.
-    </div> <!-- .success -->
 
 </div> <!-- .reservations -->
 
@@ -222,64 +215,91 @@
 <script src="{% static 'Hotel/js/rezerwacje.js' %}"></script>
 
 <script>
+
 function sprawdzPoprawnosc() {
-    var toSend = {
-            csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
-            poczatekPobytu: $(".date-from").val(),
-            koniecPobytu: $(".date-to").val(),
-            iloscPokojow: $(".rooms").val(),
-            dorosli1: $(".adults1").val(),
-            dzieci1: $(".kids1").val(),
-            dorosli2: $(".adults2").val(),
-            dzieci2: $(".kids2").val(),
-            dorosli3: $(".adults3").val(),
-            dzieci3: $(".kids3").val()
-        };
-    $.ajax({
-        type: "GET",
-        // dataType: "html",
-        url: "{% url 'hotel:rezerwacje_sprawdz' %}",
-        data: toSend
-    })
-        .done(function(data) {
-            var parsed = $.parseJSON(data);
+    var currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() -1);
+    var days = $(".date-from").val().substring(3,5);
+    var months = $(".datepicker-from").val().substring(0, 2) - 1;
+    var years = $(".datepicker-from").val().substring(6);
+    var dateFrom = new Date(years, months, days);
+    var inputFrom = $(".date-from").val();
+    if (currentDate < dateFrom && validateDate(inputFrom)) {
+        $(".date-from").parent().removeClass("negative-input");
+        $(".date-from").parent().addClass("positive-input");
+        var days = $(".date-to").val().substring(3,5);
+        var months = $(".date-to").val().substring(0, 2) - 1;
+        var years = $(".date-to").val().substring(6);
+        var dateTo = new Date(years, months, days);
+        var inputTo = $(".date-to").val();
+        if (dateFrom < dateTo && validateDate(inputTo)) {
+            $(".date-to").parent().removeClass("negative-input");
+            $(".date-to").parent().addClass("positive-input");
+            var toSend = {
+                    csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
+                    poczatekPobytu: $(".date-from").val(),
+                    koniecPobytu: $(".date-to").val(),
+                    iloscPokojow: $(".rooms").val(),
+                    dorosli1: $(".adults1").val(),
+                    dzieci1: $(".kids1").val(),
+                    dorosli2: $(".adults2").val(),
+                    dzieci2: $(".kids2").val(),
+                    dorosli3: $(".adults3").val(),
+                    dzieci3: $(".kids3").val()
+                };
+            $.ajax({
+                type: "GET",
+                // dataType: "html",
+                url: "{% url 'hotel:rezerwacje_sprawdz' %}",
+                data: toSend
+            })
+                .done(function(data) {
+                    var parsed = $.parseJSON(data);
 
-            // Patrzymy na tyle pokojow ile mamy zaznaczone i czy sa tam liczby
-            var error = "";
-            for ( var i = 1; i <= $(".rooms").val(); i++ ) {
-                var cur_pokoj = "pokoj" + i
-                if (parsed[cur_pokoj]) {
-                    if (!$.isNumeric(parsed[cur_pokoj])) {
+                    // Patrzymy na tyle pokojow ile mamy zaznaczone i czy sa tam liczby
+                    var error = "";
+                    for ( var i = 1; i <= $(".rooms").val(); i++ ) {
+                        var cur_pokoj = "pokoj" + i
+                        if (parsed[cur_pokoj]) {
+                            if (!$.isNumeric(parsed[cur_pokoj])) {
 
-                        // Jesli w otrzymanym JSONie pod haslem 'pokojN' nie ma liczby (pk pokoju)
-                        // to znaczy ze jest jakis blad, wiec wypisujemy stosowny message
-                        if (parsed[cur_pokoj] == "not_checked") {
-                            error += "Pokoj " + i + " nie zostal zweryfikowany przez serwer.<br />";
-                        } else if (parsed[cur_pokoj] == "zero_selected") {
-                            error += "W pokoju nr " + i + " jest wybrane 0 osob.<br />";
-                        } else if (parsed[cur_pokoj] == "over_max_capacity") {
-                            error += "Pokoj " + i + " - za duzo osob.<br />";
-                        } else if (parsed[cur_pokoj] == "no_free_rooms") {
-                            error += "Pokoj " + i + " - brak wolnych pokojow.<br />";
+                                // Jesli w otrzymanym JSONie pod haslem 'pokojN' nie ma liczby (pk pokoju)
+                                // to znaczy ze jest jakis blad, wiec wypisujemy stosowny message
+                                if (parsed[cur_pokoj] == "not_checked") {
+                                    error += "Pokoj " + i + " nie zostal zweryfikowany przez serwer.<br />";
+                                } else if (parsed[cur_pokoj] == "zero_selected") {
+                                    error += "W pokoju nr " + i + " jest wybrane 0 osob.<br />";
+                                } else if (parsed[cur_pokoj] == "over_max_capacity") {
+                                    error += "Pokoj " + i + " - za duzo osob.<br />";
+                                } else if (parsed[cur_pokoj] == "no_free_rooms") {
+                                    error += "Pokoj " + i + " - brak wolnych pokojow.<br />";
+                                } else {
+                                    error += "Wystapil blad ktory powinien nie istniec.<br />";
+                                }
+
+                            }
+
                         } else {
-                            error += "Wystapil blad ktory powinien nie istniec.<br />";
+                            // Mimo zaznaczonej ilosci pokojow z jakiegos powodu nie dostalismy w ogole
+                            // informacji o n-tym pokoju od serwera
+                            error += "Pokoj " + i + " - blad po stronie serwera.<br />"
                         }
-
                     }
 
-                } else {
-                    // Mimo zaznaczonej ilosci pokojow z jakiegos powodu nie dostalismy w ogole
-                    // informacji o n-tym pokoju od serwera
-                    error += "Pokoj " + i + " - blad po stronie serwera.<br />"
-                }
-            }
-
-            // Jesli byly bledy zwiazane z jakims pokojem to wypisujemy na stronie
-            $(".error").html(error);
-        })
-        .fail(function(xhr, textStatus, errorThrown) {
-            alert("Error: " + errorThrown + xhr.status + xhr.responseText);
-        });
+                    // Jesli byly bledy zwiazane z jakims pokojem to wypisujemy na stronie
+                    $(".error").html(error);
+                })
+                .fail(function(xhr, textStatus, errorThrown) {
+                    alert("Error: " + errorThrown + xhr.status + xhr.responseText);
+                });
+        } else {
+            $(".date-to").parent().removeClass("positive-input");
+            $(".date-to").parent().addClass("negative-input");
+        }
+    } else {
+        $(".date-from").parent().removeClass("positive-input");
+        $(".date-from").parent().addClass("negative-input");
+    }
 }
 
 $(".code-send").click(function() {
@@ -324,6 +344,28 @@ $(document).ready(function() {
     {% endif %}
 })
 {% endif %}
+
+$(".date-from").focusout(function() {
+    sprawdzPoprawnosc();
+});
+
+$(".date-to").focusout(function() {
+    sprawdzPoprawnosc();
+});
+
+$(".datepicker-from").datepicker({
+    onSelect: function() {
+        sprawdzPoprawnosc();
+    },
+    altField: ".date-from",
+});
+$(".datepicker-to").datepicker({
+    onSelect: function() {
+        sprawdzPoprawnosc();
+    },
+    altField: ".date-to",
+});
+
 </script>
 
 {% endblock %}

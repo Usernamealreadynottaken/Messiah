@@ -1,5 +1,4 @@
 
-
 $(".rooms").change(function() {
     sprawdzPoprawnosc();
 })
@@ -29,40 +28,79 @@ $(".kids3").change(function() {
 })
 
 $(".send").click(function() {
-    var currentDate = new Date();
-    currentDate.setDate(currentDate.getDate() -1);
-    var days = $(".datepicker-from").datepicker("getDate").getDate();
-    var months = $(".datepicker-from").datepicker("getDate").getMonth();
-    var years = $(".datepicker-from").datepicker("getDate").getFullYear();
-    var dateFrom = new Date(years, months, days);
-    if (currentDate < dateFrom) {
-        days = $(".datepicker-to").datepicker("getDate").getDate();
-        months = $(".datepicker-to").datepicker("getDate").getMonth();
-        years = $(".datepicker-to").datepicker("getDate").getFullYear();
-        var dateTo = new Date(years, months, days);
-        if (dateFrom <= dateTo) {
-            $("form").ajaxForm(function(data) {
-                var parsed = $.parseJSON(data);
+    $("form").ajaxForm(function(data) {
+        var parsed = $.parseJSON(data);
 
-                if (parsed["message"] && parsed["message"] == "success") {
-                    if (parsed["kod"]) {
-                        $(".success").html("Udalo sie zarezerwowac!<br /><br >Twoj kod rezerwacji to: " + parsed["kod"]);
-                    } else {
-                        $(".success").html("Udalo sie zarezerwowac!<br /><br >Serwer nie wyslal kodu rezerwacji!");
-                    }
-                } else if (parsed["message"] && parsed["message"] == "validation_error") {
-                    $(".success").html("Nie mozna zarezerwowac tego pokoju na ten termin.");
-                } else if (parsed["message"] && parsed["message"] == "site_error") {
-                    $(".success").html("Serwer otrzymal uszkodzone dane.");
-                } else {
-                    $(".success").html("Stalo sie cos czego nawet programista nie przewidzial.");
-                }
-            });
-            $("form").submit();
+        if (parsed["message"] && parsed["message"] == "success") {
+            if (parsed["kod"]) {
+                $(".success").html("Udalo sie zarezerwowac!<br /><br >Twoj kod rezerwacji to: " + parsed["kod"]);
+            } else {
+                $(".success").html("Udalo sie zarezerwowac!<br /><br >Serwer nie wyslal kodu rezerwacji!");
+            }
+        } else if (parsed["message"] && parsed["message"] == "validation_error") {
+            $(".success").html("Nie mozna zarezerwowac tego pokoju na ten termin.");
+        } else if (parsed["message"] && parsed["message"] == "site_error") {
+            $(".success").html("Serwer otrzymal uszkodzone dane.");
         } else {
-            $(".success").html("Bledne daty!");
+            $(".success").html("Stalo sie cos czego nawet programista nie przewidzial.");
         }
-    } else {
-        $(".success").html("Za wczesna data poczatkowa!");
-    }
+    });
+    $("form").submit();
 })
+
+function validateName(input) {
+    if ($(input).val() == "") {
+        $(input).parent().removeClass("positive-input");
+        $(input).parent().addClass("negative-input");
+    } else {
+        $(input).parent().removeClass("negative-input");
+        $(input).parent().addClass("positive-input");
+    }
+}
+
+function validateEmail(input) {
+    var email = $(input).val();
+    var atPosition = email.indexOf("@");
+    var dotPosition = email.lastIndexOf(".");
+    if ($(input).val() == "" ||
+    (atPosition < 1 || dotPosition < atPosition+2 || dotPosition+2 >= email.length)) {
+        $(input).parent().removeClass("positive-input");
+        $(input).parent().addClass("negative-input");
+    } else {
+        $(input).parent().removeClass("negative-input");
+        $(input).parent().addClass("positive-input");
+    }
+}
+
+$('input[name=name]').focusout(function() {
+    validateName($(this));
+});
+
+$('input[name=email]').focusout(function() {
+    validateEmail($(this));
+});
+
+function validateDate(date) {
+    var regEx  = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+    if(regs = date.match(regEx)) {
+        if ((regs[1] == 1 || regs[1] == 3 || regs[1] == 5 ||
+                regs[1] == 7 || regs[1] == 8 || regs[1] == 10 ||
+                regs[1] == 12) && regs[2] > 31) {
+            return false
+        } else if ((regs[1] == 4 || regs[1] == 6 || regs[1] == 9 ||
+            regs[1] == 11) && regs[2] > 30) {
+            return false;
+        } else if (regs[1] == 2 && regs[2] > 28) {
+
+            var year = regs[3];
+            if (year % 4 ==  0 && year % 100 != 0 || year % 400 == 0 && regs[2] == 29) {
+                return true;
+            }
+            return false;
+        }
+
+      } else {
+        return false;
+      }
+    return true;
+}
