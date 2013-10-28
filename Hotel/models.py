@@ -74,6 +74,9 @@ class KategoriaJedzenia(models.Model):
     nazwa = models.CharField(max_length=30)
     opis = models.TextField(blank=True)
 
+    def __unicode__(self):
+        return self.nazwa
+
 
 class Jedzenie(models.Model):
     nazwa = models.CharField(max_length=100)
@@ -82,6 +85,9 @@ class Jedzenie(models.Model):
     zdjecie = models.ImageField(upload_to='jedzenie', blank=True)
 
     kategoria = models.ForeignKey(KategoriaJedzenia)
+
+    def __unicode__(self):
+        return self.nazwa
 
 
 class OpisHotelu(models.Model):

@@ -1,0 +1,125 @@
+{% extends "Hotel/base.html" %}
+
+{% load staticfiles %}
+
+{% block pricing %}
+    <link rel="stylesheet/less" type="text/css" href="{% static 'Hotel/jquery-ui-1.10.3.custom.css' %}" />
+{% endblock %}
+
+{% block title %}Hotel Messiah - Cennik{% endblock %}
+
+
+{% block content %}
+<div id="pricing">
+
+    <div class="title">
+
+        <h1>Cennik</h1>
+
+    </div><!-- .title -->
+
+    <div class="pricing-content">
+
+        <div id="tabs">
+
+            <ul>
+                <li><a href="#tabs-1">Pokoje</a></li>
+                <li><a href="#tabs-2">Menu</a></li>
+                <li><a href="#tabs-3">Usługi</a></li>
+            </ul>
+
+            <div id="tabs-1" class="tab-content">
+                <ul>
+                    <li><p>Cena za osobę dorosłą wynosi xxxx zł.</p></li>
+                    <li><p>Cena za dziecko wynosi xxxx zł.</p></li>
+                </ul>
+                <ul>
+                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
+                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
+                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
+                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
+                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
+                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
+                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
+                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
+                </ul>
+            </div><!-- #tabs-1 -->
+
+            <div id="tabs-2" class="tab-content">
+
+                {% for kategoria in kategorie %}
+
+                <h2>{{ kategoria.nazwa }}</h2>
+                <p>{{ kategoria.opis }}</p>
+
+                {% for zarcie in jedzenie %}
+                {% if zarcie.kategoria == kategoria %}
+                <ul>
+                    {% if zarcie.zdjecie %}
+                    <li><img src="{{ zarcie.zdjecie.url }}"></li>
+                    {% endif %}
+                    <li><p>{{ zarcie.nazwa }}</p></li>
+                    <li><p>{{ zarcie.cena }} zł</p></li>
+                    <li><p>{{ zarcie.opis }}</p></li>
+                </ul>
+                {% endif %}
+                {% endfor %}
+
+                {% endfor %}
+
+            </div><!-- #tabs-2 -->
+
+            <div id="tabs-3" class="tab-content">
+                <h2>Usługi świadczone przez hotel:</h2>
+
+                <ul>
+                    {% for usluga in uslugi_wewnetrzne %}
+
+                    <li>
+                        <div class="nazwa"><p>{{ usluga.nazwa }}</p></div>
+                        <div class="cena"><p>{{ usluga.cena }} zł</p></div>
+                        <div class="opis"><p>{{ usluga.opis }}</p></div>
+                        <div class="dostepnosc">{% if usluga.dostepnosc %}Dostępna{% else %} Niedostępna {% endif %}</div>
+                    </li>
+
+                    {% endfor %}
+                </ul>
+
+                <h2>Usługi zewnętrzne:</h2>
+
+                <ul>
+                    {% for usluga in uslugi_zewnetrzne %}
+
+                    <li>
+                        <div class="nazwa"><p>{{ usluga.nazwa }}</p></div>
+                        <div class="cena"><p>{{ usluga.cena }} zł</p></div>
+                        <div class="opis"><p>{{ usluga.opis }}</p></div>
+                        <div class="dostepnosc">{% if usluga.dostepnosc %}Dostępna{% else %} Niedostępna {% endif %}</div>
+                    </li>
+
+                    {% endfor %}
+                </ul>
+
+            </div><!-- #tabs-3 -->
+
+        </div><!-- #tabs -->
+
+    </div><!-- .pricing-content -->
+
+
+
+
+</div><!-- #pricing -->
+{% endblock %}
+
+{% block scripts %}
+
+    <script>
+        $(function(){
+            $("#tabs").tabs();
+        });
+    </script>
+
+    <script src="{% static 'Hotel/jquery-ui-1.10.3.custom.css' %}"></script>
+
+{% endblock %}
