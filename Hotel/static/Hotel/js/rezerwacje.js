@@ -1,4 +1,6 @@
 
+$(".rezerwacje_class").addClass("selected");
+
 $(".rooms").change(function() {
     sprawdzPoprawnosc();
 })
