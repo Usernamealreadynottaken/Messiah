@@ -32,6 +32,9 @@
                             {% if rezerwacja_do_edycji %} value="{{ rezerwacja_do_edycji.nazwisko }}"{% endif %}
                             required autofocus></td>
                 </tr>
+                <tr class="error-row">
+                    <td colspan="4"><p class="name-error">Pole nie moze byc puste.</p></td>
+                </tr>
                 <tr>
                     <td>Telefon:</td>
                     <td colspan="3"><input type="tel" name="tel"
@@ -43,6 +46,9 @@
                             {% if rezerwacja_do_edycji %} value="{{ rezerwacja_do_edycji.email }}"{% endif %}
                             required></td>
                 </tr>
+                <tr class="error-row">
+                    <td colspan="4"><p class="email-error">Email musi byc w formacie local@domain</p></td>
+                </tr>
                 <tr>
                     <td>Poczatek pobytu:</td>
                     <td colspan="3"><input class="date-from" type="text" name="date-from"
@@ -51,11 +57,17 @@
                             {% endif %}
                             required></td>
                 </tr>
+                <tr class="error-row">
+                    <td colspan="4"><p class="dateFrom-error"></p></td>
+                </tr>
                 <tr>
                     <td>Koniec pobytu:</td>
                     <td colspan="3"><input class="date-to" type="text" name="date-to"
                             {% if koniec_pobytu %} value="{{ koniec_pobytu }}"{% endif %}
                             required></td>
+                </tr>
+                <tr class="error-row">
+                    <td colspan="4"><p class="dateTo-error"></p></td>
                 </tr>
                 <tr>
                     <td>Liczba pokoi:</td>
@@ -197,7 +209,7 @@
                 <textarea name="requests" rows="4" cols="50">{% if rezerwacja_do_edycji %}{{ rezerwacja_do_edycji.dodatkowe_instrukcje }}{% endif %}</textarea>
                 <p>Cena pobytu za wynajem <span class="NoRooms">x</span>
                     pokoi na <span class="NoNights">y</span> nocy:
-                    <input class="price" type="text" name="price" disabled="disabled"></p>
+                    <span class="price">1</span> </p>
                 <a class="send">Zarezerwuj</a>
             </div> <!-- .summary -->
 
@@ -220,21 +232,31 @@ function sprawdzPoprawnosc() {
     var currentDate = new Date();
     currentDate.setDate(currentDate.getDate() -1);
     var days = $(".date-from").val().substring(3,5);
-    var months = $(".datepicker-from").val().substring(0, 2) - 1;
-    var years = $(".datepicker-from").val().substring(6);
+    var months = $(".date-from").val().substring(0, 2) - 1;
+    var years = $(".date-from").val().substring(6);
     var dateFrom = new Date(years, months, days);
     var inputFrom = $(".date-from").val();
-    if (currentDate < dateFrom && validateDate(inputFrom)) {
+    if (validateDate(inputFrom, ".dateFrom-error") && currentDate < dateFrom) {
         $(".date-from").parent().removeClass("negative-input");
         $(".date-from").parent().addClass("positive-input");
+
+        $(".dateFrom-error").animate({
+            "height": "0",
+        });
+
         var days = $(".date-to").val().substring(3,5);
         var months = $(".date-to").val().substring(0, 2) - 1;
         var years = $(".date-to").val().substring(6);
         var dateTo = new Date(years, months, days);
         var inputTo = $(".date-to").val();
-        if (dateFrom < dateTo && validateDate(inputTo)) {
+        if (validateDate(inputTo, ".dateTo-error") && dateFrom < dateTo) {
             $(".date-to").parent().removeClass("negative-input");
             $(".date-to").parent().addClass("positive-input");
+
+            $(".dateTo-error").animate({
+                "height": "0",
+            });
+
             var toSend = {
                     csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
                     poczatekPobytu: $(".date-from").val(),
@@ -295,10 +317,22 @@ function sprawdzPoprawnosc() {
         } else {
             $(".date-to").parent().removeClass("positive-input");
             $(".date-to").parent().addClass("negative-input");
+            if ($(".dateTo-error").text() == "") {
+                $(".dateTo-error").text("Za wczesna data wyjazdu.");
+            }
+            $(".dateTo-error").animate({
+                "height": "28px",
+            });
         }
     } else {
         $(".date-from").parent().removeClass("positive-input");
         $(".date-from").parent().addClass("negative-input");
+        if ($(".dateFrom-error").text() == "") {
+            $(".dateFrom-error").text("Za wczesna data przyjazdu.");
+        }
+        $(".dateFrom-error").animate({
+            "height": "28px",
+        });
     }
 }
 

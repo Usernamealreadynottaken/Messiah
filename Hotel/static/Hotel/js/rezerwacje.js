@@ -52,9 +52,15 @@ function validateName(input) {
     if ($(input).val() == "") {
         $(input).parent().removeClass("positive-input");
         $(input).parent().addClass("negative-input");
+        $(".name-error").animate({
+            "height": "28px",
+        });
     } else {
         $(input).parent().removeClass("negative-input");
         $(input).parent().addClass("positive-input");
+        $(".name-error").animate({
+            "height": "0",
+        });
     }
 }
 
@@ -66,9 +72,15 @@ function validateEmail(input) {
     (atPosition < 1 || dotPosition < atPosition+2 || dotPosition+2 >= email.length)) {
         $(input).parent().removeClass("positive-input");
         $(input).parent().addClass("negative-input");
+        $(".email-error").animate({
+            "height": "28px",
+        });
     } else {
         $(input).parent().removeClass("negative-input");
         $(input).parent().addClass("positive-input");
+        $(".email-error").animate({
+            "height": "0",
+        });
     }
 }
 
@@ -80,27 +92,37 @@ $('input[name=email]').focusout(function() {
     validateEmail($(this));
 });
 
-function validateDate(date) {
+function validateDate(date, error) {
     var regEx  = /^(\d{2})\/(\d{2})\/(\d{4})$/;
     if(regs = date.match(regEx)) {
-        if ((regs[1] == 1 || regs[1] == 3 || regs[1] == 5 ||
-                regs[1] == 7 || regs[1] == 8 || regs[1] == 10 ||
-                regs[1] == 12) && regs[2] > 31) {
-            return false
-        } else if ((regs[1] == 4 || regs[1] == 6 || regs[1] == 9 ||
-            regs[1] == 11) && regs[2] > 30) {
+        if (regs[1] > 12) {
+            $(error).text("Nie ma takiego miesiaca.");
             return false;
-        } else if (regs[1] == 2 && regs[2] > 28) {
+        } else {
+            if ((regs[1] == 1 || regs[1] == 3 || regs[1] == 5 ||
+                    regs[1] == 7 || regs[1] == 8 || regs[1] == 10 ||
+                    regs[1] == 12) && regs[2] > 31) {
+                    $(error).text("Nie ma takiego dnia.");
+                return false
+            } else if ((regs[1] == 4 || regs[1] == 6 || regs[1] == 9 ||
+                regs[1] == 11) && regs[2] > 30) {
+                $(error).text("Nie ma takiego dnia.");
+                return false;
+            } else if (regs[1] == 2 && regs[2] > 28) {
 
-            var year = regs[3];
-            if (year % 4 ==  0 && year % 100 != 0 || year % 400 == 0 && regs[2] == 29) {
-                return true;
+                var year = regs[3];
+                if (year % 4 ==  0 && year % 100 != 0 || year % 400 == 0 && regs[2] == 29) {
+                    $(error).text("");
+                    return true;
+                }
+                $(error).text("Nie ma takiego dnia.");
+                return false;
             }
-            return false;
         }
-
-      } else {
+    } else {
+        $(error).text("Data musi byc w formacie: mm/dd/yyyy.");
         return false;
-      }
+    }
+    $(error).text("");
     return true;
 }

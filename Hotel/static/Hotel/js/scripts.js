@@ -39,14 +39,14 @@ $.fn.animateRotate = function(startAngle, endAngle, duration, easing, complete){
 $(".rooms").change(function() {
     var value = $(".rooms option:selected").val();
     if (value == 1) {
-        $(".room2").fadeOut();
-        $(".room3").fadeOut();
+        $(".room2").animate({opacity: 0});
+        $(".room3").animate({opacity: 0});
     } else if (value == 2) {
-        $(".room2").fadeIn();
-        $(".room3").fadeOut();
+        $(".room2").animate({opacity: 1});
+        $(".room3").animate({opacity: 0});
     } else if (value == 3) {
-        $(".room2").fadeIn();
-        $(".room3").fadeIn();
+        $(".room2").animate({opacity: 1});
+        $(".room3").animate({opacity: 1});
     }
 });
 
