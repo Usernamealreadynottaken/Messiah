@@ -215,6 +215,16 @@ body {
         position: relative;
         width: 900px;
 
+        .code {
+
+            label {
+                display: block;
+            }
+
+            padding: 60px 60px 30px 60px;
+            text-align: center;
+        }
+
         &:before {
             background-image: url(img/content-nw.png);
             top: -10px;
@@ -238,7 +248,8 @@ body {
         }
 
         form {
-            padding: 60px;
+            border-top: 1px dotted black;
+            padding: 30px;
 
             a {
                 cursor: pointer;
@@ -246,16 +257,87 @@ body {
             }
 
             &>table {
-                height: 280px;
                 vertical-align: text-top;
 
                 .room2, .room3 {
-                    display: none;
+                    opacity: 0;
                 }
             }
 
+
             table input {
-                width: 200px;
+                padding: 1px 18px 1px 2px;
+                width: 180px;
+            }
+
+            .positive-input {
+                position: relative;
+
+                &:after {
+                    background: green;
+                    content: "";
+                    height: 12px;
+                    position: absolute;
+                    right: 8px;
+                    top: 8px;
+                    width: 12px;
+                    z-index: 1;
+                }
+
+                input {
+                    border-color: green;
+                }
+            }
+
+            .negative-input {
+                position: relative;
+
+                &:after {
+                    background: red;
+                    content: "";
+                    height: 12px;
+                    position: absolute;
+                    right: 8px;
+                    top: 8px;
+                    width: 12px;
+                    z-index: 1;
+                }
+
+                input {
+                    border-color: red;
+                }
+            }
+
+            .error-row {
+                padding: 0;
+            }
+
+            .name-error {
+                height: 0;
+                margin: 0;
+                overflow: hidden;
+                text-align: right;
+            }
+
+            .email-error {
+                height: 0;
+                margin: 0;
+                overflow: hidden;
+                text-align: right;
+            }
+
+            .dateFrom-error {
+                height: 0;
+                margin: 0;
+                overflow: hidden;
+                text-align: right;
+            }
+
+            .dateTo-error {
+                height: 0;
+                margin: 0;
+                overflow: hidden;
+                text-align: right;
             }
 
             table .rooms {
@@ -282,7 +364,7 @@ body {
 
                 &>div {
                     position: absolute;
-                    top: 0;
+                    top: -12px;
                 }
 
                 .calendar-to {
@@ -327,8 +409,12 @@ body {
                 resize: none;
             }
 
-            a {
+            .send {
+                background: none;
+                border: 1px red solid;
                 display: block;
+                margin: 0 auto;
+                cursor: pointer;
                 text-align: center;
             }
         }

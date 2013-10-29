@@ -42,13 +42,20 @@
             {% endif %}
             </tr>
         {% endfor %}
+        {% if forloop.last %}
+            <tr>
+                <th scope="row"><a href="{% url 'admin_custom:wiadomosci' %}">Wiadomosci</a></th>
+
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        {% endif %}
         </table>
         </div>
     {% endfor %}
 {% else %}
     <p>{% trans "You don't have permission to edit anything." %}</p>
 {% endif %}
-<a href="Hotel/wiadomosci">Wiadomosci</a>
 </div>
 {% endblock %}
 

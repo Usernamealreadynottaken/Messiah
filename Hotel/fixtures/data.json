@@ -17,7 +17,7 @@
     "model": "Hotel.KategoriaJedzenia",
     "pk": 3,
     "fields": {
-      "nazwa": "Dania G??wne"
+      "nazwa": "Dania Główne"
     }
   },
   {
@@ -31,7 +31,7 @@
     "model": "Hotel.KategoriaJedzenia",
     "pk": 5,
     "fields": {
-      "nazwa": "Sur?wki"
+      "nazwa": "Surówki"
     }
   },
   {
@@ -52,7 +52,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 1,
     "fields": {
-      "nazwa": "R??a z ?ososia na zielonej sa?acie",
+      "nazwa": "Róża z łososia na zielonej sałacie",
       "cena": "8.00",
       "opis": "",
       "zdjecie": "",
@@ -74,7 +74,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 3,
     "fields": {
-      "nazwa": "Zapiekany camembert z ?urawin? i grzankami",
+      "nazwa": "Zapiekany camembert z żurawiną i grzankami",
       "cena": "9.50",
       "opis": "",
       "zdjecie": "",
@@ -96,7 +96,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 5,
     "fields": {
-      "nazwa": "Mix kolorowych sa?at z grilowanym kurczakiem i serem ple?niowym",
+      "nazwa": "Mix kolorowych sałat z grilowanym kurczakiem i serem pleśniowym",
       "cena": "12.50",
       "opis": "",
       "zdjecie": "",
@@ -107,7 +107,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 6,
     "fields": {
-      "nazwa": "Ros?? z makaronem",
+      "nazwa": "Rosół z makaronem",
       "cena": "5.00",
       "opis": "",
       "zdjecie": "",
@@ -118,7 +118,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 7,
     "fields": {
-      "nazwa": "Ros?? z jajkiem przepi?rczym i szynk?",
+      "nazwa": "Rosół z jajkiem przepiórczym i szynką",
       "cena": "7.00",
       "opis": "",
       "zdjecie": "",
@@ -140,7 +140,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 9,
     "fields": {
-      "nazwa": "Krem z broku??w/ zielonego groszku/ selera z pra?onymi migda?ami",
+      "nazwa": "Krem z brokułów/ zielonego groszku/ selera z prażonymi migdałami",
       "cena": "4.70",
       "opis": "",
       "zdjecie": "",
@@ -162,7 +162,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 11,
     "fields": {
-      "nazwa": "Schab pieczony w sosie w?asnym",
+      "nazwa": "Schab pieczony w sosie własnym",
       "cena": "8.70",
       "opis": "",
       "zdjecie": "",
@@ -173,7 +173,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 12,
     "fields": {
-      "nazwa": "Filet z pstr?ga w sosie cytrynowym",
+      "nazwa": "Filet z pstrąga w sosie cytrynowym",
       "cena": "9.70",
       "opis": "",
       "zdjecie": "",
@@ -184,7 +184,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 13,
     "fields": {
-      "nazwa": "Pol?dwiczki wieprzowe w sosie borowikowym",
+      "nazwa": "Polędwiczki wieprzowe w sosie borowikowym",
       "cena": "10.70",
       "opis": "",
       "zdjecie": "",
@@ -195,7 +195,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 14,
     "fields": {
-      "nazwa": "Plater 3 mi?s",
+      "nazwa": "Plater 3 mięs",
       "cena": "12.90",
       "opis": "",
       "zdjecie": "",
@@ -217,7 +217,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 16,
     "fields": {
-      "nazwa": "Ciel?ce zrazy zawijane",
+      "nazwa": "Cielęce zrazy zawijane",
       "cena": "9.20",
       "opis": "",
       "zdjecie": "",
@@ -228,7 +228,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 17,
     "fields": {
-      "nazwa": "Kotlet po szwajcarsku nadziewany serem i szynk?",
+      "nazwa": "Kotlet po szwajcarsku nadziewany serem i szynką",
       "cena": "15.00",
       "opis": "",
       "zdjecie": "",
@@ -294,7 +294,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 23,
     "fields": {
-      "nazwa": "Kluski ?l?skie",
+      "nazwa": "Kluski śląskie",
       "cena": "4.40",
       "opis": "",
       "zdjecie": "",
@@ -305,7 +305,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 24,
     "fields": {
-      "nazwa": "Ry?",
+      "nazwa": "Ryż",
       "cena": "4.00",
       "opis": "",
       "zdjecie": "",
@@ -349,7 +349,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 28,
     "fields": {
-      "nazwa": "Marchewka z jab?kiem",
+      "nazwa": "Marchewka z jabłkiem",
       "cena": "3.20",
       "opis": "",
       "zdjecie": "",
@@ -371,7 +371,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 30,
     "fields": {
-      "nazwa": "Bia?a kapusta",
+      "nazwa": "Biała kapusta",
       "cena": "4.00",
       "opis": "",
       "zdjecie": "",
@@ -393,7 +393,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 32,
     "fields": {
-      "nazwa": "Kapusta zasma?ana",
+      "nazwa": "Kapusta zasmażana",
       "cena": "5.20",
       "opis": "",
       "zdjecie": "",
@@ -404,7 +404,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 33,
     "fields": {
-      "nazwa": "?wik?a z chrzanem",
+      "nazwa": "Ćwikła z chrzanem",
       "cena": "3.40",
       "opis": "",
       "zdjecie": "",
@@ -415,7 +415,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 34,
     "fields": {
-      "nazwa": "Buraczki zasma?ane",
+      "nazwa": "Buraczki zasmażane",
       "cena": "4.40",
       "opis": "",
       "zdjecie": "",
@@ -426,7 +426,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 35,
     "fields": {
-      "nazwa": "Lody z owocami i bit? ?mietan?",
+      "nazwa": "Lody z owocami i bitą śmietaną",
       "cena": "3.50",
       "opis": "",
       "zdjecie": "",
@@ -437,7 +437,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 36,
     "fields": {
-      "nazwa": "Szarlotka na ciep?o z sosem waniliowym i ga?k? lod?w",
+      "nazwa": "Szarlotka z polewą",
       "cena": "5.50",
       "opis": "",
       "zdjecie": "",
@@ -448,7 +448,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 37,
     "fields": {
-      "nazwa": "Szarlotka na ciep?o z sosem waniliowym i ga?k? lod?w",
+      "nazwa": "Szarlotka na ciepło z sosem waniliowym i gałką lodów",
       "cena": "6.00",
       "opis": "",
       "zdjecie": "",
@@ -459,7 +459,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 38,
     "fields": {
-      "nazwa": "Galaretka ze ?wie?ymi owocami",
+      "nazwa": "Galaretka ze świeżymi owocami",
       "cena": "3.00",
       "opis": "",
       "zdjecie": "",
@@ -481,7 +481,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 40,
     "fields": {
-      "nazwa": "Koktajl ze ?wie?ych owoc?w",
+      "nazwa": "Koktajl ze świeżych owoców",
       "cena": "5.40",
       "opis": "",
       "zdjecie": "",
@@ -492,7 +492,7 @@
     "model": "Hotel.Jedzenie",
     "pk": 41,
     "fields": {
-      "nazwa": "Napoje gor?ce (kawa, herbata) nielimitowane",
+      "nazwa": "Napoje gorące (kawa, herbata) nielimitowane",
       "cena": "5.50",
       "opis": "",
       "zdjecie": "",
@@ -516,7 +516,7 @@
     "fields": {
       "nazwa": "Pralnia",
       "cena": "10.00",
-      "opis": "Podana cena dotyczy udost?pnienia jednej pralki na czas jednego prania.",
+      "opis": "Podana cena dotyczy udostępnienia jednej pralki na czas jednego prania.",
       "dostepnosc": "True",
       "zewnetrzna": "False"
     }
@@ -525,7 +525,7 @@
     "model": "Hotel.Usluga",
     "pk": 2,
     "fields": {
-      "nazwa": "Opieka nad dzie?mi",
+      "nazwa": "Opieka nad dziećmi",
       "cena": "10.00",
       "opis": "Podana cena, to cena za godzine opieki.",
       "dostepnosc": "True",
@@ -538,7 +538,7 @@
     "fields": {
       "nazwa": "Sejf/Depozyt",
       "cena": "5.00",
-      "opis": "Cena zale?na od wielko?ci przedmiotu. Podana cena dotyczy przechowywania przedmiotu wielko?ci du?ego jab?ka przez okres jednego dnia.",
+      "opis": "Cena zależna od wielkości przedmiotu. Podana cena dotyczy przechowywania przedmiotu wielkości dużego jabłka przez okres jednego dnia.",
       "dostepnosc": "True",
       "zewnetrzna": "False"
     }
@@ -549,7 +549,7 @@
     "fields": {
       "nazwa": "Sauna",
       "cena": "12.00",
-      "opis": "Cena za godzin? przebywania w Saunie. Sauna znajduje si? 200 metr?w od naszego hotelu.",
+      "opis": "Cena za godzinę przebywania w Saunie. Sauna znajduje się 200 metrów od naszego hotelu.",
       "dostepnosc": "True",
       "zewnetrzna": "True"
     }
@@ -560,7 +560,7 @@
     "fields": {
       "nazwa": "Basen",
       "cena": "10.00",
-      "opis": "Cena za godzin? przebywania na terenie basenu. Jest to basen kryty. Basen znajduje si? w odleg?o?ci 300 metr?w od naszego hotelu.",
+      "opis": "Cena za godzinę przebywania na terenie basenu. Jest to basen kryty. Basen znajduje się w odległości 300 metrów od naszego hotelu.",
       "dostepnosc": "True",
       "zewnetrzna": "True"
     }
@@ -571,7 +571,7 @@
     "fields": {
       "nazwa": "Kort tenisowy",
       "cena": "20.00",
-      "opis": "Cena za wynaj?cie kortu na godzin?. Niezale?na od ilo?ci graczy. Korty znajduj? si? 500 metr?w od naszego hotelu.",
+      "opis": "Cena za wynajęcie kortu na godzinę. Niezależna od ilości graczy. Korty znajdują się 500 metrów od naszego hotelu.",
       "dostepnosc": "True",
       "zewnetrzna": "True"
     }
@@ -582,8 +582,8 @@
     "fields": {
       "numer": "1",
       "rozmiar": "2",
-      "opis": "Rozmiar okre?la ilo?? os?b, kt?re komfortowo pomiesz? si? w tym pokoju. Podana cena dotyczy wynaj?cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen? brutto.",
-      "opis_combo": "Du?a ?azienka, dobry widok",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Duża łazienka, dobry widok",
       "dostepnosc": "True",
       "cena": "120.00"
     }
@@ -594,8 +594,8 @@
     "fields": {
       "numer": "2",
       "rozmiar": "1",
-      "opis": "Rozmiar okre?la ilo?? os?b, kt?re komfortowo pomiesz? si? w tym pokoju. Podana cena dotyczy wynaj?cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen? brutto.",
-      "opis_combo": "Ma?a ?azienka, 50 calowy tv",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Mała łazienka, 50 calowy tv",
       "dostepnosc": "True",
       "cena": "75.00"
     }
@@ -606,8 +606,8 @@
     "fields": {
       "numer": "3",
       "rozmiar": "3",
-      "opis": "Rozmiar okre?la ilo?? os?b, kt?re komfortowo pomiesz? si? w tym pokoju. Podana cena dotyczy wynaj?cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen? brutto.",
-      "opis_combo": "?wie?o malowany, ko?yska",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Świeżo malowany, kołyska",
       "dostepnosc": "True",
       "cena": "160.00"
     }
@@ -618,8 +618,8 @@
     "fields": {
       "numer": "4",
       "rozmiar": "2",
-      "opis": "Rozmiar okre?la ilo?? os?b, kt?re komfortowo pomiesz? si? w tym pokoju. Podana cena dotyczy wynaj?cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen? brutto.",
-      "opis_combo": "Tani, nowe ???ka",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Tani, nowe łóżka",
       "dostepnosc": "True",
       "cena": "100.00"
     }
@@ -630,8 +630,8 @@
     "fields": {
       "numer": "5",
       "rozmiar": "2",
-      "opis": "Rozmiar okre?la ilo?? os?b, kt?re komfortowo pomiesz? si? w tym pokoju. Podana cena dotyczy wynaj?cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen? brutto.",
-      "opis_combo": "?azienka z wann?, kuchnia",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Łazienka z wanną, kuchnia",
       "dostepnosc": "True",
       "cena": "140.00"
     }
@@ -642,7 +642,7 @@
     "fields": {
       "numer": "6",
       "rozmiar": "4",
-      "opis": "Rozmiar okre?la ilo?? os?b, kt?re komfortowo pomiesz? si? w tym pokoju. Podana cena dotyczy wynaj?cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen? brutto.",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "2 pomieszczenia sypialne",
       "dostepnosc": "True",
       "cena": "200.00"
@@ -654,8 +654,8 @@
     "fields": {
       "numer": "7",
       "rozmiar": "2",
-      "opis": "Rozmiar okre?la ilo?? os?b, kt?re komfortowo pomiesz? si? w tym pokoju. Podana cena dotyczy wynaj?cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen? brutto.",
-      "opis_combo": "Obrazy, ?adny wystr?j",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Obrazy, ładny wystrój",
       "dostepnosc": "True",
       "cena": "110.00"
     }
@@ -666,8 +666,8 @@
     "fields": {
       "numer": "8",
       "rozmiar": "2",
-      "opis": "Rozmiar okre?la ilo?? os?b, kt?re komfortowo pomiesz? si? w tym pokoju. Podana cena dotyczy wynaj?cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen? brutto.",
-      "opis_combo": "Nowoczesny pok?j dla dwojga",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Nowoczesny pokój dla dwojga",
       "dostepnosc": "True",
       "cena": "150.00"
     }
@@ -678,8 +678,8 @@
     "fields": {
       "numer": "9",
       "rozmiar": "2",
-      "opis": "Rozmiar okre?la ilo?? os?b, kt?re komfortowo pomiesz? si? w tym pokoju. Podana cena dotyczy wynaj?cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen? brutto.",
-      "opis_combo": "Pok?j z wy?szej p??ki dla 2",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Pokój z wyższej półki dla 2",
       "dostepnosc": "True",
       "cena": "170.00"
     }
@@ -690,8 +690,8 @@
     "fields": {
       "numer": "10",
       "rozmiar": "3",
-      "opis": "Rozmiar okre?la ilo?? os?b, kt?re komfortowo pomiesz? si? w tym pokoju. Podana cena dotyczy wynaj?cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen? brutto.",
-      "opis_combo": "?adny widok, pok?j na parterze",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Ładny widok, pokój na parterze",
       "dostepnosc": "True",
       "cena": "150.00"
     }
@@ -702,8 +702,8 @@
     "fields": {
       "numer": "11",
       "rozmiar": "1",
-      "opis": "Rozmiar okre?la ilo?? os?b, kt?re komfortowo pomiesz? si? w tym pokoju. Podana cena dotyczy wynaj?cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen? brutto.",
-      "opis_combo": "Najlepszy wyb?r dla singla",
+      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
+      "opis_combo": "Najlepszy wybór dla singla",
       "dostepnosc": "False",
       "cena": "50.00"
     }
@@ -714,7 +714,9 @@
     "fields": {
       "email": "xxx69@op.pl",
       "nazwisko": "Nowak",
-      "tresc": "Witam, prosz? o opisanie wielko?ci ???ek w pokoju numer 4."
+      "tresc": "Witam, proszę o opisanie wielkości łóżek w pokoju numer 4.",
+      "odpowiedz": "Witam serdecznie, wymiary łóżek w tym pokoju wynoszą: wysokość - 40c, szerokość - 90cm, długość - 190cm. Pozdrawiam i zapraszam. ",
+      "wyslano_odpowiedz": "True"
     }
   },
   {
@@ -723,7 +725,9 @@
     "fields": {
       "email": "dziadzia@gmail.com",
       "nazwisko": "Dziadek",
-      "tresc": "Chcia?bym si? dowiedzie? jakie kana?y s? dost?pne w tv. Chodzi o pok?j numer 2."
+      "tresc": "Chciałbym się dowiedzieć jakie kanały są dostępne w tv. Chodzi o pokój numer 2.",
+      "odpowiedz": "Witam, W pokoju numer 2 dostępne są wszystkie kanały dostępne w ofercie Cyfrowy Polsat. Pozdrawiam i zapraszam.",
+      "wyslano_odpowiedz": "True"
     }
   },
   {
@@ -732,7 +736,9 @@
     "fields": {
       "email": "wielki_misio@o2.pl",
       "nazwisko": "",
-      "tresc": "Chcia?bym si? dowiedzie?, czy jest mo?liwo?? wy?cielenia ???ka r??ami przed moim rpzyjazdem do hotelu? Oczywi?cie zap?ac?."
+      "tresc": "Chciałbym się dowiedzieć, czy jest możliwość wyścielenia łóżka różami przed moim przyjazdem do hotelu? Oczywiście zapłacę.",
+      "odpowiedz": "Witam, oczywiście możemy to zrobić na życzenie klienta. Proszę mi tylko podać dane do swojej rezerwacji.",
+      "wyslano_odpowiedz": "True"
     }
   },
   {
@@ -741,7 +747,9 @@
     "fields": {
       "email": "",
       "nazwisko": "",
-      "tresc": "D?? waszej strony ?le wy?wietla si? na moim telefonie - samsung galaxy 4. Defaultowa przegl?darka z jej aktualn? wersj?."
+      "tresc": "Dół waszej strony źle wyświetla się na moim telefonie - samsung galaxy 4. Defaultowa przeglądarka z jej aktualną wersją.",
+      "odpowiedz": "",
+      "wyslano_odpowiedz": "False"
     }
   },
   {
@@ -750,7 +758,8 @@
     "fields": {
       "cena_dorosly": "40.00",
       "cena_dziecko": "25.00",
-      "opis_hotelu": "Hotel XXXXX po?o?ony jest w Krakowie przy ulicy Aleksandry 30, przy trasie mi?dzynarodowej E4 i obwodnicy krakowskiej. Hotel posiada dogodne i szybkie po??czenia z Wawelem (6 km), Wieliczk? (3 km), Kazimierzem (4 km) i Portem Lotniczym w Balicach (22 km). Po?o?enie Hotelu XXXXX umo?liwia wygodne planowanie dalszych wycieczek turystycznych do m.in. Zakopanego, O?wi?cimia i Cz?stochowy oraz doskona?e po??czenie tramwajowe i autobusowe z wa?niejszymi cz??ciami Krakowa. Obiekt usytuowany jest w?r?d zieleni, co gwarantuje naszym Go?ciom indywidualnym, biznesowym oraz grupom turystycznym, wypoczynek w ciszy i spokoju, z dala od ulicznego zgie?ku i ha?asu, o ka?dej porze roku. Gwarantujemy mi??, profesjonaln? obs?ug? oraz wygod? i domow? atmosfer?. Recepcja s?u?y Pa?stwu pomoc? 24h/dob?. Hotel oferuje standard 3-gwiazdkowy plus w cenie 2-gwiazdkowej.",
+      "opis_hotelu": "Hotel XXXXX położony jest w Krakowie przy ulicy Aleksandry 30, przy trasie międzynarodowej E4 i obwodnicy krakowskiej. Hotel posiada dogodne i szybkie połączenia z Wawelem (6 km), Wieliczką (3 km), Kazimierzem (4 km) i Portem Lotniczym w Balicach (22 km). Położenie Hotelu XXXXX umożliwia wygodne planowanie dalszych wycieczek turystycznych do m.in. Zakopanego, Oświęcimia i Częstochowy oraz doskonałe połączenie tramwajowe i autobusowe z ważniejszymi częściami Krakowa. Obiekt usytuowany jest wśród zieleni, co gwarantuje naszym Gościom indywidualnym, biznesowym oraz grupom turystycznym, wypoczynek w ciszy i spokoju, z dala od ulicznego zgiełku i hałasu, o każdej porze roku. Gwarantujemy miłą, profesjonalną obsługę oraz wygodę i domową atmosferę. Recepcja służy Państwu pomocą 24h/dobę. Hotel oferuje standard 3-gwiazdkowy plus w cenie 2-gwiazdkowej.",
+      "zdjecie": "",
       "opis_google": "",
       "skype": "",
       "gadu_gadu": "",
@@ -774,10 +783,234 @@
     }
   },
   {
-    "model": "Hotel.ZdjeciaHotelu",
-    "pk": 1,
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 2,
     "fields": {
-      "zdjecie": ""
+      "zdjecie": "",
+      "pokoj": "1"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 3,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "1"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 4,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "2"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 5,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "2"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 6,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "2"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 7,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "3"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 8,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "3"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 9,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "3"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 10,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "4"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 11,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "4"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 12,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "4"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 13,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "5"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 14,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "5"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 15,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "5"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaHotelu",
+    "pk": 16,
+    "fields": {
+      "zdjecie": "6"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 17,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "6"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 18,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "6"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 19,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "7"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 20,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "7"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 21,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "7"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 22,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "8"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 23,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "8"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 24,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "8"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 25,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "9"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 26,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "9"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 27,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "9"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 28,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "10"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 29,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "10"
+    }
+  },
+  {
+    "model": "Hotel.ZdjeciaPokojow",
+    "pk": 30,
+    "fields": {
+      "zdjecie": "",
+      "pokoj": "10"
     }
   },
   {
@@ -789,10 +1022,11 @@
       "email": "random_email@gmail.com",
       "telefon": "111234528",
       "nazwisko": "Kowalski",
-      "dodatkowe_instrukcje": "Prosz? o wysypanie wiadra cukierk?w - kr?wek - na ???ko",
+      "dodatkowe_instrukcje": "Proszę o wysypanie wiadra cukierków - krówek - na łóżko",
       "kod": "1f5Tf78Wmm91",
-      "cena_dorosly": 100,
-      "cena_dziecko": 50
+      "notatka": "Wiadro wysypane, wszystko gotowe. Cena uzgodniona z klientem.",
+      "cena_dorosly": "40.00",
+      "cena_dziecko": "25.00"
     }
   },
   {
@@ -804,10 +1038,11 @@
       "email": "randomszx_email@op.pl",
       "telefon": "124235633",
       "nazwisko": "Nowak",
-      "dodatkowe_instrukcje": "Prosz? o przygotowanie r??nego rodzaju olejk?w do k?pieli w ?azience.",
+      "dodatkowe_instrukcje": "Proszę o przygotowanie różnego rodzaju olejków do kąpieli w łazience.",
       "kod": "T2s44Ghj812c",
-      "cena_dorosly": 100,
-      "cena_dziecko": 50
+      "notatka": "Dodatkowa porcja olejków naszykowana w pokoju.",
+      "cena_dorosly": "40.00",
+      "cena_dziecko": "25.00"
     }
   },
   {
@@ -821,8 +1056,9 @@
       "nazwisko": "Czosnek",
       "dodatkowe_instrukcje": "",
       "kod": "sau72N9aA9md",
-      "cena_dorosly": 100,
-      "cena_dziecko": 50
+      "notatka": "",
+      "cena_dorosly": "40.00",
+      "cena_dziecko": "25.00"
     }
   },
   {
@@ -836,8 +1072,9 @@
       "nazwisko": "Brzoza",
       "dodatkowe_instrukcje": "",
       "kod": "as9dmaAdd219",
-      "cena_dorosly": 100,
-      "cena_dziecko": 50
+      "notatka": "",
+      "cena_dorosly": "40.00",
+      "cena_dziecko": "25.00"
     }
   },
   {
@@ -849,10 +1086,11 @@
       "email": "mariusz.jankowski@hotmail.com",
       "telefon": "712939152",
       "nazwisko": "Janowski",
-      "dodatkowe_instrukcje": "Domagam si? r??owych zas?on!",
+      "dodatkowe_instrukcje": "Domagam się różowych zasłon!",
       "kod": "Axi8291oaAAx",
-      "cena_dorosly": 100,
-      "cena_dziecko": 50
+      "notatka": "Różowe zasłony zawieszone.",
+      "cena_dorosly": "40.00",
+      "cena_dziecko": "25.00"
     }
   },
   {
@@ -863,11 +1101,12 @@
       "koniec_pobytu": "2013-11-05",
       "email": "emilia.cwierk@hotmail.com",
       "telefon": "",
-      "nazwisko": "?wierk",
+      "nazwisko": "Ćwierk",
       "dodatkowe_instrukcje": "",
       "kod": "2i9XaZ01su2I",
-      "cena_dorosly": 100,
-      "cena_dziecko": 50
+      "notatka": "",
+      "cena_dorosly": "40.00",
+      "cena_dziecko": "25.00"
     }
   },
   {
@@ -881,8 +1120,9 @@
       "nazwisko": "Ziele",
       "dodatkowe_instrukcje": "",
       "kod": "si2maAx2kA1d",
-      "cena_dorosly": 100,
-      "cena_dziecko": 50
+      "notatka": "",
+      "cena_dorosly": "40.00",
+      "cena_dziecko": "25.00"
     }
   },
   {
@@ -896,8 +1136,9 @@
       "nazwisko": "Sienkiewicz",
       "dodatkowe_instrukcje": "",
       "kod": "op01mS91am22",
-      "cena_dorosly": 100,
-      "cena_dziecko": 50
+      "notatka": "",
+      "cena_dorosly": "40.00",
+      "cena_dziecko": "25.00"
     }
   },
   {
@@ -911,8 +1152,9 @@
       "nazwisko": "Tober",
       "dodatkowe_instrukcje": "",
       "kod": "25kax0La1Xa1",
-      "cena_dorosly": 100,
-      "cena_dziecko": 50
+      "notatka": "",
+      "cena_dorosly": "40.00",
+      "cena_dziecko": "25.00"
     }
   },
   {
@@ -926,8 +1168,9 @@
       "nazwisko": "Turkos",
       "dodatkowe_instrukcje": "",
       "kod": "91mx9am1ssja",
-      "cena_dorosly": 100,
-      "cena_dziecko": 50
+      "notatka": "",
+      "cena_dorosly": "40.00",
+      "cena_dziecko": "25.00"
     }
   },
   {
@@ -1008,8 +1251,8 @@
     "fields": {
       "rezerwacja": "1",
       "pokoj": "1",
-      "doroslych": 1,
-      "dzieci": 1,
+      "doroslych": "1",
+      "dzieci": "1",
       "cena": "270.00"
     }
   },
@@ -1019,8 +1262,8 @@
     "fields": {
       "rezerwacja": "2",
       "pokoj": "8",
-      "doroslych": 1,
-      "dzieci": 1,
+      "doroslych": "2",
+      "dzieci": "0",
       "cena": "900.00"
     }
   },
@@ -1030,8 +1273,8 @@
     "fields": {
       "rezerwacja": "3",
       "pokoj": "2",
-      "doroslych": 1,
-      "dzieci": 1,
+      "doroslych": "1",
+      "dzieci": "0",
       "cena": "225.00"
     }
   },
@@ -1041,8 +1284,8 @@
     "fields": {
       "rezerwacja": "4",
       "pokoj": "3",
-      "doroslych": 1,
-      "dzieci": 1,
+      "doroslych": "3",
+      "dzieci": "0",
       "cena": "480.00"
     }
   },
@@ -1052,8 +1295,8 @@
     "fields": {
       "rezerwacja": "5",
       "pokoj": "9",
-      "doroslych": 1,
-      "dzieci": 1,
+      "doroslych": "2",
+      "dzieci": "0",
       "cena": "510.00"
     }
   },
@@ -1063,8 +1306,8 @@
     "fields": {
       "rezerwacja": "6",
       "pokoj": "5",
-      "doroslych": 1,
-      "dzieci": 1,
+      "doroslych": "2",
+      "dzieci": "0",
       "cena": "420.00"
     }
   },
@@ -1074,8 +1317,8 @@
     "fields": {
       "rezerwacja": "7",
       "pokoj": "2",
-      "doroslych": 1,
-      "dzieci": 1,
+      "doroslych": "1",
+      "dzieci": "0",
       "cena": "675.00"
     }
   },
@@ -1085,8 +1328,8 @@
     "fields": {
       "rezerwacja": "8",
       "pokoj": "10",
-      "doroslych": 1,
-      "dzieci": 1,
+      "doroslych": "2",
+      "dzieci": "1",
       "cena": "450.00"
     }
   },
@@ -1096,8 +1339,8 @@
     "fields": {
       "rezerwacja": "9",
       "pokoj": "1",
-      "doroslych": 1,
-      "dzieci": 1,
+      "doroslych": "2",
+      "dzieci": "0",
       "cena": "360.00"
     }
   },
@@ -1107,8 +1350,8 @@
     "fields": {
       "rezerwacja": "10",
       "pokoj": "2",
-      "doroslych": 1,
-      "dzieci": 1,
+      "doroslych": "1",
+      "dzieci": "0",
       "cena": "225.00"
     }
   },
@@ -1118,8 +1361,8 @@
     "fields": {
       "rezerwacja": "10",
       "pokoj": "9",
-      "doroslych": 1,
-      "dzieci": 1,
+      "doroslych": "2",
+      "dzieci": "0",
       "cena": "510.00"
     }
   }

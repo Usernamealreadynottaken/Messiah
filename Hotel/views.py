@@ -2,19 +2,19 @@ from datetime import date
 from django.shortcuts import render
 import random
 from django.contrib.auth.decorators import login_required
-
+from django.core.exceptions import ObjectDoesNotExist
 
 # Zeby skorzystac z ajaxa potrzebujemy zwrocic HttpResponse object.
 # Jesli korzystamy ze skrotu ajax po prostu zwraca error.
-from django.http import HttpResponse, Http404, HttpResponseRedirect
-from django.core.urlresolvers import reverse
+from django.http import HttpResponse, Http404
 
-from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji
+# Nasze modele
+from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie
 
 
 @login_required
 def wiadomosci(request):
-    return render(request, 'hotel/wiadomosci.html')
+    return render(request, 'hotel/wiadomosci.html', {'wiadomosci': Wiadomosc.objects.all()})
 
 
 def glowna(request):
@@ -30,15 +30,37 @@ def rezerwacje(request):
         'uslugi_zewnetrzne': uslugi_zewnetrzne
     })
 
+def cennik(request):
+    uslugi_wewnetrzne = Usluga.objects.filter(zewnetrzna=False)
+    uslugi_zewnetrzne = Usluga.objects.filter(zewnetrzna=True)
+    return render(request, 'hotel/cennik.html', {
+        'kategorie': KategoriaJedzenia.objects.all(),
+        'jedzenie': Jedzenie.objects.all(),
+        'uslugi_wewnetrzne': uslugi_wewnetrzne,
+        'uslugi_zewnetrzne': uslugi_zewnetrzne
+    })
+
 
 def kod_rezerwacji():
+    # Najpierw zbierzmy wszystkie kody jakie zostaly juz przydzielone
+    kody = []
+    for r in Rezerwacja.objects.all():
+        kody.append(r.kod)
+
     symbols = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
     kod = ''
-    for i in range(0, 12):
-        kod += random.choice(symbols)
+    while True:
+        for i in range(0, 12):
+            kod += random.choice(symbols)
+        if not kod in kody:
+            break
+
     return kod
 
 
+# Widok do wykonania rezerwacji
+# Sprawdza czy zaznaczone przez uzytkownika pokoje/liczba osob w ogole mozna wynajac
+# i jesli mozna to tworzy w bazie danych odpowiednia rezerwacje
 def rezerwacje_wyslij(request):
     response_message = 'success'
     try:
@@ -175,22 +197,20 @@ def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje):
                             r.poczatek_pobytu <= poczatek_pobytu <= r.koniec_pobytu:
                         if r.pokojnarezerwacji_set.filter(pokoj__pk=room):
                             rooms_to_remove.append(room)
+                            break
 
             # Usuwamy znalezione zajete pokoje
             for room in rooms_to_remove:
                 try:
                     viable_rooms.remove(room)
-                except KeyError:
+                except ValueError:
                     pass
 
             # Do tego trzeba usunac wszystkie pokoje ktore juz sa na liscie zwracanej
             for key, value in return_status.items():
                 try:
                     rpk = int(value)
-                    try:
-                        viable_rooms.remove(rpk)
-                    except KeyError:
-                        pass
+                    viable_rooms.remove(rpk)
                 except ValueError:
                     pass
 
@@ -203,16 +223,20 @@ def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje):
     return return_status
 
 
+# Ten widok obsluguje zapytanie asynchroniczne w momencie wybierania pokojow/ilosci osob
+# i sprawdza czy zaznaczone przez uzytkownika pokoje w ogole mozna wynajac
 def rezerwacje_sprawdz(request):
     if request.is_ajax():
-
         try:
             # Konwersja dat ze stringow do date
             poczatek_pobytu_split = request.GET['poczatekPobytu'].split('/')
             koniec_pobytu_split = request.GET['koniecPobytu'].split('/')
-            poczatek_pobytu = date(int(poczatek_pobytu_split[2]), int(poczatek_pobytu_split[0]), int(poczatek_pobytu_split[1]))
-            koniec_pobytu = date(int(koniec_pobytu_split[2]), int(koniec_pobytu_split[0]), int(koniec_pobytu_split[1]))
-
+            poczatek_pobytu = date(int(poczatek_pobytu_split[2]),
+                                   int(poczatek_pobytu_split[0]),
+                                   int(poczatek_pobytu_split[1]))
+            koniec_pobytu = date(int(koniec_pobytu_split[2]),
+                                 int(koniec_pobytu_split[0]),
+                                 int(koniec_pobytu_split[1]))
             # Slownik z wymaganymi rozmiarami pokojow
             wymagane_pokoje = {'ilosc': int(request.GET['iloscPokojow'])}
             dorosli_dzieci = {}
@@ -260,4 +284,67 @@ def rezerwacje_sprawdz(request):
 
         return HttpResponse(response)
     else:
+        raise Http404
+
+
+# Widok do ajaxa sprawdzajacego czy rezerwacja o podanym numerze rezerwacji istnieje
+def rezerwacje_sprawdz_kod(request, code):
+    if request.is_ajax():
+        try:
+            requested_res = Rezerwacja.objects.get(kod=code)
+            response = "true"
+        except ObjectDoesNotExist:
+            response = "false"
+        return HttpResponse(response)
+    else:
+        raise Http404
+
+
+def rezerwacje_kod(request, code):
+    try:
+        requested_res = Rezerwacja.objects.get(kod=code)
+
+        # Daty wyswietlane na stronie maja inny format niz __unicode__ clasy data
+        # wiec trzeba przekonwertowac
+        dzien = str(requested_res.poczatek_pobytu.day)
+        if len(dzien) == 1:
+            dzien = '0' + dzien
+        miesiac = str(requested_res.poczatek_pobytu.month)
+        if len(miesiac) == 1:
+            miesiac = '0' + miesiac
+        poczatek_pobytu = '%s/%s/%d' % (miesiac, dzien, requested_res.poczatek_pobytu.year,)
+
+        dzien = str(requested_res.koniec_pobytu.day)
+        if len(dzien) == 1:
+            dzien = '0' + dzien
+        miesiac = str(requested_res.koniec_pobytu.month)
+        if len(miesiac) == 1:
+            miesiac = '0' + miesiac
+        koniec_pobytu = '%s/%s/%d' % (miesiac, dzien, requested_res.koniec_pobytu.year,)
+        print koniec_pobytu
+
+        # Liczba pokoi
+        liczba_pokoi = PokojNaRezerwacji.objects.filter(rezerwacja=requested_res).count()
+
+        # Lista uslug ktore sa na tej rezerwacji
+        uslugi = []
+        for unr in UslugaNaRezerwacji.objects.filter(rezerwacja=requested_res):
+            uslugi.append(unr.usluga.pk)
+
+        # Lista uslug jest potrzebna zeby w ogole wyrenderowac strone
+        uslugi_wewnetrzne = Usluga.objects.filter(zewnetrzna=False)
+        uslugi_zewnetrzne = Usluga.objects.filter(zewnetrzna=True)
+
+        return render(request, 'hotel/rezerwacje.html', {
+            'uslugi_all': Usluga.objects.all(),
+            'uslugi_wewnetrzne': uslugi_wewnetrzne,
+            'uslugi_zewnetrzne': uslugi_zewnetrzne,
+            'rezerwacja_do_edycji': requested_res,
+            'poczatek_pobytu': poczatek_pobytu,
+            'koniec_pobytu': koniec_pobytu,
+            'liczba_pokoi': liczba_pokoi,
+            'uslugi': uslugi
+        })
+
+    except ObjectDoesNotExist:
         raise Http404
