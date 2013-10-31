@@ -242,7 +242,7 @@ function sprawdzPoprawnosc() {
         $(".dateFrom-error").animate({
             "height": "0",
         });
-		        var days = $(".date-to").val().substring(3,5);
+		var days = $(".date-to").val().substring(3,5);
         var months = $(".date-to").val().substring(0, 2) - 1;
         var years = $(".date-to").val().substring(6);
         var dateTo = new Date(years, months, days);
@@ -254,35 +254,29 @@ function sprawdzPoprawnosc() {
             $(".dateTo-error").animate({
                 "height": "0",
             });
-    var toSend = {
-            csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
-            poczatekPobytu: $(".date-from").val(),
-            koniecPobytu: $(".date-to").val(),
-            iloscPokojow: $(".rooms").val(),
-            dorosli1: $(".adults1").val(),
-            dzieci1: $(".kids1").val(),
-            dorosli2: $(".adults2").val(),
-            dzieci2: $(".kids2").val(),
-            dorosli3: $(".adults3").val(),
-            dzieci3: $(".kids3").val(){% if rezerwacja_do_edycji %},
-            kod: "{{ rezerwacja_do_edycji.kod }}"{% else %},
-            kod: ""{% endif %}
-        };
-    $.ajax({
-        type: "GET",
-        // dataType: "html",
-        url: "{% url 'hotel:rezerwacje_sprawdz' %}",
-        data: toSend
-    })
-        .done(function(data) {
-            var parsed = $.parseJSON(data);
 
-
-
-
-
-
-
+            var toSend = {
+                    csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
+                    poczatekPobytu: $(".date-from").val(),
+                    koniecPobytu: $(".date-to").val(),
+                    iloscPokojow: $(".rooms").val(),
+                    dorosli1: $(".adults1").val(),
+                    dzieci1: $(".kids1").val(),
+                    dorosli2: $(".adults2").val(),
+                    dzieci2: $(".kids2").val(),
+                    dorosli3: $(".adults3").val(),
+                    dzieci3: $(".kids3").val(){% if rezerwacja_do_edycji %},
+                    kod: "{{ rezerwacja_do_edycji.kod }}"{% else %},
+                    kod: ""{% endif %}
+                };
+            $.ajax({
+                type: "GET",
+                // dataType: "html",
+                url: "{% url 'hotel:rezerwacje_sprawdz' %}",
+                data: toSend
+            })
+                .done(function(data) {
+                    var parsed = $.parseJSON(data);
                     // Patrzymy na tyle pokojow ile mamy zaznaczone i czy sa tam liczby
                     var error = "";
                     for ( var i = 1; i <= $(".rooms").val(); i++ ) {
@@ -319,6 +313,7 @@ function sprawdzPoprawnosc() {
                 .fail(function(xhr, textStatus, errorThrown) {
                     alert("Error: " + errorThrown + xhr.status + xhr.responseText);
                 });
+                return true;
         } else {
             $(".date-to").parent().removeClass("positive-input");
             $(".date-to").parent().addClass("negative-input");
@@ -328,6 +323,7 @@ function sprawdzPoprawnosc() {
             $(".dateTo-error").animate({
                 "height": "28px",
             });
+            return false;
         }
     } else {
         $(".date-from").parent().removeClass("positive-input");
@@ -338,6 +334,7 @@ function sprawdzPoprawnosc() {
         $(".dateFrom-error").animate({
             "height": "28px",
         });
+        return false;
     }
 }
 
@@ -376,50 +373,34 @@ $(".code-send").click(function() {
 })
 
 $(".send").click(function() {
-    var currentDate = new Date();
-    currentDate.setDate(currentDate.getDate() -1);
-    var days = $(".datepicker-from").datepicker("getDate").getDate();
-    var months = $(".datepicker-from").datepicker("getDate").getMonth();
-    var years = $(".datepicker-from").datepicker("getDate").getFullYear();
-    var dateFrom = new Date(years, months, days);
-    if (currentDate < dateFrom) {
-        days = $(".datepicker-to").datepicker("getDate").getDate();
-        months = $(".datepicker-to").datepicker("getDate").getMonth();
-        years = $(".datepicker-to").datepicker("getDate").getFullYear();
-        var dateTo = new Date(years, months, days);
-        if (dateFrom <= dateTo) {
+    if (sprawdzPoprawnosc() && validateName($('input[name=name]')) && validateEmail($('input[name=email]'))) {
+        {% if rezerwacja_do_edycji %}
+        $("form").ajaxForm(function(data) {
+            alert(data);
+        });
 
-            {% if rezerwacja_do_edycji %}
-            $("form").ajaxForm(function(data) {
-                alert(data);
-            });
+        {% else %}
+        $("form").ajaxForm(function(data) {
+            var parsed = $.parseJSON(data);
 
-            {% else %}
-            $("form").ajaxForm(function(data) {
-                var parsed = $.parseJSON(data);
-
-                if (parsed["message"] && parsed["message"] == "success") {
-                    if (parsed["kod"]) {
-                        $(".success").html("Udalo sie zarezerwowac!<br /><br >Twoj kod rezerwacji to: " + parsed["kod"]);
-                    } else {
-                        $(".success").html("Udalo sie zarezerwowac!<br /><br >Serwer nie wyslal kodu rezerwacji!");
-                    }
-                } else if (parsed["message"] && parsed["message"] == "validation_error") {
-                    $(".success").html("Nie mozna zarezerwowac tego pokoju na ten termin.");
-                } else if (parsed["message"] && parsed["message"] == "site_error") {
-                    $(".success").html("Serwer otrzymal uszkodzone dane.");
+            if (parsed["message"] && parsed["message"] == "success") {
+                if (parsed["kod"]) {
+                    $(".success").html("Udalo sie zarezerwowac!<br /><br >Twoj kod rezerwacji to: " + parsed["kod"]);
                 } else {
-                    $(".success").html("Stalo sie cos czego nawet programista nie przewidzial.");
+                    $(".success").html("Udalo sie zarezerwowac!<br /><br >Serwer nie wyslal kodu rezerwacji!");
                 }
-            });
-            {% endif %}
-            $("form").submit();
-
-        } else {
-            $(".success").html("Bledne daty!");
-        }
+            } else if (parsed["message"] && parsed["message"] == "validation_error") {
+                $(".success").html("Nie mozna zarezerwowac tego pokoju na ten termin.");
+            } else if (parsed["message"] && parsed["message"] == "site_error") {
+                $(".success").html("Serwer otrzymal uszkodzone dane.");
+            } else {
+                $(".success").html("Stalo sie cos czego nawet programista nie przewidzial.");
+            }
+        });
+        {% endif %}
+        $("form").submit();
     } else {
-        $(".success").html("Za wczesna data poczatkowa!");
+        alert("Nie zwalidowane");
     }
 })
 

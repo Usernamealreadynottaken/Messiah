@@ -305,6 +305,8 @@ def rezerwacje_wyslij_kod(request, code):
                 if k.startswith('in') or k.startswith('out'):
                     uslugi.append(int(v))
 
+            # TODO:
+            # Usunac printy
             print 'Uslugi'
             print uslugi
 
@@ -323,10 +325,11 @@ def rezerwacje_wyslij_kod(request, code):
                                                   cena=0)
                     nowa_unr.save()
 
-            # DATY
+            # DATY I DODATKOWE ZYCZENIA
 
             requested_res.poczatek_pobytu = poczatek_pobytu
             requested_res.koniec_pobytu = koniec_pobytu
+            requested_res.dodatkowe_instrukcje = request.POST['requests']
             requested_res.save()
 
         return HttpResponse(response_message)

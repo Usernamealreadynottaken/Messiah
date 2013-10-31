@@ -1,4 +1,3 @@
-
 $(".rezerwacje_class").addClass("selected");
 
 $(".rooms").change(function() {
@@ -26,7 +25,8 @@ $(".kids2").change(function() {
 })
 
 $(".kids3").change(function() {
-    sprawdzPoprawnosc();
+    sprawdzPoprawnosc()
+});
 
 function validateName(input) {
     if ($(input).val() == "") {
@@ -35,12 +35,14 @@ function validateName(input) {
         $(".name-error").animate({
             "height": "28px",
         });
+        return false;
     } else {
         $(input).parent().removeClass("negative-input");
         $(input).parent().addClass("positive-input");
         $(".name-error").animate({
             "height": "0",
         });
+        return true;
     }
 }
 
@@ -55,12 +57,14 @@ function validateEmail(input) {
         $(".email-error").animate({
             "height": "28px",
         });
+        return false;
     } else {
         $(input).parent().removeClass("negative-input");
         $(input).parent().addClass("positive-input");
         $(".email-error").animate({
             "height": "0",
         });
+        return true;
     }
 }
 
