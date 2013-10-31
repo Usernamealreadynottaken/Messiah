@@ -51,11 +51,7 @@
                 </tr>
                 <tr>
                     <td>Poczatek pobytu:</td>
-                    <td colspan="3"><input class="date-from" type="text" name="date-from"
-                            {% if poczatek_pobytu %}
-                            value="{{ poczatek_pobytu }}"
-                            {% endif %}
-                            required></td>
+                    <td colspan="3"><input class="date-from" type="text" name="date-from" required></td>
                 </tr>
                 <tr class="error-row">
                     <td colspan="4"><p class="dateFrom-error"></p></td>
@@ -462,16 +458,27 @@ $(".date-to").focusout(function() {
     sprawdzPoprawnosc();
 });
 
+{% if poczatek_pobytu %}
+    var poczatek_pobytu = new Date("{{ poczatek_pobytu }}");
+{% endif %}
+
+{% if koniec_pobytu %}
+    var koniec_pobytu = new Date("{{ koniec_pobytu }}");
+{% endif %}
+
 $(".datepicker-from").datepicker({
     onSelect: function() {
         sprawdzPoprawnosc();
     },
+    {% if poczatek_pobytu %}defaultDate:  poczatek_pobytu,{% endif %}
     altField: ".date-from",
 });
 $(".datepicker-to").datepicker({
     onSelect: function() {
         sprawdzPoprawnosc();
     },
+    defaultDate: +1,
+    {% if koniec_pobytu %}defaultDate: koniec_pobytu,{% endif %}
     altField: ".date-to",
 });
 

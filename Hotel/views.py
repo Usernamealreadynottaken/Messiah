@@ -22,6 +22,9 @@ def wiadomosci(request):
 def glowna(request):
     return render(request, 'hotel/index.html')
 
+def wizualizacja(request):
+    return render(request, 'hotel/wizualizacja.html')
+
 
 def rezerwacje(request):
     uslugi_wewnetrzne = Usluga.objects.filter(zewnetrzna=False)

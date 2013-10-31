@@ -420,3 +420,144 @@ body {
         }
     }
 }
+
+#visualization {
+    .gradient(#08af9d, #1e777f);
+    padding: 0 0 50px 0;
+
+    .title {
+        padding: 20px 0;
+        text-align: center;
+
+        h1 {
+            background-image: url(img/title-head.jpg);
+            height: 50px;
+            line-height: 50px;
+            margin: 0 auto;
+            width: 600px;
+        }
+    }
+
+    .visualization-content {
+        background-color: #ecc176;
+        margin: 0 auto;
+        position: relative;
+        width: 900px;
+
+        &:before {
+            background-image: url(img/content-nw.png);
+            top: -10px;
+            content: " ";
+            height: 200px;
+            left: -10px;
+            position: absolute;
+            width: 200px;
+            z-index: 1;
+        }
+
+        &:after {
+            background-image: url('img/content-se.png');
+            bottom: -10px;
+            content: " ";
+            height: 200px;
+            right: -10px;
+            position: absolute;
+            width: 200px;
+            z-index: 1;
+        }
+
+        .rooms {
+            padding: 80px 30px 30px 30px;
+
+            h2 {
+                font-size: 40px;
+                text-align: center;
+            }
+
+            ul {
+                margin: 0;
+                list-style: none;
+                text-align: center;
+                padding: 0 30px;
+
+                li {
+                    display: inline-block;
+                    position: relative;
+                    vertical-align: text-top;
+
+                    &:hover .desc {
+                        display: block;
+                    }
+
+                    &>img {
+                        cursor: pointer;
+                        height: 75px;
+                        width: 150px;
+                    }
+
+                    .desc {
+                        background: white;
+                        display: none;
+                        width: 600px;
+                        position: absolute;
+                        bottom: 100%;
+                        z-index: 2;
+                        border-radius: 25px;
+                        -moz-border-radius: 25px;
+                        -webkit-border-radius: 25px;
+                        border: 2px solid #800000;
+                        text-align: left;
+
+                        img {
+                            display: inline-block;
+                            float: left;
+                            height: 150px;
+                            padding: 10px;
+                            width: 300px;
+                            border-radius: 25px;
+                            -moz-border-radius: 25px;
+                            -webkit-border-radius: 25px;
+                        }
+
+                        p {
+                            diplay: inline;
+                            padding: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .gallery {
+            padding: 0 0 60px 0;
+
+            .flexslider {
+                height: 500px;
+                margin: auto;
+                width: 780px;
+
+                img {
+                    height: 500px;
+                    margin: 0;
+                    padding: 0;
+                    width: 780px;
+                }
+            }
+
+            h2 {
+                text-align: center;
+            }
+
+            ul {
+                list-style: none;
+
+            }
+
+            ol {
+                list-style: none;
+            }
+        }
+
+    }
+
+}
