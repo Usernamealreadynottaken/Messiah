@@ -109,11 +109,11 @@ body {
                     background-position: 0 -50px;
                 }
 
-                &:click {
+                &:active {
                     background-position: 0 -100px;
                 }
 
-                &.active {
+                &.selected {
                     background-position: 0 -150px;
                 }
             }
@@ -257,16 +257,87 @@ body {
             }
 
             &>table {
-                height: 280px;
                 vertical-align: text-top;
 
                 .room2, .room3 {
-                    display: none;
+                    opacity: 0;
                 }
             }
 
+
             table input {
-                width: 200px;
+                padding: 1px 18px 1px 2px;
+                width: 180px;
+            }
+
+            .positive-input {
+                position: relative;
+
+                &:after {
+                    background: green;
+                    content: "";
+                    height: 12px;
+                    position: absolute;
+                    right: 8px;
+                    top: 8px;
+                    width: 12px;
+                    z-index: 1;
+                }
+
+                input {
+                    border-color: green;
+                }
+            }
+
+            .negative-input {
+                position: relative;
+
+                &:after {
+                    background: red;
+                    content: "";
+                    height: 12px;
+                    position: absolute;
+                    right: 8px;
+                    top: 8px;
+                    width: 12px;
+                    z-index: 1;
+                }
+
+                input {
+                    border-color: red;
+                }
+            }
+
+            .error-row {
+                padding: 0;
+            }
+
+            .name-error {
+                height: 0;
+                margin: 0;
+                overflow: hidden;
+                text-align: right;
+            }
+
+            .email-error {
+                height: 0;
+                margin: 0;
+                overflow: hidden;
+                text-align: right;
+            }
+
+            .dateFrom-error {
+                height: 0;
+                margin: 0;
+                overflow: hidden;
+                text-align: right;
+            }
+
+            .dateTo-error {
+                height: 0;
+                margin: 0;
+                overflow: hidden;
+                text-align: right;
             }
 
             table .rooms {
@@ -293,7 +364,7 @@ body {
 
                 &>div {
                     position: absolute;
-                    top: -10px;
+                    top: -12px;
                 }
 
                 .calendar-to {

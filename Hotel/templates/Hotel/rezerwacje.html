@@ -32,6 +32,9 @@
                             {% if rezerwacja_do_edycji %} value="{{ rezerwacja_do_edycji.nazwisko }}"{% endif %}
                             required autofocus></td>
                 </tr>
+                <tr class="error-row">
+                    <td colspan="4"><p class="name-error">Pole nie moze byc puste.</p></td>
+                </tr>
                 <tr>
                     <td>Telefon:</td>
                     <td colspan="3"><input type="tel" name="tel"
@@ -43,21 +46,28 @@
                             {% if rezerwacja_do_edycji %} value="{{ rezerwacja_do_edycji.email }}"{% endif %}
                             required></td>
                 </tr>
+                <tr class="error-row">
+                    <td colspan="4"><p class="email-error">Email musi byc w formacie local@domain</p></td>
+                </tr>
                 <tr>
                     <td>Poczatek pobytu:</td>
                     <td colspan="3"><input class="date-from" type="text" name="date-from"
                             {% if poczatek_pobytu %}
                             value="{{ poczatek_pobytu }}"
                             {% endif %}
-                            required
-                            pattern="(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])/31))/[0-9]{4}"></td>
+                            required></td>
+                </tr>
+                <tr class="error-row">
+                    <td colspan="4"><p class="dateFrom-error"></p></td>
                 </tr>
                 <tr>
                     <td>Koniec pobytu:</td>
                     <td colspan="3"><input class="date-to" type="text" name="date-to"
                             {% if koniec_pobytu %} value="{{ koniec_pobytu }}"{% endif %}
-                            required
-                            pattern="(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])/31))/[0-9]{4}"></td>
+                            required></td>
+                </tr>
+                <tr class="error-row">
+                    <td colspan="4"><p class="dateTo-error"></p></td>
                 </tr>
                 <tr>
                     <td>Liczba pokoi:</td>
@@ -70,7 +80,7 @@
                     </td>
                 </tr>
                 <tr class="room1">
-                    <td>Dorosli:</td>
+                    <td>Pokoj 1 - Dorosli:</td>
                     <td>
                         <select class="adults1" name="adults1">
                             <option value="0">0</option>
@@ -94,7 +104,7 @@
                     </td>
                 </tr>
                 <tr class="room2">
-                    <td>Dorosli:</td>
+                    <td>Pokoj 2 - Dorosli:</td>
                     <td>
                         <select class="adults2" name="adults2">
                             <option value="0">0</option>
@@ -118,7 +128,7 @@
                     </td>
                 </tr>
                 <tr class="room3">
-                    <td>Dorosli:</td>
+                    <td>Pokoj 3 - Dorosli:</td>
                     <td>
                         <select class="adults3" name="adults3">
                             <option value="0">0</option>
@@ -199,18 +209,13 @@
                 <textarea name="requests" rows="4" cols="50">{% if rezerwacja_do_edycji %}{{ rezerwacja_do_edycji.dodatkowe_instrukcje }}{% endif %}</textarea>
                 <p>Cena pobytu za wynajem <span class="NoRooms">x</span>
                     pokoi na <span class="NoNights">y</span> nocy:
-                    <input class="price" type="text" name="price" disabled="disabled"></p>
-                <input type="button" class="send" value="Zarezerwuj" />
-                <p class="send">Wyslij TEST</p>
+                    <span class="price">1</span> </p>
+                <a class="send">Zarezerwuj</a>
             </div> <!-- .summary -->
 
         </form>
 
     </div> <!-- .reservations-content -->
-
-    <div class="success">
-        No post.
-    </div> <!-- .success -->
 
 </div> <!-- .reservations -->
 
@@ -222,7 +227,33 @@
 <script src="{% static 'Hotel/js/rezerwacje.js' %}"></script>
 
 <script>
+
 function sprawdzPoprawnosc() {
+    var currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() -1);
+    var days = $(".date-from").val().substring(3,5);
+    var months = $(".date-from").val().substring(0, 2) - 1;
+    var years = $(".date-from").val().substring(6);
+    var dateFrom = new Date(years, months, days);
+    var inputFrom = $(".date-from").val();
+    if (validateDate(inputFrom, ".dateFrom-error") && currentDate < dateFrom) {
+        $(".date-from").parent().removeClass("negative-input");
+        $(".date-from").parent().addClass("positive-input");
+        $(".dateFrom-error").animate({
+            "height": "0",
+        });
+		        var days = $(".date-to").val().substring(3,5);
+        var months = $(".date-to").val().substring(0, 2) - 1;
+        var years = $(".date-to").val().substring(6);
+        var dateTo = new Date(years, months, days);
+        var inputTo = $(".date-to").val();
+        if (validateDate(inputTo, ".dateTo-error") && dateFrom < dateTo) {
+            $(".date-to").parent().removeClass("negative-input");
+            $(".date-to").parent().addClass("positive-input");
+
+            $(".dateTo-error").animate({
+                "height": "0",
+            });
     var toSend = {
             csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
             poczatekPobytu: $(".date-from").val(),
@@ -246,42 +277,68 @@ function sprawdzPoprawnosc() {
         .done(function(data) {
             var parsed = $.parseJSON(data);
 
-            // Patrzymy na tyle pokojow ile mamy zaznaczone i czy sa tam liczby
-            var error = "";
-            for ( var i = 1; i <= $(".rooms").val(); i++ ) {
-                var cur_pokoj = "pokoj" + i
-                if (parsed[cur_pokoj]) {
-                    if (!$.isNumeric(parsed[cur_pokoj])) {
 
-                        // Jesli w otrzymanym JSONie pod haslem 'pokojN' nie ma liczby (pk pokoju)
-                        // to znaczy ze jest jakis blad, wiec wypisujemy stosowny message
-                        if (parsed[cur_pokoj] == "not_checked") {
-                            error += "Pokoj " + i + " nie zostal zweryfikowany przez serwer.<br />";
-                        } else if (parsed[cur_pokoj] == "zero_selected") {
-                            error += "W pokoju nr " + i + " jest wybrane 0 osob.<br />";
-                        } else if (parsed[cur_pokoj] == "over_max_capacity") {
-                            error += "Pokoj " + i + " - za duzo osob.<br />";
-                        } else if (parsed[cur_pokoj] == "no_free_rooms") {
-                            error += "Pokoj " + i + " - brak wolnych pokojow.<br />";
+
+
+
+
+
+                    // Patrzymy na tyle pokojow ile mamy zaznaczone i czy sa tam liczby
+                    var error = "";
+                    for ( var i = 1; i <= $(".rooms").val(); i++ ) {
+                        var cur_pokoj = "pokoj" + i
+                        if (parsed[cur_pokoj]) {
+                            if (!$.isNumeric(parsed[cur_pokoj])) {
+
+                                // Jesli w otrzymanym JSONie pod haslem 'pokojN' nie ma liczby (pk pokoju)
+                                // to znaczy ze jest jakis blad, wiec wypisujemy stosowny message
+                                if (parsed[cur_pokoj] == "not_checked") {
+                                    error += "Pokoj " + i + " nie zostal zweryfikowany przez serwer.<br />";
+                                } else if (parsed[cur_pokoj] == "zero_selected") {
+                                    error += "W pokoju nr " + i + " jest wybrane 0 osob.<br />";
+                                } else if (parsed[cur_pokoj] == "over_max_capacity") {
+                                    error += "Pokoj " + i + " - za duzo osob.<br />";
+                                } else if (parsed[cur_pokoj] == "no_free_rooms") {
+                                    error += "Pokoj " + i + " - brak wolnych pokojow.<br />";
+                                } else {
+                                    error += "Wystapil blad ktory powinien nie istniec.<br />";
+                                }
+
+                            }
+
                         } else {
-                            error += "Wystapil blad ktory powinien nie istniec.<br />";
+                            // Mimo zaznaczonej ilosci pokojow z jakiegos powodu nie dostalismy w ogole
+                            // informacji o n-tym pokoju od serwera
+                            error += "Pokoj " + i + " - blad po stronie serwera.<br />"
                         }
-
                     }
 
-                } else {
-                    // Mimo zaznaczonej ilosci pokojow z jakiegos powodu nie dostalismy w ogole
-                    // informacji o n-tym pokoju od serwera
-                    error += "Pokoj " + i + " - blad po stronie serwera.<br />"
-                }
+                    // Jesli byly bledy zwiazane z jakims pokojem to wypisujemy na stronie
+                    $(".error").html(error);
+                })
+                .fail(function(xhr, textStatus, errorThrown) {
+                    alert("Error: " + errorThrown + xhr.status + xhr.responseText);
+                });
+        } else {
+            $(".date-to").parent().removeClass("positive-input");
+            $(".date-to").parent().addClass("negative-input");
+            if ($(".dateTo-error").text() == "") {
+                $(".dateTo-error").text("Za wczesna data wyjazdu.");
             }
-
-            // Jesli byly bledy zwiazane z jakims pokojem to wypisujemy na stronie
-            $(".error").html(error);
-        })
-        .fail(function(xhr, textStatus, errorThrown) {
-            alert("Error: " + errorThrown + xhr.status + xhr.responseText);
+            $(".dateTo-error").animate({
+                "height": "28px",
+            });
+        }
+    } else {
+        $(".date-from").parent().removeClass("positive-input");
+        $(".date-from").parent().addClass("negative-input");
+        if ($(".dateFrom-error").text() == "") {
+            $(".dateFrom-error").text("Za wczesna data przyjazdu.");
+        }
+        $(".dateFrom-error").animate({
+            "height": "28px",
         });
+    }
 }
 
 $(".code-send").click(function() {
@@ -415,6 +472,28 @@ $(document).ready(function() {
     {% endif %}
 })
 {% endif %}
+
+$(".date-from").focusout(function() {
+    sprawdzPoprawnosc();
+});
+
+$(".date-to").focusout(function() {
+    sprawdzPoprawnosc();
+});
+
+$(".datepicker-from").datepicker({
+    onSelect: function() {
+        sprawdzPoprawnosc();
+    },
+    altField: ".date-from",
+});
+$(".datepicker-to").datepicker({
+    onSelect: function() {
+        sprawdzPoprawnosc();
+    },
+    altField: ".date-to",
+});
+
 </script>
 
 {% endblock %}
