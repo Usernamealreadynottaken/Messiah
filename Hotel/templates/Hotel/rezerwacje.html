@@ -233,7 +233,9 @@ function sprawdzPoprawnosc() {
             dorosli2: $(".adults2").val(),
             dzieci2: $(".kids2").val(),
             dorosli3: $(".adults3").val(),
-            dzieci3: $(".kids3").val()
+            dzieci3: $(".kids3").val(){% if rezerwacja_do_edycji %},
+            kod: "{{ rezerwacja_do_edycji.kod }}"{% else %},
+            kod: ""{% endif %}
         };
     $.ajax({
         type: "GET",
@@ -316,11 +318,100 @@ $(".code-send").click(function() {
     }
 })
 
-{% if liczba_pokoi or uslugi %}
+$(".send").click(function() {
+    var currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() -1);
+    var days = $(".datepicker-from").datepicker("getDate").getDate();
+    var months = $(".datepicker-from").datepicker("getDate").getMonth();
+    var years = $(".datepicker-from").datepicker("getDate").getFullYear();
+    var dateFrom = new Date(years, months, days);
+    if (currentDate < dateFrom) {
+        days = $(".datepicker-to").datepicker("getDate").getDate();
+        months = $(".datepicker-to").datepicker("getDate").getMonth();
+        years = $(".datepicker-to").datepicker("getDate").getFullYear();
+        var dateTo = new Date(years, months, days);
+        if (dateFrom <= dateTo) {
+
+            {% if rezerwacja_do_edycji %}
+            $("form").ajaxForm(function(data) {
+                alert(data);
+            });
+
+            {% else %}
+            $("form").ajaxForm(function(data) {
+                var parsed = $.parseJSON(data);
+
+                if (parsed["message"] && parsed["message"] == "success") {
+                    if (parsed["kod"]) {
+                        $(".success").html("Udalo sie zarezerwowac!<br /><br >Twoj kod rezerwacji to: " + parsed["kod"]);
+                    } else {
+                        $(".success").html("Udalo sie zarezerwowac!<br /><br >Serwer nie wyslal kodu rezerwacji!");
+                    }
+                } else if (parsed["message"] && parsed["message"] == "validation_error") {
+                    $(".success").html("Nie mozna zarezerwowac tego pokoju na ten termin.");
+                } else if (parsed["message"] && parsed["message"] == "site_error") {
+                    $(".success").html("Serwer otrzymal uszkodzone dane.");
+                } else {
+                    $(".success").html("Stalo sie cos czego nawet programista nie przewidzial.");
+                }
+            });
+            {% endif %}
+            $("form").submit();
+
+        } else {
+            $(".success").html("Bledne daty!");
+        }
+    } else {
+        $(".success").html("Za wczesna data poczatkowa!");
+    }
+})
+
+{% if liczba_pokoi or uslugi or rezerwacja_do_edycji %}
 $(document).ready(function() {
     $(".rooms").val("{{ liczba_pokoi }}").trigger("change");
+
     {% if uslugi %}
     $(".additions h2").trigger("click");
+    {% endif %}
+
+    {% if doroslych1 %}
+    $(".adults1").val("{{ doroslych1 }}");
+    {% else %}
+    $(".adults1").val("0");
+    {% endif %}
+
+    {% if doroslych2 %}
+    $(".adults2").val("{{ doroslych2 }}");
+    {% else %}
+    $(".adults2").val("0");
+    {% endif %}
+
+    {% if doroslych3 %}
+    $(".adults3").val("{{ doroslych3 }}");
+    {% else %}
+    $(".adults3").val("0");
+    {% endif %}
+
+    {% if dzieci1 %}
+    $(".kids1").val("{{ dzieci1 }}");
+    {% else %}
+    $(".kids1").val("0");
+    {% endif %}
+
+    {% if dzieci2 %}
+    $(".kids2").val("{{ dzieci2 }}");
+    {% else %}
+    $(".kids2").val("0");
+    {% endif %}
+
+    {% if dzieci3 %}
+    $(".kids3").val("{{ dzieci3 }}");
+    {% else %}
+    $(".kids3").val("0");
+    {% endif %}
+
+    {% if rezerwacja_do_edycji %}
+    $("form").attr("action", "{% url 'hotel:rezerwacje_wyslij' %}" + "{{ rezerwacja_do_edycji.kod }}" + "/");
     {% endif %}
 })
 {% endif %}
