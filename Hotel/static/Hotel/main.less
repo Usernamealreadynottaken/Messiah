@@ -248,7 +248,6 @@ body {
         }
 
         form {
-            border-top: 1px dotted black;
             padding: 30px;
 
             a {
@@ -355,8 +354,12 @@ body {
 
             .calendars {
                 display: inline-block;
-                margin: 0 0 0 50px;
+                margin: 0 0 0 20px;
                 position: relative;
+
+                .calendar-to {
+                    margin-left: 50px;
+                }
 
                 p {
                     margin: 0;
@@ -385,7 +388,7 @@ body {
                     img {
                         height: 29px;
                         position: absolute;
-                        right: 200px;
+                        right: 20px;
                         width: 57px;
                     }
                 }
@@ -393,7 +396,7 @@ body {
                 div {
                     display: inline-block;
                     vertical-align: text-top;
-                    width: 45%;
+                    width: 48%;
                 }
 
                 ul {
@@ -474,16 +477,36 @@ body {
                 text-align: center;
             }
 
+            .caption {
+                border: none;
+                float: left;
+            }
+
             ul {
                 margin: 0;
                 list-style: none;
                 text-align: center;
                 padding: 0 30px;
+                position: relative;
 
                 li {
+                    border: 2px solid #800000;
                     display: inline-block;
+                    height: 75px;
                     position: relative;
                     vertical-align: text-top;
+                    width: 150px;
+
+                    &.disabled:after {
+                        background-color: rgba(100, 100, 100, 0.75);
+                        background-image: url('img/disabled-room.jpg');
+                        content: "";
+                        height: 100%;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                    }
 
                     &:hover .desc {
                         display: block;
@@ -550,7 +573,6 @@ body {
 
             ul {
                 list-style: none;
-
             }
 
             ol {
