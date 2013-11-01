@@ -26,9 +26,9 @@
             <h3 class="caption">{{ r }}-osobowe</h3>
             <ul>{% for p in pokoje %}{% if p.pokoj.rozmiar == r %}<!--
                 --><li>
-                    <img src="{{ p.zdjecie.url }}" alt="room" class="room-image room{{ p.pokoj.pk }}" />
+                    <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room" class="room-image room{{ p.pokoj.pk }}" />
                     <div class="desc">
-                        <img src="{{ p.zdjecie.url }}" alt="room"/>
+                        <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room"/>
                         <p>{{ p.pokoj.opis }}</p>
                     </div>
                 </li>{% endif %}{% endfor %}
