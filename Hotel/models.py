@@ -21,7 +21,7 @@ class Pokoj(models.Model):
     rozmiar = models.IntegerField()        # Ilosc osob.
     opis = models.TextField(blank=True)
     opis_combo = models.CharField(max_length=30)
-    dostepnosc = models.BooleanField(default=True)
+    dostepnosc = models.BooleanField(default=True, verbose_name='Jest dostepny')
     cena = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __unicode__(self):

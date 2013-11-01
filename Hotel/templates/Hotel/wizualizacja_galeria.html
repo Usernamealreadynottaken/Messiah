@@ -1,0 +1,14 @@
+{% load staticfiles %}
+{% if zdjecia %}
+<h2>Galeria</h2>
+
+<div class="flexslider">
+    <ul class="slides">
+        {% for zdjecie in zdjecia %}
+        <li>
+            <img src="{{ zdjecie.zdjecie.url }}" />
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}

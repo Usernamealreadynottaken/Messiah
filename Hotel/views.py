@@ -8,10 +8,14 @@ from django.db.models import Q
 
 # Zeby skorzystac z ajaxa potrzebujemy zwrocic HttpResponse object.
 # Jesli korzystamy ze skrotu ajax po prostu zwraca error.
+#
+# Ok okazuje sie ze powyzsze to nie prawda i jakos teraz mi dziala
+# jak zwracam ajaxowi sam render
 from django.http import HttpResponse, Http404
 
 # Nasze modele
-from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie
+from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
+    ZdjeciaPokojow
 
 
 @login_required
@@ -22,8 +26,39 @@ def wiadomosci(request):
 def glowna(request):
     return render(request, 'hotel/index.html')
 
+
 def wizualizacja(request):
-    return render(request, 'hotel/wizualizacja.html')
+    class PokojeWizualizacja:
+        zdjecie = None
+
+        def __init__(self, pokoj):
+            self.pokoj = pokoj
+            zp = ZdjeciaPokojow.objects.filter(pokoj=pokoj)
+            if zp:
+                self.zdjecie = zp[0].zdjecie
+
+    rozmiary = []
+    pokoje = []
+    for p in Pokoj.objects.filter(dostepnosc=True):
+        pokoje.append(PokojeWizualizacja(p))
+        if p.rozmiar not in rozmiary:
+            rozmiary.append(p.rozmiar)
+
+    context = {'pokoje': pokoje,
+               'rozmiary': sorted(rozmiary)}
+
+    return render(request, 'hotel/wizualizacja.html', context)
+
+
+def wizualizacja_galeria(request, pk):
+    if request.is_ajax():
+        try:
+            zdjecia = ZdjeciaPokojow.objects.filter(pokoj=Pokoj.objects.get(pk=pk))
+            return render(request, 'hotel/wizualizacja_galeria.html', {'zdjecia': zdjecia})
+        except ObjectDoesNotExist:
+            raise Http404
+    else:
+        raise Http404
 
 
 def rezerwacje(request):

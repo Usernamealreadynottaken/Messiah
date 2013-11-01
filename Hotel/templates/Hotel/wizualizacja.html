@@ -13,6 +13,7 @@
     <div class="title">
         <h1>Wizualizacja</h1>
     </div> <!-- .title -->
+    {% csrf_token %}
 
     <div class="visualization-content">
 
@@ -20,273 +21,65 @@
 
             <h2>Pokoje</h2>
 
-            <h3 class="caption">1-osobowe</h3>
-            <ul>
-                <li>
-                    <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                    <div class="desc">
-                        <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                            sequi nesciunt."</p>
-                    </div>
-                </li><!--
+            {% if pokoje and rozmiary %}
+            {% for r in rozmiary %}
+            <h3 class="caption">{{ r }}-osobowe</h3>
+            <ul>{% for p in pokoje %}{% if p.pokoj.rozmiar == r %}<!--
                 --><li>
-                    <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
+                    <img src="{{ p.zdjecie.url }}" alt="room" class="room-image room{{ p.pokoj.pk }}" />
                     <div class="desc">
-                        <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                            sequi nesciunt."</p>
+                        <img src="{{ p.zdjecie.url }}" alt="room"/>
+                        <p>{{ p.pokoj.opis }}</p>
                     </div>
-                </li><!--
-                --><li>
-                    <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                    <div class="desc">
-                        <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                            sequi nesciunt."</p>
-                    </div>
-                </li><!--
-                --><li>
-                    <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                    <div class="desc">
-                        <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                            sequi nesciunt."</p>
-                    </div>
-                </li><!--
-                --><li>
-                    <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                    <div class="desc">
-                        <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                            sequi nesciunt."</p>
-                    </div>
-                </li><!--
-                --><li>
-                    <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                    <div class="desc">
-                        <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                            sequi nesciunt."</p>
-                    </div>
-                </li>
+                </li>{% endif %}{% endfor %}
             </ul>
-            <h3 class="caption">2-osobowe</h3>
-            <ul>
-                <li>
-                    <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                    <div class="desc">
-                        <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                            sequi nesciunt."</p>
-                    </div>
-                </li><!--
-                --><li>
-                    <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                    <div class="desc">
-                        <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                            sequi nesciunt."</p>
-                    </div>
-                </li><!--
-                --><li>
-                    <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                    <div class="desc">
-                        <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                            sequi nesciunt."</p>
-                    </div>
-                </li>
-            </ul>
-            <h3 class="caption">3-osobowe</h3>
-            <ul>
-                <li>
-                    <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                    <div class="desc">
-                        <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                            sequi nesciunt."</p>
-                    </div>
-                </li><!--
-                --><li>
-                    <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                    <div class="desc">
-                        <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                            sequi nesciunt."</p>
-                    </div>
-                </li><!--
-                --><li>
-                    <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                    <div class="desc">
-                        <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                            sequi nesciunt."</p>
-                    </div>
-                </li><!--
-                --><li class="disabled">
-                    <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                    <div class="desc">
-                        <img src="{% static 'Hotel/img/room1.jpg' %}" alt="room"/>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-                            sequi nesciunt."</p>
-                    </div>
-                </li>
-            </ul>
+            {% endfor %}
+            {% endif %}
 
-        </div>
+        </div> <!-- .rooms -->
 
         <div class="gallery">
 
-            <h2>Galeria</h2>
+        </div> <!-- .gallery -->
 
-            <div class="flexslider">
-              <ul class="slides">
-                <li>
-                  <img src="{% static 'Hotel/img/room1.jpg' %}" />
-                </li>
-                <li>
-                  <img src="{% static 'Hotel/img/room2.jpg' %}" />
-                </li>
-                <li>
-                  <img src="{% static 'Hotel/img/room3.jpg' %}" />
-                </li>
-              </ul>
-            </div>
+    </div> <!-- visualisation-content -->
 
-        </div>
+</div> <!-- visualisation -->
 
-    </div>
+{% endblock %}
 
-</div>
+{% block scripts %}
 
 <script src="{% static 'Hotel/js/jquery-1.9.1.js' %}"></script>
 <script src="{% static 'Hotel/js/jquery.flexslider.js' %}"></script>
 
 <script>
-    $('.flexslider').flexslider({
-        slideshow: true,
-        animation: "slide",
-        pauseOnHover: true,
-        itemWidth: 820,
-    });
+$(".room-image").click(function() {
+    var secondClass = $(this).attr("class").split(" ")[1];
+    var roomPk = secondClass.substring(4, secondClass.length);
+
+    var sendData = {
+        csrfdmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val(),
+        pk: roomPk
+    };
+    $.ajax({
+        type: "GET",
+        url: "{% url 'hotel:wizualizacja' %}" + roomPk + "/",
+        data: sendData
+    })
+        .done(function(data) {
+            $(".gallery").html(data);
+            $(".flexslider").flexslider({
+                slideshow: true,
+                animation: "slide",
+                pauseOnHover: true,
+                itemWidth: 820,
+            });
+        })
+        .fail(function(xhr, textStatus, errorThrown) {
+            alert("Error: " + errorThrown + xhr.status + xhr.responseText);
+        });
+});
 </script>
 
 {% endblock %}

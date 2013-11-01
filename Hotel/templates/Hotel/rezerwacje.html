@@ -254,7 +254,7 @@ function sprawdzPoprawnosc() {
             });
 
             var toSend = {
-                    csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
+                    csrfdmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val(),
                     poczatekPobytu: $(".date-from").val(),
                     koniecPobytu: $(".date-to").val(),
                     iloscPokojow: $(".rooms").val(),
