@@ -1,32 +1,41 @@
 $(".rezerwacje_class").addClass("selected");
 
-$(".rooms").change(function() {
+$(".rooms-select").change(function() {
     sprawdzPoprawnosc();
-})
-
-$(".adults1").change(function() {
-    sprawdzPoprawnosc();
-})
-
-$(".adults2").change(function() {
-    sprawdzPoprawnosc();
-})
-
-$(".adults3").change(function() {
-    sprawdzPoprawnosc();
-})
-
-$(".kids1").change(function() {
-    sprawdzPoprawnosc();
-})
-
-$(".kids2").change(function() {
-    sprawdzPoprawnosc();
-})
-
-$(".kids3").change(function() {
-    sprawdzPoprawnosc()
+    $(".NoRooms").html( $(".rooms").val() );
 });
+
+$(".date-from").change(function() {
+    updateNights();
+});
+
+$(".date-to").change(function() {
+    updateNights();
+});
+
+$(document).ready(function() {
+    $(".rooms-select").trigger("change");
+    $(".date-from").trigger("change");
+});
+
+function updateNights() {
+    var days = $(".date-from").val().substring(3,5);
+    var months = $(".date-from").val().substring(0, 2) - 1;
+    var years = $(".date-from").val().substring(6);
+    var dateFrom = new Date(years, months, days);
+
+    days = $(".date-to").val().substring(3,5);
+    months = $(".date-to").val().substring(0, 2) - 1;
+    years = $(".date-to").val().substring(6);
+    var dateTo = new Date(years, months, days);
+
+    var diff = (dateTo - dateFrom) / 86400000;
+    if (diff <= 0) {
+        $(".NoNights").html("-");
+    } else {
+        $(".NoNights").html(diff);
+    }
+}
 
 function validateName(input) {
     if ($(input).val() == "") {

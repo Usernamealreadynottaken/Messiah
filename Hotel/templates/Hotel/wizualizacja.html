@@ -27,8 +27,8 @@
             <ul>{% for p in pokoje %}{% if p.pokoj.rozmiar == r %}{% if not p.zajety %}<!--
 
                 Pokoje wolne najpierw
-                --><li>
-                    <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room" class="room-image room{{ p.pokoj.pk }}" />
+                --><li class="room-image room{{ p.pokoj.pk }}">
+                    <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room"  />
                     <div class="desc">
                         <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room"/>
                         <p>{{ p.pokoj.opis }}</p>
@@ -37,7 +37,7 @@
 
                 Pokoje zajete po wolnych
                 -->{% for p in pokoje %}{% if p.pokoj.rozmiar == r %}{% if p.zajety %}<!--
-                --><li class="disabled">
+                --><li class="room-image room{{ p.pokoj.pk }} disabled">
                     <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room" class="room-image room{{ p.pokoj.pk }}" />
                     <div class="desc">
                         <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room"/>

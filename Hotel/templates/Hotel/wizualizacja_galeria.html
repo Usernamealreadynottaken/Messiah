@@ -6,7 +6,7 @@
     <ul class="slides">
         {% for zdjecie in zdjecia %}
         <li>
-            <img src="{{ zdjecie.zdjecie.url }}" />
+            <img src="{% if zdjecie.zdjecie %}{{ zdjecie.zdjecie.url }}{% endif %}" />
         </li>
         {% endfor %}
     </ul>
