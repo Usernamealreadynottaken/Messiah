@@ -1,4 +1,4 @@
-.gradient(@from: #000000, @to: #ffffff) {
+.gradient-vertical(@from: #000000, @to: #ffffff) {
     background: #1e5799;
     background: -moz-linear-gradient(top,  @from 0%, @to 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@from), color-stop(100%,@to));
@@ -8,6 +8,16 @@
     background: linear-gradient(top,  @from 0%,@to 100%);
 }
 
+.gradient-horizontal(@from: #000000, @to: #ffffff) {
+    background: #1e5799;
+    background: -moz-linear-gradient(left,  @from 0%, @to 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,@from), color-stop(100%,@to));
+    background: -webkit-linear-gradient(left,  @from 0%,@to 100%);
+    background: -o-linear-gradient(left,  @from 0%,@to 100%);
+    background: -ms-linear-gradient(left,  @from 0%,@to 100%);
+    background: linear-gradient(left,  @from 0%,@to 100%);
+}
+
 html {
     min-height: 100%;
 }
@@ -15,7 +25,14 @@ html {
 body {
     background-repeat: no-repeat;
     margin: 0;
-    .gradient(#f2e1c5, #ecc176);
+    background: #1e5799;
+    background: -moz-linear-gradient(left, #1e5799 0%, #2989d8 50%, #207cca 50%, #7db9e8 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#1e5799), color-stop(50%,#2989d8),
+                color-stop(50%,#207cca), color-stop(100%,#7db9e8));
+    background: -webkit-linear-gradient(left, #1e5799 0%,#2989d8 50%,#207cca 50%,#7db9e8 100%);
+    background: -o-linear-gradient(left, #1e5799 0%,#2989d8 50%,#207cca 50%,#7db9e8 100%);
+    background: -ms-linear-gradient(left, #1e5799 0%,#2989d8 50%,#207cca 50%,#7db9e8 100%);
+    background: linear-gradient(left, #1e5799 0%,#2989d8 50%,#207cca 50%,#7db9e8 100%);
 }
 
 .page {
@@ -28,7 +45,7 @@ body {
 
     .header-wrapper {
         position: relative;
-        .gradient(#603913, #c69c6d);
+        .gradient-vertical(#603913, #c69c6d);
 
         &:before {
             background-image: url(img/header-left.png);
@@ -128,7 +145,7 @@ body {
 
     .footer-wrapper {
         position: relative;
-        .gradient(#c69c6d, #603913);
+        .gradient-vertical(#c69c6d, #603913);
         padding: 10px 60px 10px 60px;
 
         &:before {
@@ -193,7 +210,7 @@ body {
 }
 
 #reservations {
-    .gradient(#08af9d, #1e777f);
+    .gradient-vertical(#08af9d, #1e777f);
     padding: 0 0 50px 0;
 
     .title {
@@ -210,7 +227,7 @@ body {
     }
 
     .reservations-content {
-        background-color: #ecc176;
+        background-image: url(img/pattern1.jpg);
         margin: 0 auto;
         position: relative;
         width: 900px;
@@ -425,7 +442,7 @@ body {
 }
 
 #visualization {
-    .gradient(#08af9d, #1e777f);
+    .gradient-vertical(#08af9d, #1e777f);
     padding: 0 0 50px 0;
 
     .title {
