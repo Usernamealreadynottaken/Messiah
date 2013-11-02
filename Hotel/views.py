@@ -30,6 +30,7 @@ def glowna(request):
 def wizualizacja(request):
     class PokojeWizualizacja:
         zdjecie = None
+        zajety = False
 
         def __init__(self, pokoj):
             self.pokoj = pokoj
@@ -37,9 +38,16 @@ def wizualizacja(request):
             if zp:
                 self.zdjecie = zp[0].zdjecie
 
+            dzisiaj = datetime.date.today()
+            for r in Rezerwacja.objects.all():
+                    if r.poczatek_pobytu <= dzisiaj < r.koniec_pobytu:
+                        if r.pokojnarezerwacji_set.filter(pokoj__pk=pokoj.pk):
+                            self.zajety = True
+                            break
+
     rozmiary = []
     pokoje = []
-    for p in Pokoj.objects.filter(dostepnosc=True):
+    for p in Pokoj.objects.all():
         pokoje.append(PokojeWizualizacja(p))
         if p.rozmiar not in rozmiary:
             rozmiary.append(p.rozmiar)
@@ -416,9 +424,9 @@ def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje, kod=''):
                 rezerwacje_filtered = Rezerwacja.objects.all()
             for room in viable_rooms:
                 for r in rezerwacje_filtered:
-                    if poczatek_pobytu <= r.poczatek_pobytu <= koniec_pobytu or \
-                            koniec_pobytu >= r.koniec_pobytu >= poczatek_pobytu or \
-                            r.poczatek_pobytu <= poczatek_pobytu <= r.koniec_pobytu:
+                    if poczatek_pobytu <= r.poczatek_pobytu < koniec_pobytu or \
+                            koniec_pobytu >= r.koniec_pobytu > poczatek_pobytu or \
+                            r.poczatek_pobytu <= poczatek_pobytu < r.koniec_pobytu:
                         if r.pokojnarezerwacji_set.filter(pokoj__pk=room):
                             rooms_to_remove.append(room)
                             break

@@ -70,7 +70,7 @@
                 <tr>
                     <td>Liczba pokoi:</td>
                     <td colspan="3">
-                        <select class="rooms" name="rooms">
+                        <select class="rooms rooms-select" name="rooms">
                             <option value="1">1 Pokoj</option>
                             <option value="2">2 Pokoje</option>
                             <option value="3">3 Pokoje</option>
@@ -80,7 +80,7 @@
                 <tr class="room1">
                     <td>Pokoj 1 - Dorosli:</td>
                     <td>
-                        <select class="adults1" name="adults1">
+                        <select class="adults1 rooms-select" name="adults1">
                             <option value="0">0</option>
                             <option value="1" selected>1</option>
                             <option value="2">2</option>
@@ -91,7 +91,7 @@
                     </td>
                     <td>Dzieci:</td>
                     <td>
-                        <select class="kids1" name="kids1">
+                        <select class="kids1 rooms-select" name="kids1">
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -104,7 +104,7 @@
                 <tr class="room2">
                     <td>Pokoj 2 - Dorosli:</td>
                     <td>
-                        <select class="adults2" name="adults2">
+                        <select class="adults2 rooms-select" name="adults2">
                             <option value="0">0</option>
                             <option value="1" selected>1</option>
                             <option value="2">2</option>
@@ -115,7 +115,7 @@
                     </td>
                     <td>Dzieci:</td>
                     <td>
-                        <select class="kids2" name="kids2">
+                        <select class="kids2 rooms-select" name="kids2">
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -128,7 +128,7 @@
                 <tr class="room3">
                     <td>Pokoj 3 - Dorosli:</td>
                     <td>
-                        <select class="adults3" name="adults3">
+                        <select class="adults3 rooms-select" name="adults3">
                             <option value="0">0</option>
                             <option value="1" selected>1</option>
                             <option value="2">2</option>
@@ -139,7 +139,7 @@
                     </td>
                     <td>Dzieci:</td>
                     <td>
-                        <select class="kids3" name="kids3">
+                        <select class="kids3 rooms-select" name="kids3">
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -225,7 +225,6 @@
 <script src="{% static 'Hotel/js/rezerwacje.js' %}"></script>
 
 <script>
-
 function sprawdzPoprawnosc() {
     var currentDate = new Date();
     currentDate.setDate(currentDate.getDate() -1);
@@ -307,6 +306,11 @@ function sprawdzPoprawnosc() {
 
                     // Jesli byly bledy zwiazane z jakims pokojem to wypisujemy na stronie
                     $(".error").html(error);
+                    if (error == "" && parsed["cena"]) {
+                        $(".price").text(parsed["cena"]);
+                    } else {
+                        $(".price").text("-");
+                    }
                 })
                 .fail(function(xhr, textStatus, errorThrown) {
                     alert("Error: " + errorThrown + xhr.status + xhr.responseText);
