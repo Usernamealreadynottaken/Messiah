@@ -261,7 +261,8 @@
 .ui-tabs .ui-tabs-nav {
     text-align: center;
 	margin: 0;
-	padding: 5px 0;
+	height: 30px;
+	padding: 10px 0;
 }
 .ui-tabs-nav li {
     border-radius: 5px;
@@ -323,6 +324,9 @@
 }
 .ui-widget-content a {
 	color: #333333;
+}
+.pricing-content .ui-widget-header {
+	background-image: url(img/label.jpg);
 }
 .ui-widget-header {
 	border: 1px solid #e78f08;
