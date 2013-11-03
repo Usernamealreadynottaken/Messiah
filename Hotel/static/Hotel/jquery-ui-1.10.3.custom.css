@@ -261,7 +261,10 @@
 .ui-tabs .ui-tabs-nav {
     text-align: center;
 	margin: 0;
-	padding: .2em .2em 0;
+	padding: 5px 0;
+}
+.ui-tabs-nav li {
+    border-radius: 5px;
 }
 .ui-tabs .ui-tabs-nav li {
     display: inline-block;
