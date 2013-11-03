@@ -149,6 +149,9 @@
                         </select>
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="4"><p class="error"></p></td>
+                </tr>
             </table>
 
             <div class="calendars">
@@ -162,9 +165,6 @@
                 </div>
 
             </div> <!-- .calendars -->
-
-            <!-- w error jest wyswietlany wynik powyzszego zapytania w formie w miare user friendly -->
-            <p class="error"></p>
 
             {% if uslugi_all %}
             <div class="additions">
@@ -205,9 +205,10 @@
             <div class="summary">
                 <h3>Twoje zyczenia</h3>
                 <textarea name="requests" rows="4" cols="50">{% if rezerwacja_do_edycji %}{{ rezerwacja_do_edycji.dodatkowe_instrukcje }}{% endif %}</textarea>
+                <h3>Podsumowanie</h3>
                 <p>Pokoje: <span class="NoRooms">x</span></br>
                     Noce: <span class="NoNights">y</span></br>
-                    Cena: <span class="price">1</span> </p>
+                    Cena: <span class="price">1</span> zl</p>
                 <a class="send">Zarezerwuj</a>
             </div> <!-- .summary -->
 
@@ -216,6 +217,13 @@
     </div> <!-- .reservations-content -->
 
 </div> <!-- .reservations -->
+
+<div class="success">
+
+    <p></p>
+    <span class="close"/>
+
+</div> <!-- .success -->
 
 {% endblock %}
 
@@ -306,6 +314,16 @@ function sprawdzPoprawnosc() {
 
                     // Jesli byly bledy zwiazane z jakims pokojem to wypisujemy na stronie
                     $(".error").html(error);
+                    var lines = $(".error").find("br").length * 28;
+                    if (lines == 0) {
+                        $(".error").animate({
+                            "height": "0",
+                        });
+                    } else {
+                        $(".error").animate({
+                            "height": lines,
+                        });
+                    }
                     if (error == "" && parsed["cena"]) {
                         $(".price").text(parsed["cena"]);
                     } else {
@@ -387,24 +405,27 @@ $(".send").click(function() {
 
             if (parsed["message"] && parsed["message"] == "success") {
                 if (parsed["kod"]) {
-                    $(".success").html("Udalo sie zarezerwowac!<br /><br >Twoj kod rezerwacji to: " + parsed["kod"]);
+                    $(".success p").html("Udalo sie zarezerwowac!<br /><br >Twoj kod rezerwacji to: <span>" + parsed["kod"] + "</span>");
                 } else {
-                    $(".success").html("Udalo sie zarezerwowac!<br /><br >Serwer nie wyslal kodu rezerwacji!");
+                    $(".success p").html("Udalo sie zarezerwowac!<br /><br >Serwer nie wyslal kodu rezerwacji!");
                 }
             } else if (parsed["message"] && parsed["message"] == "validation_error") {
-                $(".success").html("Nie mozna zarezerwowac tego pokoju na ten termin.");
+                $(".success p").html("Nie mozna zarezerwowac tego pokoju na ten termin.");
             } else if (parsed["message"] && parsed["message"] == "site_error") {
-                $(".success").html("Serwer otrzymal uszkodzone dane.");
+                $(".success p").html("Serwer otrzymal uszkodzone dane.");
             } else {
-                $(".success").html("Stalo sie cos czego nawet programista nie przewidzial.");
+                $(".success p").html("Stalo sie cos czego nawet programista nie przewidzial.");
             }
+            $(".success").fadeIn(200);
         });
         {% endif %}
         $("form").submit();
-    } else {
-        alert("Nie zwalidowane");
     }
-})
+});
+
+$(".close").click(function() {
+    $(".success").fadeOut(200);
+});
 
 {% if liczba_pokoi or uslugi or rezerwacja_do_edycji %}
 $(document).ready(function() {

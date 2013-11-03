@@ -30,13 +30,13 @@
             </ul>
 
             <div id="tabs-1" class="tab-content">
-                Cena za osobę:
+                <h2>Cena za osobę:</h2>
                 <ul>
                     <li><p>Dorosły  --  {{ cena_dorosly }} zł.</p></li>
                     <li><p>Dziecko  --  {{ cena_dziecko }} zł.</p></li>
                 </ul>
                 {% if ceny_pokojow %}
-                <p>Dostępne są pokoje w następujących rozmiarach:</p>
+                <h2>Dostępne są pokoje w następujących rozmiarach:</h2>
                 <ul>
                     {% for p in ceny_pokojow %}
                     <li><p>{{ p.rozmiar }}-osobowy  --  {{ p.cena }} zł</p></li>

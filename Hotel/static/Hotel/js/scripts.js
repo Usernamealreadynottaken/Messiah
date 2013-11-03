@@ -40,13 +40,19 @@ $(".rooms").change(function() {
     var value = $(".rooms option:selected").val();
     if (value == 1) {
         $(".room2").animate({opacity: 0});
+        $(".room2").css("display", "none");
         $(".room3").animate({opacity: 0});
+        $(".room3").css("display", "none");
     } else if (value == 2) {
         $(".room2").animate({opacity: 1});
+        $(".room2").css("display", "table-row");
         $(".room3").animate({opacity: 0});
+        $(".room3").css("display", "none");
     } else if (value == 3) {
         $(".room2").animate({opacity: 1});
+        $(".room2").css("display", "table-row");
         $(".room3").animate({opacity: 1});
+        $(".room3").css("display", "table-row");
     }
 });
 

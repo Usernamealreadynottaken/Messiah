@@ -325,6 +325,7 @@ body {
                 vertical-align: text-top;
 
                 .room2, .room3 {
+                    display: none;
                     opacity: 0;
                 }
             }
@@ -333,19 +334,20 @@ body {
             table input {
                 padding: 1px 18px 1px 2px;
                 width: 184px;
+                line-height: 20px;
             }
 
             .positive-input {
                 position: relative;
 
                 &:after {
-                    background: green;
+                    background-image: url(img/yes.png);
                     content: "";
-                    height: 12px;
+                    height: 18px;
                     position: absolute;
-                    right: 8px;
-                    top: 8px;
-                    width: 12px;
+                    right: 5px;
+                    top: 6px;
+                    width: 18px;
                     z-index: 1;
                 }
 
@@ -358,13 +360,13 @@ body {
                 position: relative;
 
                 &:after {
-                    background: red;
+                    background-image: url(img/no.png);
                     content: "";
-                    height: 12px;
+                    height: 18px;
                     position: absolute;
-                    right: 8px;
-                    top: 8px;
-                    width: 12px;
+                    right: 5px;
+                    top: 6px;
+                    width: 18px;
                     z-index: 1;
                 }
 
@@ -399,6 +401,13 @@ body {
             }
 
             .dateTo-error {
+                height: 0;
+                margin: 0;
+                overflow: hidden;
+                text-align: right;
+            }
+
+            .error {
                 height: 0;
                 margin: 0;
                 overflow: hidden;
@@ -446,6 +455,7 @@ body {
             }
 
             .additions {
+                margin: 30px 0 0 0;
                 overflow: hidden;
 
                 h2 {
@@ -478,20 +488,74 @@ body {
 
         .summary {
 
+            p {
+                font-size: 20px;
+
+                span {
+                    font-weight: bold;
+                }
+            }
+
             textarea {
-                resize: none;
+                max-width: 834px;
+                max-height: 300px;
+                margin: 0;
             }
 
             .send {
-                background: none;
-                border: 1px red solid;
+                background: url(img/button.jpg);
+                font-family: 'devroyeregular';
                 display: block;
                 margin: 0 auto;
                 cursor: pointer;
                 text-align: center;
                 color: #000000;
+                line-height: 50px;
+                width: 250px;
+                color: #e59e52;
+                text-shadow: 0px 0px 4px #000000;
+                filter: dropshadow(color=#000000, offx=0, offy=0);
+
+                &:hover {
+                    background-position: 0 -50px;
+                }
+
+                &:active {
+                    background-position: 0 -100px;
+                }
             }
         }
+    }
+}
+
+.success {
+    display: none;
+    border: 3px solid black;
+    background: url(img/pattern8.jpg);
+    text-align: center;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    width: 400px;
+    margin: 0 0 0 -200px;
+    z-index: 5;
+    font-size: 20px;
+    -webkit-box-shadow:  5px 5px 25px 5px rgba(0, 0, 0, 1);
+    box-shadow:  5px 5px 25px 5px rgba(0, 0, 0, 1);
+
+    p {
+        margin: 25px;
+    }
+
+    .close {
+        display: block;
+        background-image: url("img/fancybox_sprite.png");
+        cursor: pointer;
+        width: 36px;
+        height: 36px;
+        position: absolute;
+        top: -10px;
+        right: -10px;
     }
 }
 
@@ -716,10 +780,16 @@ body {
             z-index: 1;
         }
 
+        #tabs-1 h2 {
+            font-size: 30px;
+        }
+
         .tab-content{
 
             ul{
                 list-style-type: none;
+                margin: 0;
+                padding: 0;
 
                 li{
                     list-style-type: none;
@@ -785,10 +855,12 @@ body {
                 margin: 50px 0 100px 0;
 
                 a{
-                    text-decoration: none;
+                    text-decoration: underline;
                     font-weight: bold;
-                    margin: 0 20px 0 20px;
+                    margin: 0 10px 0 10px;
                     color: blue;
+                    font-family: "devroyeregular";
+                    color: #333333;
                 }
             }
         }
