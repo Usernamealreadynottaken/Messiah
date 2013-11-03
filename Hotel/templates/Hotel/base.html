@@ -5,11 +5,7 @@
     <title>{% block title %}{% endblock %}</title>
     <meta name="keywords" content="Hotel, Messiah" />
     <meta name="description" content="Opis hotelu TODO" />
-    <script src="{% static 'Hotel/js/jquery-1.10.2.min.js' %}"></script>
     <link rel="stylesheet/less" type="text/css" href="{% static 'Hotel/main.less' %}" />
-    <script src="{% static 'Hotel/js/lightbox-2.6.min.js' %}"></script>
-    <link href="{% static 'Hotel/lightbox.css' %}" rel="stylesheet" />
-    <script src="{% static 'Hotel/js/scripts.js' %}"></script>
     {% block pricing %}{% endblock %}
 </head>
 
@@ -26,9 +22,10 @@
 
     </div> <!-- .page -->
 
+    <script src="{% static 'Hotel/js/jquery-1.10.2.js' %}"></script>
     <script src="{% static 'Hotel/js/less.js' %}" type="text/javascript"></script>
-    <script src="{% static 'Hotel/js/jquery-1.10.2.min.js' %}"></script>
     <script src="{% static 'Hotel/js/jquery-ui.js' %}"></script>
+    <script src="{% static 'Hotel/js/scripts.js' %}"></script>
     {% block scripts %}{% endblock %}
 
 </body>

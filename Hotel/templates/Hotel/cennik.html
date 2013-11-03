@@ -3,7 +3,8 @@
 {% load staticfiles %}
 
 {% block pricing %}
-    <link rel="stylesheet" type="text/css" href="{% static 'Hotel/jquery-ui-1.10.3.custom.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'Hotel/jquery-ui-1.10.3.custom.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Hotel/jquery.fancybox.css' %}">
 {% endblock %}
 
 {% block title %}Hotel Messiah - Cennik{% endblock %}
@@ -67,7 +68,7 @@
                     <li class="inline-block"><p>{{ zarcie.cena }} zł</p></li>
                     <li class="description"><p>( {{ zarcie.opis }} )</p></li>
                     {% if zarcie.zdjecie %}
-                    <li class="pic"><a href="{{ zarcie.zdjecie.url }}" rel="lightbox" ><img src="{{ zarcie.zdjecie.url }}"></a></li>
+                    <li class="pic"><a class="fancybox" href="{{ zarcie.zdjecie.url }}" rel="lightbox" ><img src="{{ zarcie.zdjecie.url }}"></a></li>
                     {% endif %}
                 </ul>
                 {% endif %}
@@ -125,12 +126,23 @@
 
 {% block scripts %}
 
+    <script src="{% static 'Hotel/js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'Hotel/js/jquery.fancybox.js' %}"></script>
+
     <script>
         $(function(){
             $("#tabs").tabs();
         });
-    </script>
 
-    <script src="{% static 'Hotel/jquery-ui-1.10.3.custom.css' %}"></script>
+        $(document).ready(function() {
+
+            $(".fancybox").fancybox({
+                'titleShow'     : false,
+                'easingIn'      : 'easeOutBack',
+                'easingOut'     : 'easeInBack'
+            });
+
+        });
+    </script>
 
 {% endblock %}

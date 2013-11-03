@@ -634,7 +634,33 @@ body {
     }
 
     .pricing-content{
+        background-image: url(img/pattern18.jpg);
         text-align: center;
+        width: 900px;
+        margin: 0 auto;
+        position: relative;
+
+        &:before {
+            background-image: url(img/content-nw2.png);
+            top: -5px;
+            content: " ";
+            height: 100px;
+            left: -5px;
+            position: absolute;
+            width: 100px;
+            z-index: 1;
+        }
+
+        &:after {
+            background-image: url('img/content-se2.png');
+            bottom: -5px;
+            content: " ";
+            height: 100px;
+            right: -5px;
+            position: absolute;
+            width: 100px;
+            z-index: 1;
+        }
 
         .tab-content{
 

@@ -6,6 +6,7 @@
 
 /* Layout helpers
 ----------------------------------*/
+
 .ui-helper-hidden {
 	display: none;
 }
@@ -255,15 +256,16 @@
 }
 .ui-tabs {
 	position: relative;/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
-	padding: .2em;
+	padding: 30px;
 }
 .ui-tabs .ui-tabs-nav {
+    text-align: center;
 	margin: 0;
 	padding: .2em .2em 0;
 }
 .ui-tabs .ui-tabs-nav li {
+    display: inline-block;
 	list-style: none;
-	float: left;
 	position: relative;
 	top: 0;
 	margin: 1px .2em 0 0;
@@ -272,8 +274,9 @@
 	white-space: nowrap;
 }
 .ui-tabs .ui-tabs-nav li a {
-	float: left;
-	padding: .5em 1em;
+    display: block;
+	width: 200px;
+	height: 30px;
 	text-decoration: none;
 }
 .ui-tabs .ui-tabs-nav li.ui-tabs-active {
@@ -313,8 +316,6 @@
 	font-size: 1em;
 }
 .ui-widget-content {
-	border: 1px solid #dddddd;
-	background: #eeeeee url(img/ui-bg_highlight-soft_100_eeeeee_1x100.png) 50% top repeat-x;
 	color: #333333;
 }
 .ui-widget-content a {
