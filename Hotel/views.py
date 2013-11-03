@@ -15,7 +15,7 @@ from django.http import HttpResponse, Http404
 
 # Nasze modele
 from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
-    ZdjeciaPokojow
+    ZdjeciaPokojow, CenaPokoju
 
 
 @login_required
@@ -82,13 +82,15 @@ def rezerwacje(request):
 def cennik(request):
     uslugi_wewnetrzne = Usluga.objects.filter(zewnetrzna=False)
     uslugi_zewnetrzne = Usluga.objects.filter(zewnetrzna=True)
+
     return render(request, 'hotel/cennik.html', {
         'kategorie': KategoriaJedzenia.objects.all(),
         'jedzenie': Jedzenie.objects.all(),
         'uslugi_wewnetrzne': uslugi_wewnetrzne,
         'uslugi_zewnetrzne': uslugi_zewnetrzne,
         'cena_dorosly': OpisHotelu.objects.filter()[0].cena_dorosly,
-        'cena_dziecko': OpisHotelu.objects.filter()[0].cena_dziecko
+        'cena_dziecko': OpisHotelu.objects.filter()[0].cena_dziecko,
+        'ceny_pokojow': CenaPokoju.objects.all().order_by('rozmiar')
     })
 
 
@@ -178,7 +180,7 @@ def rezerwacje_wyslij(request):
                                              pokoj=Pokoj.objects.get(pk=list_of_pks[i]),
                                              doroslych=dorosli[i],
                                              dzieci=dzieci[i],
-                                             cena=Pokoj.objects.get(pk=list_of_pks[i]).cena)
+                                             cena=CenaPokoju.objects.get(rozmiar=Pokoj.objects.get(pk=list_of_pks[i]).rozmiar).cena)
                 nowy_pnr.save()
 
             # UslugaNaRezerwacji
@@ -342,7 +344,7 @@ def rezerwacje_wyslij_kod(request, code):
                                              pokoj=Pokoj.objects.get(pk=list_of_pks[i]),
                                              doroslych=dorosli[wymagane_pokoje_numery[i]-1],
                                              dzieci=dzieci[wymagane_pokoje_numery[i]-1],
-                                             cena=Pokoj.objects.get(pk=list_of_pks[i]).cena)
+                                             cena=CenaPokoju.objects.get(rozmiar=Pokoj.objects.get(pk=list_of_pks[i]).rozmiar).cena)
                 nowy_pnr.save()
 
             # USLUGI
@@ -407,6 +409,10 @@ def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje, kod=''):
             return_status[pokoj_i] = 'zero_selected'
         elif wymagane_pokoje[pokoj_i] > max_room_capacity:
             return_status[pokoj_i] = 'over_max_capacity'
+
+        # Czy istnieje w bazie cena dla tego pokoju
+        elif not CenaPokoju.objects.filter(rozmiar=wymagane_pokoje[pokoj_i]):
+            return_status[pokoj_i] = 'no_free_rooms'
 
         # Pokoj ma normalna ilosc osob, szukamy czy jest wolny
         else:
@@ -496,10 +502,12 @@ def rezerwacje_sprawdz(request):
             for i in range(1, wymagane_pokoje['ilosc'] + 1):
                 try:
                     p = Pokoj.objects.get(pk=int(list_of_pks['pokoj%d' % (i,)]))
-                    cena += p.cena * ile_dni
+                    cena += CenaPokoju.objects.get(rozmiar=p.rozmiar).cena * ile_dni
                     cena += cena_dorosly * ile_dni * dorosli_dzieci['dorosli%d' % (i,)]
                     cena += cena_dziecko * ile_dni * dorosli_dzieci['dzieci%d' % (i,)]
                 except ValueError:
+                    pass
+                except ObjectDoesNotExist:
                     pass
 
             response += '"cena": "%d"}' % (cena,)

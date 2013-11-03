@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from Hotel.models import Rezerwacja, Pokoj, Usluga, UslugaNaRezerwacji, PokojNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
-    ZdjeciaPokojow
+    ZdjeciaPokojow, CenaPokoju
 
 
 # REZERWACJE
@@ -44,6 +44,7 @@ class PokojAdmin(admin.ModelAdmin):
 
 admin.site.register(Rezerwacja, RezerwacjaAdmin)
 admin.site.register(Pokoj, PokojAdmin)
+admin.site.register(CenaPokoju)
 admin.site.register(Usluga)
 admin.site.register(KategoriaJedzenia, KategoriaJedzeniaAdmin)
 

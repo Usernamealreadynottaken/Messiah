@@ -22,10 +22,17 @@ class Pokoj(models.Model):
     opis = models.TextField(blank=True)
     opis_combo = models.CharField(max_length=30)
     dostepnosc = models.BooleanField(default=True, verbose_name='Jest dostepny')
-    cena = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __unicode__(self):
         return '%d, rozmiar - %d' % (self.numer, self.rozmiar,)
+
+
+class CenaPokoju(models.Model):
+    rozmiar = models.IntegerField(unique=True)
+    cena = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __unicode__(self):
+        return 'Rozmiar: %d, cena: %d' % (self.rozmiar, self.cena,)
 
 
 class ZdjeciaPokojow(models.Model):
