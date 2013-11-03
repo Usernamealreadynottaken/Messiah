@@ -584,8 +584,7 @@
       "rozmiar": "2",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Duża łazienka, dobry widok",
-      "dostepnosc": "True",
-      "cena": "120.00"
+      "dostepnosc": "True"
     }
   },
   {
@@ -596,8 +595,7 @@
       "rozmiar": "1",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Mała łazienka, 50 calowy tv",
-      "dostepnosc": "True",
-      "cena": "75.00"
+      "dostepnosc": "True"
     }
   },
   {
@@ -608,8 +606,7 @@
       "rozmiar": "3",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Świeżo malowany, kołyska",
-      "dostepnosc": "True",
-      "cena": "160.00"
+      "dostepnosc": "True"
     }
   },
   {
@@ -620,8 +617,7 @@
       "rozmiar": "2",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Tani, nowe łóżka",
-      "dostepnosc": "True",
-      "cena": "100.00"
+      "dostepnosc": "True"
     }
   },
   {
@@ -632,8 +628,7 @@
       "rozmiar": "2",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Łazienka z wanną, kuchnia",
-      "dostepnosc": "True",
-      "cena": "140.00"
+      "dostepnosc": "True"
     }
   },
   {
@@ -644,8 +639,7 @@
       "rozmiar": "4",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "2 pomieszczenia sypialne",
-      "dostepnosc": "True",
-      "cena": "200.00"
+      "dostepnosc": "True"
     }
   },
   {
@@ -656,8 +650,7 @@
       "rozmiar": "2",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Obrazy, ładny wystrój",
-      "dostepnosc": "True",
-      "cena": "110.00"
+      "dostepnosc": "True"
     }
   },
   {
@@ -668,8 +661,7 @@
       "rozmiar": "2",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Nowoczesny pokój dla dwojga",
-      "dostepnosc": "True",
-      "cena": "150.00"
+      "dostepnosc": "True"
     }
   },
   {
@@ -680,8 +672,7 @@
       "rozmiar": "2",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Pokój z wyższej półki dla 2",
-      "dostepnosc": "True",
-      "cena": "170.00"
+      "dostepnosc": "True"
     }
   },
   {
@@ -692,8 +683,7 @@
       "rozmiar": "3",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Ładny widok, pokój na parterze",
-      "dostepnosc": "True",
-      "cena": "150.00"
+      "dostepnosc": "True"
     }
   },
   {
@@ -704,8 +694,39 @@
       "rozmiar": "1",
       "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
       "opis_combo": "Najlepszy wybór dla singla",
-      "dostepnosc": "False",
-      "cena": "50.00"
+      "dostepnosc": "False"
+    }
+  },
+  {
+    "model": "Hotel.CenaPokoju",
+    "pk": 1,
+    "fields": {
+      "rozmiar": "1",
+      "cena": "100.00"
+    }
+  },
+  {
+    "model": "Hotel.CenaPokoju",
+    "pk": 2,
+    "fields": {
+      "rozmiar": "2",
+      "cena": "120.00"
+    }
+  },
+  {
+    "model": "Hotel.CenaPokoju",
+    "pk": 3,
+    "fields": {
+      "rozmiar": "3",
+      "cena": "150.00"
+    }
+  },
+  {
+    "model": "Hotel.CenaPokoju",
+    "pk": 4,
+    "fields": {
+      "rozmiar": "4",
+      "cena": "200.00"
     }
   },
   {

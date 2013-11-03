@@ -378,7 +378,7 @@ $(".send").click(function() {
     if (sprawdzPoprawnosc() && validateName($('input[name=name]')) && validateEmail($('input[name=email]'))) {
         {% if rezerwacja_do_edycji %}
         $("form").ajaxForm(function(data) {
-            alert(data);
+            // alert(data);
         });
 
         {% else %}

@@ -30,20 +30,19 @@
             </ul>
 
             <div id="tabs-1" class="tab-content">
+                Cena za osobę:
                 <ul>
-                    <li><p>Cena za osobę dorosłą wynosi {{ cena_dorosly }} zł.</p></li>
-                    <li><p>Cena za dziecko wynosi {{ cena_dziecko }} zł.</p></li>
+                    <li><p>Dorosły  --  {{ cena_dorosly }} zł.</p></li>
+                    <li><p>Dziecko  --  {{ cena_dziecko }} zł.</p></li>
                 </ul>
+                {% if ceny_pokojow %}
+                <p>Dostępne są pokoje w następujących rozmiarach:</p>
                 <ul>
-                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
-                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
-                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
-                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
-                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
-                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
-                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
-                    <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
+                    {% for p in ceny_pokojow %}
+                    <li><p>{{ p.rozmiar }}-osobowy  --  {{ p.cena }} zł</p></li>
+                    {% endfor %}
                 </ul>
+                {% endif %}
             </div><!-- #tabs-1 -->
 
             <div id="tabs-2" class="tab-content">
@@ -66,7 +65,9 @@
                 <ul>
                     <li class="inline-block"><p>{{ zarcie.nazwa }} -</p></li>
                     <li class="inline-block"><p>{{ zarcie.cena }} zł</p></li>
+                    {% if zarcie.opis %}
                     <li class="description"><p>( {{ zarcie.opis }} )</p></li>
+                    {% endif %}
                     {% if zarcie.zdjecie %}
                     <li class="pic"><a class="fancybox" href="{{ zarcie.zdjecie.url }}" rel="lightbox" ><img src="{{ zarcie.zdjecie.url }}"></a></li>
                     {% endif %}
