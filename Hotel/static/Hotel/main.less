@@ -1,28 +1,4 @@
 @font-face {
-    font-family: 'freebooter_scriptregular';
-    src: url('fonts/freebooterscript-webfont.eot');
-    src: url('fonts/freebooterscript-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/freebooterscript-webfont.woff') format('woff'),
-         url('fonts/freebooterscript-webfont.ttf') format('truetype'),
-         url('fonts/freebooterscript-webfont.svg#freebooter_scriptregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'lovers_quarrelregular';
-    src: url('fonts/loversquarrel-regular-webfont.eot');
-    src: url('fonts/loversquarrel-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/loversquarrel-regular-webfont.woff') format('woff'),
-         url('fonts/loversquarrel-regular-webfont.ttf') format('truetype'),
-         url('fonts/loversquarrel-regular-webfont.svg#lovers_quarrelregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
     font-family: 'alegreyaregular';
     src: url('fonts/alegreya-regular-webfont.eot');
     src: url('fonts/alegreya-regular-webfont.eot?#iefix') format('embedded-opentype'),
@@ -35,12 +11,12 @@
 }
 
 @font-face {
-    font-family: 'alex_brushregular';
-    src: url('fonts/alexbrush-regular-webfont.eot');
-    src: url('fonts/alexbrush-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/alexbrush-regular-webfont.woff') format('woff'),
-         url('fonts/alexbrush-regular-webfont.ttf') format('truetype'),
-         url('fonts/alexbrush-regular-webfont.svg#alex_brushregular') format('svg');
+    font-family: 'devroyeregular';
+    src: url('fonts/devroye_-webfont.eot');
+    src: url('fonts/devroye_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/devroye_-webfont.woff') format('woff'),
+         url('fonts/devroye_-webfont.ttf') format('truetype'),
+         url('fonts/devroye_-webfont.svg#devroyeregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -74,13 +50,13 @@ body {
     background-repeat: no-repeat;
     margin: 0;
     background: #1e5799;
-    background: -moz-linear-gradient(left, #eda14a 0%, #ffd361 50%, #ffd361 50%, #eda14a 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#eda14a), color-stop(50%,#ffd361),
-                color-stop(50%,#ffd361), color-stop(100%,#eda14a));
-    background: -webkit-linear-gradient(left, #eda14a 0%,#ffd361 50%,#ffd361 50%,#eda14a 100%);
-    background: -o-linear-gradient(left, #eda14a 0%,#ffd361 50%,#ffd361 50%,#eda14a 100%);
-    background: -ms-linear-gradient(left, #eda14a 0%,#ffd361 50%,#ffd361 50%,#eda14a 100%);
-    background: linear-gradient(left, #eda14a 0%,#ffd361 50%,#ffd361 50%,#eda14a 100%);
+    background: -moz-linear-gradient(left, #eda14a 0%, #eac78f 50%, #eac78f 50%, #eda14a 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#eda14a), color-stop(50%,#eac78f),
+                color-stop(50%,#eac78f), color-stop(100%,#eda14a));
+    background: -webkit-linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
+    background: -o-linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
+    background: -ms-linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
+    background: linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
     font-family: "alegreyaregular";
 }
 
@@ -140,7 +116,11 @@ body {
             margin: 0;
             text-align: center;
             vertical-align: middle;
-            font-family: "alex_brushregular";
+            font-family: "devroyeregular";
+            font-size: 23px;
+            color: #e59e52;
+            text-shadow: 0px 0px 4px #000000;
+            filter: dropshadow(color=#000000, offx=0, offy=0);
         }
 
     }
@@ -171,6 +151,10 @@ body {
                 height: 50px;
                 text-align: center;
                 width: 250px;
+                font-family: "devroyeregular";
+                color: #e59e52;
+                text-shadow: 0px 0px 4px #000000;
+                filter: dropshadow(color=#000000, offx=0, offy=0);
 
                 &:hover {
                     background-position: 0 -50px;
@@ -239,6 +223,13 @@ body {
         padding: 0;
         vertical-align: text-top;
         width: 285px;
+        color: #e59e52;
+        text-shadow: 0px 0px 4px #000000;
+        filter: dropshadow(color=#000000, offx=0, offy=0);
+
+        a {
+            color: #e59e52;
+        }
 
         &.submenu {
             text-align: center;
@@ -249,6 +240,9 @@ body {
         display: inline-block;
         margin: 25px 0 0 75px;
         vertical-align: text-top;
+        color: #e59e52;
+        text-shadow: 0px 0px 4px #000000;
+        filter: dropshadow(color=#000000, offx=0, offy=0);
 
         div {
 
@@ -273,6 +267,11 @@ body {
             line-height: 50px;
             margin: 0 auto;
             width: 600px;
+            font-family: "devroyeregular";
+            font-size: 23px;
+            color: #e59e52;
+            text-shadow: 0px 0px 4px #000000;
+            filter: dropshadow(color=#000000, offx=0, offy=0);
         }
     }
 
@@ -490,6 +489,7 @@ body {
                 margin: 0 auto;
                 cursor: pointer;
                 text-align: center;
+                color: #000000;
             }
         }
     }
@@ -509,6 +509,11 @@ body {
             line-height: 50px;
             margin: 0 auto;
             width: 600px;
+            font-family: "devroyeregular";
+            font-size: 23px;
+            color: #e59e52;
+            text-shadow: 0px 0px 4px #000000;
+            filter: dropshadow(color=#000000, offx=0, offy=0);
         }
     }
 
@@ -674,6 +679,11 @@ body {
             line-height: 50px;
             margin: 0 auto;
             width: 600px;
+            font-family: "devroyeregular";
+            font-size: 23px;
+            color: #e59e52;
+            text-shadow: 0px 0px 4px #000000;
+            filter: dropshadow(color=#000000, offx=0, offy=0);
         }
     }
 
