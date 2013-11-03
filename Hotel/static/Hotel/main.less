@@ -615,3 +615,122 @@ body {
     }
 
 }
+
+#pricing{
+    .gradient-vertical(#08ae9d, #003843);
+    padding: 0 0 50px 0;
+
+    .title {
+        padding: 20px 0;
+        text-align: center;
+
+        h1 {
+            background-image: url(img/title-head.jpg);
+            height: 50px;
+            line-height: 50px;
+            margin: 0 auto;
+            width: 600px;
+        }
+    }
+
+    .pricing-content{
+        text-align: center;
+
+        .tab-content{
+
+            ul{
+                list-style-type: none;
+
+                li{
+                    list-style-type: none;
+                    display: block;
+                    margin: 0;
+                    padding: 0;
+                    overflow: hidden;
+
+                    p{
+                        padding: 0;
+                        margin: 0;
+                    }
+                }
+
+                .inline-block{
+                    display: inline-block;
+                }
+
+                li.pic{
+                    display: block;
+
+                    img{
+                        max-width: 259px;
+                        max-height: 194px;
+                    }
+                }
+
+                li.description{
+                    display: block;
+
+                    p{
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+
+            .nazwa{
+                float: left;
+                width: 200px;
+                margin: 15px 10px 15px 10px;
+
+            }
+
+            .cena{
+                float: left;
+                width: 110px;
+                margin: 15px 10px 15px 10px;
+            }
+
+            .opis{
+                float: left;
+                max-width: 300px;
+                margin: 15px 10px 15px 10px;
+            }
+
+            .dostepnosc{
+                float: left;
+                width: 100px;
+                margin: 15px 10px 15px 10px;
+            }
+
+            .nav{
+                margin: 50px 0 100px 0;
+
+                a{
+                    text-decoration: none;
+                    font-weight: bold;
+                    margin: 0 20px 0 20px;
+                    color: blue;
+                }
+            }
+        }
+
+        h2{
+            font-weight: bold;
+            font-size: 40px;
+            margin: 20px 0 20px 0;
+            padding: 0;
+        }
+    }
+
+    .scroll-up{
+        width: 98px;
+        height: 98px;
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        display: none;
+        text-indent: -99999px;
+        background: url(img/scroll-up.png) no-repeat;
+        background-color: none;
+        z-index: 999;
+    }
+}

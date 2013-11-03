@@ -54,8 +54,8 @@
     "fields": {
       "nazwa": "Róża z łososia na zielonej sałacie",
       "cena": "8.00",
-      "opis": "",
-      "zdjecie": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
+      "zdjecie": "jedzenie/roza_z_lososia_na_salacie.jpg",
       "kategoria": "1"
     }
   },
@@ -65,8 +65,8 @@
     "fields": {
       "nazwa": "Caprese",
       "cena": "7.00",
-      "opis": "",
-      "zdjecie": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
+      "zdjecie": "jedzenie/caprese.jpg",
       "kategoria": "1"
     }
   },
@@ -76,8 +76,8 @@
     "fields": {
       "nazwa": "Zapiekany camembert z żurawiną i grzankami",
       "cena": "9.50",
-      "opis": "",
-      "zdjecie": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
+      "zdjecie": "jedzenie/Zapiekany_camembert.jpg",
       "kategoria": "1"
     }
   },
@@ -87,8 +87,8 @@
     "fields": {
       "nazwa": "Schab w galarecie",
       "cena": "6.50",
-      "opis": "",
-      "zdjecie": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
+      "zdjecie": "jedzenie/Schab_w_galarecie.jpg",
       "kategoria": "1"
     }
   },
@@ -98,8 +98,8 @@
     "fields": {
       "nazwa": "Mix kolorowych sałat z grilowanym kurczakiem i serem pleśniowym",
       "cena": "12.50",
-      "opis": "",
-      "zdjecie": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
+      "zdjecie": "jedzenie/Mix_sałat.jpg",
       "kategoria": "1"
     }
   },
@@ -109,8 +109,8 @@
     "fields": {
       "nazwa": "Rosół z makaronem",
       "cena": "5.00",
-      "opis": "",
-      "zdjecie": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
+      "zdjecie": "jedzenie/Rosół_z_makaronem.jpg",
       "kategoria": "2"
     }
   },
@@ -120,8 +120,8 @@
     "fields": {
       "nazwa": "Rosół z jajkiem przepiórczym i szynką",
       "cena": "7.00",
-      "opis": "",
-      "zdjecie": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
+      "zdjecie": "jedzenie/Rosół_z_jajkiem_szynką.jpg",
       "kategoria": "2"
     }
   },
@@ -131,8 +131,8 @@
     "fields": {
       "nazwa": "Zupa grzybowa w czarce chlebowej",
       "cena": "7.60",
-      "opis": "",
-      "zdjecie": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
+      "zdjecie": "jedzenie/zupa_grzybowa.jpg",
       "kategoria": "2"
     }
   },
@@ -142,8 +142,8 @@
     "fields": {
       "nazwa": "Krem z brokułów/ zielonego groszku/ selera z prażonymi migdałami",
       "cena": "4.70",
-      "opis": "",
-      "zdjecie": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
+      "zdjecie": "jedzenie/krem_z_brokułów.jpg",
       "kategoria": "2"
     }
   },
@@ -153,8 +153,8 @@
     "fields": {
       "nazwa": "Zupa serowa z grzankami",
       "cena": "6.70",
-      "opis": "",
-      "zdjecie": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
+      "zdjecie": "jedzenie/Zupa_serowa_grzanki.jpg",
       "kategoria": "2"
     }
   },
@@ -164,8 +164,8 @@
     "fields": {
       "nazwa": "Schab pieczony w sosie własnym",
       "cena": "8.70",
-      "opis": "",
-      "zdjecie": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
+      "zdjecie": "jedzenie/Schab_w_sosie.jpg",
       "kategoria": "3"
     }
   },
@@ -175,8 +175,8 @@
     "fields": {
       "nazwa": "Filet z pstrąga w sosie cytrynowym",
       "cena": "9.70",
-      "opis": "",
-      "zdjecie": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
+      "zdjecie": "jedzenie/Filet_w_sosie.jpg",
       "kategoria": "3"
     }
   },
@@ -186,8 +186,8 @@
     "fields": {
       "nazwa": "Polędwiczki wieprzowe w sosie borowikowym",
       "cena": "10.70",
-      "opis": "",
-      "zdjecie": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
+      "zdjecie": "jedzenie/Polędwiczki_w_sosie.jpg",
       "kategoria": "3"
     }
   },
@@ -197,7 +197,7 @@
     "fields": {
       "nazwa": "Plater 3 mięs",
       "cena": "12.90",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "3"
     }
@@ -208,7 +208,7 @@
     "fields": {
       "nazwa": "Rolada z indyka nadziewana szpinakiem i serem feta",
       "cena": "14.20",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "3"
     }
@@ -219,7 +219,7 @@
     "fields": {
       "nazwa": "Cielęce zrazy zawijane",
       "cena": "9.20",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "3"
     }
@@ -230,7 +230,7 @@
     "fields": {
       "nazwa": "Kotlet po szwajcarsku nadziewany serem i szynką",
       "cena": "15.00",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "3"
     }
@@ -241,7 +241,7 @@
     "fields": {
       "nazwa": "Ziemniaki gotowane",
       "cena": "3.00",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "4"
     }
@@ -252,7 +252,7 @@
     "fields": {
       "nazwa": "Ziemniaki opiekane",
       "cena": "4.00",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "4"
     }
@@ -263,7 +263,7 @@
     "fields": {
       "nazwa": "Frytki",
       "cena": "5.50",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "4"
     }
@@ -274,7 +274,7 @@
     "fields": {
       "nazwa": "Dufinki",
       "cena": "6.00",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "4"
     }
@@ -285,7 +285,7 @@
     "fields": {
       "nazwa": "Kopytka",
       "cena": "5.40",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "4"
     }
@@ -296,7 +296,7 @@
     "fields": {
       "nazwa": "Kluski śląskie",
       "cena": "4.40",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "4"
     }
@@ -307,7 +307,7 @@
     "fields": {
       "nazwa": "Ryż",
       "cena": "4.00",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "4"
     }
@@ -318,7 +318,7 @@
     "fields": {
       "nazwa": "Jarzyny gotowane lub grillowanie",
       "cena": "7.00",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "4"
     }
@@ -329,7 +329,7 @@
     "fields": {
       "nazwa": "Mizeria",
       "cena": "3.50",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "5"
     }
@@ -340,7 +340,7 @@
     "fields": {
       "nazwa": "Seler",
       "cena": "2.50",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "5"
     }
@@ -351,7 +351,7 @@
     "fields": {
       "nazwa": "Marchewka z jabłkiem",
       "cena": "3.20",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "5"
     }
@@ -362,7 +362,7 @@
     "fields": {
       "nazwa": "Wiosenna",
       "cena": "5.20",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "5"
     }
@@ -373,7 +373,7 @@
     "fields": {
       "nazwa": "Biała kapusta",
       "cena": "4.00",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "5"
     }
@@ -384,7 +384,7 @@
     "fields": {
       "nazwa": "Czerwona Kapusta",
       "cena": "4.50",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "5"
     }
@@ -395,7 +395,7 @@
     "fields": {
       "nazwa": "Kapusta zasmażana",
       "cena": "5.20",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "5"
     }
@@ -406,7 +406,7 @@
     "fields": {
       "nazwa": "Ćwikła z chrzanem",
       "cena": "3.40",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "5"
     }
@@ -417,7 +417,7 @@
     "fields": {
       "nazwa": "Buraczki zasmażane",
       "cena": "4.40",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "5"
     }
@@ -428,7 +428,7 @@
     "fields": {
       "nazwa": "Lody z owocami i bitą śmietaną",
       "cena": "3.50",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "6"
     }
@@ -439,7 +439,7 @@
     "fields": {
       "nazwa": "Szarlotka z polewą",
       "cena": "5.50",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "6"
     }
@@ -450,7 +450,7 @@
     "fields": {
       "nazwa": "Szarlotka na ciepło z sosem waniliowym i gałką lodów",
       "cena": "6.00",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "6"
     }
@@ -461,7 +461,7 @@
     "fields": {
       "nazwa": "Galaretka ze świeżymi owocami",
       "cena": "3.00",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "6"
     }
@@ -472,7 +472,7 @@
     "fields": {
       "nazwa": "Panacotta z sosem malinowym",
       "cena": "4.00",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "6"
     }
@@ -483,7 +483,7 @@
     "fields": {
       "nazwa": "Koktajl ze świeżych owoców",
       "cena": "5.40",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "6"
     }
@@ -494,7 +494,7 @@
     "fields": {
       "nazwa": "Napoje gorące (kawa, herbata) nielimitowane",
       "cena": "5.50",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "7"
     }
@@ -505,7 +505,7 @@
     "fields": {
       "nazwa": "Napoje zimne (soki, woda mineralna, Coca cola, Fanta, Sprite) nielimitowane",
       "cena": "6.50",
-      "opis": "",
+      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
       "zdjecie": "",
       "kategoria": "7"
     }

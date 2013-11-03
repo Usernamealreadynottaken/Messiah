@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 {% block pricing %}
-    <link rel="stylesheet/less" type="text/css" href="{% static 'Hotel/jquery-ui-1.10.3.custom.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'Hotel/jquery-ui-1.10.3.custom.css' %}" />
 {% endblock %}
 
 {% block title %}Hotel Messiah - Cennik{% endblock %}
@@ -30,8 +30,8 @@
 
             <div id="tabs-1" class="tab-content">
                 <ul>
-                    <li><p>Cena za osobę dorosłą wynosi xxxx zł.</p></li>
-                    <li><p>Cena za dziecko wynosi xxxx zł.</p></li>
+                    <li><p>Cena za osobę dorosłą wynosi {{ cena_dorosly }} zł.</p></li>
+                    <li><p>Cena za dziecko wynosi {{ cena_dziecko }} zł.</p></li>
                 </ul>
                 <ul>
                     <li><p>Cena za pokój x osobowy wynosi xx.xx zł.</p></li>
@@ -47,20 +47,28 @@
 
             <div id="tabs-2" class="tab-content">
 
+                <div class="nav">
+                    {% for kategoria in kategorie %}
+
+                        <a href="#{{ kategoria.pk }}">{{ kategoria.nazwa }}</a>
+
+                    {% endfor %}
+                </div>
+
                 {% for kategoria in kategorie %}
 
-                <h2>{{ kategoria.nazwa }}</h2>
+                <h2><a id="{{ kategoria.pk }}">{{ kategoria.nazwa }}</a></h2>
                 <p>{{ kategoria.opis }}</p>
 
                 {% for zarcie in jedzenie %}
                 {% if zarcie.kategoria == kategoria %}
                 <ul>
+                    <li class="inline-block"><p>{{ zarcie.nazwa }} -</p></li>
+                    <li class="inline-block"><p>{{ zarcie.cena }} zł</p></li>
+                    <li class="description"><p>( {{ zarcie.opis }} )</p></li>
                     {% if zarcie.zdjecie %}
-                    <li><img src="{{ zarcie.zdjecie.url }}"></li>
+                    <li class="pic"><a href="{{ zarcie.zdjecie.url }}" rel="lightbox" ><img src="{{ zarcie.zdjecie.url }}"></a></li>
                     {% endif %}
-                    <li><p>{{ zarcie.nazwa }}</p></li>
-                    <li><p>{{ zarcie.cena }} zł</p></li>
-                    <li><p>{{ zarcie.opis }}</p></li>
                 </ul>
                 {% endif %}
                 {% endfor %}
@@ -70,6 +78,7 @@
             </div><!-- #tabs-2 -->
 
             <div id="tabs-3" class="tab-content">
+
                 <h2>Usługi świadczone przez hotel:</h2>
 
                 <ul>
@@ -103,6 +112,8 @@
             </div><!-- #tabs-3 -->
 
         </div><!-- #tabs -->
+
+        <a href="#" class="scroll-up" >Scroll</a>
 
     </div><!-- .pricing-content -->
 

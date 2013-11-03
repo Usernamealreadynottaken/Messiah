@@ -86,7 +86,9 @@ def cennik(request):
         'kategorie': KategoriaJedzenia.objects.all(),
         'jedzenie': Jedzenie.objects.all(),
         'uslugi_wewnetrzne': uslugi_wewnetrzne,
-        'uslugi_zewnetrzne': uslugi_zewnetrzne
+        'uslugi_zewnetrzne': uslugi_zewnetrzne,
+        'cena_dorosly': OpisHotelu.objects.filter()[0].cena_dorosly,
+        'cena_dziecko': OpisHotelu.objects.filter()[0].cena_dziecko
     })
 
 

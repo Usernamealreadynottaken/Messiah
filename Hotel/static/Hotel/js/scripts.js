@@ -64,3 +64,25 @@ $( "#clickme" ).click(function() {
   });
 });
 
+$( document ).ready(function() {
+  $('.tab-content .nav a').on('click', function(event){
+    event.preventDefault();
+    $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+  });
+
+  $(window).scroll(function (){
+    if($(this).scrollTop() > 100){
+        $('.scroll-up').fadeIn();
+    } else{
+        $('.scroll-up').fadeOut();
+    }
+  });
+
+  $('.scroll-up').click(function (){
+    $("html, body").animate({
+        scrollTop: 0
+    }, 600);
+    return false;
+  });
+
+});
