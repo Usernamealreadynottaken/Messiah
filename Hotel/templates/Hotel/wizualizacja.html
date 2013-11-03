@@ -24,14 +24,26 @@
             {% if pokoje and rozmiary %}
             {% for r in rozmiary %}
             <h3 class="caption">{{ r }}-osobowe</h3>
-            <ul>{% for p in pokoje %}{% if p.pokoj.rozmiar == r %}<!--
-                --><li>
+            <ul>{% for p in pokoje %}{% if p.pokoj.rozmiar == r %}{% if not p.zajety %}<!--
+
+                Pokoje wolne najpierw
+                --><li class="room-image room{{ p.pokoj.pk }}">
+                    <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room"  />
+                    <div class="desc">
+                        <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room"/>
+                        <p>{{ p.pokoj.opis }}</p>
+                    </div>
+                </li>{% endif %}{% endif %}{% endfor %}<!--
+
+                Pokoje zajete po wolnych
+                -->{% for p in pokoje %}{% if p.pokoj.rozmiar == r %}{% if p.zajety %}<!--
+                --><li class="room-image room{{ p.pokoj.pk }} disabled">
                     <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room" class="room-image room{{ p.pokoj.pk }}" />
                     <div class="desc">
                         <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room"/>
                         <p>{{ p.pokoj.opis }}</p>
                     </div>
-                </li>{% endif %}{% endfor %}
+                </li>{% endif %}{% endif %}{% endfor %}
             </ul>
             {% endfor %}
             {% endif %}
