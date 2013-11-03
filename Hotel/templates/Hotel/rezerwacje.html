@@ -409,6 +409,7 @@ $(".send").click(function() {
 {% if liczba_pokoi or uslugi or rezerwacja_do_edycji %}
 $(document).ready(function() {
     $(".rooms").val("{{ liczba_pokoi }}").trigger("change");
+    $(".send").html( "Edytuj rezerwacje" );
 
     {% if uslugi %}
     $(".additions h2").trigger("click");
