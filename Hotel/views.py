@@ -15,7 +15,7 @@ from django.http import HttpResponse, Http404
 
 # Nasze modele
 from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
-    ZdjeciaPokojow, CenaPokoju
+    ZdjeciaPokojow, CenaPokoju, ZdjeciaHotelu
 
 
 @login_required
@@ -24,7 +24,15 @@ def wiadomosci(request):
 
 
 def glowna(request):
-    return render(request, 'hotel/index.html')
+    opis_hotelu = OpisHotelu.objects.filter()[0].opis_hotelu
+    zdjecie = OpisHotelu.objects.filter()[0].zdjecie
+    zdjecia_hotelu = ZdjeciaHotelu.objects.all()
+    context = {
+        'opis_hotelu': opis_hotelu,
+        'zdjecie': zdjecie,
+        'zdjecia_hotelu': zdjecia_hotelu
+    }
+    return render(request, 'hotel/index.html', context)
 
 
 def wizualizacja(request):

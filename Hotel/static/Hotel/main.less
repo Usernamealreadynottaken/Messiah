@@ -886,3 +886,68 @@ body {
         z-index: 999;
     }
 }
+
+#main {
+    .gradient-vertical(#08af9d, #1e777f);
+    padding: 0 0 50px 0;
+
+    .title {
+        padding: 20px 0;
+        text-align: center;
+
+        h1 {
+            background-image: url(img/title-head.jpg);
+            height: 50px;
+            line-height: 50px;
+            margin: 0 auto;
+            width: 600px;
+            font-family: "devroyeregular";
+            font-size: 23px;
+            color: #e59e52;
+            text-shadow: 0px 0px 4px #000000;
+            filter: dropshadow(color=#000000, offx=0, offy=0);
+        }
+    }
+
+    .main-content {
+        background-image: url(img/content-pattern.jpg);
+        margin: 0 auto;
+        position: relative;
+        width: 900px;
+
+        &:before {
+            background-image: url(img/content-nw.png);
+            top: -5px;
+            content: " ";
+            height: 150px;
+            left: -5px;
+            position: absolute;
+            width: 150px;
+            z-index: 1;
+        }
+
+        &:after {
+            background-image: url('img/content-se.png');
+            bottom: -5px;
+            content: " ";
+            height: 150px;
+            right: -5px;
+            position: absolute;
+            width: 150px;
+            z-index: 1;
+        }
+
+        .description {
+            padding: 60px;
+
+            p {
+
+                img {
+                    float: right;
+                    margin: 15px;
+                }
+            }
+        }
+    }
+
+}
