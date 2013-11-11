@@ -12,6 +12,8 @@ urlpatterns = patterns('',
     url(r'^rezerwacje/(?P<code>[a-zA-Z0-9]{1,12})/$', views.rezerwacje_kod, name='rezerwacje_kod'),
     url(r'^rezerwacje/sprawdz/(?P<code>[a-zA-Z0-9]{1,12})/$', views.rezerwacje_sprawdz_kod, name='rezerwacje_sprawdz_kod'),
     url(r'^rezerwacje/wyslij/(?P<code>[a-zA-Z0-9]{1,12})/$', views.rezerwacje_wyslij_kod, name='rezerwacje_wyslij_kod'),
+    url(r'^rezerwacje/anuluj/(?P<code>[a-zA-Z0-9]{1,12})/$', views.rezerwacje_anuluj, name='rezerwacje_anuluj_kod'),
+    url(r'^rezerwacje/anuluj/', views.rezerwacje_anuluj, name='rezerwacje_anuluj'),
     url(r'^wizualizacja/$', views.wizualizacja, name='wizualizacja'),
     url(r'^wizualizacja/(?P<pk>\d+)/$', views.wizualizacja_galeria, name='wizualizacja_galeria')
 )

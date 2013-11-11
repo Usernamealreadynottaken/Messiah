@@ -1,4 +1,7 @@
 from django.db import models
+from django import forms
+from django.core.exceptions import ValidationError, ObjectDoesNotExist
+from django.db.models import Q
 
 # Rzeczy do dodania do modelu:
 # - rezerwacja - cos jak boolean czy jest aktywna czy nie
@@ -49,6 +52,7 @@ class Rezerwacja(models.Model):
     dodatkowe_instrukcje = models.TextField(blank=True)
     kod = models.CharField(max_length=12)
     notatka = models.TextField(blank=True)
+    zarchiwizowany = models.BooleanField(default=False, blank=True)
 
     cena_dorosly = models.DecimalField(max_digits=6, decimal_places=2)
     cena_dziecko = models.DecimalField(max_digits=6, decimal_places=2)
@@ -58,15 +62,71 @@ class Rezerwacja(models.Model):
     def __unicode__(self):
         return self.email
 
+    def wartosc_rezerwacji(self):
+        dni = (self.koniec_pobytu - self.poczatek_pobytu).days
+        cena = 0
+        for pokoj in self.pokojnarezerwacji_set.all():
+            cena += dni * (pokoj.cena + self.cena_dorosly * pokoj.doroslych + self.cena_dziecko * pokoj.dzieci)
+        for usluga in self.usluganarezerwacji_set.all():
+            cena += usluga.cena
+        return cena
+
+
+class RezerwacjaForm(forms.ModelForm):
+    my_field = forms.CharField()
+
+    class Meta:
+        model = Rezerwacja
+
+    def __init__(self, *args, **kwargs):
+        super(RezerwacjaForm, self).__init__(*args, **kwargs)
+        self.fields['my_field'] = forms.CharField(label='ELOOOO', initial='Some some')
+
 
 # Model reprezentujacy tabelke pomiedzy Rezerwacja a Pokojem
 # w many-to-many relationship
 class PokojNaRezerwacji(models.Model):
     rezerwacja = models.ForeignKey(Rezerwacja)
     pokoj = models.ForeignKey(Pokoj)
-    doroslych = models.IntegerField(blank=True)
-    dzieci = models.IntegerField(blank=True)
+
+    doroslych = models.IntegerField(blank=True, null=True)
+    dzieci = models.IntegerField(blank=True, null=True)
     cena = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def clean(self):
+        # Jezeli ktoras z cen dla doroslych albo dzieci nie jest ustawiona to recznie
+        # wpisujemy tam 0. Rozwiazanie jest takie zamiast ustawic null=True, bo wtedy jesli
+        # uzytkownik nie wpisze nic do bazy zostanie wpisany NULL i nie wiem czy reszta
+        # pythona bedzie traktowac NULL jako 0
+        if not self.doroslych:
+            self.doroslych = 0
+        if not self.dzieci:
+            self.dzieci = 0
+
+        super(PokojNaRezerwacji, self).clean()
+
+        # Wszystko w try, bo jesli np. uzytkownik wybierze jakis pokoj, wystapi blad (wiec sie nie zapisze)
+        # i uzytkownik zrezygnuje i zmieni na '----' (pusty) to wysypuje sie ObjectDoesNotExist
+        try:
+
+            # Czy pokoj nie zostal dodany wiecej niz raz
+            for pnr in self.rezerwacja.pokojnarezerwacji_set.filter(~Q(pk=self.pk)):
+                print pnr.pokoj.numer
+                if pnr.pokoj.pk == self.pokoj.pk:
+                    raise ValidationError('Pokoj zostal dodany wiecej niz raz.')
+
+            # Czy pokoj jest wolny w danym terminie
+            poczatek_pobytu = self.rezerwacja.poczatek_pobytu
+            koniec_pobytu = self.rezerwacja.koniec_pobytu
+
+            for r in Rezerwacja.objects.filter(~Q(pk=self.rezerwacja.pk)):
+                if poczatek_pobytu <= r.poczatek_pobytu < koniec_pobytu or \
+                        koniec_pobytu >= r.koniec_pobytu > poczatek_pobytu or \
+                        r.poczatek_pobytu <= poczatek_pobytu < r.koniec_pobytu:
+                    if r.pokojnarezerwacji_set.filter(pokoj__pk=self.pokoj.pk):
+                        raise ValidationError('Ten pokoj jest zajety w tym terminie.')
+        except ObjectDoesNotExist:
+            pass
 
 
 # Model reprezentujacy tabelke pomiedzy Rezerwacja a Usluga

@@ -1,0 +1,76 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block title %}Archiwum{% endblock %}
+
+{% block breadcrumbs %}
+
+    <div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> &rsaquo;
+    <a href="../">{% trans 'Hotel' %}</a> &rsaquo;
+    {% trans 'Archiwum' %}
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+<div id="archive">
+
+    <h1>Archiwum</h1>
+
+    <div class="archive-content">
+
+        {% if rezerwacje %}
+        <ul>
+            {% for rezerwacja in rezerwacje %}
+            <li>
+                <div class="rezerwacja">
+                    <h2>Informacje dot. rezerwacji</h2>
+                    <p>Poczatek pobytu: {{ rezerwacja.poczatek_pobytu }}</p>
+                    <p>Koniec pobytu: {{ rezerwacja.koniec_pobytu }}</p>
+                    <p>E-mail: {{ rezerwacja.email }}</p>
+                    <p>Telefon: {{ rezerwacja.telefon }}</p>
+                    <p>Nazwisko: {{ rezerwacja.nazwisko }}</p>
+                    <p>Dodatkowe instrukcje: {{ rezerwacja.dodatkowe_instrukcje }}</p>
+                    <p>Kod: {{ rezerwacja.kod }}</p>
+                    <p>Notatka: {{ rezerwacja.notatka }}</p>
+                    <p>Cena dorosly: {{ rezerwacja.cena_dorosly }}</p>
+                    <p>Cena dziecko: {{ rezerwacja.cena_dziecko }}</p>
+                    <p>Wartosc rezerwacji: {{ rezerwacja.wartosc_rezerwacji }}</p>
+                </div>
+                <div class="uslugi">
+                    <h2>Uslugi</h2>
+                    {% if rezerwacja.usluganarezerwacji_set.all %}
+                    {% for usluga in rezerwacja.usluganarezerwacji_set.all %}
+                    <p>{{ usluga.usluga.nazwa }}{% if usluga.cena %}, cena - {{ usluga.cena }}{% endif %}</p>
+                    {% endfor %}
+                    {% else %}
+                    <p>Brak uslug</p>
+                    {% endif %}
+                </div>
+                <div class="pokoje">
+                    <h2>Pokoje</h2>
+                    {% if rezerwacja.pokojnarezerwacji_set.all %}
+                    {% for pokoj in rezerwacja.pokojnarezerwacji_set.all %}
+                    <p>Numer {{ pokoj.pokoj.numer }} (rozmiar {{ pokoj.pokoj.rozmiar }})</p>
+                    <p>doroslych - {{ pokoj.doroslych }}</p>
+                    <p>dzieci - {{ pokoj.dzieci }}</p>
+                    <p>cena - {{ pokoj.cena }}</p>
+                    {% endfor %}
+                    {% else %}
+                    <p>Brak pokojow</p>
+                    {% endif %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>Archiwum jest puste</p>
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}
