@@ -1,7 +1,8 @@
 from django.contrib import admin
+import datetime
 
 from Hotel.models import Rezerwacja, Pokoj, Usluga, UslugaNaRezerwacji, PokojNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
-    ZdjeciaPokojow, CenaPokoju
+    ZdjeciaPokojow, CenaPokoju, RezerwacjaForm
 
 
 # REZERWACJE
@@ -18,6 +19,12 @@ class PokojInline(admin.TabularInline):
 
 class RezerwacjaAdmin(admin.ModelAdmin):
     inlines = [UslugaInline, PokojInline]
+    form = RezerwacjaForm
+
+    def queryset(self, request):
+        qs = super(RezerwacjaAdmin, self).queryset(request)
+        qs = qs.filter(zarchiwizowany=False, koniec_pobytu__gt=datetime.date.today())
+        return qs
 
 
 # JEDZENIE

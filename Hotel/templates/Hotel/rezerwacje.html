@@ -209,7 +209,11 @@
                 <p>Pokoje: <span class="NoRooms">x</span></br>
                     Noce: <span class="NoNights">y</span></br>
                     Cena: <span class="price">1</span> zl</p>
-                <a class="send">Zarezerwuj</a>
+                <a class="button send">Zarezerwuj</a>
+
+                {% if rezerwacja_do_edycji %}
+                <a class="button cancel">Anuluj rezerwacje</a>
+                {% endif %}
             </div> <!-- .summary -->
 
         </form>
@@ -224,6 +228,16 @@
     <span class="close"/>
 
 </div> <!-- .success -->
+
+{% if rezerwacja_do_edycji %}
+<div class="cancel-confirm">
+
+    <p>Czy na pewno chcesz anulowac rezrwacje?</p>
+    <a class="button confirm-yes">Tak</a>
+    <a class="button confirm-no">Nie</a>
+
+</div> <!-- .cancel-confirm -->
+{% endif %}
 
 {% endblock %}
 
@@ -422,9 +436,45 @@ $(".send").click(function() {
         $("form").submit();
     }
 });
+{% if rezerwacja_do_edycji %}
+$(".cancel").click(function() {
+    $(".cancel-confirm").fadeIn(200);
+});
+
+$(".confirm-yes").click(function() {
+    var sendData = {
+        csrfdmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val(),
+        code: "{{ rezerwacja_do_edycji.kod }}"
+    }
+    $.ajax({
+        type: "GET",
+        url: "{% url 'hotel:rezerwacje_anuluj' %}" + "{{ rezerwacja_do_edycji.kod }}" + "/",
+        data: sendData
+    })
+        .done(function(data) {
+            $(".cancel-confirm").fadeOut(200);
+            if (data == "success") {
+                $(".success p").html("Rezerwacja zostala anulowana.");
+            } else if (data == "date") {
+                $(".success p").html("Nie mozesz anulowac rezrwacji, ktora sie juz rozpoczela.<br />Skontaktuj sie z pracownikiem hotelu.");
+            } else {
+                $(".success p").html("Wystapil blad podczas anulowania rezerwacji. Sproboj ponownie.");
+            }
+            $(".success").fadeIn(200);
+        })
+        .fail(function(xhr, textStatus, errorThrown) {
+            alert("Error: " + errorThrown + xhr.status + xhr.responseText);
+        });
+});
+
+$(".confirm-no").click(function() {
+    $(".cancel-confirm").fadeOut(200);
+});
+{% endif %}
 
 $(".close").click(function() {
     $(".success").fadeOut(200);
+    window.location = "{% url 'hotel:rezerwacje' %}";
 });
 
 {% if liczba_pokoi or uslugi or rezerwacja_do_edycji %}
