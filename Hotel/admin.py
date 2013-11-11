@@ -2,7 +2,7 @@ from django.contrib import admin
 import datetime
 
 from Hotel.models import Rezerwacja, Pokoj, Usluga, UslugaNaRezerwacji, PokojNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
-    ZdjeciaPokojow, CenaPokoju, RezerwacjaForm
+    ZdjeciaPokojow, CenaPokoju, RezerwacjaForm, OpisHotelu
 
 
 # REZERWACJE
@@ -54,6 +54,7 @@ admin.site.register(Pokoj, PokojAdmin)
 admin.site.register(CenaPokoju)
 admin.site.register(Usluga)
 admin.site.register(KategoriaJedzenia, KategoriaJedzeniaAdmin)
+admin.site.register(OpisHotelu)
 
 # Wiadomosci finalnie nie beda edytowane w panelu admina tylko bedziemy mieli ta strone dla pracownika
 # w ktorej pracownike bedzie odpowiadal na wiadomosci i tyle, ale obecnie dodaje to do panelu

@@ -4,6 +4,24 @@
 
 {% block content %}
 
-<p>Content</p>
+<div id="main">
+
+    <div class="title">
+        <h1>Strona glowna</h1>
+    </div> <!-- .title -->
+
+    <div class="main-content">
+
+        <div class="description">
+            <p><img src="{% if zdjecie %}{{ zdjecie.url }}{% endif %}" alt="Hotel Messiah"/>{{ opis_hotelu }}</p>
+        </div>
+
+        <div class="gallery">
+
+        </div>
+
+    </div> <!-- .main-content -->
+
+</div> <!-- #main -->
 
 {% endblock %}

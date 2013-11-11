@@ -1,0 +1,39 @@
+{% extends "Hotel/base.html" %}
+
+{% load staticfiles %}
+
+
+{% block title %}Hotel Messiah - Kontakt{% endblock %}
+
+
+{% block content %}
+<div id="contact">
+
+    <div class="title">
+
+        <h1>Informacje Kontaktowe</h1>
+
+    </div><!-- .title -->
+
+    <div class="contact_wrapper">
+
+        <div class="contact_info">
+
+            <p>Adres: <strong>tutaj pole z adresem</strong></p>
+            <p>Telefon: <strong>tutaj pole z telefonem</strong></p>
+            <p>E-mail: <strong><a href="mailto:{{ email }}">{{ email }}</a></strong></p>
+            <p>Facebook: <strong><a href="{{ facebook }}">{{ facebook }}</a></strong></p>
+            <p>Twitter: <strong><a href="{{ twitter }}">{{ twitter }}</a></strong></p>
+            <p>Skype: <strong>{{ skype }}</strong></p>
+            <p>Gadu-Gadu: <strong>{{ gadu }}</strong></p>
+
+        </div><!-- .contact_info -->
+
+        <div class="google_map">
+            {{ html_mapy_google|safe }}
+        </div><!-- .google_map -->
+
+    </div><!-- .contact_wrapper -->
+
+</div><!-- #contact -->
+{% endblock %}

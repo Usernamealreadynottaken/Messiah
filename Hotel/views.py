@@ -15,7 +15,7 @@ from django.http import HttpResponse, Http404
 
 # Nasze modele
 from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
-    ZdjeciaPokojow, CenaPokoju
+    ZdjeciaPokojow, CenaPokoju, ZdjeciaHotelu
 
 
 @login_required
@@ -31,7 +31,15 @@ def archiwum(request):
 
 
 def glowna(request):
-    return render(request, 'hotel/index.html')
+    opis_hotelu = OpisHotelu.objects.filter()[0].opis_hotelu
+    zdjecie = OpisHotelu.objects.filter()[0].zdjecie
+    zdjecia_hotelu = ZdjeciaHotelu.objects.all()
+    context = {
+        'opis_hotelu': opis_hotelu,
+        'zdjecie': zdjecie,
+        'zdjecia_hotelu': zdjecia_hotelu
+    }
+    return render(request, 'hotel/index.html', context)
 
 
 def wizualizacja(request):
@@ -98,6 +106,19 @@ def cennik(request):
         'cena_dorosly': OpisHotelu.objects.filter()[0].cena_dorosly,
         'cena_dziecko': OpisHotelu.objects.filter()[0].cena_dziecko,
         'ceny_pokojow': CenaPokoju.objects.all().order_by('rozmiar')
+    })
+
+
+def kontakt(request):
+
+    return render(request, 'hotel/kontakt.html', {
+        'skype': OpisHotelu.objects.filter()[0].skype,
+        'gadu': OpisHotelu.objects.filter()[0].gadu_gadu,
+        'email': OpisHotelu.objects.filter()[0].email,
+        'facebook': OpisHotelu.objects.filter()[0].facebook,
+        'twitter': OpisHotelu.objects.filter()[0].twitter,
+        'wyswietlaj_mape': OpisHotelu.objects.filter()[0].wyswietlaj_mape,
+        'html_mapy_google': OpisHotelu.objects.filter()[0].html_mapy_google
     })
 
 

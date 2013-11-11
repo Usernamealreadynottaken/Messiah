@@ -247,6 +247,27 @@
 <script src="{% static 'Hotel/js/rezerwacje.js' %}"></script>
 
 <script>
+var datePassed = false;
+
+{% if rezerwacja_do_edycji %}
+datePassed = true;
+$(document).ready(function() {
+    var currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() -1);
+    var days = $(".date-from").val().substring(3,5);
+    var months = $(".date-from").val().substring(0, 2) - 1;
+    var years = $(".date-from").val().substring(6);
+    var dateFrom = new Date(years, months, days);
+    if (currentDate >= dateFrom) {
+        datePassed = true;
+        $(".date-from").prop("disabled", true);
+        $(".datepicker-from").datepicker("disable");
+    } else {
+        datePassed = false;
+    }
+});
+{% endif %}
+
 function sprawdzPoprawnosc() {
     var currentDate = new Date();
     currentDate.setDate(currentDate.getDate() -1);
@@ -255,7 +276,7 @@ function sprawdzPoprawnosc() {
     var years = $(".date-from").val().substring(6);
     var dateFrom = new Date(years, months, days);
     var inputFrom = $(".date-from").val();
-    if (validateDate(inputFrom, ".dateFrom-error") && currentDate < dateFrom) {
+    if (validateDate(inputFrom, ".dateFrom-error") && currentDate < dateFrom || datePassed) {
         $(".date-from").parent().removeClass("negative-input");
         $(".date-from").parent().addClass("positive-input");
         $(".dateFrom-error").animate({
@@ -266,7 +287,8 @@ function sprawdzPoprawnosc() {
         years = $(".date-to").val().substring(6);
         var dateTo = new Date(years, months, days);
         var inputTo = $(".date-to").val();
-        if (validateDate(inputTo, ".dateTo-error") && dateFrom < dateTo) {
+        currentDate.setDate(currentDate.getDate() +1);
+        if (validateDate(inputTo, ".dateTo-error") && dateFrom < dateTo && currentDate < dateTo) {
             $(".date-to").parent().removeClass("negative-input");
             $(".date-to").parent().addClass("positive-input");
 
