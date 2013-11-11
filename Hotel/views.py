@@ -102,6 +102,19 @@ def cennik(request):
     })
 
 
+def kontakt(request):
+
+    return render(request, 'hotel/kontakt.html', {
+        'skype': OpisHotelu.objects.filter()[0].skype,
+        'gadu': OpisHotelu.objects.filter()[0].gadu_gadu,
+        'email': OpisHotelu.objects.filter()[0].email,
+        'facebook': OpisHotelu.objects.filter()[0].facebook,
+        'twitter': OpisHotelu.objects.filter()[0].twitter,
+        'wyswietlaj_mape': OpisHotelu.objects.filter()[0].wyswietlaj_mape,
+        'html_mapy_google': OpisHotelu.objects.filter()[0].html_mapy_google
+    })
+
+
 def kod_rezerwacji():
     # Najpierw zbierzmy wszystkie kody jakie zostaly juz przydzielone
     kody = []

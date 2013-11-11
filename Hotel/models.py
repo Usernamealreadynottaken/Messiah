@@ -117,7 +117,7 @@ class OpisHotelu(models.Model):
 
     # Google Maps
     wyswietlaj_mape = models.BooleanField()
-    url_mapy = models.URLField(max_length=1000, blank=True)
+    html_mapy_google = models.TextField(blank=True)
 
     # Logo
     logo = models.ImageField(upload_to='hotel/logo')
