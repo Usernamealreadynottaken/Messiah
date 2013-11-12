@@ -93,6 +93,9 @@ class PokojNaRezerwacji(models.Model):
     dzieci = models.IntegerField(blank=True, null=True)
     cena = models.DecimalField(max_digits=6, decimal_places=2)
 
+    def osob(self):
+        return self.doroslych + self.dzieci
+
     def clean(self):
         # Jezeli ktoras z cen dla doroslych albo dzieci nie jest ustawiona to recznie
         # wpisujemy tam 0. Rozwiazanie jest takie zamiast ustawic null=True, bo wtedy jesli

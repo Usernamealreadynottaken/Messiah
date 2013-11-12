@@ -16,14 +16,6 @@
 
     <div class="reservations-content">
 
-        <div class="code">
-            <label>Jesli chcesz edytowac istniejaca rezerwacje, podaj swoj kod rezerwacji:</label>
-            <input type="text" class="code-input" name="code-input"
-                    {% if rezerwacja_do_edycji %} value="{{ rezerwacja_do_edycji.kod }}"{% endif %}>
-            <a class="code-send">Wyslij</a>
-            <p class="code-error"></p>
-        </div> <!-- .code -->
-
         <form action="{% url 'hotel:rezerwacje_wyslij' %}" method="post" class="resform">
             {% csrf_token %}
 
@@ -209,11 +201,13 @@
                 <p>Pokoje: <span class="NoRooms">x</span></br>
                     Noce: <span class="NoNights">y</span></br>
                     Cena: <span class="price">1</span> zl</p>
-                <a class="button send">Zarezerwuj</a>
 
+                <div class="buttons">
+                <a class="button send">Zarezerwuj</a>
                 {% if rezerwacja_do_edycji %}
                 <a class="button cancel">Anuluj rezerwacje</a>
                 {% endif %}
+                </div> <!-- .buttons -->
             </div> <!-- .summary -->
 
         </form>
@@ -394,40 +388,6 @@ function sprawdzPoprawnosc() {
     }
 }
 
-$(".code-send").click(function() {
-    if ($(".code-input").val().length == 0) {
-        $(".code-error").text("Nie podano kodu.");
-    } else {
-        $(".code-error").text("");
-
-        // Wysylamy ajaxa sprawdzajacego czy podany rezerwacja o podanym kodzie w ogole istnieje zeby
-        // nie przekierowywac bez sensu uzytkownika na strone z nieistniejaca rezerwacja (czyli do 404)
-        var toSend = {
-            csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
-            code: $(".code-input").val()
-        };
-        $.ajax({
-            type: "GET",
-            url: "{% url 'hotel:rezerwacje_sprawdz' %}" + $(".code-input").val() + "/",
-            data: toSend
-        })
-            .done(function(data) {
-                if (data == "true") {
-
-                    // Jesli rezerwacja o podanym kodzie istnieje to wczytujemy ja, tzn. przechodzimy
-                    // do odpowiedniego url
-                    window.location = "{% url 'hotel:rezerwacje' %}" + $(".code-input").val() + "/";
-
-                } else {
-                    $(".code-error").text("Rezerwacja o podanym kodzie nie istnieje.");
-                }
-            })
-            .fail(function(xhr, textStatus, errorThrown) {
-                alert("Error: " + errorThrown + xhr.status + xhr.responseText);
-            });
-    }
-})
-
 $(".send").click(function() {
     if (sprawdzPoprawnosc() && validateName($('input[name=name]')) && validateEmail($('input[name=email]'))) {
         {% if rezerwacja_do_edycji %}
@@ -445,12 +405,16 @@ $(".send").click(function() {
                 } else {
                     $(".success p").html("Udalo sie zarezerwowac!<br /><br >Serwer nie wyslal kodu rezerwacji!");
                 }
+                $(".close").attr("class", "close");
             } else if (parsed["message"] && parsed["message"] == "validation_error") {
                 $(".success p").html("Nie mozna zarezerwowac tego pokoju na ten termin.");
+                $(".close").attr("class", "close no-reload");
             } else if (parsed["message"] && parsed["message"] == "site_error") {
                 $(".success p").html("Serwer otrzymal uszkodzone dane.");
+                $(".close").attr("class", "close no-reload");
             } else {
                 $(".success p").html("Stalo sie cos czego nawet programista nie przewidzial.");
+                $(".close").attr("class", "close no-reload");
             }
             $(".success").fadeIn(200);
         });
@@ -477,10 +441,13 @@ $(".confirm-yes").click(function() {
             $(".cancel-confirm").fadeOut(200);
             if (data == "success") {
                 $(".success p").html("Rezerwacja zostala anulowana.");
+                $(".close").attr("class", "close");
             } else if (data == "date") {
                 $(".success p").html("Nie mozesz anulowac rezrwacji, ktora sie juz rozpoczela.<br />Skontaktuj sie z pracownikiem hotelu.");
+                $(".close").attr("class", "close no-reload");
             } else {
                 $(".success p").html("Wystapil blad podczas anulowania rezerwacji. Sproboj ponownie.");
+                $(".close").attr("class", "close no-reload");
             }
             $(".success").fadeIn(200);
         })
@@ -496,7 +463,9 @@ $(".confirm-no").click(function() {
 
 $(".close").click(function() {
     $(".success").fadeOut(200);
-    window.location = "{% url 'hotel:rezerwacje' %}";
+    if (!$(".close").hasClass("no-reload")) {
+        window.location = "{% url 'hotel:rezerwacje' %}";
+    }
 });
 
 {% if liczba_pokoi or uslugi or rezerwacja_do_edycji %}

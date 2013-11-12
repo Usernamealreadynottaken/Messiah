@@ -572,6 +572,18 @@ def rezerwacje_sprawdz_kod(request, code):
         raise Http404
 
 
+def rezerwacje_sprawdz_email(request, email):
+    if request.is_ajax():
+        res = Rezerwacja.objects.filter(zarchiwizowany=False, koniec_pobytu__gt=datetime.date.today())
+        res = res.filter(email=email)
+        if res:
+            return render(request, 'hotel/rezerwacje_przypkodow.html', {'rezerwacje': res})
+        else:
+            return HttpResponse('')
+    else:
+        raise Http404
+
+
 def rezerwacje_kod(request, code):
     try:
         requested_res = Rezerwacja.objects.filter(zarchiwizowany=False, koniec_pobytu__gt=datetime.date.today())
@@ -630,3 +642,7 @@ def rezerwacje_kod(request, code):
 
     except ObjectDoesNotExist:
         raise Http404
+
+
+def rezerwacje_istnieje(request):
+    return render(request, 'hotel/rezerwacje_ist.html')
