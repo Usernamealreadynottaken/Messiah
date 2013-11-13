@@ -108,6 +108,10 @@ class OpisHotelu(models.Model):
     # meta description
     opis_google = models.CharField(max_length=200)
 
+    # Dane dla strony kontaktowej
+    adres = models.CharField(max_length=500, blank=True)
+    telefon = models.CharField(max_length=40, blank=True)
+
     # Stopka
     skype = models.CharField(max_length=30, blank=True)
     gadu_gadu = models.CharField(max_length=15, blank=True)
