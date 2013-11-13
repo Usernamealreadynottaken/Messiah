@@ -1,7 +1,8 @@
 from django.contrib import admin
+import datetime
 
 from Hotel.models import Rezerwacja, Pokoj, Usluga, UslugaNaRezerwacji, PokojNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
-    ZdjeciaPokojow, CenaPokoju, OpisHotelu
+    ZdjeciaPokojow, CenaPokoju, OpisHotelu, ZdjeciaHotelu, RezerwacjaForm
 
 
 # REZERWACJE
@@ -18,6 +19,12 @@ class PokojInline(admin.TabularInline):
 
 class RezerwacjaAdmin(admin.ModelAdmin):
     inlines = [UslugaInline, PokojInline]
+    form = RezerwacjaForm
+
+    def queryset(self, request):
+        qs = super(RezerwacjaAdmin, self).queryset(request)
+        qs = qs.filter(zarchiwizowany=False, koniec_pobytu__gt=datetime.date.today())
+        return qs
 
 
 # JEDZENIE
@@ -48,6 +55,7 @@ admin.site.register(CenaPokoju)
 admin.site.register(Usluga)
 admin.site.register(KategoriaJedzenia, KategoriaJedzeniaAdmin)
 admin.site.register(OpisHotelu)
+admin.site.register(ZdjeciaHotelu)
 
 # Wiadomosci finalnie nie beda edytowane w panelu admina tylko bedziemy mieli ta strone dla pracownika
 # w ktorej pracownike bedzie odpowiadal na wiadomosci i tyle, ale obecnie dodaje to do panelu

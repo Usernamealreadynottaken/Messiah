@@ -1,5 +1,7 @@
 {% extends "Hotel/base.html" %}
 
+{% load staticfiles %}
+
 {% block title %}Hotel Messiah{% endblock %}
 
 {% block content %}
@@ -14,14 +16,40 @@
 
         <div class="description">
             <p><img src="{% if zdjecie %}{{ zdjecie.url }}{% endif %}" alt="Hotel Messiah"/>{{ opis_hotelu }}</p>
-        </div>
+        </div> <!-- .description -->
 
         <div class="gallery">
 
-        </div>
+            <ul class="slides">
+                {% for zdjecie in zdjecia_hotelu %}
+                    <li><img src="{{ zdjecie.zdjecie.url }}" alt="Hotel"/></li>
+                {% endfor %}
+            </ul>
+
+        </div> <!-- .gallery -->
 
     </div> <!-- .main-content -->
 
 </div> <!-- #main -->
+
+<script src="{% static 'Hotel/js/jquery.roundabout.js' %}"></script>
+<script src="{% static 'Hotel/js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'Hotel/js/jquery.event.drag-2.2.js' %}"></script>
+<script src="{% static 'Hotel/js/jquery.event.drop-2.2.js' %}"></script>
+
+<script>
+$(window).load(function() {
+    $(".slides").roundabout({
+		tilt: 0.6,
+		minScale: 0.6,
+		minOpacity: 1,
+		duration: 400,
+		easing: 'easeOutQuad',
+		enableDrag: true,
+		dropEasing: 'easeOutBounce',
+		responsive: true,
+	});
+});
+</script>
 
 {% endblock %}

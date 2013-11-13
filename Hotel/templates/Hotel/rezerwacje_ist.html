@@ -1,0 +1,114 @@
+{% extends 'Hotel/base.html' %}
+
+{% block title %}Hotel Messiah{% endblock %}
+
+{% block content %}
+
+<div id="reservations-existing">
+
+    <div class="title">
+        <h1>Istniejaca rezerwacja</h1>
+    </div> <!-- .title -->
+
+    <div class="reservations-existing-content">
+        {% csrf_token %}
+
+        <div class="edit-reservation">
+            <h2>Edycja rezerwacji</h2>
+            <label>Jesli chcesz edytowac istniejaca rezerwacje, podaj swoj kod rezerwacji:</label>
+            <input type="text" class="code-input" name="code-input">
+            <a class="code-send">Wyslij</a>
+            <p class="code-error"></p>
+        </div> <!-- .edit-reservation -->
+
+        <!-- hr jest wysoce tymczasowy, fajnie by bylo zeby miec jakas wlasna grafike -->
+        <hr>
+
+        <div class="remind-code">
+            <h2>Przypomnienie kodu</h2>
+            <label>Jesli zapomniales swoj kod rezerwacji, podaj swoj e-mail:</label>
+            <input type="text" class="email-input" name="email-input">
+            <a class="email-send">Wyslij</a>
+            <p class="email-error"></p>
+        </div>
+
+    </div> <!-- .reservations-existing-content -->
+
+</div> <!-- #reservations-existing -->
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+$(".code-send").click(function() {
+    if ($(".code-input").val().length == 0) {
+        $(".code-error").text("Nie podano kodu.");
+    } else if ($(".code-input").val().length > 12) {
+        $(".code-error").text("Rezerwacja o podanym kodzie nie istnieje.");
+    } else {
+        $(".code-error").text("");
+
+        // Wysylamy ajaxa sprawdzajacego czy podany rezerwacja o podanym kodzie w ogole istnieje zeby
+        // nie przekierowywac bez sensu uzytkownika na strone z nieistniejaca rezerwacja (czyli do 404)
+        var toSend = {
+            csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
+            code: $(".code-input").val()
+        };
+        $.ajax({
+            type: "GET",
+            url: "{% url 'hotel:rezerwacje_sprawdz' %}" + $(".code-input").val() + "/",
+            data: toSend
+        })
+            .done(function(data) {
+                if (data == "true") {
+
+                    // Jesli rezerwacja o podanym kodzie istnieje to wczytujemy ja, tzn. przechodzimy
+                    // do odpowiedniego url
+                    window.location = "{% url 'hotel:rezerwacje' %}" + $(".code-input").val() + "/";
+
+                } else {
+                    $(".code-error").text("Rezerwacja o podanym kodzie nie istnieje.");
+                }
+            })
+            .fail(function(xhr, textStatus, errorThrown) {
+                alert("Error: " + errorThrown + xhr.status + xhr.responseText);
+            });
+    }
+})
+
+$(".email-send").click(function() {
+    if ($(".email-input").val().length == 0) {
+        $(".email-error").text("Nie podano e-maila.");
+    } else {
+        var reg = /^[a-zA-Z0-9!#$%&\'*+\-\/=?^_`{|}~]+(\.?[a-zA-Z0-9!#$%&'*+\-\/=?^_`{|}~]+)*@[a-zA-Z0-9]+((\.|\-)?[a-zA-Z0-9]+)*\.[a-zA-Z0-9]+$/;
+        if (!reg.test($(".email-input").val())) {
+            $(".email-error").text("Niepoprawny adres e-mail.");
+        } else {
+            $(".email-error").text("");
+
+            var toSend = {
+                csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
+                email: $(".email-input").val()
+            };
+            $.ajax({
+                type: "GET",
+                url: "{% url 'hotel:rezerwacje_sprawdz_email' %}" + $(".email-input").val() + "/",
+                data: toSend
+            })
+                .done(function(data) {
+                    if (data != "") {
+                        $(".email-error").html(data);
+                    } else {
+                        $(".email-error").text("Nie znaleziono rezerwacji na podany adres e-mail.");
+                    }
+                })
+                .fail(function(xhr, textStatus, errorThrown) {
+                    alert("Error: " + errorThrown + xhr.status + xhr.responseText);
+                });
+        }
+    }
+})
+</script>
+
+{% endblock %}

@@ -24,6 +24,13 @@ def wiadomosci(request):
     return render(request, 'hotel/wiadomosci.html', {'wiadomosci': Wiadomosc.objects.all()})
 
 
+@login_required
+def archiwum(request):
+    rez = Rezerwacja.objects.filter(Q(zarchiwizowany=True) | Q(koniec_pobytu__lte=datetime.date.today()))
+    rez = rez.order_by('-koniec_pobytu')
+    return render(request, 'hotel/archiwum.html', {'rezerwacje': rez})
+
+
 def glowna(request):
     opis_hotelu = OpisHotelu.objects.filter()[0].opis_hotelu
     zdjecie = OpisHotelu.objects.filter()[0].zdjecie
@@ -255,6 +262,7 @@ def rezerwacje_wyslij(request):
     return HttpResponse(response)
 
 
+# Widok wykonywany po kliknieciu 'Wyslij' w momencie edycji istniejacej rezerwacji
 def rezerwacje_wyslij_kod(request, code):
     response_message = 'success'
     try:
@@ -372,14 +380,6 @@ def rezerwacje_wyslij_kod(request, code):
             # n-ty zachowany pokoj - odpowiadajaca mu instancja PokojNaRezerwacji jest pod zachowane_pokoje[n],
             # a jego numer na stronie jest pod zachowane_numery[n]
 
-            # TODO:
-            # Wyswietlanie do testowania, usunac pozniej
-            print 'Zachowujemy:'
-            print zachowane_pokoje
-            print 'Zmieniamy:'
-            print wymagane_pokoje_numery
-            print list_of_pks
-
             for pnr in pokoje_na_rezerwacji:
                 if pnr not in zachowane_pokoje:
                     pnr.delete()
@@ -399,11 +399,6 @@ def rezerwacje_wyslij_kod(request, code):
             for k, v in request.POST.items():
                 if k.startswith('in') or k.startswith('out'):
                     uslugi.append(int(v))
-
-            # TODO:
-            # Usunac printy
-            print 'Uslugi'
-            print uslugi
 
             for unr in UslugaNaRezerwacji.objects.filter(rezerwacja=requested_res):
                 if not unr.usluga.pk in uslugi:
@@ -431,6 +426,20 @@ def rezerwacje_wyslij_kod(request, code):
 
     # Nie zostal przekazany POST
     except KeyError:
+        raise Http404
+
+
+def rezerwacje_anuluj(request, code):
+    if request.is_ajax():
+        try:
+            r = Rezerwacja.objects.get(kod=code)
+            if r.poczatek_pobytu <= datetime.date.today():
+                return HttpResponse('date')
+            r.delete()
+            return HttpResponse('success')
+        except ObjectDoesNotExist:
+            return HttpResponse('fail')
+    else:
         raise Http404
 
 
@@ -542,7 +551,7 @@ def rezerwacje_sprawdz(request):
             # Dodajemy do JSONa koszt wynajecia pokoju na tyle dni
             cena_dorosly = OpisHotelu.objects.filter()[0].cena_dorosly
             cena_dziecko = OpisHotelu.objects.filter()[0].cena_dziecko
-            ile_dni = (koniec_pobytu - poczatek_pobytu).days + 1
+            ile_dni = (koniec_pobytu - poczatek_pobytu).days
             cena = 0
             for i in range(1, wymagane_pokoje['ilosc'] + 1):
                 try:
@@ -577,19 +586,32 @@ def rezerwacje_sprawdz(request):
 # Widok do ajaxa sprawdzajacego czy rezerwacja o podanym numerze rezerwacji istnieje
 def rezerwacje_sprawdz_kod(request, code):
     if request.is_ajax():
-        try:
-            requested_res = Rezerwacja.objects.get(kod=code)
-            response = "true"
-        except ObjectDoesNotExist:
-            response = "false"
+        res = Rezerwacja.objects.filter(zarchiwizowany=False, koniec_pobytu__gt=datetime.date.today())
+        if res.filter(kod=code):
+            response = 'true'
+        else:
+            response = 'false'
         return HttpResponse(response)
+    else:
+        raise Http404
+
+
+def rezerwacje_sprawdz_email(request, email):
+    if request.is_ajax():
+        res = Rezerwacja.objects.filter(zarchiwizowany=False, koniec_pobytu__gt=datetime.date.today())
+        res = res.filter(email=email)
+        if res:
+            return render(request, 'hotel/rezerwacje_przypkodow.html', {'rezerwacje': res})
+        else:
+            return HttpResponse('')
     else:
         raise Http404
 
 
 def rezerwacje_kod(request, code):
     try:
-        requested_res = Rezerwacja.objects.get(kod=code)
+        requested_res = Rezerwacja.objects.filter(zarchiwizowany=False, koniec_pobytu__gt=datetime.date.today())
+        requested_res = requested_res.get(kod=code)
 
         # Daty wyswietlane na stronie maja inny format niz __unicode__ clasy data
         # wiec trzeba przekonwertowac
@@ -644,3 +666,7 @@ def rezerwacje_kod(request, code):
 
     except ObjectDoesNotExist:
         raise Http404
+
+
+def rezerwacje_istnieje(request):
+    return render(request, 'hotel/rezerwacje_ist.html')
