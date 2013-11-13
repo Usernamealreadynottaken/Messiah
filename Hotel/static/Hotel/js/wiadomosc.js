@@ -24,11 +24,13 @@ function validateContent(textarea) {
 
 
 function validateEmail(input) {
+    var regEx = /^[a-zA-Z0-9!#$%&\'*+\-\/=?^_`{|}~]+(\.?[a-zA-Z0-9!#$%&'*+\-\/=?^_`{|}~]+)*@[a-zA-Z0-9]+((\.|\-)?[a-zA-Z0-9]+)*\.[a-zA-Z0-9]+$/;
     var email = $(input).val();
     var atPosition = email.indexOf("@");
     var dotPosition = email.lastIndexOf(".");
     if ($(input).val() == "" ||
-    (atPosition < 1 || dotPosition < atPosition+2 || dotPosition+2 >= email.length)) {
+     (atPosition < 1 || dotPosition < atPosition+2 || dotPosition+2 >= email.length) ||
+     !email.match(regEx)) {
         $(input).parent().removeClass("positive-input");
         $(input).parent().addClass("negative-input");
         return false;
