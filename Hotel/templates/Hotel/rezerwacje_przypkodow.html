@@ -1,0 +1,38 @@
+{% if rezerwacje %}
+
+{% if rezerwacje.count > 1 %}
+
+Znaleziono nastepujace rezerwacje:<br />
+{% for rezerwacja in rezerwacje %}
+{{ rezerwacja.poczatek_pobytu }} - {{ rezerwacja.koniec_pobytu }}
+({{ rezerwacja.pokojnarezerwacji_set.count }} pokoj{% if rezerwacja.pokojnarezerwacji_set.count > 1 %}e{% endif %},
+
+{% for pnr in rezerwacja.pokojnarezerwacji_set.all %}
+
+{% if rezerwacja.pokojnarezerwacji_set.count = 3 and forloop.first %}
+{{ pnr.osob }},
+{% elif rezerwacja.pokojnarezerwacji_set.count = 2 and forloop.first %}
+{{ pnr.osob }}
+{% elif rezerwacja.pokojnarezerwacji_set.count > 1 and forloop.last %}
+i {{ pnr.osob }}
+{% else %}
+{{ pnr.osob }}
+{% endif %}
+
+{% endfor %}
+osobowy), kod: {{ rezerwacja.kod }}<br />
+
+{% endfor %}
+
+{% else %}
+
+{% for rezerwacja in rezerwacje %}
+Twoj kod rezerwacji to:<br />
+{{ rezerwacja.kod }}
+{% endfor %}
+
+{% endif %}
+
+{% else %}
+Wystapil blad.
+{% endif %}

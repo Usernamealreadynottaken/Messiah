@@ -56,11 +56,13 @@ function validateName(input) {
 }
 
 function validateEmail(input) {
+    var regEx = /^[a-zA-Z0-9!#$%&\'*+\-\/=?^_`{|}~]+(\.?[a-zA-Z0-9!#$%&'*+\-\/=?^_`{|}~]+)*@[a-zA-Z0-9]+((\.|\-)?[a-zA-Z0-9]+)*\.[a-zA-Z0-9]+$/;
     var email = $(input).val();
     var atPosition = email.indexOf("@");
     var dotPosition = email.lastIndexOf(".");
     if ($(input).val() == "" ||
-    (atPosition < 1 || dotPosition < atPosition+2 || dotPosition+2 >= email.length)) {
+     (atPosition < 1 || dotPosition < atPosition+2 || dotPosition+2 >= email.length) ||
+     !email.match(regEx)) {
         $(input).parent().removeClass("positive-input");
         $(input).parent().addClass("negative-input");
         $(".email-error").animate({
@@ -119,3 +121,22 @@ function validateDate(date, error) {
     $(error).text("");
     return true;
 }
+
+$(".change-calendar").click(function() {
+    if ($(".calendar-from").is(':visible')) {
+        $(".calendar-from").fadeOut();
+        $(".calendar-to").fadeIn();
+        $("change-calendar").html("Wybierz date wyjazdu: ");
+    } else {
+        $(".calendar-to").fadeOut();
+        $(".calendar-from").fadeIn();
+        $("change-calendar").html("Wybierz date przyjazdu: ");
+    }
+});
+
+$( window ).resize(function() {
+    if ($(".reservations-content").width() > 885) {
+        $(".calendar-to").css("display", "");
+        $(".calendar-from").css("display", "");
+    }
+});
