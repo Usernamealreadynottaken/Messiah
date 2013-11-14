@@ -58,7 +58,7 @@ body {
     background: -ms-linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
     background: linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
     font-family: "alegreyaregular";
-    min-width: 380px;
+    min-width: 450px;
 }
 
 .page {
@@ -186,6 +186,11 @@ body {
     @media (max-width: 530px) {
         ul.outside {
             width: 250px;
+
+            li ul {
+                display: block;
+                position: relative;
+            }
         }
     }
 
@@ -361,10 +366,14 @@ body {
     .gradient-vertical(#08ae9d, #003843);
     padding: 0 0 50px 0;
 
-    @media (max-width: 600px) {
+    @media (max-width: 630px) {
         .title h1 {
             background-image: url(img/button.jpg) !important;
             width: 250px !important;
+        }
+
+        .reservations-content:before, .reservations-content:after {
+            display: none;
         }
     }
 
@@ -412,6 +421,12 @@ body {
             position: absolute;
             width: 150px;
             z-index: 1;
+        }
+
+        @media (max-width: 700px) {
+            &>form {
+                text-align: center;
+            }
         }
 
         form {
@@ -556,6 +571,20 @@ body {
                     }
                 }
 
+                @media (max-width: 720px) {
+                    .change-calendar {
+                        display: none;
+                    }
+
+                    .calendar-from {
+                        display: none;
+                    }
+
+                    .calendar-to {
+                        display: none;
+                    }
+                }
+
                 .calendar-to {
                     margin-left: 50px;
                 }
@@ -581,6 +610,7 @@ body {
             .additions {
                 margin: 30px 0 0 0;
                 overflow: hidden;
+                text-align: left;
 
                 h2 {
                     background-image: url(img/label.jpg);
@@ -617,6 +647,12 @@ body {
 
                 span {
                     font-weight: bold;
+                }
+            }
+
+            @media (max-width: 550px) {
+                textarea {
+                    max-width: 80% !important;
                 }
             }
 
@@ -880,6 +916,17 @@ body {
     .gradient-vertical(#08ae9d, #003843);
     padding: 0 0 50px 0;
 
+    @media (max-width: 630px) {
+        .title h1 {
+            background-image: url(img/button.jpg) !important;
+            width: 250px !important;
+        }
+
+        .pricing-content:before, .pricing-content:after {
+            display: none;
+        }
+    }
+
     .title {
         padding: 20px 0;
         text-align: center;
@@ -901,7 +948,7 @@ body {
     .pricing-content{
         background-image: url(img/content-pattern.jpg);
         text-align: center;
-        width: 900px;
+        width: 90%;
         margin: 0 auto;
         position: relative;
 
@@ -931,6 +978,16 @@ body {
             font-size: 30px;
         }
 
+        .wewnetrzne {
+            display: inline-block;
+            width: 100%;
+        }
+
+        .zewnetrzne {
+            display: inline-block;
+            width: 100%;
+        }
+
         .tab-content{
 
             ul{
@@ -943,6 +1000,7 @@ body {
                     display: block;
                     margin: 0;
                     padding: 0;
+                    position: relative;
                     overflow: hidden;
 
                     p{
@@ -973,28 +1031,49 @@ body {
                 }
             }
 
+            @media (max-width: 850px) {
+
+                .nazwa {
+                    width: 30% !important;
+                }
+
+                .cena {
+                    width: 30% !important;
+                }
+
+                .opis {
+                    width: 100% !important;
+                }
+
+                .dostepnosc {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+
+            }
+
             .nazwa{
                 float: left;
-                width: 200px;
+                width: 20%;
                 margin: 15px 10px 15px 10px;
 
             }
 
             .cena{
                 float: left;
-                width: 110px;
+                min-width: 100px;
                 margin: 15px 10px 15px 10px;
             }
 
             .opis{
                 float: left;
-                max-width: 300px;
+                width: 40%;
                 margin: 15px 10px 15px 10px;
             }
 
             .dostepnosc{
                 float: left;
-                width: 100px;
                 margin: 15px 10px 15px 10px;
             }
 
@@ -1038,7 +1117,7 @@ body {
     .gradient-vertical(#08af9d, #1e777f);
     padding: 0 0 50px 0;
 
-    @media (max-width: 600px) {
+    @media (max-width: 630px) {
         .title h1 {
             background-image: url(img/button.jpg) !important;
             width: 250px !important;
@@ -1163,6 +1242,18 @@ body {
     .gradient-vertical(#08af9d, #1e777f);
     padding: 0 0 50px 0;
 
+    @media (max-width: 630px) {
+        .title h1 {
+            background-image: url(img/button.jpg) !important;
+            width: 250px !important;
+            font-size: 18px !important;
+        }
+
+        .reservations-existing-content:before, .reservations-existing-content:after {
+            display: none;
+        }
+    }
+
     .title {
         padding: 20px 0;
         text-align: center;
@@ -1185,7 +1276,7 @@ body {
         background-image: url(img/content-pattern.jpg);
         margin: 0 auto;
         position: relative;
-        width: 900px;
+        width: 90%;
         min-height: 200px;
 
         &:before {
@@ -1240,6 +1331,18 @@ body {
     .gradient-vertical(#08ae9d, #003843);
     padding: 0 0 50px 0;
 
+    @media (max-width: 630px) {
+        .title h1 {
+            background-image: url(img/button.jpg) !important;
+            width: 250px !important;
+            font-size: 18px !important;
+        }
+
+        .wrapper:before, .wrapper:after {
+            display: none;
+        }
+    }
+
     .title {
         padding: 20px 0;
         text-align: center;
@@ -1261,7 +1364,7 @@ body {
     .wrapper{
         background-image: url(img/content-pattern.jpg);
         text-align: center;
-        width: 900px;
+        width: 90%;
         margin: 0 auto;
         position: relative;
 
@@ -1285,6 +1388,17 @@ body {
             position: absolute;
             width: 150px;
             z-index: 1;
+        }
+    }
+
+    @media (max-width: 630px) {
+        .contact-wrapper {
+            padding: 60px 0 0 20px !important;
+            font-size: 15px;
+
+            strong {
+                min-width: 100px !important;
+            }
         }
     }
 
@@ -1334,6 +1448,42 @@ body {
         }
     }
 
+    @media (max-width: 630px) {
+        .message {
+            padding: 0 10px !important;
+
+            form {
+                padding-bottom: 20px !important;
+            }
+
+            .textarea-wrapper {
+
+                textarea {
+                    padding: 0 !important;
+                }
+
+                &:after {
+                    right: 5px !important;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 700px) {
+        .field-wrapper {
+            display: block;
+            width: 100%;
+        }
+
+        input {
+            width: 150px !important;
+        }
+
+        .send {
+            margin-left: 0 !important;
+        }
+    }
+
     .message{
         padding: 0 60px 60px 60px;
         margin: 0;
@@ -1345,8 +1495,7 @@ body {
 
         textarea{
             resize: none;
-            width: 90%;
-            max-width: 399px;
+            width: 100%;
             margin: 0;
             padding: 10px 18px 10px 18px;
             outline: none;
@@ -1433,10 +1582,10 @@ body {
             display: block;
             margin: 0;
             padding: 0;
-            width: 460px;
+            max-width: 398px;
 
             &:after {
-                right: 28px;
+                right: -32px;
                 top: 5px;
             }
         }
