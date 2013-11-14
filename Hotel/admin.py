@@ -20,6 +20,7 @@ class PokojInline(admin.TabularInline):
 class RezerwacjaAdmin(admin.ModelAdmin):
     inlines = [UslugaInline, PokojInline]
     form = RezerwacjaForm
+    list_display = ('nazwisko', 'poczatek_pobytu', 'koniec_pobytu', 'pokoje_verbose')
 
     def queryset(self, request):
         qs = super(RezerwacjaAdmin, self).queryset(request)
@@ -47,14 +48,39 @@ class ZdjecieInline(admin.StackedInline):
 
 class PokojAdmin(admin.ModelAdmin):
     inlines = [ZdjecieInline]
+    list_display = ('__unicode__', 'dostepnosc')
+
+
+# OPIS HOTELU
+
+class OpisHoteluAdmin(admin.ModelAdmin):
+    fieldsets = [
+        ('Opis hotelu', {'fields': ['opis_hotelu', 'zdjecie', 'opis_google']}),
+        ('Naglowek', {'fields': ['logo', 'tekst_logo', 'tekst_logo_widoczny', 'uklad']}),
+        ('Mapa', {'fields': ['html_mapy_google', 'wyswietlaj_mape']}),
+        ('Informacje kontaktowe', {'fields': ['email', 'skype', 'gadu_gadu']}),
+        ('Portale spolecznosciowe', {'fields': ['facebook', 'twitter']})
+    ]
+
+    def has_add_permission(self, request):
+        if OpisHotelu.objects.count() >= 1:
+            return False
+        else:
+            return True
+
+
+# USLUGI
+
+class UslugaAdmin(admin.ModelAdmin):
+    list_display = ('nazwa', 'wewnetrzna', 'dostepnosc')
 
 
 admin.site.register(Rezerwacja, RezerwacjaAdmin)
 admin.site.register(Pokoj, PokojAdmin)
 admin.site.register(CenaPokoju)
-admin.site.register(Usluga)
+admin.site.register(Usluga, UslugaAdmin)
 admin.site.register(KategoriaJedzenia, KategoriaJedzeniaAdmin)
-admin.site.register(OpisHotelu)
+admin.site.register(OpisHotelu, OpisHoteluAdmin)
 admin.site.register(ZdjeciaHotelu)
 
 # Wiadomosci finalnie nie beda edytowane w panelu admina tylko bedziemy mieli ta strone dla pracownika

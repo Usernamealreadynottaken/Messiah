@@ -449,7 +449,7 @@ def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje, kod=''):
 
             # Stworzmy liste pk pokojow o odpowiednim rozmiarze
             viable_rooms = []
-            for p in Pokoj.objects.all():
+            for p in Pokoj.objects.filter(dostepnosc=True):
                 if p.rozmiar == wymagane_pokoje[pokoj_i]:
                     viable_rooms.append(p.pk)
 
