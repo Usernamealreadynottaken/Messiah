@@ -2,7 +2,7 @@ from django.contrib import admin
 import datetime
 
 from Hotel.models import Rezerwacja, Pokoj, Usluga, UslugaNaRezerwacji, PokojNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
-    ZdjeciaPokojow, CenaPokoju, OpisHotelu, ZdjeciaHotelu, RezerwacjaForm
+    ZdjeciaPokojow, CenaPokoju, OpisHotelu, ZdjeciaHotelu
 
 
 # REZERWACJE
@@ -15,12 +15,17 @@ class UslugaInline(admin.TabularInline):
 class PokojInline(admin.TabularInline):
     model = PokojNaRezerwacji
     extra = 1
+    max_num = 3
 
 
 class RezerwacjaAdmin(admin.ModelAdmin):
     inlines = [UslugaInline, PokojInline]
-    form = RezerwacjaForm
     list_display = ('nazwisko', 'poczatek_pobytu', 'koniec_pobytu', 'pokoje_verbose')
+    fieldsets = [
+        (None, {'fields': ['poczatek_pobytu', 'koniec_pobytu', 'nazwisko', 'email', 'telefon', 'dodatkowe_instrukcje']}),
+        (None, {'fields': ['kod', 'notatka']}),
+        (None, {'fields': ['cena_dorosly', 'cena_dziecko', 'zarchiwizowany']})
+    ]
 
     def queryset(self, request):
         qs = super(RezerwacjaAdmin, self).queryset(request)
@@ -32,7 +37,7 @@ class RezerwacjaAdmin(admin.ModelAdmin):
 
 class JedzenieInline(admin.StackedInline):
     model = Jedzenie
-    extra = 3
+    extra = 1
 
 
 class KategoriaJedzeniaAdmin(admin.ModelAdmin):
@@ -58,7 +63,7 @@ class OpisHoteluAdmin(admin.ModelAdmin):
         ('Opis hotelu', {'fields': ['opis_hotelu', 'zdjecie', 'opis_google']}),
         ('Naglowek', {'fields': ['logo', 'tekst_logo', 'tekst_logo_widoczny', 'uklad']}),
         ('Mapa', {'fields': ['html_mapy_google', 'wyswietlaj_mape']}),
-        ('Informacje kontaktowe', {'fields': ['email', 'skype', 'gadu_gadu']}),
+        ('Informacje kontaktowe', {'fields': ['email', 'skype', 'gadu_gadu', 'adres', 'telefon']}),
         ('Portale spolecznosciowe', {'fields': ['facebook', 'twitter']})
     ]
 

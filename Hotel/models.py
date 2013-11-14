@@ -129,17 +129,6 @@ class Rezerwacja(models.Model):
     pokoje_verbose.short_description = 'Pokoje na rezerwacji'
 
 
-class RezerwacjaForm(forms.ModelForm):
-    my_field = forms.CharField()
-
-    class Meta:
-        model = Rezerwacja
-
-    def __init__(self, *args, **kwargs):
-        super(RezerwacjaForm, self).__init__(*args, **kwargs)
-        self.fields['my_field'] = forms.CharField(label='ELOOOO', initial='Some some')
-
-
 # Model reprezentujacy tabelke pomiedzy Rezerwacja a Pokojem
 # w many-to-many relationship
 class PokojNaRezerwacji(models.Model):
@@ -153,6 +142,16 @@ class PokojNaRezerwacji(models.Model):
     class Meta:
         verbose_name = 'Pokoj na rezerwacji'
         verbose_name_plural = 'Pokoje na rezerwacji'
+
+    def __unicode__(self):
+        pnr = PokojNaRezerwacji.objects.filter(rezerwacja=self.rezerwacja)
+
+        # Na wszelki wypadek jesli z jakiegos powodu jest 0
+        if pnr:
+            for i in range(0, len(pnr)):
+                if pnr[i] == self:
+                    return 'Pokoj %d' % (i+1,)
+        return 'Pokoj na rezerwacji'
 
     def osob(self):
         return self.doroslych + self.dzieci
@@ -168,6 +167,8 @@ class PokojNaRezerwacji(models.Model):
             self.dzieci = 0
 
         super(PokojNaRezerwacji, self).clean()
+
+        print '--> %d <-- ' % (self.rezerwacja.pokojnarezerwacji_set.count(),)
 
         # Wszystko w try, bo jesli np. uzytkownik wybierze jakis pokoj, wystapi blad (wiec sie nie zapisze)
         # i uzytkownik zrezygnuje i zmieni na '----' (pusty) to wysypuje sie ObjectDoesNotExist
@@ -204,6 +205,26 @@ class UslugaNaRezerwacji(models.Model):
         verbose_name = 'Usluga na rezerwacji'
         verbose_name_plural = 'Uslugi na rezerwacji'
 
+    def __unicode__(self):
+        unr = UslugaNaRezerwacji.objects.filter(rezerwacja=self.rezerwacja)
+        if unr:
+            for i in range(0, len(unr)):
+                if unr[i] == self:
+                    return 'Usluga %d' % (i+1,)
+        return 'Usluga na rezerwacji'
+
+    def clean(self):
+        # Jesli uzytkownik zostawi pusta cene to ustawiamy na 0 zeby nie wyskoczylo ze cena
+        # nie moze byc nullem. Rozwiazanie takie samiast zostawc blank=False lub ustawic Null=True
+        # poniewaz:
+        # a) zmuszanie uzytkownika do podawania 0 jest uciazliwe jesli mozna to zautomatyzowac
+        # b) jesli ustawimy Null=True to bez podania ceny w bazie danych zostaje ustawiony NULL i nie wiem
+        #    czy reszta pythona bedzie traktowac taki NULL jak 0
+        if not self.cena:
+            self.cena = 0
+
+        super(UslugaNaRezerwacji, self).clean()
+
 
 class KategoriaJedzenia(models.Model):
     nazwa = models.CharField(max_length=30)
@@ -224,6 +245,10 @@ class Jedzenie(models.Model):
     zdjecie = models.ImageField(upload_to='jedzenie', blank=True)
 
     kategoria = models.ForeignKey(KategoriaJedzenia)
+
+    class Meta:
+        verbose_name = 'Jedzenie'
+        verbose_name_plural = 'Jedzenie'
 
     def __unicode__(self):
         return self.nazwa
