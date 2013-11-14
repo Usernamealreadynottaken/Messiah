@@ -10,15 +10,19 @@
 
     </div> <!-- .header-wrapper -->
 
-    <ul class="outside">
-        <li><a class="main_page_class" href="{% url 'hotel:glowna' %}">Strona glowna</a></li><!--
-        --><li><a class="rezerwacje_class" href="{% url 'hotel:rezerwacje' %}">Zarezerwuj</a><!--
-            --><ul>
-                <li><a class="rezerwacje_istniejace_class" href="{% url 'hotel:rezerwacje_istnieje' %}">Mam juz rezerwacje</a></li>
-            </ul>
-        </li><!--
-        --><li><a class="cennik_class" href="{% url 'hotel:cennik' %}">Cennik</a></li><!--
-        --><li><a class="kontakt_class" href="{% url 'hotel:kontakt' %}">Kontakt</a></li>
-    </ul>
+    <div class="menu-wrapper">
+
+        <ul class="outside">
+            <li><a class="main_page_class" href="{% url 'hotel:glowna' %}">Strona glowna</a></li><!--
+            --><li><a class="rezerwacje_class" href="{% url 'hotel:rezerwacje' %}">Zarezerwuj</a><!--
+                --><ul>
+                    <li><a class="rezerwacje_istniejace_class" href="{% url 'hotel:rezerwacje_istnieje' %}">Mam juz rezerwacje</a></li>
+                </ul>
+            </li><!--
+            --><li><a class="cennik_class" href="{% url 'hotel:cennik' %}">Cennik</a></li><!--
+            --><li><a class="kontakt_class" href="{% url 'hotel:kontakt' %}">Kontakt</a></li>
+        </ul>
+
+    </div> <!-- .menu-wrapper -->
 
 </div> <!-- #header -->

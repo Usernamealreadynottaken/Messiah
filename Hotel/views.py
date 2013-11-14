@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
+from django.http import HttpResponseRedirect
 
 # Zeby skorzystac z ajaxa potrzebujemy zwrocic HttpResponse object.
 # Jesli korzystamy ze skrotu ajax po prostu zwraca error.
@@ -108,7 +109,7 @@ def cennik(request):
         'ceny_pokojow': CenaPokoju.objects.all().order_by('rozmiar')
     })
 
-
+# Widok strony kontaktowej
 def kontakt(request):
 
     return render(request, 'hotel/kontakt.html', {
@@ -118,8 +119,31 @@ def kontakt(request):
         'facebook': OpisHotelu.objects.filter()[0].facebook,
         'twitter': OpisHotelu.objects.filter()[0].twitter,
         'wyswietlaj_mape': OpisHotelu.objects.filter()[0].wyswietlaj_mape,
-        'html_mapy_google': OpisHotelu.objects.filter()[0].html_mapy_google
+        'html_mapy_google': OpisHotelu.objects.filter()[0].html_mapy_google,
+        'telefon': OpisHotelu.objects.filter()[0].telefon,
+        'adres': OpisHotelu.objects.filter()[0].adres
     })
+
+#Wysylanie wiadomosci ze strony kontaktowej
+def wiadomosc_wyslij(request):
+    response_message = "success"
+    try:
+        nowa_wiadomosc = Wiadomosc(email=request.POST['email'],
+                                nazwisko=request.POST['name'],
+                                tresc=request.POST['tresc'],
+                                odpowiedz='',
+                                wyslano_odpowiedz=False)
+        nowa_wiadomosc.save()
+
+    except ValueError:
+        response_message = "site_error"
+
+    except KeyError:
+        raise Http404
+
+    response = '{"message": "' + response_message + '" }'
+    #response = '{"message": "success"}'
+    return HttpResponse(response)
 
 
 def kod_rezerwacji():
