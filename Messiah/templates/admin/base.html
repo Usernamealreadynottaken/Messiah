@@ -7,6 +7,10 @@
 <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% static "admin/css/ie.css" %}{% endblock %}" /><![endif]-->
 {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+
+<link rel="stylesheet/less" type="text/css" href="{% static 'Hotel/admin/base.less' %}" />
+<script src="{% static 'Hotel/js/less.js' %}" type="text/javascript"></script>
+
 {% block extrahead %}{% endblock %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 </head>
@@ -42,6 +46,7 @@
         {% block nav-global %}{% endblock %}
     </div>
     <!-- END Header -->
+
     {% block breadcrumbs %}
     <div class="breadcrumbs">
     <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
@@ -61,12 +66,15 @@
     <!-- Content -->
     <div id="content" class="{% block coltype %}colM{% endblock %}">
         {% block pretitle %}{% endblock %}
-        {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
-        {% block content %}
-        {% block object-tools %}{% endblock %}
-        {{ content }}
-        {% endblock %}
-        {% block sidebar %}{% endblock %}
+        <div id="content-title">{% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}</div>
+
+        <div id="base-content">
+            {% block content %}
+            {% block object-tools %}{% endblock %}
+            {{ content }}
+            {% endblock %}
+            {% block sidebar %}{% endblock %}
+        </div> <!-- END base-content -->
         <br class="clear" />
     </div>
     <!-- END Content -->

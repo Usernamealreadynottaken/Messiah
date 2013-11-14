@@ -1,0 +1,252 @@
+@font-face {
+    font-family: 'alegreyaregular';
+    src: url('fonts/alegreya-regular-webfont.eot');
+    src: url('fonts/alegreya-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/alegreya-regular-webfont.woff') format('woff'),
+         url('fonts/alegreya-regular-webfont.ttf') format('truetype'),
+         url('fonts/alegreya-regular-webfont.svg#alegreyaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'devroyeregular';
+    src: url('fonts/devroye_-webfont.eot');
+    src: url('fonts/devroye_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/devroye_-webfont.woff') format('woff'),
+         url('fonts/devroye_-webfont.ttf') format('truetype'),
+         url('fonts/devroye_-webfont.svg#devroyeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.gradient-vertical(@from: #000000, @to: #ffffff) {
+    background: #1e5799;
+    background: -moz-linear-gradient(top,  @from 0%, @to 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@from), color-stop(100%,@to));
+    background: -webkit-linear-gradient(top,  @from 0%,@to 100%);
+    background: -o-linear-gradient(top,  @from 0%,@to 100%);
+    background: -ms-linear-gradient(top,  @from 0%,@to 100%);
+    background: linear-gradient(top,  @from 0%,@to 100%);
+}
+
+.gradient-horizontal(@from: #000000, @to: #ffffff) {
+    background: #1e5799;
+    background: -moz-linear-gradient(left,  @from 0%, @to 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,@from), color-stop(100%,@to));
+    background: -webkit-linear-gradient(left,  @from 0%,@to 100%);
+    background: -o-linear-gradient(left,  @from 0%,@to 100%);
+    background: -ms-linear-gradient(left,  @from 0%,@to 100%);
+    background: linear-gradient(left,  @from 0%,@to 100%);
+}
+
+body {
+    background-repeat: no-repeat;
+    margin: 0;
+    background: #1e5799;
+    background: -moz-linear-gradient(left, #eda14a 0%, #eac78f 50%, #eac78f 50%, #eda14a 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#eda14a), color-stop(50%,#eac78f),
+                color-stop(50%,#eac78f), color-stop(100%,#eda14a));
+    background: -webkit-linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
+    background: -o-linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
+    background: -ms-linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
+    background: linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
+    font-family: "alegreyaregular";
+    min-width: 380px;
+    font-size: 100%;
+}
+
+body.login {
+    background-repeat: no-repeat;
+    margin: 0;
+    background: #1e5799;
+    background: -moz-linear-gradient(left, #eda14a 0%, #eac78f 50%, #eac78f 50%, #eda14a 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#eda14a), color-stop(50%,#eac78f),
+                color-stop(50%,#eac78f), color-stop(100%,#eda14a));
+    background: -webkit-linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
+    background: -o-linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
+    background: -ms-linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
+    background: linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
+    font-family: "alegreyaregular";
+    min-width: 380px;
+
+    #container {
+        margin: 0 auto;
+        max-width: 1000px;
+        width: 100%;
+
+        #content {
+
+            #base-content {
+
+                #content-main {
+                    max-width: none;
+                    width: 100%;
+                    float: none;
+
+                    #content-main-form {
+                        max-width: 350px;
+                        text-align: right;
+                        margin-left: auto;
+                        margin-right: auto;
+
+                        form {
+                            display: inline-block;
+
+                            label {
+                                margin: 0;
+                                padding: 0 10px 0 0;
+                                float: none;
+                            }
+
+                            input {
+                                font-size: 100%;
+                            }
+
+                            .submit-row {
+                                padding: 10px 0 0 0;
+                            }
+
+                            .errorlist {
+
+                                li {
+                                    font-size: 100% !important;
+                                    background-position: 5px center;
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                .errornote {
+                    font-size: 100% !important;
+                    background-position: 5px center;
+                }
+
+            }
+
+        }
+
+    }
+
+    #footer {
+        display: none;
+    }
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 1000px;
+
+    #header {
+        .gradient-vertical(#003843, #08ae9d);
+
+        &:after {
+            content: " ";
+            background: url(img/border.jpg) center;
+            height: 20px;
+            position: absolute;
+            left: 0;
+            top: 39px;
+            width: 100%;
+        }
+    }
+
+    .breadcrumbs {
+        margin: 20px 0 0 0;
+    }
+
+    #content {
+        .gradient-vertical(#08af9d, #1e777f);
+        padding: 20px 0 20px 0;
+        margin: 0;
+        width: 100%;
+
+        #content-title {
+            text-align: center;
+            padding: 0 0 20px 0;
+
+            h1 {
+                background-image: url(img/title-head.jpg);
+                height: 50px;
+                line-height: 50px;
+                margin: 0 auto;
+                width: 600px;
+                font-family: "devroyeregular";
+                font-size: 23px;
+                color: #e59e52;
+                padding: 0;
+                text-shadow: 0px 0px 4px #000000;
+                filter: dropshadow(color=#000000, offx=0, offy=0);
+            }
+
+        }
+
+        #base-content {
+            background-image: url(img/content-pattern.jpg);
+            margin: 0 50px 20px 50px;
+            padding: 60px;
+            position: relative;
+            min-height: 200px;
+
+            &:before {
+                background-image: url(img/content-nw.png);
+                top: -5px;
+                content: " ";
+                height: 150px;
+                left: -5px;
+                position: absolute;
+                width: 150px;
+                z-index: 1;
+            }
+
+            &:after {
+                background-image: url('img/content-se.png');
+                bottom: -5px;
+                content: " ";
+                height: 150px;
+                right: -5px;
+                position: absolute;
+                width: 150px;
+                z-index: 1;
+            }
+
+            #content-main {
+                display: inline-block;
+                padding: 0;
+                max-width: 500px;
+                float: none;
+            }
+
+            #content-related {
+                float: right;
+                max-width: 220px;
+                padding: 0;
+                margin: 0;
+            }
+
+        }
+
+    }
+
+}
+
+.dashboard {
+
+    #content-title {
+        padding: 20px !important;
+    }
+
+}
+
+.login {
+
+
+
+}
