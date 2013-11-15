@@ -83,33 +83,41 @@
 
                 <h2>Usługi świadczone przez hotel:</h2>
 
-                <ul>
-                    {% for usluga in uslugi_wewnetrzne %}
+                <div class="wewnetrzne">
 
-                    <li>
-                        <div class="nazwa"><p>{{ usluga.nazwa }}</p></div>
-                        <div class="cena"><p>{{ usluga.cena }} zł</p></div>
-                        <div class="opis"><p>{{ usluga.opis }}</p></div>
-                        <div class="dostepnosc">{% if usluga.dostepnosc %}Dostępna{% else %} Niedostępna {% endif %}</div>
-                    </li>
+                    <ul>
+                        {% for usluga in uslugi_wewnetrzne %}
 
-                    {% endfor %}
-                </ul>
+                        <li>
+                            <div class="nazwa"><p>{{ usluga.nazwa }}</p></div>
+                            <div class="cena"><p>{{ usluga.cena }} zł</p></div>
+                            <div class="opis"><p>{{ usluga.opis }}</p></div>
+                            <div class="dostepnosc">{% if usluga.dostepnosc %}Dostępna{% else %} Niedostępna {% endif %}</div>
+                        </li>
+
+                        {% endfor %}
+                    </ul>
+
+                </div> <!-- .wewnetrzne -->
 
                 <h2>Usługi zewnętrzne:</h2>
 
-                <ul>
-                    {% for usluga in uslugi_zewnetrzne %}
+                <div class="zewnetrzne">
 
-                    <li>
-                        <div class="nazwa"><p>{{ usluga.nazwa }}</p></div>
-                        <div class="cena"><p>{{ usluga.cena }} zł</p></div>
-                        <div class="opis"><p>{{ usluga.opis }}</p></div>
-                        <div class="dostepnosc">{% if usluga.dostepnosc %}Dostępna{% else %} Niedostępna {% endif %}</div>
-                    </li>
+                    <ul>
+                        {% for usluga in uslugi_zewnetrzne %}
 
-                    {% endfor %}
-                </ul>
+                        <li>
+                            <div class="nazwa"><p>{{ usluga.nazwa }}</p></div>
+                            <div class="cena"><p>{{ usluga.cena }} zł</p></div>
+                            <div class="opis"><p>{{ usluga.opis }}</p></div>
+                            <div class="dostepnosc">{% if usluga.dostepnosc %}Dostępna{% else %} Niedostępna {% endif %}</div>
+                        </li>
+
+                        {% endfor %}
+                    </ul>
+
+                </div> <!-- .zewnetrzne -->
 
             </div><!-- #tabs-3 -->
 

@@ -521,12 +521,34 @@ $(document).ready(function() {
 })
 {% endif %}
 
+$(".date-from").focus(function() {
+    var w = $(".reservations-content").width();
+    if (w < 634) {
+        $(".calendar-from").fadeIn();
+    }
+});
+
+$(".date-to").focus(function() {
+    var w = $(".reservations-content").width();
+    if (w < 634) {
+        $(".calendar-to").fadeIn();
+    }
+});
+
 $(".date-from").focusout(function() {
     sprawdzPoprawnosc();
+    var w = $(".reservations-content").width();
+    if (w < 634) {
+        $(".calendar-from").fadeOut();
+    }
 });
 
 $(".date-to").focusout(function() {
     sprawdzPoprawnosc();
+    var w = $(".reservations-content").width();
+    if (w < 634) {
+        $(".calendar-to").fadeOut();
+    }
 });
 
 {% if poczatek_pobytu %}

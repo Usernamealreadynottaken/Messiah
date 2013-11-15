@@ -15,8 +15,20 @@ class Usluga(models.Model):
     dostepnosc = models.BooleanField()
     zewnetrzna = models.BooleanField()
 
+    class Meta:
+        verbose_name = 'Usluga'
+        verbose_name_plural = 'Uslugi'
+        ordering = ['-dostepnosc', 'zewnetrzna', 'nazwa']
+
     def __unicode__(self):
         return self.nazwa
+
+    def wewnetrzna(self):
+        return not self.zewnetrzna
+
+    dostepnosc.boolean = True
+    dostepnosc.verbose_name = 'Jest dostepna?'
+    wewnetrzna.boolean = True
 
 
 class Pokoj(models.Model):
@@ -24,15 +36,31 @@ class Pokoj(models.Model):
     rozmiar = models.IntegerField()        # Ilosc osob.
     opis = models.TextField(blank=True)
     opis_combo = models.CharField(max_length=30)
-    dostepnosc = models.BooleanField(default=True, verbose_name='Jest dostepny')
+    dostepnosc = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = 'Pokoj'
+        verbose_name_plural = 'Pokoje'
+        ordering = ['-dostepnosc', 'numer']
 
     def __unicode__(self):
-        return '%d, rozmiar - %d' % (self.numer, self.rozmiar,)
+        ret = 'Numer: %d, rozmiar: %d' % (self.numer, self.rozmiar,)
+        if not self.dostepnosc:
+            ret += ' (Niedostepny!)'
+        return ret
+
+    dostepnosc.boolean = True
+    dostepnosc.verbose_name = 'Jest dostepny?'
 
 
 class CenaPokoju(models.Model):
     rozmiar = models.IntegerField(unique=True)
     cena = models.DecimalField(max_digits=6, decimal_places=2)
+
+    class Meta:
+        verbose_name = 'Cena pokoju'
+        verbose_name_plural = 'Ceny pokojow'
+        ordering = ['rozmiar']
 
     def __unicode__(self):
         return 'Rozmiar: %d, cena: %d' % (self.rozmiar, self.cena,)
@@ -41,6 +69,10 @@ class CenaPokoju(models.Model):
 class ZdjeciaPokojow(models.Model):
     zdjecie = models.ImageField(upload_to='pokoje')
     pokoj = models.ForeignKey(Pokoj)
+
+    class Meta:
+        verbose_name = 'Zdjecie pokoju'
+        verbose_name_plural = 'Zdjecia pokojow'
 
 
 class Rezerwacja(models.Model):
@@ -59,6 +91,11 @@ class Rezerwacja(models.Model):
     uslugi = models.ManyToManyField(Usluga, through='UslugaNaRezerwacji')
     pokoje = models.ManyToManyField(Pokoj, through='PokojNaRezerwacji')
 
+    class Meta:
+        verbose_name = 'Rezerwacja'
+        verbose_name_plural = 'Rezerwacje'
+        ordering = ['-poczatek_pobytu']
+
     def __unicode__(self):
         return self.email
 
@@ -71,16 +108,25 @@ class Rezerwacja(models.Model):
             cena += usluga.cena
         return cena
 
+    def pokoje_verbose(self):
+        pv = ''
+        i = 0
+        for pnr in self.pokojnarezerwacji_set.all():
+            if 0 < i < self.pokojnarezerwacji_set.count() - 1:
+                pv += ', '
+            elif i == self.pokojnarezerwacji_set.count() - 1 and not i == 0:
+                pv += ' i '
+            pv += '%d (%d osob' % (pnr.pokoj.numer, pnr.osob(),)
+            if pnr.osob() == 1:
+                pv += 'a'
+            elif pnr.osob() <= 4:
+                pv += 'y'
+            pv += ')'
+            i += 1
 
-class RezerwacjaForm(forms.ModelForm):
-    my_field = forms.CharField()
+        return pv
 
-    class Meta:
-        model = Rezerwacja
-
-    def __init__(self, *args, **kwargs):
-        super(RezerwacjaForm, self).__init__(*args, **kwargs)
-        self.fields['my_field'] = forms.CharField(label='ELOOOO', initial='Some some')
+    pokoje_verbose.short_description = 'Pokoje na rezerwacji'
 
 
 # Model reprezentujacy tabelke pomiedzy Rezerwacja a Pokojem
@@ -92,6 +138,20 @@ class PokojNaRezerwacji(models.Model):
     doroslych = models.IntegerField(blank=True, null=True)
     dzieci = models.IntegerField(blank=True, null=True)
     cena = models.DecimalField(max_digits=6, decimal_places=2)
+
+    class Meta:
+        verbose_name = 'Pokoj na rezerwacji'
+        verbose_name_plural = 'Pokoje na rezerwacji'
+
+    def __unicode__(self):
+        pnr = PokojNaRezerwacji.objects.filter(rezerwacja=self.rezerwacja)
+
+        # Na wszelki wypadek jesli z jakiegos powodu jest 0
+        if pnr:
+            for i in range(0, len(pnr)):
+                if pnr[i] == self:
+                    return 'Pokoj %d' % (i+1,)
+        return 'Pokoj na rezerwacji'
 
     def osob(self):
         return self.doroslych + self.dzieci
@@ -107,6 +167,8 @@ class PokojNaRezerwacji(models.Model):
             self.dzieci = 0
 
         super(PokojNaRezerwacji, self).clean()
+
+        print '--> %d <-- ' % (self.rezerwacja.pokojnarezerwacji_set.count(),)
 
         # Wszystko w try, bo jesli np. uzytkownik wybierze jakis pokoj, wystapi blad (wiec sie nie zapisze)
         # i uzytkownik zrezygnuje i zmieni na '----' (pusty) to wysypuje sie ObjectDoesNotExist
@@ -139,10 +201,38 @@ class UslugaNaRezerwacji(models.Model):
     usluga = models.ForeignKey(Usluga)
     cena = models.DecimalField(max_digits=6, decimal_places=2, blank=True)
 
+    class Meta:
+        verbose_name = 'Usluga na rezerwacji'
+        verbose_name_plural = 'Uslugi na rezerwacji'
+
+    def __unicode__(self):
+        unr = UslugaNaRezerwacji.objects.filter(rezerwacja=self.rezerwacja)
+        if unr:
+            for i in range(0, len(unr)):
+                if unr[i] == self:
+                    return 'Usluga %d' % (i+1,)
+        return 'Usluga na rezerwacji'
+
+    def clean(self):
+        # Jesli uzytkownik zostawi pusta cene to ustawiamy na 0 zeby nie wyskoczylo ze cena
+        # nie moze byc nullem. Rozwiazanie takie samiast zostawc blank=False lub ustawic Null=True
+        # poniewaz:
+        # a) zmuszanie uzytkownika do podawania 0 jest uciazliwe jesli mozna to zautomatyzowac
+        # b) jesli ustawimy Null=True to bez podania ceny w bazie danych zostaje ustawiony NULL i nie wiem
+        #    czy reszta pythona bedzie traktowac taki NULL jak 0
+        if not self.cena:
+            self.cena = 0
+
+        super(UslugaNaRezerwacji, self).clean()
+
 
 class KategoriaJedzenia(models.Model):
     nazwa = models.CharField(max_length=30)
     opis = models.TextField(blank=True)
+
+    class Meta:
+        verbose_name = 'Kategoria jedzenia'
+        verbose_name_plural = 'Kategorie jedzenia'
 
     def __unicode__(self):
         return self.nazwa
@@ -155,6 +245,10 @@ class Jedzenie(models.Model):
     zdjecie = models.ImageField(upload_to='jedzenie', blank=True)
 
     kategoria = models.ForeignKey(KategoriaJedzenia)
+
+    class Meta:
+        verbose_name = 'Jedzenie'
+        verbose_name_plural = 'Jedzenie'
 
     def __unicode__(self):
         return self.nazwa
@@ -201,9 +295,20 @@ class OpisHotelu(models.Model):
     )
     uklad = models.CharField(max_length=2, choices=UKLAD_CHOICES, default='DD')
 
+    class Meta:
+        verbose_name = 'Ustawienia i dane hotelu'
+        verbose_name_plural = verbose_name
+
+    def __unicode__(self):
+        return 'Ustawienia i dane hotelu'
+
 
 class ZdjeciaHotelu(models.Model):
     zdjecie = models.ImageField(upload_to='hotel/galeria')
+
+    class Meta:
+        verbose_name = 'Zdjecie hotelu'
+        verbose_name_plural = 'Zdjecia hotelu'
 
 
 class Wiadomosc(models.Model):
@@ -212,3 +317,7 @@ class Wiadomosc(models.Model):
     tresc = models.TextField()
     odpowiedz = models.TextField(blank=True)
     wyslano_odpowiedz = models.BooleanField()
+
+    class Meta:
+        verbose_name = 'Wiadomosc'
+        verbose_name_plural = 'Wiadomosci'
