@@ -156,10 +156,54 @@ body.login {
             top: 39px;
             width: 100%;
         }
+
+        #branding {
+
+            h1 {
+                color: #e59e52;
+                text-shadow: 0px 0px 4px #000000;
+            }
+
+        }
+
+        #user-tools {
+            padding: 10px 10px 0 0;
+            font-size: 100%;
+            color: #e59e52;
+            text-shadow: 0px 0px 4px #000000;
+
+            a {
+                color: white;
+            }
+
+        }
+
     }
 
     .breadcrumbs {
         margin: 20px 0 0 0;
+        font-size: 100%;
+        background: #08ae9d;
+        border: none;
+        color: #e59e52;
+        text-shadow: 0px 0px 4px #000000;
+
+        a {
+
+            &:link {
+                color: white;
+            }
+
+            &:visited {
+                color: white;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+        }
+
     }
 
     #content {
@@ -220,8 +264,84 @@ body.login {
             #content-main {
                 display: inline-block;
                 padding: 0;
-                max-width: 500px;
                 float: none;
+
+                .object-tools {
+
+                    a {
+                        font-family: 'alegreyaregular';
+                        font-weight: normal;
+                        font-size: 12px;
+                    }
+
+                }
+
+                .module {
+
+                    caption {
+                        font-size: 100%;
+                        .gradient-vertical(#08af9d, #1e777f);
+
+                        .section {
+                            color: #e59e52;
+                            text-shadow: 0px 0px 4px #000000;
+                        }
+
+                    }
+
+                    tr {
+
+                        td {
+                            font-family: 'alegreyaregular';
+                            font-size: 100%;
+                        }
+
+                        th {
+                            font-family: 'alegreyaregular';
+                            font-size: 100%;
+                        }
+
+                    }
+
+                    form {
+
+                        .actions {
+
+                            label {
+                                font-size: 14px;
+                            }
+
+                            .action-counter {
+                                font-size: 14px;
+                                margin: 0;
+                            }
+
+                        }
+
+                        .paginator {
+                            font-size: 14px;
+                        }
+
+                    }
+
+                }
+
+                form {
+
+                    fieldset {
+
+                        .form-row {
+
+                            label {
+                                font-size: 14px;
+                            }
+
+                        }
+
+                    }
+
+                }
+
             }
 
             #content-related {
@@ -229,6 +349,35 @@ body.login {
                 max-width: 220px;
                 padding: 0;
                 margin: 0;
+
+                .module {
+
+                    h2 {
+                        font-size: 100%;
+                        .gradient-vertical(#08af9d, #1e777f);
+                        color: #e59e52;
+                        text-shadow: 0px 0px 4px #000000;
+                    }
+
+                    h3 {
+                        font-size: 100%;
+                    }
+
+                    ul {
+
+                        li {
+                            font-size: 100%;
+
+                            .mini {
+                                font-size: 14px;
+                            }
+
+                        }
+
+                    }
+
+                }
+
             }
 
         }
@@ -241,6 +390,10 @@ body.login {
 
     #content-title {
         padding: 20px !important;
+    }
+
+    #content-main {
+        max-width: 500px !important;
     }
 
 }
