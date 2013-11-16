@@ -1,10 +1,10 @@
 var currentHeight = $(".additions").height();
-$(".additions").css("height", "75px");
+$(".additions").css("height", "100px");
 
 function animateAdditions() {
-    if ($(".additions").height() > 75) {
+    if ($(".additions").height() > 100) {
         $(".additions").animate({
-            "height": "75",
+            "height": "100",
         }, 500, "easeInOutQuad");
         $('.additions h2 img').animateRotate(-180, -360, 500, 'easeInSine', null);
     } else {
