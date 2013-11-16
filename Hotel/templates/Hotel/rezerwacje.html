@@ -363,7 +363,7 @@ function sprawdzPoprawnosc() {
                     }
                 })
                 .fail(function(xhr, textStatus, errorThrown) {
-                    alert("Error: " + errorThrown + xhr.status + xhr.responseText);
+                    //alert("Error: " + errorThrown + xhr.status + xhr.responseText);
                 });
                 return true;
         } else {
@@ -454,7 +454,7 @@ $(".confirm-yes").click(function() {
             $(".success").fadeIn(200);
         })
         .fail(function(xhr, textStatus, errorThrown) {
-            alert("Error: " + errorThrown + xhr.status + xhr.responseText);
+            //alert("Error: " + errorThrown + xhr.status + xhr.responseText);
         });
 });
 
