@@ -77,21 +77,21 @@ body {
             background-image: url(img/header-left.png);
             bottom: 0;
             content: " ";
-            height: 75px;
+            height: 50px;
             left: 0;
             position: absolute;
-            width: 75px;
+            width: 50px;
             z-index: 1;
         }
 
          &:after {
             background-image: url('img/header-right.png');
-            bottom: -10px;
+            bottom: 0px;
             content: " ";
-            height: 100px;
-            right: -10px;
+            height: 50px;
+            right: 0px;
             position: absolute;
-            width: 100px;
+            width: 50px;
             z-index: 1;
         }
 
@@ -160,7 +160,6 @@ body {
         ul.outside {
             text-align: center;
             padding: 20px 0 0 0 !important;
-            width: 500px;
             margin: auto !important;
 
             li {
@@ -183,13 +182,15 @@ body {
         }
     }
 
-    @media (max-width: 530px) {
+    @media (max-width: 600px) {
         ul.outside {
-            width: 250px;
 
-            li ul {
-                display: block;
-                position: relative;
+            li {
+                width: 100% !important;
+            }
+            ul {
+                display: block !important;
+                position: relative !important;
             }
         }
     }
@@ -215,39 +216,44 @@ body {
 
         li {
             display: inline-block;
+            width: 20%;
             margin: 20px 0 0 0;
 
             &:hover {
 
                 >ul {
                     display: block;
+                    width: 100%;
                 }
 
             }
 
             a {
-                background-image: url(img/button.jpg);
+                background: url(img/button.jpg) no-repeat,
+                    url(img/button.jpg) right -400px no-repeat,
+                    url(img/button.jpg) 0 -200px repeat-x;
                 display: block;
                 line-height: 50px;
                 height: 50px;
                 text-align: center;
-                width: 250px;
+                width: 100%;
                 font-family: "devroyeregular";
                 text-decoration: none;
                 color: #e59e52;
                 text-shadow: 0px 0px 4px #000000;
-                filter: dropshadow(color=#000000, offx=0, offy=0);
 
                 &:hover {
-                    background-position: 0 -50px;
+                    background-position: 0 -50px, right -450px, 0 -250px;
                 }
 
                 &:active {
-                    background-position: 0 -100px;
+                    background-position: 0 -100px, right -500px, 0 -300px;
                 }
 
                 &.selected {
-                    background-position: 0 -150px;
+                    background-position: 0 -150px, right -550px, 0 -350px;
+                    color: #003843;
+                    text-shadow: 0px 0px 4px #eda14a;
                 }
             }
         }
@@ -266,23 +272,23 @@ body {
 
          &:before {
             background-image: url('img/footer-left.png');
-            top: -10px;
+            top: 0px;
             content: " ";
-            height: 100px;
-            left: -10px;
+            height: 50px;
+            left: 0px;
             position: absolute;
-            width: 100px;
+            width: 50px;
             z-index: 1;
         }
 
          &:after {
             background-image: url('img/footer-right.png');
-            top: -10px;
+            top: 0px;
             content: " ";
-            height: 100px;
-            right: -10px;
+            height: 50px;
+            right: 0px;
             position: absolute;
-            width: 100px;
+            width: 50px;
             z-index: 1;
         }
 
@@ -367,10 +373,6 @@ body {
     padding: 0 0 50px 0;
 
     @media (max-width: 630px) {
-        .title h1 {
-            background-image: url(img/button.jpg) !important;
-            width: 250px !important;
-        }
 
         .reservations-content:before, .reservations-content:after {
             display: none;
@@ -382,11 +384,13 @@ body {
         text-align: center;
 
         h1 {
-            background-image: url(img/title-head.jpg);
+            background: url(img/title-head.jpg) no-repeat,
+                url(img/title-head.jpg) right -100px no-repeat,
+                url(img/title-head.jpg) 0 -50px repeat;
             height: 50px;
             line-height: 50px;
             margin: 0 auto;
-            width: 600px;
+            width: 60%;
             font-family: "devroyeregular";
             font-size: 23px;
             color: #e59e52;
@@ -619,8 +623,10 @@ body {
                 text-align: left;
 
                 h2 {
-                    background-image: url(img/label.jpg);
-                    line-height: 50px;
+                    background: url(img/label-rezerwacja.png) no-repeat,
+                        url(img/label-rezerwacja.png) right -140px no-repeat,
+                        url(img/label-rezerwacja.png) 0 -70px repeat;
+                    line-height: 70px;
                     padding: 0 0 0 10px;
                     position: relative;
 
@@ -628,7 +634,7 @@ body {
                         height: 29px;
                         position: absolute;
                         right: 20px;
-                        top: 10px;
+                        top: 20px;
                         width: 57px;
                     }
                 }
@@ -673,7 +679,9 @@ body {
             }
 
             .button {
-                background: url(img/button.jpg);
+                background: url(img/button.jpg) no-repeat,
+                    url(img/button.jpg) right -400px no-repeat,
+                    url(img/button.jpg) 0 -200px repeat-x;
                 font-family: 'devroyeregular';
                 display: inline-block;
                 margin: 0 auto;
@@ -686,11 +694,11 @@ body {
                 text-shadow: 0px 0px 4px #000000;
 
                 &:hover {
-                    background-position: 0 -50px;
+                    background-position: 0 -50px, right -450px, 0 -250px;
                 }
 
                 &:active {
-                    background-position: 0 -100px;
+                    background-position: 0 -100px, right -500px, 0 -300px;
                 }
             }
         }
@@ -754,9 +762,7 @@ body {
 
     @media (max-width: 630px) {
         .title h1 {
-            background-image: url(img/button.jpg) !important;
-            width: 250px !important;
-            font-size: 18px !important;
+            font-size: 16px !important;
         }
 
         .reservations-existing-content:before, .reservations-existing-content:after {
@@ -769,11 +775,13 @@ body {
         text-align: center;
 
         h1 {
-            background-image: url(img/title-head.jpg);
+            background: url(img/title-head.jpg) no-repeat,
+                url(img/title-head.jpg) right -100px no-repeat,
+                url(img/title-head.jpg) 0 -50px repeat;
             height: 50px;
             line-height: 50px;
             margin: 0 auto;
-            width: 600px;
+            width: 60%;
             font-family: "devroyeregular";
             font-size: 23px;
             color: #e59e52;
@@ -987,11 +995,6 @@ body {
     padding: 0 0 50px 0;
 
     @media (max-width: 630px) {
-        .title h1 {
-            background-image: url(img/button.jpg) !important;
-            width: 250px !important;
-        }
-
         .pricing-content:before, .pricing-content:after {
             display: none;
         }
@@ -1002,11 +1005,13 @@ body {
         text-align: center;
 
         h1 {
-            background-image: url(img/title-head.jpg);
+            background: url(img/title-head.jpg) no-repeat,
+                url(img/title-head.jpg) right -100px no-repeat,
+                url(img/title-head.jpg) 0 -50px repeat;
             height: 50px;
             line-height: 50px;
             margin: 0 auto;
-            width: 600px;
+            width: 60%;
             font-family: "devroyeregular";
             font-size: 23px;
             color: #e59e52;
@@ -1187,23 +1192,18 @@ body {
     .gradient-vertical(#08ae9d, #003843);
     padding: 0 0 50px 0;
 
-    @media (max-width: 630px) {
-        .title h1 {
-            background-image: url(img/button.jpg) !important;
-            width: 250px !important;
-        }
-    }
-
     .title {
         padding: 20px 0;
         text-align: center;
 
         h1 {
-            background-image: url(img/title-head.jpg);
+            background: url(img/title-head.jpg) no-repeat,
+                url(img/title-head.jpg) right -100px no-repeat,
+                url(img/title-head.jpg) 0 -50px repeat;
             height: 50px;
             line-height: 50px;
             margin: 0 auto;
-            width: 600px;
+            width: 60%;
             font-family: "devroyeregular";
             font-size: 23px;
             color: #e59e52;
@@ -1303,9 +1303,7 @@ body {
 
     @media (max-width: 630px) {
         .title h1 {
-            background-image: url(img/button.jpg) !important;
-            width: 250px !important;
-            font-size: 18px !important;
+            font-size: 16px !important;
         }
 
         .reservations-existing-content:before, .reservations-existing-content:after {
@@ -1318,11 +1316,13 @@ body {
         text-align: center;
 
         h1 {
-            background-image: url(img/title-head.jpg);
+            background: url(img/title-head.jpg) no-repeat,
+                url(img/title-head.jpg) right -100px no-repeat,
+                url(img/title-head.jpg) 0 -50px repeat;
             height: 50px;
             line-height: 50px;
             margin: 0 auto;
-            width: 600px;
+            width: 60%;
             font-family: "devroyeregular";
             font-size: 23px;
             color: #e59e52;
@@ -1392,9 +1392,7 @@ body {
 
     @media (max-width: 630px) {
         .title h1 {
-            background-image: url(img/button.jpg) !important;
-            width: 250px !important;
-            font-size: 18px !important;
+            font-size: 16px !important;
         }
 
         .wrapper:before, .wrapper:after {
@@ -1407,11 +1405,13 @@ body {
         text-align: center;
 
         h1 {
-            background-image: url(img/title-head.jpg);
+            background: url(img/title-head.jpg) no-repeat,
+                url(img/title-head.jpg) right -100px no-repeat,
+                url(img/title-head.jpg) 0 -50px repeat;
             height: 50px;
             line-height: 50px;
             margin: 0 auto;
-            width: 600px;
+            width: 60%;
             font-family: "devroyeregular";
             font-size: 23px;
             color: #e59e52;
@@ -1571,7 +1571,9 @@ body {
         }
 
         .send {
-            background: url(img/button.jpg);
+            background: url(img/button.jpg) no-repeat,
+                    url(img/button.jpg) right -400px no-repeat,
+                    url(img/button.jpg) 0 -200px repeat-x;
             font-family: 'devroyeregular';
             display: block;
             margin: 10px 0 0 187px;
@@ -1585,11 +1587,11 @@ body {
             filter: dropshadow(color=#000000, offx=0, offy=0);
 
             &:hover {
-                background-position: 0 -50px;
+                background-position: 0 -50px, right -450px, 0 -250px;
             }
 
             &:active {
-                background-position: 0 -100px;
+                background-position: 0 -100px, right -500px, 0 -300px;
             }
         }
 

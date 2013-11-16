@@ -325,12 +325,10 @@
 .ui-widget-content a {
 	color: #333333;
 }
-.pricing-content .ui-widget-header {
-	background-image: url(img/label.jpg);
-}
 .ui-widget-header {
-	border: 1px solid #e78f08;
-	background: #f6a828 url(img/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x;
+	background: url(img/label-cennik.jpg) no-repeat,
+	    url(img/label-cennik.jpg) right -100px no-repeat,
+	    url(img/label-cennik.jpg) 0 -50px repeat;
 	color: #ffffff;
 	font-weight: bold;
 }
