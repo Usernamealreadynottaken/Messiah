@@ -97,7 +97,7 @@ class Rezerwacja(models.Model):
         ordering = ['-poczatek_pobytu']
 
     def __unicode__(self):
-        return self.email
+        return self.nazwisko
 
     def wartosc_rezerwacji(self):
         dni = (self.koniec_pobytu - self.poczatek_pobytu).days
