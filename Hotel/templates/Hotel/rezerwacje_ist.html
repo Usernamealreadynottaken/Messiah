@@ -41,6 +41,8 @@
 {% block scripts %}
 
 <script>
+$(".rezerwacje_istniejace_class").addClass("selected");
+
 $(".code-send").click(function() {
     if ($(".code-input").val().length == 0) {
         $(".code-error").text("Nie podano kodu.");
