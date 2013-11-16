@@ -135,7 +135,8 @@ $(".change-calendar").click(function() {
 });
 
 $( window ).resize(function() {
-    if ($(".reservations-content").width() > 885) {
+    var w = $(".reservations-content").width();
+    if (w > 885 || w < 634) {
         $(".calendar-to").css("display", "");
         $(".calendar-from").css("display", "");
     }
