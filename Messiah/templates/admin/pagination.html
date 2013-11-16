@@ -1,6 +1,6 @@
 {% load admin_list %}
 {% load i18n %}
-<p class="paginator">
+<p class="paginator {% ifequal cl.result_count 0 %}empty-paginator{% endifequal %}">
 {% if pagination_required %}
 {% for i in page_range %}
     {% paginator_number cl i %}

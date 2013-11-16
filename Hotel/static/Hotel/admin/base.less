@@ -282,16 +282,185 @@ body.login {
                 float: none;
 
                 .object-tools {
+                    padding: 0 18px 0 0;
 
-                    a {
-                        font-family: 'alegreyaregular';
-                        font-weight: normal;
-                        font-size: 12px;
+                    li {
+                        background: none;
+                        padding: 0 0 0 19px;
+                        position: relative;
+
+                        a {
+                            font-family: 'alegreyaregular';
+                            font-weight: normal;
+                            font-size: 14px;
+                            .gradient-vertical(#ea9f49, #a14c19);
+                            padding: 2px 8px;
+                        }
+
+                        &:before {
+                            background-image: url(img/tool-left2.png);
+                            content: " ";
+                            height: 18px;
+                            width: 20px;
+                            position: absolute;
+                            left: 0;
+                        }
+
+                        &:after {
+                            background-image: url(img/tool-right2.png);
+                            content: " ";
+                            height: 18px;
+                            width: 20px;
+                            position: absolute;
+                        }
+
+                    }
+
+                }
+
+                #changelist {
+                    background: none !important;
+                    border: none;
+
+                    #toolbar {
+                        background: none;
+                        border: none;
+                        padding: 0 0 0 10px;
+
+                        form {
+
+                            input[type='submit'] {
+                                font-family: 'alegreyaregular';
+                                font-size: 100%;
+                                padding: 0 5px;
+                            }
+
+                        }
+
+                    }
+
+                    form {
+
+                        .actions {
+                            background: none;
+                            border: none;
+                            color: black;
+                            font-size: 16px;
+                            padding: 3px 3px 8px 3px;
+
+                            button {
+                                font-family: 'alegreyaregular';
+                                font-size: 100%;
+                                padding: 0 5px;
+                            }
+
+                        }
+
+                        .results {
+
+                            .action-checkbox-column {
+                                background: none;
+                                border: none;
+                            }
+
+                            #col.action-checkbox-column {
+                                background: none !important;
+                                border: none;
+                            }
+
+                            tr {
+                                background: none;
+                            }
+
+                            .action-checkbox {
+                                background: none;
+                                border-bottom: none;
+                            }
+
+                            th {
+                                background: white;
+                            }
+
+                            #col {
+                                color: #e59e52;
+                                text-shadow: 0px 0px 4px #000000;
+
+                                &:not(.sortable) {
+                                    background: #08af9d;
+                                }
+
+                            }
+
+                            .sortable {
+                                .gradient-vertical(#08af9d, #1e777f);
+
+                                a {
+                                    color: #e59e52;
+                                }
+
+                                &:hover {
+                                    .gradient-vertical(#1e777f, #08af9d) !important;
+                                }
+
+                            }
+
+                            td {
+                                background: white;
+                            }
+
+                        }
+
+                        .paginator {
+                            background: none;
+                            border: none;
+                            color: black;
+                            font-size: 100%;
+                            padding: 0 25px;
+                        }
+
+                        .empty-paginator {
+                            background: white;
+                            border: 1px solid #cccccc;
+                            padding: 5px;
+                        }
+
+                    }
+
+                    #changelist-filter {
+                        background: white;
+
+                        h2 {
+                            font-size: 100%;
+                            .gradient-vertical(#08af9d, #1e777f);
+                            color: #e59e52;
+                            text-shadow: 0px 0px 4px #000000;
+                        }
+
+                        h3 {
+                            font-size: 14px;
+                        }
+
+                        ul {
+
+                            li {
+                                font-size: 14px;
+                            }
+
+                        }
+
                     }
 
                 }
 
                 .module {
+
+                    #toolbar {
+
+                    }
+
+                    p {
+                        margin: 10px 0;
+                    }
 
                     caption {
                         font-size: 100%;
@@ -343,12 +512,64 @@ body.login {
 
                 form {
 
+                    h2 {
+                        font-size: 100%;
+                        .gradient-vertical(#08af9d, #1e777f);
+                        color: #e59e52;
+                        text-shadow: 0px 0px 4px #000000;
+                    }
+
                     fieldset {
+
+                        table {
+
+                            tbody {
+
+                                td {
+
+                                    p {
+                                        margin: 0 !important;
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                        .help {
+                            font-family: 'alegreyaregular';
+                            font-size: 14px !important;
+                        }
+
+                        #id_password {
+                            font-size: 14px !important;
+                        }
 
                         .form-row {
 
+                            .selector {
+
+                                h2 {
+                                    font-size: 14px;
+                                }
+
+                                .selector-filter {
+                                    margin: 0;
+                                }
+
+                                a {
+                                    font-size: 14px;
+                                }
+
+                            }
+
                             label {
                                 font-size: 14px;
+                            }
+
+                            .datetime {
+                                padding: 0 0 0 130px;
                             }
 
                             .datetimeshortcuts {
@@ -357,6 +578,14 @@ body.login {
 
                             textarea {
                                 resize: vertical;
+                            }
+
+                            .file-upload {
+                                padding: 0 0 0 130px;
+                            }
+
+                            .url {
+                                padding: 0 0 0 130px;
                             }
 
                         }
@@ -369,6 +598,14 @@ body.login {
                         }
 
                         table {
+
+                            thead {
+
+                                tr {
+                                    font-size: 14px;
+                                }
+
+                            }
 
                             td {
 
@@ -392,6 +629,14 @@ body.login {
 
                             }
 
+                        }
+
+                    }
+
+                    .add-row {
+
+                        a {
+                            font-size: 14px;
                         }
 
                     }
@@ -421,6 +666,33 @@ body.login {
                             text-shadow: 0px 0px 4px #000000;
                             border: 1px solid #1e777f;
                             padding: 3px 10px;
+                        }
+
+                    }
+
+                }
+
+                #change-history {
+
+                    thead {
+
+                        th {
+                            font-size: 100%;
+                            .gradient-vertical(#08af9d, #1e777f);
+                            color: #e59e52;
+                            text-shadow: 0px 0px 4px #000000;
+                        }
+
+                    }
+
+                    tbody {
+
+                        tr {
+
+                            td {
+                                line-height: 120%;
+                            }
+
                         }
 
                     }
@@ -483,8 +755,32 @@ body.login {
 
 }
 
-.login {
+// Archiwum oddzielnie zeby chociaz troche ograniczyc chaos
+#archive {
 
+        .menu {
+            padding: 0;
 
+            li {
+                font-size: 100%;
+                list-style: none;
 
-}
+                .rezerwacja-content {
+                    display: none;
+                    border: 1px solid red;
+
+                    div {
+
+                        p {
+                            margin: 0;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
