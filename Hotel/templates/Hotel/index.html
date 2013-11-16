@@ -6,6 +6,8 @@
 
 {% block content %}
 
+<link rel="stylesheet" href="{% static 'Hotel/jquery.bxslider.css' %}" type="text/css">
+
 <div id="main">
 
     <div class="title">
@@ -20,7 +22,7 @@
 
         <div class="gallery">
 
-            <ul class="slides">
+            <ul class="bxslider">
                 {% for zdjecie in zdjecia_hotelu %}
                     <li><img src="{{ zdjecie.zdjecie.url }}" alt="Hotel"/></li>
                 {% endfor %}
@@ -32,23 +34,13 @@
 
 </div> <!-- #main -->
 
-<script src="{% static 'Hotel/js/jquery.roundabout.js' %}"></script>
-<script src="{% static 'Hotel/js/jquery.easing.1.3.js' %}"></script>
-<script src="{% static 'Hotel/js/jquery.event.drag-2.2.js' %}"></script>
-<script src="{% static 'Hotel/js/jquery.event.drop-2.2.js' %}"></script>
+<script src="{% static 'Hotel/js/jquery.bxslider.js' %}"></script>
 
 <script>
-$(window).load(function() {
-    $(".slides").roundabout({
-		tilt: 0.6,
-		minScale: 0.6,
-		minOpacity: 1,
-		duration: 400,
-		easing: 'easeOutQuad',
-		enableDrag: true,
-		dropEasing: 'easeOutBounce',
-		responsive: true,
-	});
+$(document).ready(function() {
+    $(".bxslider").bxSlider({
+        adaptiveHeight: true,
+    });
 });
 </script>
 
