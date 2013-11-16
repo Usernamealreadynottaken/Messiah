@@ -7,7 +7,7 @@ TEMPLATE_DEBUG = DEBUG
 PROJECT_SETTINGS_PATH = os.path.dirname(os.path.abspath(__file__))
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Messiah', 'hotel.messiah@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -23,6 +23,19 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default.
     }
 }
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_PORT = 587
+
+EMAIL_HOST_PASSWORD = 'hotelmessiahpass'
+
+EMAIL_HOST_USER = 'hotel.messiah@gmail.com'
+
+EMAIL_SUBJECT_PREFIX = 'something'
+
+EMAIL_USE_TLS = True
+
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts

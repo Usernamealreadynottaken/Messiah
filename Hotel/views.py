@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
+from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 
 # Zeby skorzystac z ajaxa potrzebujemy zwrocic HttpResponse object.
@@ -143,6 +144,30 @@ def wiadomosc_wyslij(request):
 
     response = '{"message": "' + response_message + '" }'
     #response = '{"message": "success"}'
+    return HttpResponse(response)
+
+
+
+def wyslij_email(request, id):
+    response_message = "success"
+
+    subject = 'Hotel Messiah'
+    message = request.POST['msg']
+    from_email = 'hotel.messiah@gmail.com'
+    to_email = request.POST['email_address']
+    if subject and message and from_email:
+        try:
+            send_mail(subject, message, from_email, [to_email])
+        except KeyError:
+            response_message = "site_error"
+    else:
+        response_message = "empty_field"
+
+    if response_message == "success":
+        Wiadomosc.objects.filter(pk=id).wyslano_odpowiedz = True
+        Wiadomosc.objects.filter(pk=id).odpowiedz = message
+
+    response = '{"message": "' + response_message + '" }'
     return HttpResponse(response)
 
 

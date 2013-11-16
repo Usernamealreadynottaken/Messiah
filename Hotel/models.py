@@ -317,6 +317,7 @@ class Wiadomosc(models.Model):
     tresc = models.TextField()
     odpowiedz = models.TextField(blank=True)
     wyslano_odpowiedz = models.BooleanField()
+    data = models.DateTimeField(auto_now=True, null=True)
 
     class Meta:
         verbose_name = 'Wiadomosc'

@@ -10,7 +10,6 @@ urlpatterns = patterns('',
     url(r'^kontakt/wyslij/$', views.wiadomosc_wyslij, name='wiadomosc_wyslij'),
 
 
-
     url(r'^rezerwacje/$', views.rezerwacje, name='rezerwacje'),
     url(r'^rezerwacje/sprawdz/$', views.rezerwacje_sprawdz, name='rezerwacje_sprawdz'),
     url(r'^rezerwacje/wyslij/$', views.rezerwacje_wyslij, name='rezerwacje_wyslij'),

@@ -3,6 +3,59 @@
 
 {% block title %}Wiadomosci{% endblock %}
 
+{% block extrahead %}
+
+<script src="{% static 'Hotel/js/jquery-1.10.2.js' %}"></script>
+<script src="{% static 'Hotel/js/jquery.form.js' %}"></script>
+
+<script>
+
+$( document ).ready(function() {
+    $(".send").click(function() {
+
+        var first_class = jQuery(this).attr('class').split(' ')[0];
+        var pk = parseInt(first_class.substring(5));
+
+        var toSend{
+            csrfdmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val(),
+            pk: pk
+        }
+
+        $.ajax({
+            type: "GET",
+            // dataType: "html",
+            url: "{% url 'admin_custom:wiadomosci' %}"+pk+"/",
+            data: toSend
+        })
+
+        $("form."+temp).ajaxForm(function(data) {
+            var parsed = $.parseJSON(data);
+
+            if(parsed["message"] && parsed["message"] == "success") {
+                $(".success p").html("Wiadomosc zostala wyslana!<br /><br />");
+            }
+            else if (parsed["message"] && parsed["message"] == "site_error") {
+                $(".success p").html("Serwer otrzymal uszkodzone dane.");
+            }
+            else if (parsed["message"] && parsed["message"] == "empty_field") {
+                $(".success p").html("Nie mozesz wyslac pustej wiadomosci!");
+            }else {
+                $(".success p").html("Nieprzewidziany blad");
+            }
+            $(".success").fadeIn(200);
+        });
+        $("form."+temp).submit();
+    });
+
+    $(".close").click(function() {
+        $(".success").fadeOut(200);
+    });
+
+});
+</script>
+
+{% endblock %}
+
 {% block breadcrumbs %}
 
     <div class="breadcrumbs">
@@ -25,25 +78,33 @@
         <ul>
             {% for wiadomosc in wiadomosci %}
             <li>
+
                 <div class="message">
                     <p>Wiadomosc od: {{ wiadomosc.nazwisko }}</p>
                     <p>E-mail: {{ wiadomosc.email }}</p>
                     <p>Tresc: {{ wiadomosc.tresc }}</p>
-                    <p>Data</p>
+                    <p>Data: {{ wiadomosc.data }}</p>
                     <input type="checkbox" name="delete" value="delete"/>
                 </div>
-                <div class="answer">
-                    {% if wiadomosc.odpowiedz %}
-                    <p>Twoja odpowiedz do: {{ nazwisko }}</p>
-                    <p>{{ wiadomosc.odpowiedz }}</p>
-                    {% elif wiadomosc.wyslano_odpowiedz %}
-                    <p>Checkbox jest zaznaczony. Cos na to trzeba zrobic.</p>
-                    {% else %}
-                    <p>Twoja odpowiedz do: {{ nazwisko }}</p>
-                    <textarea></textarea>
-                    <a>Wyslij</a>
-                    {% endif %}
-                </div>
+
+                <form action="" method="post" class="form-{{ wiadomosc.pk }}">
+                    {% csrf_token %}
+
+                    <div class="answer">
+
+                        <p>Twoja odpowiedz do: {{ wiadomosc.nazwisko }}</p>
+                        <p>{{ wiadomosc.odpowiedz }}</p>
+
+                        <p>Checkbox jest zaznaczony. Cos na to trzeba zrobic.</p>
+
+                        <p>Twoja odpowiedz do: </p><input type="email" name="email_address" value="{{ wiadomosc.email }}" />
+                        <textarea name="msg"></textarea>
+                        <a class="form-{{ wiadomosc.pk }} send">Wyslij</a>
+
+                    </div>
+
+                </form>
+
             </li>
             {% endfor %}
         </ul>
@@ -57,5 +118,12 @@
     </div>
 
 </div>
+
+<div class="success">
+
+    <p></p>
+    <span class="close"/>
+
+</div> <!-- .success -->
 
 {% endblock %}
