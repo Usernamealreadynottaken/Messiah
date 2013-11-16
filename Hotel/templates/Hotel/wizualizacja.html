@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="{% static 'Hotel/flexslider.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'Hotel/jquery.bxslider.css' %}" type="text/css">
 
 <div id="visualization">
 
@@ -63,7 +63,7 @@
 {% block scripts %}
 
 <script src="{% static 'Hotel/js/jquery-1.10.2.js' %}"></script>
-<script src="{% static 'Hotel/js/jquery.flexslider.js' %}"></script>
+<script src="{% static 'Hotel/js/jquery.bxslider.js' %}"></script>
 
 <script>
 $(".room-image").click(function() {
@@ -81,11 +81,8 @@ $(".room-image").click(function() {
     })
         .done(function(data) {
             $(".gallery").html(data);
-            $(".flexslider").flexslider({
-                slideshow: true,
-                animation: "slide",
-                pauseOnHover: true,
-                itemWidth: 820,
+            $(".bxslider").bxSlider({
+                adaptiveHeight: true,
             });
         })
         .fail(function(xhr, textStatus, errorThrown) {

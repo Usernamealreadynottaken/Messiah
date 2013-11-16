@@ -2,8 +2,8 @@
 {% if zdjecia %}
 <h2>Galeria</h2>
 
-<div class="flexslider">
-    <ul class="slides">
+<div class="gallery">
+    <ul class="bxslider">
         {% for zdjecie in zdjecia %}
         <li>
             <img src="{% if zdjecie.zdjecie %}{{ zdjecie.zdjecie.url }}{% endif %}" />
