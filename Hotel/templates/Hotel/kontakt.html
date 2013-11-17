@@ -86,6 +86,7 @@ $(".send").click(function() {
 
             if(parsed["message"] && parsed["message"] == "success") {
                 $(".success p").html("Wiadomosc zostala wyslana!<br /><br />Dziekujemy za kontakt!");
+                $('textarea[name=tresc], input[name=name], input[name=email]').val('');
             }
             else if (parsed["message"] && parsed["message"] == "site_error") {
                 $(".success p").html("Serwer otrzymal uszkodzone dane.");
