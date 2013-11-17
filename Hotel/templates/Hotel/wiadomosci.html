@@ -13,22 +13,29 @@
 $( document ).ready(function() {
     $(".send").click(function() {
 
-        var first_class = jQuery(this).attr('class').split(' ')[0];
+        var first_class = $(this).attr("class").split(" ")[0];
         var pk = parseInt(first_class.substring(5));
 
-        var toSend{
-            csrfdmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val(),
-            pk: pk
-        }
+        var toSend = {
+            csrfmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val(),
+            pk: pk,
+            message: $(this).parent().find("textarea").val(),
+            email_address: $(this).parent().find("input[name='email_address']").val(),
+        };
 
         $.ajax({
             type: "GET",
             // dataType: "html",
-            url: "{% url 'admin_custom:wiadomosci' %}"+pk+"/",
+            url: "{% url 'admin_custom:wiadomosci' %}" + pk + "/",
             data: toSend
         })
+            .done(function(data) {
+                if (data == "success") {
+                    
+                }
+            });
 
-        $("form."+temp).ajaxForm(function(data) {
+        /* $("form."+temp).ajaxForm(function(data) {
             var parsed = $.parseJSON(data);
 
             if(parsed["message"] && parsed["message"] == "success") {
@@ -44,7 +51,7 @@ $( document ).ready(function() {
             }
             $(".success").fadeIn(200);
         });
-        $("form."+temp).submit();
+        $("form."+temp).submit(); */
     });
 
     $(".close").click(function() {
@@ -84,7 +91,8 @@ $( document ).ready(function() {
                     <p>E-mail: {{ wiadomosc.email }}</p>
                     <p>Tresc: {{ wiadomosc.tresc }}</p>
                     <p>Data: {{ wiadomosc.data }}</p>
-                    <input type="checkbox" name="delete" value="delete"/>
+                    <input type="checkbox" name="delete" value="delete"
+                        {% if wiadomosc.wyslano_odpowiedz == True %} checked {% endif %}/>
                 </div>
 
                 <form action="" method="post" class="form-{{ wiadomosc.pk }}">
