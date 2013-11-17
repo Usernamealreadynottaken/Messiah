@@ -113,7 +113,7 @@ def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje, kod=''):
     return return_status
 
 
-def include_header_footer(context):
+def include_header_footer(context={}):
     oh = OpisHotelu.objects.filter()[0]
 
     logo_rozmiar = ''
@@ -192,7 +192,7 @@ def wizualizacja(request):
     context = {'pokoje': pokoje,
                'rozmiary': sorted(rozmiary)}
 
-    return render(request, 'hotel/wizualizacja.html', context)
+    return render(request, 'hotel/wizualizacja.html', include_header_footer(context))
 
 
 def wizualizacja_galeria(request, pk):
@@ -209,18 +209,18 @@ def wizualizacja_galeria(request, pk):
 def rezerwacje(request):
     uslugi_wewnetrzne = Usluga.objects.filter(zewnetrzna=False)
     uslugi_zewnetrzne = Usluga.objects.filter(zewnetrzna=True)
-    return render(request, 'hotel/rezerwacje.html', {
+    return render(request, 'hotel/rezerwacje.html', include_header_footer({
         'uslugi_all': Usluga.objects.all(),
         'uslugi_wewnetrzne': uslugi_wewnetrzne,
         'uslugi_zewnetrzne': uslugi_zewnetrzne
-    })
+    }))
 
 
 def cennik(request):
     uslugi_wewnetrzne = Usluga.objects.filter(zewnetrzna=False)
     uslugi_zewnetrzne = Usluga.objects.filter(zewnetrzna=True)
 
-    return render(request, 'hotel/cennik.html', {
+    return render(request, 'hotel/cennik.html', include_header_footer({
         'kategorie': KategoriaJedzenia.objects.all(),
         'jedzenie': Jedzenie.objects.all(),
         'uslugi_wewnetrzne': uslugi_wewnetrzne,
@@ -228,12 +228,12 @@ def cennik(request):
         'cena_dorosly': OpisHotelu.objects.filter()[0].cena_dorosly,
         'cena_dziecko': OpisHotelu.objects.filter()[0].cena_dziecko,
         'ceny_pokojow': CenaPokoju.objects.all().order_by('rozmiar')
-    })
+    }))
 
 
 def kontakt(request):
 
-    return render(request, 'hotel/kontakt.html', {
+    return render(request, 'hotel/kontakt.html', include_header_footer({
         'skype': OpisHotelu.objects.filter()[0].skype,
         'gadu': OpisHotelu.objects.filter()[0].gadu_gadu,
         'email': OpisHotelu.objects.filter()[0].email,
@@ -243,7 +243,7 @@ def kontakt(request):
         'html_mapy_google': OpisHotelu.objects.filter()[0].html_mapy_google,
         'telefon': OpisHotelu.objects.filter()[0].telefon,
         'adres': OpisHotelu.objects.filter()[0].adres
-    })
+    }))
 
 
 # Wysylanie wiadomosci ze strony kontaktowej
@@ -251,10 +251,10 @@ def wiadomosc_wyslij(request):
     response_message = "success"
     try:
         nowa_wiadomosc = Wiadomosc(email=request.POST['email'],
-                                nazwisko=request.POST['name'],
-                                tresc=request.POST['tresc'],
-                                odpowiedz='',
-                                wyslano_odpowiedz=False)
+                                   nazwisko=request.POST['name'],
+                                   tresc=request.POST['tresc'],
+                                   odpowiedz='',
+                                   wyslano_odpowiedz=False)
         nowa_wiadomosc.save()
 
     except ValueError:
@@ -722,11 +722,11 @@ def rezerwacje_kod(request, code):
             context['dzieci%d' % (i,)] = pnr.dzieci
             i += 1
 
-        return render(request, 'hotel/rezerwacje.html', context)
+        return render(request, 'hotel/rezerwacje.html', include_header_footer(context))
 
     except ObjectDoesNotExist:
         raise Http404
 
 
 def rezerwacje_istnieje(request):
-    return render(request, 'hotel/rezerwacje_ist.html')
+    return render(request, 'hotel/rezerwacje_ist.html', include_header_footer())
