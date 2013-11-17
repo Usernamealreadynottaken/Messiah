@@ -14,7 +14,7 @@ $( document ).ready(function() {
     $(".send").click(function() {
 
         var first_class = $(this).attr("class").split(" ")[0];
-        var form_class = " form."+first_class+" .answer";
+        var form_class = " form." + first_class + " .answer";
         var pk = parseInt(first_class.substring(5));
 
         var toSend = {
@@ -31,18 +31,15 @@ $( document ).ready(function() {
             data: toSend
         })
             .done(function(data) {
+
                 if (data == "success") {
-
-                var parsed = $.parseJSON(data);
-
-                if (parsed["message"] && parsed["message"] == "success") {
                     $(".success p").html("Wiadomosc zostala wyslana!<br /><br />");
-                    $(form_class).load(form_class, function(){$(this).children().unwrap()})
+                    $(form_class).load(form_class, function(){$(this).children().unwrap()});
                 }
-                else if (parsed["message"] && parsed["message"] == "site_error") {
+                else if (data == "site_error") {
                     $(".success p").html("Serwer otrzymal uszkodzone dane.");
                 }
-                else if (parsed["message"] && parsed["message"] == "empty_field") {
+                else if (data == "empty_field") {
                     $(".success p").html("Nie mozesz wyslac pustej wiadomosci!");
                 }
                 else {
@@ -51,24 +48,6 @@ $( document ).ready(function() {
 
                 $(".success").fadeIn(200);
             });
-
-        /* $("form."+temp).ajaxForm(function(data) {
-            var parsed = $.parseJSON(data);
-
-            if(parsed["message"] && parsed["message"] == "success") {
-                $(".success p").html("Wiadomosc zostala wyslana!<br /><br />");
-            }
-            else if (parsed["message"] && parsed["message"] == "site_error") {
-                $(".success p").html("Serwer otrzymal uszkodzone dane.");
-            }
-            else if (parsed["message"] && parsed["message"] == "empty_field") {
-                $(".success p").html("Nie mozesz wyslac pustej wiadomosci!");
-            }else {
-                $(".success p").html("Nieprzewidziany blad");
-            }
-            $(".success").fadeIn(200);
-        });
-        $("form."+temp).submit(); */
     });
 
     $(".close").click(function() {
@@ -108,14 +87,14 @@ $( document ).ready(function() {
                     <p>E-mail: {{ wiadomosc.email }}</p>
                     <p>Tresc: {{ wiadomosc.tresc }}</p>
                     <p>Data: {{ wiadomosc.data }}</p>
-                    <input type="checkbox" name="delete" value="delete"
-                        {% if wiadomosc.wyslano_odpowiedz == True %} checked {% endif %}/>
                 </div>
 
                 <form action="" method="post" class="form-{{ wiadomosc.pk }}">
                     {% csrf_token %}
 
                     <div class="answer">
+                        <input type="checkbox" name="delete" value="delete"
+                            {% if wiadomosc.wyslano_odpowiedz == True %} checked {% endif %}/>
                         {% if wiadomosc.wyslano_odpowiedz %}
                         <p>Twoja odpowiedz do: {{ wiadomosc.nazwisko }}</p>
                         <p>{{ wiadomosc.odpowiedz }}</p>

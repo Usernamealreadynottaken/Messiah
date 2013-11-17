@@ -1,11 +1,13 @@
 import random
 import datetime
 from datetime import date
+from django.core.mail.message import EmailMessage
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
 from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
 from django.http import HttpResponseRedirect
 
 # Zeby skorzystac z ajaxa potrzebujemy zwrocic HttpResponse object.
@@ -151,13 +153,19 @@ def wyslij_email(request, pk):
     if request.is_ajax():
         response_message = "success"
 
+        wiadomosc = Wiadomosc.objects.get(id=pk)
         subject = 'Hotel Messiah'
         message = request.GET['message']
+        messageHTML = "<h3>Twoje pytanie: </h3><p>" + wiadomosc.tresc + \
+            "</p><h3>Nasza odpowiedz: </h3><p>" + request.GET['message'] + "</p>"
         from_email = 'hotel.messiah@gmail.com'
         to_email = request.GET['email_address']
         if subject and message and from_email:
             try:
-                send_mail(subject, message, from_email, [to_email])
+                # send_mail(subject, message, from_email, [to_email])
+                msg = EmailMessage(subject, messageHTML, from_email, [to_email])
+                msg.content_subtype = "html"
+                msg.send()
                 pass
             except KeyError:
                 response_message = "site_error"
@@ -165,12 +173,11 @@ def wyslij_email(request, pk):
             response_message = "empty_field"
 
         if response_message == "success":
-            wiadomosc = Wiadomosc.objects.get(id=pk)
             wiadomosc.wyslano_odpowiedz = True
             wiadomosc.odpowiedz = message
             wiadomosc.save()
 
-        response = '{"message": "' + response_message + '" }'
+        response = response_message
         return HttpResponse(response)
     else:
         raise Http404
