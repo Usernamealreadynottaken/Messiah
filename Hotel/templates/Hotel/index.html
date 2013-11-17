@@ -20,6 +20,8 @@
             <p><img src="{% if zdjecie %}{{ zdjecie.url }}{% endif %}" alt="Hotel Messiah"/>{{ opis_hotelu }}</p>
         </div> <!-- .description -->
 
+        {% if zdjecia_hotelu %}
+
         <div class="gallery">
 
             <ul class="bxslider">
@@ -29,6 +31,8 @@
             </ul>
 
         </div> <!-- .gallery -->
+
+        {% endif %}
 
     </div> <!-- .main-content -->
 

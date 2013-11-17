@@ -268,27 +268,33 @@ def wiadomosc_wyslij(request):
     return HttpResponse(response)
 
 
-def wyslij_email(request, id):
-    response_message = "success"
+def wyslij_email(request, pk):
+    if request.is_ajax():
+        response_message = "success"
 
-    subject = 'Hotel Messiah'
-    message = request.POST['msg']
-    from_email = 'hotel.messiah@gmail.com'
-    to_email = request.POST['email_address']
-    if subject and message and from_email:
-        try:
-            send_mail(subject, message, from_email, [to_email])
-        except KeyError:
-            response_message = "site_error"
+        subject = 'Hotel Messiah'
+        message = request.GET['message']
+        from_email = 'hotel.messiah@gmail.com'
+        to_email = request.GET['email_address']
+        if subject and message and from_email:
+            try:
+                send_mail(subject, message, from_email, [to_email])
+                pass
+            except KeyError:
+                response_message = "site_error"
+        else:
+            response_message = "empty_field"
+
+        if response_message == "success":
+            wiadomosc = Wiadomosc.objects.get(id=pk)
+            wiadomosc.wyslano_odpowiedz = True
+            wiadomosc.odpowiedz = message
+            wiadomosc.save()
+
+        response = '{"message": "' + response_message + '" }'
+        return HttpResponse(response)
     else:
-        response_message = "empty_field"
-
-    if response_message == "success":
-        Wiadomosc.objects.filter(pk=id).wyslano_odpowiedz = True
-        Wiadomosc.objects.filter(pk=id).odpowiedz = message
-
-    response = '{"message": "' + response_message + '" }'
-    return HttpResponse(response)
+        raise Http404
 
 
 # Widok do wykonania rezerwacji

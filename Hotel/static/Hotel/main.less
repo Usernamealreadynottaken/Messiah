@@ -58,7 +58,7 @@ body {
     background: -ms-linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
     background: linear-gradient(left, #eda14a 0%,#eac78f 50%,#eac78f 50%,#eda14a 100%);
     font-family: "alegreyaregular";
-    min-width: 450px;
+    min-width: 320px;
 }
 
 .page {
@@ -222,6 +222,15 @@ body {
         }
     }
 
+    @media (max-width: 860px) {
+        ul.outside {
+
+            ul {
+                width: 150% !important;
+            }
+        }
+    }
+
     @media (max-width: 600px) {
         ul.outside {
 
@@ -231,6 +240,7 @@ body {
             ul {
                 display: block !important;
                 position: relative !important;
+                width: 100% !important;
             }
         }
     }
@@ -473,6 +483,24 @@ body {
             }
         }
 
+        @media (max-width: 500px) {
+            form {
+                padding: 5px !important;
+
+                table input {
+                    width: 120px !important;
+                }
+
+                table .rooms {
+                    width: 144px !important;
+                }
+
+                table select {
+                    width: 35px !important;
+                }
+            }
+        }
+
         form {
             padding: 30px;
 
@@ -600,7 +628,7 @@ body {
 
                     .change-calendar {
                         display: block;
-                        background: url(img/no.png) no-repeat right;
+                        background: url(img/arrow-right.png) no-repeat right;
                         padding: 0 25px 0 0;
                     }
 
@@ -655,6 +683,12 @@ body {
 
             .submit-button {
                 display: block;
+            }
+
+            @media (max-width: 400px) {
+                .additions {
+                    padding: 0 0 30px 0 !important;
+                }
             }
 
             .additions {
@@ -1168,6 +1202,12 @@ body {
 
             }
 
+            @media (max-width: 450px) {
+                div {
+                    margin: 5px 0 !important;
+                }
+            }
+
             .nazwa{
                 float: left;
                 width: 20%;
@@ -1232,6 +1272,22 @@ body {
     .gradient-vertical(#08ae9d, #003843);
     padding: 0 0 50px 0;
 
+    @media (max-width: 450px) {
+        .title h1 {
+            font-size: 18px !important;
+        }
+
+        .main-content {
+            &:before {
+                display: none !important;
+            }
+
+            &:after {
+                display: none !important;
+            }
+        }
+    }
+
     .title {
         padding: 20px 0;
         text-align: center;
@@ -1284,6 +1340,20 @@ body {
         @media (max-width: 600px) {
             .description p img {
                 width: 90% !important;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .description {
+                padding: 10px !important;
+
+                p {
+                    font-size: 14px !important;
+
+                    img {
+                        width: 90% !important;
+                    }
+                }
             }
         }
 
@@ -1398,6 +1468,12 @@ body {
             position: absolute;
             width: 150px;
             z-index: 1;
+        }
+
+        @media (max-width: 500px) {
+            .edit-reservation {
+                padding: 30px !important;
+            }
         }
 
         .edit-reservation {
