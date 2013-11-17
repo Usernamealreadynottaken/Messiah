@@ -157,7 +157,7 @@ def wyslij_email(request, pk):
         to_email = request.GET['email_address']
         if subject and message and from_email:
             try:
-                #send_mail(subject, message, from_email, [to_email])
+                send_mail(subject, message, from_email, [to_email])
                 pass
             except KeyError:
                 response_message = "site_error"
@@ -170,7 +170,7 @@ def wyslij_email(request, pk):
             wiadomosc.odpowiedz = message
             wiadomosc.save()
 
-        response = response_message
+        response = '{"message": "' + response_message + '" }'
         return HttpResponse(response)
     else:
         raise Http404
