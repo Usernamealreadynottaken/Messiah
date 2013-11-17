@@ -69,11 +69,51 @@ body {
 #header {
     margin: 0;
 
+    .header-wrapper.logo-male.tekst-prawa {
+        padding: 0 0 0 50px;
+    }
+
+    .header-wrapper.logo-male.tekst-lewa {
+        padding: 0 50px 0 0;
+    }
+
+    .header-wrapper.logo-duze {
+        text-align: center;
+    }
+
     .header-wrapper {
         position: relative;
         .gradient-vertical(#003843, #08ae9d);
 
-         &:before {
+        .logo-duze {
+
+            img {
+                max-height: 200px;
+                max-width: 850px;
+                width: auto;
+                height: auto;
+            }
+
+        }
+
+        .tekst-dol {
+            margin: 15px 0 30px 0;
+        }
+
+        .tekst-gora {
+            margin: 25px 0 0 0;
+        }
+
+        .tekst-prawa {
+            padding: 0 0 0 25px;
+        }
+
+        .tekst-lewa {
+            text-align: right;
+            padding: 0 25px 0 0;
+        }
+
+        &:before {
             background-image: url(img/header-left.png);
             bottom: 0;
             content: " ";
@@ -84,7 +124,7 @@ body {
             z-index: 1;
         }
 
-         &:after {
+        &:after {
             background-image: url('img/header-right.png');
             bottom: 0px;
             content: " ";

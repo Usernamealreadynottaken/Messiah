@@ -1,12 +1,28 @@
 {% load staticfiles %}
 <div id="header">
 
-    <div class="header-wrapper">
-
-        <a href="/"><img src="{% static 'Hotel/img/logo.png' %}"/></a>
-        <div class="logo-text">
-            <p>Przykladowy tekst reklamowyPrzykladowy tekst reklamowyPrzykladowy tekst reklamowy</p>
+    <div class="header-wrapper {{ header_logo_rozmiar }} {{ header_tekst_polozenie }}">
+        {% if header_tekst_widoczny %}
+        {% if header_tekst_polozenie == 'tekst-gora' or header_tekst_polozenie == 'tekst-lewa' %}
+        <div class="logo-text {{ header_tekst_polozenie }}">
+            <p>{{ header_tekst }}</p>
         </div> <!-- .logo-text -->
+        {% if header_tekst_polozenie == 'tekst-gora' %}<br />{% endif %}
+        {% endif %}
+        {% endif %}
+
+        {% if header_logo %}
+        <a href="{% url 'hotel:glowna' %}" class="{{ header_logo_rozmiar }}"><img src="{{ header_logo.url }}"/></a>
+        {% endif %}
+
+        {% if header_tekst_widoczny %}
+        {% if header_tekst_polozenie == 'tekst-dol' or header_tekst_polozenie == 'tekst-prawa' %}
+        {% if header_tekst_polozenie == 'tekst-dol' %}<br />{% endif %}
+        <div class="logo-text {{ header_tekst_polozenie }}">
+            <p>{{ header_tekst }}</p>
+        </div> <!-- .logo-text -->
+        {% endif %}
+        {% endif %}
 
     </div> <!-- .header-wrapper -->
 

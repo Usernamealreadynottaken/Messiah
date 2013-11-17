@@ -20,6 +20,126 @@ from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacj
     ZdjeciaPokojow, CenaPokoju, ZdjeciaHotelu
 
 
+# FUNKCJE (NIE-WIDOKI)
+
+def kod_rezerwacji():
+    # Najpierw zbierzmy wszystkie kody jakie zostaly juz przydzielone
+    kody = []
+    for r in Rezerwacja.objects.all():
+        kody.append(r.kod)
+
+    symbols = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+    kod = ''
+    while True:
+        for i in range(0, 12):
+            kod += random.choice(symbols)
+        if not kod in kody:
+            break
+
+    return kod
+
+
+# Ta funkcja sama w sobie to nie jest view
+# Jest to funkcja pomocnicza do sprawdzania czy zaznaczone pokoje sa dostepne
+def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje, kod=''):
+    return_status = {'pokoj1': 'not_checked', 'pokoj2': 'not_checked', 'pokoj3': 'not_checked'}
+
+    # Maksymalna pojemnosc pokoju
+    max_room_capacity = 0
+    for p in Pokoj.objects.all():
+        if p.rozmiar > max_room_capacity:
+            max_room_capacity = p.rozmiar
+
+    for i in range(1, wymagane_pokoje['ilosc'] + 1):
+        pokoj_i = 'pokoj%d' % (i,)
+
+        # Jesli pokoj ma 0 osob lub wiecej niz najwiekszy pokoj w hotelu
+        # zaznaczamy odpowiedni status
+        if wymagane_pokoje[pokoj_i] <= 0:
+            return_status[pokoj_i] = 'zero_selected'
+        elif wymagane_pokoje[pokoj_i] > max_room_capacity:
+            return_status[pokoj_i] = 'over_max_capacity'
+
+        # Czy istnieje w bazie cena dla tego pokoju
+        elif not CenaPokoju.objects.filter(rozmiar=wymagane_pokoje[pokoj_i]):
+            return_status[pokoj_i] = 'no_free_rooms'
+
+        # Pokoj ma normalna ilosc osob, szukamy czy jest wolny
+        else:
+
+            # Stworzmy liste pk pokojow o odpowiednim rozmiarze
+            viable_rooms = []
+            for p in Pokoj.objects.filter(dostepnosc=True):
+                if p.rozmiar == wymagane_pokoje[pokoj_i]:
+                    viable_rooms.append(p.pk)
+
+            # Lecimy po rezerwacjach i jezeli istnieje taka rezerwacja ze w podanej dacie pokoj
+            # jest zajety to usuwamy go z listy
+            rooms_to_remove = []
+            if kod:
+                rezerwacje_filtered = Rezerwacja.objects.filter(~Q(kod=kod))
+            else:
+                rezerwacje_filtered = Rezerwacja.objects.all()
+            for room in viable_rooms:
+                for r in rezerwacje_filtered:
+                    if poczatek_pobytu <= r.poczatek_pobytu < koniec_pobytu or \
+                            koniec_pobytu >= r.koniec_pobytu > poczatek_pobytu or \
+                            r.poczatek_pobytu <= poczatek_pobytu < r.koniec_pobytu:
+                        if r.pokojnarezerwacji_set.filter(pokoj__pk=room):
+                            rooms_to_remove.append(room)
+                            break
+
+            # Usuwamy znalezione zajete pokoje
+            for room in rooms_to_remove:
+                try:
+                    viable_rooms.remove(room)
+                except ValueError:
+                    pass
+
+            # Do tego trzeba usunac wszystkie pokoje ktore juz sa na liscie zwracanej
+            for key, value in return_status.items():
+                try:
+                    rpk = int(value)
+                    viable_rooms.remove(rpk)
+                except ValueError:
+                    pass
+
+            # Jesli zostaly nam jakies wolne pokoje to mozna pierwszy zwrocic jako wolny
+            if len(viable_rooms) > 0:
+                return_status[pokoj_i] = viable_rooms[0]
+            else:
+                return_status[pokoj_i] = 'no_free_rooms'
+
+    return return_status
+
+
+def include_header_footer(context):
+    oh = OpisHotelu.objects.filter()[0]
+
+    logo_rozmiar = ''
+    if oh.uklad == 'DD' or oh.uklad == 'DG':
+        logo_rozmiar = 'logo-duze'
+    else:
+        logo_rozmiar = 'logo-male'
+
+    tekst_polozenie = ''
+    if oh.uklad == 'ML':
+        tekst_polozenie = 'tekst-lewa'
+    elif oh.uklad == 'MP':
+        tekst_polozenie = 'tekst-prawa'
+    elif oh.uklad == 'DD':
+        tekst_polozenie = 'tekst-dol'
+    elif oh.uklad == 'DG':
+        tekst_polozenie = 'tekst-gora'
+
+    hf = {'header_logo': oh.logo, 'header_logo_rozmiar': logo_rozmiar, 'header_tekst': oh.tekst_logo, 'header_tekst_polozenie': tekst_polozenie,
+          'header_tekst_widoczny': oh.tekst_logo_widoczny, 'header_uklad': oh.uklad, 'footer_adres': oh.adres, 'footer_telefon': oh.telefon,
+          'footer_email': oh.email}
+    return dict(context, **hf)
+
+
+# WIDOKI
+
 @login_required
 def wiadomosci(request):
     return render(request, 'hotel/wiadomosci.html', {'wiadomosci': Wiadomosc.objects.all()})
@@ -41,7 +161,7 @@ def glowna(request):
         'zdjecie': zdjecie,
         'zdjecia_hotelu': zdjecia_hotelu
     }
-    return render(request, 'hotel/index.html', context)
+    return render(request, 'hotel/index.html', include_header_footer(context))
 
 
 def wizualizacja(request):
@@ -110,7 +230,7 @@ def cennik(request):
         'ceny_pokojow': CenaPokoju.objects.all().order_by('rozmiar')
     })
 
-# Widok strony kontaktowej
+
 def kontakt(request):
 
     return render(request, 'hotel/kontakt.html', {
@@ -125,7 +245,8 @@ def kontakt(request):
         'adres': OpisHotelu.objects.filter()[0].adres
     })
 
-#Wysylanie wiadomosci ze strony kontaktowej
+
+# Wysylanie wiadomosci ze strony kontaktowej
 def wiadomosc_wyslij(request):
     response_message = "success"
     try:
@@ -145,7 +266,6 @@ def wiadomosc_wyslij(request):
     response = '{"message": "' + response_message + '" }'
     #response = '{"message": "success"}'
     return HttpResponse(response)
-
 
 
 def wyslij_email(request, id):
@@ -169,23 +289,6 @@ def wyslij_email(request, id):
 
     response = '{"message": "' + response_message + '" }'
     return HttpResponse(response)
-
-
-def kod_rezerwacji():
-    # Najpierw zbierzmy wszystkie kody jakie zostaly juz przydzielone
-    kody = []
-    for r in Rezerwacja.objects.all():
-        kody.append(r.kod)
-
-    symbols = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
-    kod = ''
-    while True:
-        for i in range(0, 12):
-            kod += random.choice(symbols)
-        if not kod in kody:
-            break
-
-    return kod
 
 
 # Widok do wykonania rezerwacji
@@ -466,80 +569,6 @@ def rezerwacje_anuluj(request, code):
             return HttpResponse('fail')
     else:
         raise Http404
-
-
-# Ta funkcja sama w sobie to nie jest view
-# Jest to funkcja pomocnicza do sprawdzania czy zaznaczone pokoje sa dostepne
-def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje, kod=''):
-    return_status = {'pokoj1': 'not_checked', 'pokoj2': 'not_checked', 'pokoj3': 'not_checked'}
-
-    # Maksymalna pojemnosc pokoju
-    max_room_capacity = 0
-    for p in Pokoj.objects.all():
-        if p.rozmiar > max_room_capacity:
-            max_room_capacity = p.rozmiar
-
-    for i in range(1, wymagane_pokoje['ilosc'] + 1):
-        pokoj_i = 'pokoj%d' % (i,)
-
-        # Jesli pokoj ma 0 osob lub wiecej niz najwiekszy pokoj w hotelu
-        # zaznaczamy odpowiedni status
-        if wymagane_pokoje[pokoj_i] <= 0:
-            return_status[pokoj_i] = 'zero_selected'
-        elif wymagane_pokoje[pokoj_i] > max_room_capacity:
-            return_status[pokoj_i] = 'over_max_capacity'
-
-        # Czy istnieje w bazie cena dla tego pokoju
-        elif not CenaPokoju.objects.filter(rozmiar=wymagane_pokoje[pokoj_i]):
-            return_status[pokoj_i] = 'no_free_rooms'
-
-        # Pokoj ma normalna ilosc osob, szukamy czy jest wolny
-        else:
-
-            # Stworzmy liste pk pokojow o odpowiednim rozmiarze
-            viable_rooms = []
-            for p in Pokoj.objects.filter(dostepnosc=True):
-                if p.rozmiar == wymagane_pokoje[pokoj_i]:
-                    viable_rooms.append(p.pk)
-
-            # Lecimy po rezerwacjach i jezeli istnieje taka rezerwacja ze w podanej dacie pokoj
-            # jest zajety to usuwamy go z listy
-            rooms_to_remove = []
-            if kod:
-                rezerwacje_filtered = Rezerwacja.objects.filter(~Q(kod=kod))
-            else:
-                rezerwacje_filtered = Rezerwacja.objects.all()
-            for room in viable_rooms:
-                for r in rezerwacje_filtered:
-                    if poczatek_pobytu <= r.poczatek_pobytu < koniec_pobytu or \
-                            koniec_pobytu >= r.koniec_pobytu > poczatek_pobytu or \
-                            r.poczatek_pobytu <= poczatek_pobytu < r.koniec_pobytu:
-                        if r.pokojnarezerwacji_set.filter(pokoj__pk=room):
-                            rooms_to_remove.append(room)
-                            break
-
-            # Usuwamy znalezione zajete pokoje
-            for room in rooms_to_remove:
-                try:
-                    viable_rooms.remove(room)
-                except ValueError:
-                    pass
-
-            # Do tego trzeba usunac wszystkie pokoje ktore juz sa na liscie zwracanej
-            for key, value in return_status.items():
-                try:
-                    rpk = int(value)
-                    viable_rooms.remove(rpk)
-                except ValueError:
-                    pass
-
-            # Jesli zostaly nam jakies wolne pokoje to mozna pierwszy zwrocic jako wolny
-            if len(viable_rooms) > 0:
-                return_status[pokoj_i] = viable_rooms[0]
-            else:
-                return_status[pokoj_i] = 'no_free_rooms'
-
-    return return_status
 
 
 # Ten widok obsluguje zapytanie asynchroniczne w momencie wybierania pokojow/ilosci osob
