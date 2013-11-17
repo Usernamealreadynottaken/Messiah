@@ -126,11 +126,11 @@ $(".change-calendar").click(function() {
     if ($(".calendar-from").is(':visible')) {
         $(".calendar-from").fadeOut();
         $(".calendar-to").fadeIn();
-        $("change-calendar").html("Wybierz date wyjazdu: ");
+        $(".change-calendar").html("Wybierz date przyjazdu:");
     } else {
         $(".calendar-to").fadeOut();
         $(".calendar-from").fadeIn();
-        $("change-calendar").html("Wybierz date przyjazdu: ");
+        $(".change-calendar").html("Wybierz date wyjazdu:");
     }
 });
 
