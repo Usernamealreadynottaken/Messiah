@@ -5,10 +5,9 @@ from Hotel import views
 urlpatterns = patterns('',
     url(r'^$', views.glowna, name='glowna'),
     url(r'^cennik/$', views.cennik, name='cennik'),
+
     url(r'^kontakt/$', views.kontakt, name='kontakt'),
-
     url(r'^kontakt/wyslij/$', views.wiadomosc_wyslij, name='wiadomosc_wyslij'),
-
 
     url(r'^rezerwacje/$', views.rezerwacje, name='rezerwacje'),
     url(r'^rezerwacje/sprawdz/$', views.rezerwacje_sprawdz, name='rezerwacje_sprawdz'),

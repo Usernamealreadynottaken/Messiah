@@ -73,11 +73,52 @@ img {
 #header {
     margin: 0;
 
+    .header-wrapper.logo-male.tekst-prawa {
+        padding: 0 0 0 50px;
+    }
+
+    .header-wrapper.logo-male.tekst-lewa {
+        padding: 0 50px 0 0;
+        text-align: right;
+    }
+
+    .header-wrapper.logo-duze {
+        text-align: center;
+    }
+
     .header-wrapper {
         position: relative;
         .gradient-vertical(#003843, #08ae9d);
 
-         &:before {
+        .logo-duze {
+
+            img {
+                max-height: 200px;
+                max-width: 850px;
+                width: auto;
+                height: auto;
+            }
+
+        }
+
+        .tekst-dol {
+            margin: 15px 0 30px 0;
+        }
+
+        .tekst-gora {
+            margin: 25px 0 0 0;
+        }
+
+        .tekst-prawa {
+            padding: 0 0 0 25px;
+        }
+
+        .tekst-lewa {
+            text-align: right;
+            padding: 0 25px 0 0;
+        }
+
+        &:before {
             background-image: url(img/header-left.png);
             bottom: 0;
             content: " ";
@@ -88,7 +129,7 @@ img {
             z-index: 1;
         }
 
-         &:after {
+        &:after {
             background-image: url('img/header-right.png');
             bottom: 0px;
             content: " ";
@@ -102,25 +143,67 @@ img {
     }
 
     @media (max-width: 900px) {
+
         a {
 
             img {
-                text-align: center;
+                max-width: 650px !important;
+                max-height: 150px !important;
             }
-        }
 
+        }
 
         .logo-text {
+            max-width: 350px;
+
 
             p {
-                font-size: 14px !important;
+                font-size: 16px !important;
             }
         }
+
+        .logo-text.tekst-dol {
+            margin: 15px 0 !important;
+        }
+
+    }
+
+    @media (max-width: 700px) {
+
+        .header-wrapper {
+            text-align: center !important;
+            padding: 0 20px !important;
+
+            a {
+
+                img {
+                    max-width: 450px !important;
+                    max-height: 130px !important;
+                }
+
+            }
+
+            .logo-text {
+                margin: 0;
+                padding: 0;
+                text-align: center !important;
+            }
+
+        }
+
+        .logo-text.tekst-dol {
+            margin: 0 0 10px 0 !important;
+        }
+
+        .logo-text.tekst-gora {
+            margin: 10px 0 0 0 !important;
+        }
+
     }
 
     @media (max-width: 500px) {
 
-       a {
+        a {
             display: block !important;
             text-align: center;
 
