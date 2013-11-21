@@ -773,20 +773,69 @@ body.login {
 #archive {
 
     .menu {
-        padding: 0;
+        width: 100%;
 
-        li {
-            font-size: 100%;
-            list-style: none;
+        thead {
+
+            th {
+                font-family: 'alegreyaregular';
+                font-size: 16px;
+                padding: 2px 5px;
+                color: #e59e52;
+                text-shadow: 0px 0px 4px #000000;
+                background: #08af9d;
+                font-weight: bold;
+            }
+
+        }
+
+        tbody {
+
+            .rezerwacja-header {
+                cursor: pointer;
+
+                td {
+                    background: white;
+                    font-family: 'alegreyaregular';
+                    font-size: 16px;
+                    padding: 5px;
+                }
+
+            }
 
             .rezerwacja-content {
+                padding: 0;
+
+                td {
+                    padding: 0;
+                }
+
+            }
+
+            .rezerwacja-content-content {
                 display: none;
-                border: 1px solid red;
+                font-family: 'alegreyaregular';
+                font-size: 14px;
+                border-style: solid;
+                border-color: black;
+                border-width: 1px;
 
-                div {
+                .rezerwacja {
+                    background: white;
 
-                    p {
-                        margin: 0;
+                    .content-row {
+                        padding: 10px 12px;
+                        border-bottom: 1px solid #eeeeee;
+                    }
+
+                    .label {
+                        display: inline-block;
+                        font-weight: bold;
+                        width: 150px;
+                    }
+
+                    .empty {
+                        font-style: italic;
                     }
 
                 }
@@ -796,7 +845,6 @@ body.login {
         }
 
     }
-
 }
 
 .success {

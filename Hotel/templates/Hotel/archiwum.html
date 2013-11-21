@@ -8,9 +8,11 @@
 
 <script>
 $(document).ready(function() {
-    $(".menu > li > a").click(function() {
-        $(".expanded > a").not(this).parent().toggleClass("expanded").toggleClass("collapsed").find("> .rezerwacja-content").slideToggle("medium");
-        $(this).parent().toggleClass("expanded").toggleClass("collapsed").find("> .rezerwacja-content").slideToggle("medium");
+    $(".menu > tbody > .rezerwacja-header").click(function() {
+        $(".expanded").prev().not(this).next().toggleClass("expanded").toggleClass("collapsed")
+            .find(".rezerwacja-content-content").slideToggle("medium");
+        $(this).next().toggleClass("collapsed").toggleClass("expanded")
+            .find(".rezerwacja-content-content").slideToggle("medium");
     });
 });
 </script>
@@ -32,55 +34,122 @@ $(document).ready(function() {
 
 <div id="archive">
 
-    {% if rezerwacje %}
-    <ul class="menu">
+    <table class="menu">
+        <thead>
+            <tr>
+                <th>Nazwisko</th>
+                <th>Poczatek pobytu</th>
+                <th>Koniec pobytu</th>
+                <th>Pokoje na rezerwacji</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if rezerwacje %}
         {% for rezerwacja in rezerwacje %}
-        <li class="collapsed"><a>Costam o rezerwacji</a>
-            <div class="rezerwacja-content">
-                <div class="rezerwacja">
-                    <p>Poczatek pobytu: {{ rezerwacja.poczatek_pobytu }}</p>
-                    <p>Koniec pobytu: {{ rezerwacja.koniec_pobytu }}</p>
-                    <p>E-mail: {{ rezerwacja.email }}</p>
-                    <p>Telefon: {{ rezerwacja.telefon }}</p>
-                    <p>Nazwisko: {{ rezerwacja.nazwisko }}</p>
-                    <p>Dodatkowe instrukcje: {{ rezerwacja.dodatkowe_instrukcje }}</p>
-                    <p>Kod: {{ rezerwacja.kod }}</p>
-                    <p>Notatka: {{ rezerwacja.notatka }}</p>
-                    <p>Cena dorosly: {{ rezerwacja.cena_dorosly }}</p>
-                    <p>Cena dziecko: {{ rezerwacja.cena_dziecko }}</p>
-                    <p>Wartosc rezerwacji: {{ rezerwacja.wartosc_rezerwacji }}</p>
-                </div>
-                <div class="uslugi">
-                    <h2>Uslugi</h2>
-                    {% if rezerwacja.usluganarezerwacji_set.all %}
-                    {% for usluga in rezerwacja.usluganarezerwacji_set.all %}
-                    <p>{{ usluga.usluga.nazwa }}{% if usluga.cena %}, cena - {{ usluga.cena }}{% endif %}</p>
-                    {% endfor %}
-                    {% else %}
-                    <p>Brak uslug</p>
-                    {% endif %}
-                </div>
-                <div class="pokoje">
-                    <h2>Pokoje</h2>
-                    {% if rezerwacja.pokojnarezerwacji_set.all %}
-                    {% for pokoj in rezerwacja.pokojnarezerwacji_set.all %}
-                    <p>Numer {{ pokoj.pokoj.numer }} (rozmiar {{ pokoj.pokoj.rozmiar }})</p>
-                    <p>doroslych - {{ pokoj.doroslych }}</p>
-                    <p>dzieci - {{ pokoj.dzieci }}</p>
-                    <p>cena - {{ pokoj.cena }}</p>
-                    {% endfor %}
-                    {% else %}
-                    <p>Brak pokojow</p>
-                    {% endif %}
-                </div>
-            </div>
-        </li>
+            <tr class="rezerwacja-header">
+                <td>{{ rezerwacja.nazwisko }}</td>
+                <td>{{ rezerwacja.poczatek_pobytu }}</td>
+                <td>{{ rezerwacja.koniec_pobytu }}</td>
+                <td>{{ rezerwacja.pokoje_verbose }}</td>
+            </tr>
+            <tr class="rezerwacja-content collapsed">
+                <td colspan="4">
+                    <div class="rezerwacja-content-content">
+                        <div class="rezerwacja">
+                            <div class="content-row">
+                                <span class="label">Poczatek pobytu: </span>
+                                <span class="field">{{ rezerwacja.poczatek_pobytu }}</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">Koniec pobytu: </span>
+                                <span class="field">{{ rezerwacja.koniec_pobytu }}</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">Nazwisko: </span>
+                                <span class="field">{{ rezerwacja.nazwisko }}</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">E-mail: </span>
+                                <span class="field">{{ rezerwacja.email }}</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">Telefon: </span>
+                                <span class="field {% if not rezerwacja.telefon %}empty{% endif %}">
+                                    {% if rezerwacja.telefon %}
+                                    {{ rezerwacja.telefon }}
+                                    {% else %}
+                                    (nie podano)
+                                    {% endif %}
+                                </span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">Dodatkowe instrukcje: </span>
+                                <span class="field {% if not rezerwacja.dodatkowe_instrukcje %}empty{% endif %}">
+                                    {% if rezerwacja.dodatkowe_instrukcje %}
+                                    {{ rezerwacja.dodatkowe_instrukcje }}
+                                    {% else %}
+                                    (nie podano)
+                                    {% endif %}
+                                </span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">Kod: </span>
+                                <span class="field">{{ rezerwacja.kod }}</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">Notatka: </span>
+                                <span class="field {% if not rezerwacja.notatka %}empty{% endif %}">
+                                    {% if rezerwacja.notatka %}
+                                    {{ rezerwacja.notatka }}
+                                    {% else %}
+                                    (nie podano)
+                                    {% endif %}
+                                </span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">Cena dorosly: </span>
+                                <span class="field">{{ rezerwacja.cena_dorosly }} zl</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">Cena dziecko: </span>
+                                <span class="field">{{ rezerwacja.cena_dziecko }} zl</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">Wartosc rezerwacji: </span>
+                                <span class="field">{{ rezerwacja.wartosc_rezerwacji }} zl</span>
+                            </div> <!-- .content-row -->
+                        </div> <!-- .rezerwacja -->
+                        <div class="uslugi">
+                            <h2>Uslugi</h2>
+                            {% if rezerwacja.usluganarezerwacji_set.all %}
+                            {% for usluga in rezerwacja.usluganarezerwacji_set.all %}
+                            <p>{{ usluga.usluga.nazwa }}{% if usluga.cena %}, cena - {{ usluga.cena }}{% endif %}</p>
+                            {% endfor %}
+                            {% else %}
+                            <p>Brak uslug</p>
+                            {% endif %}
+                        </div> <!-- .uslugi -->
+                        <div class="pokoje">
+                            <h2>Pokoje</h2>
+                            {% if rezerwacja.pokojnarezerwacji_set.all %}
+                            {% for pokoj in rezerwacja.pokojnarezerwacji_set.all %}
+                            <p>Numer {{ pokoj.pokoj.numer }} (rozmiar {{ pokoj.pokoj.rozmiar }})</p>
+                            <p>doroslych - {{ pokoj.doroslych }}</p>
+                            <p>dzieci - {{ pokoj.dzieci }}</p>
+                            <p>cena - {{ pokoj.cena }}</p>
+                            {% endfor %}
+                            {% else %}
+                            <p>Brak pokojow</p>
+                            {% endif %}
+                        </div> <!-- .pokoje -->
+                    </div>
+                </td>
+            </tr>
         {% endfor %}
-    </ul>
-    {% else %}
-    <p>Archiwum jest puste</p>
-    {% endif %}
+        {% endif %}
+        </tbody>
+    </table>
 
-</div> <!-- archive -->
+</div> <!-- #archive -->
 
 {% endblock %}

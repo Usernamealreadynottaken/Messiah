@@ -950,7 +950,7 @@ img {
             padding: 80px 30px 30px 30px;
 
             h2 {
-                margin: 0 0 50px 100px;
+                margin: 0 0 50px 0;
                 font-size: 40px;
                 text-align: center;
             }
@@ -964,7 +964,7 @@ img {
                 ul li {
                     width: 30% !important;
 
-                    img {
+                    .gallery-image {
                         width: 100% !important;
                         height: 100% !important;
                     }
@@ -1023,10 +1023,12 @@ img {
                         display: none;
                     }
 
-                    &>img {
+                    &>.gallery-image {
                         cursor: pointer;
                         height: 75px;
                         width: 150px;
+                        overflow: hidden;
+                        word-wrap: break-word;
                     }
 
                     @media (max-width: 800px) {
@@ -1034,7 +1036,13 @@ img {
                             width: 300px !important;
                             bottom: auto !important;
 
-                            img {
+                            div.gallery-popup-image {
+                                width: 85% !important;
+                                display: block !important;
+                                float: none !important;
+                            }
+
+                            .gallery-popup-image  {
                                 width: 90% !important;
                                 display: block !important;
                                 float: none !important;
@@ -1049,6 +1057,11 @@ img {
                     @media (max-width: 500px) {
                         .desc {
                             width: 200px !important;
+
+                            div.gallery-popup-image {
+                                width: 78% !important;
+                            }
+
                         }
                     }
 
@@ -1065,7 +1078,15 @@ img {
                         border: 2px solid #800000;
                         text-align: left;
 
-                        img {
+                        div.gallery-popup-image {
+                            border-style: solid;
+                            border-width: 1px;
+                            margin: 10px;
+                            height: 130px;
+                            width: 280px;
+                        }
+
+                        .gallery-popup-image {
                             display: inline-block;
                             float: left;
                             height: 150px;
@@ -1192,6 +1213,7 @@ img {
         }
 
         .tab-content{
+            font-family: "alegreyaregular";
 
             ul{
                 list-style-type: none;
@@ -1294,7 +1316,7 @@ img {
                     font-weight: bold;
                     margin: 0 10px 0 10px;
                     color: blue;
-                    font-family: "devroyeregular";
+                    font-family: "alegreyaregular";
                     color: #333333;
                 }
             }
@@ -1642,10 +1664,10 @@ img {
 
             p{
             font-weight: 400;
-            font-family: "devroyeregular";
+            font-family: "alegreyaregular";
 
                 a{
-                    font-family: "devroyeregular";
+                    font-family: "alegreyaregular";
                     text-decoration: none;
                     font-weight: 400;
                     color: #333333;
@@ -1736,7 +1758,7 @@ img {
         text-align: left;
 
         h2{
-            font-family: "devroyeregular";
+            font-family: "alegreyaregular";
         }
 
         textarea{
