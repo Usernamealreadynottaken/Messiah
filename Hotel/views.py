@@ -114,28 +114,31 @@ def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje, kod=''):
 
 
 def include_header_footer(context={}):
-    oh = OpisHotelu.objects.filter()[0]
+    try:
+        oh = OpisHotelu.objects.filter()[0]
 
-    logo_rozmiar = ''
-    if oh.uklad == 'DD' or oh.uklad == 'DG':
-        logo_rozmiar = 'logo-duze'
-    else:
-        logo_rozmiar = 'logo-male'
+        logo_rozmiar = ''
+        if oh.uklad == 'DD' or oh.uklad == 'DG':
+            logo_rozmiar = 'logo-duze'
+        else:
+            logo_rozmiar = 'logo-male'
 
-    tekst_polozenie = ''
-    if oh.uklad == 'ML':
-        tekst_polozenie = 'tekst-lewa'
-    elif oh.uklad == 'MP':
-        tekst_polozenie = 'tekst-prawa'
-    elif oh.uklad == 'DD':
-        tekst_polozenie = 'tekst-dol'
-    elif oh.uklad == 'DG':
-        tekst_polozenie = 'tekst-gora'
+        tekst_polozenie = ''
+        if oh.uklad == 'ML':
+            tekst_polozenie = 'tekst-lewa'
+        elif oh.uklad == 'MP':
+            tekst_polozenie = 'tekst-prawa'
+        elif oh.uklad == 'DD':
+            tekst_polozenie = 'tekst-dol'
+        elif oh.uklad == 'DG':
+            tekst_polozenie = 'tekst-gora'
 
-    hf = {'header_logo': oh.logo, 'header_logo_rozmiar': logo_rozmiar, 'header_tekst': oh.tekst_logo, 'header_tekst_polozenie': tekst_polozenie,
-          'header_tekst_widoczny': oh.tekst_logo_widoczny, 'header_uklad': oh.uklad, 'footer_adres': oh.adres, 'footer_telefon': oh.telefon,
-          'footer_email': oh.email}
-    return dict(context, **hf)
+        hf = {'header_logo': oh.logo, 'header_logo_rozmiar': logo_rozmiar, 'header_tekst': oh.tekst_logo, 'header_tekst_polozenie': tekst_polozenie,
+              'header_tekst_widoczny': oh.tekst_logo_widoczny, 'header_uklad': oh.uklad, 'footer_adres': oh.adres, 'footer_telefon': oh.telefon,
+              'footer_email': oh.email}
+        return dict(context, **hf)
+    except IndexError:
+        return context
 
 
 # WIDOKI
