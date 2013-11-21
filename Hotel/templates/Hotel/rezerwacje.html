@@ -22,9 +22,9 @@
             <table>
                 <tr>
                     <td>Imie i nazwisko:</td>
-                    <td colspan="3"><input type="text" name="name"
+                    <td colspan="3"><div><input type="text" name="name"
                             {% if rezerwacja_do_edycji %} value="{{ rezerwacja_do_edycji.nazwisko }}"{% endif %}
-                            required autofocus></td>
+                            required autofocus></div></td>
                 </tr>
                 <tr class="error-row">
                     <td colspan="4"><p class="name-error">Pole nie moze byc puste.</p></td>
@@ -36,25 +36,25 @@
                 </tr>
                 <tr>
                     <td>E-mail:</td>
-                    <td colspan="3"><input type="email" name="email" placeholder="email@example.com"
+                    <td colspan="3"><div><input type="email" name="email" placeholder="mail@domain.com"
                             {% if rezerwacja_do_edycji %} value="{{ rezerwacja_do_edycji.email }}"{% endif %}
-                            required></td>
+                            required></div></td>
                 </tr>
                 <tr class="error-row">
-                    <td colspan="4"><p class="email-error">Email musi byc w formacie local@domain</p></td>
+                    <td colspan="4"><p class="email-error">Bledny format maila</p></td>
                 </tr>
                 <tr>
                     <td>Poczatek pobytu:</td>
-                    <td colspan="3"><input class="date-from" type="text" name="date-from" required></td>
+                    <td colspan="3"><div><input class="date-from" type="text" name="date-from" required></div></td>
                 </tr>
                 <tr class="error-row">
                     <td colspan="4"><p class="dateFrom-error"></p></td>
                 </tr>
                 <tr>
                     <td>Koniec pobytu:</td>
-                    <td colspan="3"><input class="date-to" type="text" name="date-to"
+                    <td colspan="3"><div><input class="date-to" type="text" name="date-to"
                             {% if koniec_pobytu %} value="{{ koniec_pobytu }}"{% endif %}
-                            required></td>
+                            required></div></td>
                 </tr>
                 <tr class="error-row">
                     <td colspan="4"><p class="dateTo-error"></p></td>
