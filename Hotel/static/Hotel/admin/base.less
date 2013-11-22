@@ -772,10 +772,10 @@ body.login {
 // Archiwum oddzielnie zeby chociaz troche ograniczyc chaos
 #archive {
 
-    .menu {
+    .dropdown-list {
         width: 100%;
 
-        thead {
+        .list-head {
 
             th {
                 font-family: 'alegreyaregular';
@@ -789,7 +789,7 @@ body.login {
 
         }
 
-        tbody {
+        .list-body {
 
             .rezerwacja-header {
                 cursor: pointer;
@@ -816,26 +816,100 @@ body.login {
                 display: none;
                 font-family: 'alegreyaregular';
                 font-size: 14px;
-                border-style: solid;
-                border-color: black;
-                border-width: 1px;
 
-                .rezerwacja {
+                h2 {
+                    margin: 0;
+                    padding: 5px;
+                    .gradient-vertical(#08af9d, #1e777f);
+                    color: #e59e52;
+                    text-shadow: 0px 0px 4px #000000;
+                }
+
+                .content-row {
+                    padding: 10px 12px;
+                    border-bottom: 1px solid #eeeeee;
+                }
+
+                .label {
+                    display: inline-block;
+                    font-weight: bold;
+                    width: 165px;
+                }
+
+                .empty {
+                    font-style: italic;
+                }
+
+                .field {
+                    vertical-align: top;
+                }
+
+                .column {
+                    display: inline-block;
+                    width: 65px;
+                    text-align: right;
+                }
+
+                .content-section {
                     background: white;
+                    border: 1px solid #cccccc;
+                    margin: 0 0 10px 0;
+                }
 
-                    .content-row {
-                        padding: 10px 12px;
-                        border-bottom: 1px solid #eeeeee;
-                    }
+                .content-top-section {
+                    margin: 10px 0 10px 0;
+                }
 
-                    .label {
-                        display: inline-block;
-                        font-weight: bold;
-                        width: 150px;
-                    }
+                .pokoje {
 
-                    .empty {
-                        font-style: italic;
+                    .content-table {
+                        margin: 10px 12px;
+
+                        thead {
+
+                            th {
+                                font-family: 'alegreyaregular';
+                                font-size: 14px;
+                                background: none;
+                            }
+
+                            .label-column {
+                                width: 165px;
+                            }
+
+                        }
+
+                        tbody {
+
+                            tr {
+                                line-height: 34px;
+
+                                .label {
+                                    width: 165px;
+                                    text-align: left;
+                                }
+
+                                td {
+                                    font-family: 'alegreyaregular';
+                                    font-size: 14px;
+                                    text-align: right;
+                                    vertical-align: middle;
+                                }
+
+                                .people {
+                                    width: 70px;
+                                    padding: 0 30px 0 0;
+                                }
+
+                                .price {
+                                    width: 85px;
+                                    padding: 0 15px 0 0;
+                                }
+
+                            }
+
+                        }
+
                     }
 
                 }

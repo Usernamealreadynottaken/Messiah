@@ -46,10 +46,12 @@
         </div>
     {% endfor %}
 
+    {% for app in app_list %}
+    {% if app.name = 'Hotel' %}
     <div class="module">
     <table>
-    <caption class="section">
-        <a class="section">Inne? Bez edycji bazy danych?</a>
+    <caption>
+        <a href="{{ app.app_url }}" class="section">Inne? Bez edycji bazy danych?</a>
     </caption>
         <tr>
             <th scope="row"><a href="{% url 'admin_custom:wiadomosci' %}">Wiadomosci</a></th>
@@ -65,6 +67,8 @@
         </tr>
     </table>
     </div>
+    {% endif %}
+    {% endfor %}
 
 {% else %}
     <p>{% trans "You don't have permission to edit anything." %}</p>

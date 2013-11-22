@@ -8,7 +8,7 @@
 
 <script>
 $(document).ready(function() {
-    $(".menu > tbody > .rezerwacja-header").click(function() {
+    $(".dropdown-list > .list-body > .rezerwacja-header").click(function() {
         $(".expanded").prev().not(this).next().toggleClass("expanded").toggleClass("collapsed")
             .find(".rezerwacja-content-content").slideToggle("medium");
         $(this).next().toggleClass("collapsed").toggleClass("expanded")
@@ -34,8 +34,8 @@ $(document).ready(function() {
 
 <div id="archive">
 
-    <table class="menu">
-        <thead>
+    <table class="dropdown-list">
+        <thead class="list-head">
             <tr>
                 <th>Nazwisko</th>
                 <th>Poczatek pobytu</th>
@@ -43,7 +43,7 @@ $(document).ready(function() {
                 <th>Pokoje na rezerwacji</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="list-body">
         {% if rezerwacje %}
         {% for rezerwacja in rezerwacje %}
             <tr class="rezerwacja-header">
@@ -55,7 +55,7 @@ $(document).ready(function() {
             <tr class="rezerwacja-content collapsed">
                 <td colspan="4">
                     <div class="rezerwacja-content-content">
-                        <div class="rezerwacja">
+                        <div class="rezerwacja content-section content-top-section">
                             <div class="content-row">
                                 <span class="label">Poczatek pobytu: </span>
                                 <span class="field">{{ rezerwacja.poczatek_pobytu }}</span>
@@ -119,30 +119,53 @@ $(document).ready(function() {
                                 <span class="field">{{ rezerwacja.wartosc_rezerwacji }} zl</span>
                             </div> <!-- .content-row -->
                         </div> <!-- .rezerwacja -->
-                        <div class="uslugi">
+
+                        <div class="uslugi content-section">
                             <h2>Uslugi</h2>
                             {% if rezerwacja.usluganarezerwacji_set.all %}
                             {% for usluga in rezerwacja.usluganarezerwacji_set.all %}
-                            <p>{{ usluga.usluga.nazwa }}{% if usluga.cena %}, cena - {{ usluga.cena }}{% endif %}</p>
+                            <div class="content-row">
+                                <span class="label">{{ usluga.usluga.nazwa }}: </span>
+                                <span class="field">{% if usluga.cena %}{{ usluga.cena }}{% else %}0{% endif %} zl</span>
+                            </div> <!-- .content-row -->
                             {% endfor %}
                             {% else %}
-                            <p>Brak uslug</p>
+                            <div class="content-row">
+                                <span class="field empty">Brak uslug</span>
+                            </div>
                             {% endif %}
                         </div> <!-- .uslugi -->
-                        <div class="pokoje">
+
+                        <div class="pokoje content-section">
                             <h2>Pokoje</h2>
                             {% if rezerwacja.pokojnarezerwacji_set.all %}
-                            {% for pokoj in rezerwacja.pokojnarezerwacji_set.all %}
-                            <p>Numer {{ pokoj.pokoj.numer }} (rozmiar {{ pokoj.pokoj.rozmiar }})</p>
-                            <p>doroslych - {{ pokoj.doroslych }}</p>
-                            <p>dzieci - {{ pokoj.dzieci }}</p>
-                            <p>cena - {{ pokoj.cena }}</p>
-                            {% endfor %}
+                            <table class="content-table">
+                                <thead>
+                                    <tr>
+                                        <th class="label-column">Pokoj</th>
+                                        <th>Doroslych</th>
+                                        <th>Dzieci</th>
+                                        <th>Cena</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for pokoj in rezerwacja.pokojnarezerwacji_set.all %}
+                                    <tr>
+                                        <td class="label">Numer {{ pokoj.pokoj.numer }} (rozmiar {{ pokoj.pokoj.rozmiar }}):</td>
+                                        <td class="people">{{ pokoj.doroslych }}</td>
+                                        <td class="people">{{ pokoj.dzieci }}</td>
+                                        <td class="price">{{ pokoj.cena }} zl</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
                             {% else %}
-                            <p>Brak pokojow</p>
+                            <div class="content-row">
+                                <span class="field empty">Brak pokojow</span>
+                            </div>
                             {% endif %}
                         </div> <!-- .pokoje -->
-                    </div>
+                    </div> <!-- .rezerwacja-content-content -->
                 </td>
             </tr>
         {% endfor %}
