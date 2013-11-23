@@ -666,7 +666,6 @@ body.login {
                             padding: 2px 5px;
                             font-size: 14px;
                             margin: 0;
-
                         }
 
                         input {
@@ -769,143 +768,187 @@ body.login {
 
 }
 
-// Archiwum oddzielnie zeby chociaz troche ograniczyc chaos
-#archive {
+// Dropdown menu dotyczy archiwum i wiadomosci
+.dropdown-list {
+    width: 100%;
 
-    .dropdown-list {
-        width: 100%;
+    .list-head {
 
-        .list-head {
+        th {
+            font-family: 'alegreyaregular';
+            font-size: 16px;
+            padding: 2px 5px;
+            color: #e59e52;
+            text-shadow: 0px 0px 4px #000000;
+            background: #08af9d;
+            font-weight: bold;
+        }
 
-            th {
+    }
+
+    .list-body {
+
+        .object-header {
+            cursor: pointer;
+
+            td {
+                background: white;
                 font-family: 'alegreyaregular';
                 font-size: 16px;
-                padding: 2px 5px;
-                color: #e59e52;
-                text-shadow: 0px 0px 4px #000000;
-                background: #08af9d;
-                font-weight: bold;
+                padding: 5px;
             }
 
         }
 
-        .list-body {
+        .object-header.grey {
 
-            .rezerwacja-header {
-                cursor: pointer;
-
-                td {
-                    background: white;
-                    font-family: 'alegreyaregular';
-                    font-size: 16px;
-                    padding: 5px;
-                }
-
+            td {
+                background: #dddddd;
             }
 
-            .rezerwacja-content {
+        }
+
+        .object-content {
+            padding: 0;
+
+            td {
                 padding: 0;
+            }
 
-                td {
-                    padding: 0;
+        }
+
+        .object-content-content {
+            display: none;
+            font-family: 'alegreyaregular';
+            font-size: 14px;
+
+            h2 {
+                margin: 0;
+                padding: 5px;
+                .gradient-vertical(#08af9d, #1e777f);
+                color: #e59e52;
+                text-shadow: 0px 0px 4px #000000;
+            }
+
+            .content-row {
+                display: table-row;
+                border-bottom: 1px solid #eeeeee;
+
+                textarea {
+                    width: 550px;
+                    height: 100px;
+                    resize: vertical;
                 }
 
             }
 
-            .rezerwacja-content-content {
-                display: none;
-                font-family: 'alegreyaregular';
-                font-size: 14px;
+            .label {
+                display: inline-block;
+                padding: 10px;
+                font-weight: bold;
+                width: 165px;
+                display: table-cell;
+            }
 
-                h2 {
+            .empty {
+                font-style: italic;
+            }
+
+            .field {
+                display: table-cell;
+                padding: 10px;
+                vertical-align: top;
+            }
+
+            .column {
+                display: inline-block;
+                width: 65px;
+                text-align: right;
+            }
+
+            .content-section {
+                background: white;
+                border: 1px solid #cccccc;
+                margin: 0 0 10px 0;
+            }
+
+            .content-top-section {
+                margin: 10px 0 10px 0;
+            }
+
+            .content-single-section {
+                margin: 10px 0;
+            }
+
+            .buttons-section {
+                margin: 0 0 12px 0;
+                padding: 0 7px;
+                float: right;
+
+                .white-button {
+                    .gradient-vertical(#fefefe, #e1e1e1);
+                    border: 1px solid #bbbbbb;
+                    border-color: #dddddd #aaaaaa #aaaaaa #dddddd;
+                    padding: 2px 5px;
+                    font-size: 14px;
                     margin: 0;
-                    padding: 5px;
+                }
+
+                .important-button {
                     .gradient-vertical(#08af9d, #1e777f);
                     color: #e59e52;
                     text-shadow: 0px 0px 4px #000000;
+                    border: 1px solid #1e777f;
+                    padding: 3px 10px;
                 }
 
-                .content-row {
-                    padding: 10px 12px;
-                    border-bottom: 1px solid #eeeeee;
-                }
+            }
 
-                .label {
-                    display: inline-block;
-                    font-weight: bold;
-                    width: 165px;
-                }
+            // To sie obviously odnosi tylko do archiwum
+            .pokoje {
 
-                .empty {
-                    font-style: italic;
-                }
+                .content-table {
+                    margin: 10px 12px;
 
-                .field {
-                    vertical-align: top;
-                }
+                    thead {
 
-                .column {
-                    display: inline-block;
-                    width: 65px;
-                    text-align: right;
-                }
-
-                .content-section {
-                    background: white;
-                    border: 1px solid #cccccc;
-                    margin: 0 0 10px 0;
-                }
-
-                .content-top-section {
-                    margin: 10px 0 10px 0;
-                }
-
-                .pokoje {
-
-                    .content-table {
-                        margin: 10px 12px;
-
-                        thead {
-
-                            th {
-                                font-family: 'alegreyaregular';
-                                font-size: 14px;
-                                background: none;
-                            }
-
-                            .label-column {
-                                width: 165px;
-                            }
-
+                        th {
+                            font-family: 'alegreyaregular';
+                            font-size: 14px;
+                            background: none;
                         }
 
-                        tbody {
+                        .label-column {
+                            width: 165px;
+                        }
 
-                            tr {
-                                line-height: 34px;
+                    }
 
-                                .label {
-                                    width: 165px;
-                                    text-align: left;
-                                }
+                    tbody {
 
-                                td {
-                                    font-family: 'alegreyaregular';
-                                    font-size: 14px;
-                                    text-align: right;
-                                    vertical-align: middle;
-                                }
+                        tr {
+                            line-height: 34px;
 
-                                .people {
-                                    width: 70px;
-                                    padding: 0 30px 0 0;
-                                }
+                            .label {
+                                width: 165px;
+                                text-align: left;
+                            }
 
-                                .price {
-                                    width: 85px;
-                                    padding: 0 15px 0 0;
-                                }
+                            td {
+                                font-family: 'alegreyaregular';
+                                font-size: 14px;
+                                text-align: right;
+                                vertical-align: middle;
+                            }
 
+                            .people {
+                                width: 70px;
+                                padding: 0 30px 0 0;
+                            }
+
+                            .price {
+                                width: 85px;
+                                padding: 0 15px 0 0;
                             }
 
                         }
@@ -919,6 +962,7 @@ body.login {
         }
 
     }
+
 }
 
 .success {

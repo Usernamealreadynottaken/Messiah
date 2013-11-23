@@ -11,17 +11,46 @@
 <script>
 
 $( document ).ready(function() {
+    function changeFieldsToResponded() {
+        // Zamieniamy pola na takie jakby wiadomosc byla odpowiedziana
+        var response = $(".expanded").find(".respond-message-row").find("textarea").val();
+        $(".expanded").find(".respond-email-row").slideToggle("medium");
+        $(".expanded").find(".respond-message-row").find("textarea").parent().text(response);
+        $(".expanded").find(".respond-message-row > .label").text("Twoja odpowiedz:");
+
+        // Zamieniamy przyciski na takie jak w odpowiedzianej wiadomosci
+        $(".expanded").find(".buttons-section > .send").slideToggle("medium");
+        $(".expanded").find(".buttons-section > .mark").text("Oznacz jako nie odpowiedziane")
+
+        // Kolor naglowka
+        $(".expanded").prev().toggleClass("grey");
+    }
+
+    function changeFieldsToNotResponded() {
+        // Pola
+        $(".expanded").find(".respond-email-row").slideToggle("medium");
+        $(".expanded").find(".respond-message-row > .field").html("<textarea name='msg'></textarea>");
+        $(".expanded").find(".respond-message-row > .label").text("Odpowiedz");
+
+        // Przyciski
+        $(".expanded").find(".buttons-section > .send").slideToggle("medium");
+        $(".expanded").find(".buttons-section > .mark").text("Oznacz jako odpowiedziane");
+
+        // Kolor naglowka
+        $(".expanded").prev().toggleClass("grey");
+    }
+
     $(".send").click(function() {
 
         var first_class = $(this).attr("class").split(" ")[0];
         var form_class = " form." + first_class + " .answer";
-        var pk = parseInt(first_class.substring(5));
+        var pk = $(".expanded > td").attr("id");
 
         var toSend = {
             csrfmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val(),
             pk: pk,
-            message: $(this).parent().find("textarea").val(),
-            email_address: $(this).parent().find("input[name='email_address']").val(),
+            message: $(".expanded").find("textarea").val(),
+            email_address: $(".expanded").find("input[name='email_address']").val(),
         };
 
         $.ajax({
@@ -34,7 +63,7 @@ $( document ).ready(function() {
 
                 if (data == "success") {
                     $(".success p").html("Wiadomosc zostala wyslana!<br /><br />");
-                    $(form_class).load(form_class, function(){$(this).children().unwrap()});
+                    changeFieldsToResponded();
                 }
                 else if (data == "site_error") {
                     $(".success p").html("Serwer otrzymal uszkodzone dane.");
@@ -48,12 +77,36 @@ $( document ).ready(function() {
 
                 $(".success").fadeIn(200);
             });
+
+    });
+
+    $(".mark").click(function() {
+        var pk = $(".expanded > td").attr("id");
+
+        $.ajax({
+            type: "POST",
+            url: "{% url 'admin_custom:wiadomosci_oznacz' %}" + pk + "/",
+            data: {csrfmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val()}
+        })
+            .done(function(data) {
+                if (data == 'true') {
+                    changeFieldsToResponded();
+                } else {
+                    changeFieldsToNotResponded();
+                }
+            });
     });
 
     $(".close").click(function() {
         $(".success").fadeOut(200);
     });
 
+    $(".dropdown-list > .list-body > .object-header").click(function() {
+        $(".expanded").prev().not(this).next().toggleClass("expanded").toggleClass("collapsed")
+            .find(".object-content-content").slideToggle("medium");
+        $(this).next().toggleClass("collapsed").toggleClass("expanded")
+            .find(".object-content-content").slideToggle("medium");
+    });
 });
 </script>
 
@@ -73,52 +126,68 @@ $( document ).ready(function() {
 
 <div id="messages">
 
-    <h1>Wiadomosci</h1>
-
-    <div class="messages-content">
-
+    {% csrf_token %}
+    <table class="dropdown-list">
+        <thead class="list-head">
+            <tr>
+                <th>Od</th>
+                <th>Data</th>
+                <th>Tresc</th>
+            </tr>
+        </thead>
+        <tbody class="list-body">
         {% if wiadomosci %}
-        <ul>
-            {% for wiadomosc in wiadomosci %}
-            <li>
-
-                <div class="message">
-                    <p>Wiadomosc od: {{ wiadomosc.nazwisko }}</p>
-                    <p>E-mail: {{ wiadomosc.email }}</p>
-                    <p>Tresc: {{ wiadomosc.tresc }}</p>
-                    <p>Data: {{ wiadomosc.data }}</p>
-                </div>
-
-                <form action="" method="post" class="form-{{ wiadomosc.pk }}">
-                    {% csrf_token %}
-
-                    <div class="answer">
-                        <input type="checkbox" name="delete" value="delete"
-                            {% if wiadomosc.wyslano_odpowiedz == True %} checked {% endif %}/>
-                        {% if wiadomosc.wyslano_odpowiedz %}
-                        <p>Twoja odpowiedz do: {{ wiadomosc.nazwisko }}</p>
-                        <p>{{ wiadomosc.odpowiedz }}</p>
-                        {% else %}
-
-                        <p>Twoja odpowiedz do: </p><input type="email" name="email_address" value="{{ wiadomosc.email }}" />
-                        <textarea name="msg"></textarea>
-                        <a class="form-{{ wiadomosc.pk }} send">Wyslij</a>
-                        {% endif %}
-                    </div>
-
-                </form>
-
-            </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-        <!-- to powinno pewnie zostac zamienione na cos rozsadniejszego -->
-        <p>Brak wiadomosci.</p>
+        {% for wiadomosc in wiadomosci %}
+            <tr class="object-header {% if wiadomosc.wyslano_odpowiedz %}grey{% endif %}">
+                <td>{{ wiadomosc.nazwisko }}</td>
+                <td>{{ wiadomosc.data }}</td>
+                <td>{{ wiadomosc.tresc|slice:':45' }}...</td>
+            </tr>
+            <tr class="object-content collapsed">
+                <td id="{{ wiadomosc.pk }}" colspan="3">
+                    <div class="object-content-content">
+                        <div class="content-section content-single-section">
+                            <div class="content-row">
+                                <span class="label">Wiadomosc od: </span>
+                                <span class="field">{{ wiadomosc.nazwisko }}</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">E-mail: </span>
+                                <span class="field">{{ wiadomosc.email }}</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">Tresc: </span>
+                                <span class="field">{{ wiadomosc.tresc }}</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">Data: </span>
+                                <span class="field">{{ wiadomosc.data }}</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row respond-email-row" {% if wiadomosc.wyslano_odpowiedz %}style="display: none"{% endif %}>
+                                <span class="label">Odpowiedz do: </span>
+                                <span class="field"><input type="email" name="email_address" value="{{ wiadomosc.email }}" /></span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row respond-message-row">
+                                {% if wiadomosc.wyslano_odpowiedz %}
+                                <span class="label">Twoja odpowiedz: </span>
+                                <span class="field">{{ wiadomosc.odpowiedz }}</span>
+                                {% else %}
+                                <span class="label">Odpowiedz: </span>
+                                <span class="field"><textarea name="msg"></textarea></span>
+                                {% endif %}
+                            </div> <!-- .content-row -->
+                        </div> <!-- .content-section -->
+                        <div class="buttons-section">
+                            <a class="mark white-button">Oznacz jako {% if wiadomosc.wyslano_odpowiedz %}nie{% endif %} odpowiedziane</a>
+                            <a class="send important-button" {% if wiadomosc.wyslano_odpowiedz %}style="display: none"{% endif %}>Wyslij</a>
+                        </div> <!-- .buttons-section -->
+                    </div> <!-- .object-content-content -->
+                </td>
+            </tr>
+        {% endfor %}
         {% endif %}
-
-
-
-    </div>
+        </tbody>
+    </table>
 
 </div>
 

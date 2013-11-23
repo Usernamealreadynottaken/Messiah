@@ -8,11 +8,11 @@
 
 <script>
 $(document).ready(function() {
-    $(".dropdown-list > .list-body > .rezerwacja-header").click(function() {
+    $(".dropdown-list > .list-body > .object-header").click(function() {
         $(".expanded").prev().not(this).next().toggleClass("expanded").toggleClass("collapsed")
-            .find(".rezerwacja-content-content").slideToggle("medium");
+            .find(".object-content-content").slideToggle("medium");
         $(this).next().toggleClass("collapsed").toggleClass("expanded")
-            .find(".rezerwacja-content-content").slideToggle("medium");
+            .find(".object-content-content").slideToggle("medium");
     });
 });
 </script>
@@ -46,15 +46,15 @@ $(document).ready(function() {
         <tbody class="list-body">
         {% if rezerwacje %}
         {% for rezerwacja in rezerwacje %}
-            <tr class="rezerwacja-header">
+            <tr class="object-header">
                 <td>{{ rezerwacja.nazwisko }}</td>
                 <td>{{ rezerwacja.poczatek_pobytu }}</td>
                 <td>{{ rezerwacja.koniec_pobytu }}</td>
                 <td>{{ rezerwacja.pokoje_verbose }}</td>
             </tr>
-            <tr class="rezerwacja-content collapsed">
+            <tr class="object-content collapsed">
                 <td colspan="4">
-                    <div class="rezerwacja-content-content">
+                    <div class="object-content-content">
                         <div class="rezerwacja content-section content-top-section">
                             <div class="content-row">
                                 <span class="label">Poczatek pobytu: </span>
