@@ -94,13 +94,20 @@ $(".send").click(function() {
                 $(".success p").html("Stalo sie cos czego nawet programista nie przewidzial.");
             }
             $(".success").fadeIn(200);
+            $(".overlay").fadeIn(200);
         });
         $("form").submit();
     }
 });
 
+$(".overlay").click(function() {
+    $(".success").fadeOut(200);
+    $(".overlay").fadeOut(200);
+});
+
 $(".close").click(function() {
     $(".success").fadeOut(200);
+    $(".overlay").fadeOut(200);
 });
 
 $(".kontakt_class").addClass("selected");
