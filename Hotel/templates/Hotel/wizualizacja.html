@@ -28,9 +28,17 @@
 
                 Pokoje wolne najpierw
                 --><li class="room-image room{{ p.pokoj.pk }}">
-                    <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room"  />
+                    {% if p.zdjecie.url %}
+                    <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="{{ p.pokoj.opis_combo }}" class="gallery-image" />
+                    {% else %}
+                    <div class="gallery-image">{{ p.pokoj.opis_combo }}</div>
+                    {% endif %}
                     <div class="desc">
-                        <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room"/>
+                        {% if p.zdjecie.url %}
+                        <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="{{ p.pokoj.opis_combo }}" class="gallery-popup-image"/>
+                        {% else %}
+                        <div class="gallery-popup-image">{{ p.pokoj.opis_combo }}</div>
+                        {% endif %}
                         <p>{{ p.pokoj.opis }}</p>
                     </div>
                 </li>{% endif %}{% endif %}{% endfor %}<!--
@@ -38,9 +46,9 @@
                 Pokoje zajete po wolnych
                 -->{% for p in pokoje %}{% if p.pokoj.rozmiar == r %}{% if p.zajety %}<!--
                 --><li class="room-image room{{ p.pokoj.pk }} disabled">
-                    <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room" class="room-image room{{ p.pokoj.pk }}" />
+                    <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="{{ p.pokoj.opis_combo }}" class="room-image room{{ p.pokoj.pk }}" />
                     <div class="desc">
-                        <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room"/>
+                        <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="{{ p.pokoj.opis_combo }}"/>
                         <p>{{ p.pokoj.opis }}</p>
                     </div>
                 </li>{% endif %}{% endif %}{% endfor %}
