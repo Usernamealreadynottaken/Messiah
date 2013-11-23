@@ -45,7 +45,8 @@
                 </tr>
                 <tr>
                     <td>Poczatek pobytu:</td>
-                    <td colspan="3"><div><input class="date-from" type="text" name="date-from" required></div></td>
+                    <td colspan="3"><div><input class="date-from" type="text" name="date-from" required>
+                    <div class="from-overlay"></div></div></td>
                 </tr>
                 <tr class="error-row">
                     <td colspan="4"><p class="dateFrom-error"></p></td>
@@ -54,7 +55,7 @@
                     <td>Koniec pobytu:</td>
                     <td colspan="3"><div><input class="date-to" type="text" name="date-to"
                             {% if koniec_pobytu %} value="{{ koniec_pobytu }}"{% endif %}
-                            required></div></td>
+                            required><div class="to-overlay"></div></div></td>
                 </tr>
                 <tr class="error-row">
                     <td colspan="4"><p class="dateTo-error"></p></td>
@@ -256,7 +257,7 @@ $(document).ready(function() {
     var dateFrom = new Date(years, months, days);
     if (currentDate >= dateFrom) {
         datePassed = true;
-        $(".date-from").prop("disabled", true);
+        $(".from-overlay").css("display", "block");
         $(".datepicker-from").datepicker("disable");
     } else {
         datePassed = false;
@@ -390,8 +391,9 @@ function sprawdzPoprawnosc() {
     }
 }
 
-$(".send").click(function() {
+$(".send").click(function(e) {
     if (sprawdzPoprawnosc() && validateName($('input[name=name]')) && validateEmail($('input[name=email]'))) {
+
         {% if rezerwacja_do_edycji %}
         $("form").ajaxForm(function(data) {
             // alert(data);
@@ -419,6 +421,7 @@ $(".send").click(function() {
                 $(".close").attr("class", "close no-reload");
             }
             $(".success").fadeIn(200);
+            $(".overlay").fadeIn(200);
         });
         {% endif %}
         $("form").submit();
@@ -427,6 +430,7 @@ $(".send").click(function() {
 {% if rezerwacja_do_edycji %}
 $(".cancel").click(function() {
     $(".cancel-confirm").fadeIn(200);
+    $(".overlay").fadeIn(200);
 });
 
 $(".confirm-yes").click(function() {
@@ -460,11 +464,13 @@ $(".confirm-yes").click(function() {
 
 $(".confirm-no").click(function() {
     $(".cancel-confirm").fadeOut(200);
+    $(".overlay").fadeOut();
 });
 {% endif %}
 
 $(".close").click(function() {
     $(".success").fadeOut(200);
+    $(".overlay").fadeOut();
     if (!$(".close").hasClass("no-reload")) {
         window.location = "{% url 'hotel:rezerwacje' %}";
     }
@@ -521,34 +527,44 @@ $(document).ready(function() {
 })
 {% endif %}
 
-$(".date-from").focus(function() {
+$(".date-from").parent().click(function() {
     var w = $(".reservations-content").width();
     if (w < 634) {
         $(".calendar-from").fadeIn();
+        $(".overlay").fadeIn();
     }
 });
 
-$(".date-to").focus(function() {
+$(".date-to").parent().click(function() {
     var w = $(".reservations-content").width();
     if (w < 634) {
         $(".calendar-to").fadeIn();
+        $(".overlay").fadeIn();
     }
+});
+
+function hideCalendars() {
+    var w = $(".reservations-content").width();
+    if (w < 634) {
+        $(".calendar-from").fadeOut();
+        $(".calendar-to").fadeOut();
+        $(".overlay").fadeOut();
+    }
+}
+
+$(".overlay").click(function() {
+    hideCalendars();
+    $(".success").fadeOut();
+    $(".cancel-confirm").fadeOut();
+    $(".overlay").fadeOut();
 });
 
 $(".date-from").focusout(function() {
     sprawdzPoprawnosc();
-    var w = $(".reservations-content").width();
-    if (w < 634) {
-        $(".calendar-from").fadeOut();
-    }
 });
 
 $(".date-to").focusout(function() {
     sprawdzPoprawnosc();
-    var w = $(".reservations-content").width();
-    if (w < 634) {
-        $(".calendar-to").fadeOut();
-    }
 });
 
 {% if poczatek_pobytu %}
@@ -563,6 +579,7 @@ $(".datepicker-from").datepicker({
     onSelect: function() {
         sprawdzPoprawnosc();
         updateNights();
+        hideCalendars();
     },
     {% if poczatek_pobytu %}defaultDate:  poczatek_pobytu,{% endif %}
     altField: ".date-from",
@@ -571,6 +588,7 @@ $(".datepicker-to").datepicker({
     onSelect: function() {
         sprawdzPoprawnosc();
         updateNights();
+        hideCalendars();
     },
     defaultDate: +1,
     {% if koniec_pobytu %}defaultDate: koniec_pobytu,{% endif %}

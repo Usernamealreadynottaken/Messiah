@@ -1,4 +1,5 @@
 $(".rezerwacje_class").addClass("selected");
+disableInputs($(".reservations-content").width());
 
 $(".rooms-select").change(function() {
     sprawdzPoprawnosc();
@@ -134,10 +135,21 @@ $(".change-calendar").click(function() {
     }
 });
 
+function disableInputs(w) {
+    if (w < 634) {
+        $(".from-overlay").css("display", "block");
+        $(".to-overlay").css("display", "block");
+    } else {
+        $(".from-overlay").css("display", "none");
+        $(".to-overlay").css("display", "none");
+    }
+}
+
 $( window ).resize(function() {
     var w = $(".reservations-content").width();
     if (w > 885 || w < 634) {
         $(".calendar-to").css("display", "");
         $(".calendar-from").css("display", "");
     }
+    disableInputs(w);
 });
