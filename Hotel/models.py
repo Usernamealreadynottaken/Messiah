@@ -296,11 +296,11 @@ class OpisHotelu(models.Model):
     uklad = models.CharField(max_length=2, choices=UKLAD_CHOICES, default='DD')
 
     class Meta:
-        verbose_name = 'Ustawienia i dane hotelu'
+        verbose_name = 'Ustawienia'
         verbose_name_plural = verbose_name
 
     def __unicode__(self):
-        return 'Ustawienia i dane hotelu'
+        return 'Ustawienia'
 
 
 class ZdjeciaHotelu(models.Model):
