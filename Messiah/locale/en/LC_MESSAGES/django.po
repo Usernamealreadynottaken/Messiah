@@ -1,0 +1,899 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-24 19:18+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:24
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:123
+#: .\Messiah\templates\500.html.py:6
+#: .\Messiah\templates\admin\app_index.html.py:7
+#: .\Messiah\templates\admin\base.html.py:52
+#: .\Messiah\templates\admin\change_form.html.py:19
+#: .\Messiah\templates\admin\change_list.html.py:41
+#: .\Messiah\templates\admin\delete_confirmation.html.py:7
+#: .\Messiah\templates\admin\delete_selected_confirmation.html.py:7
+#: .\Messiah\templates\admin\invalid_setup.html.py:6
+#: .\Messiah\templates\admin\object_history.html.py:7
+msgid "Home"
+msgstr ""
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:25
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:124
+msgid "Hotel"
+msgstr ""
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:26
+#: .\Hotel\templates\Hotel\archiwum.html.py:31
+msgid "Archiwum"
+msgstr "Archive"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:37
+msgid "Nazwisko"
+msgstr "Name"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:38
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:22
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:48
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:156
+msgid "Poczatek pobytu"
+msgstr "Check-in date"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:39
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:23
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:56
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:160
+msgid "Koniec pobytu"
+msgstr "Check-out date"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:46
+msgid "Pokoje na rezerwacji"
+msgstr "Booked rooms"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:75
+#: .\Hotel\templates\Hotel\kontakt.html.py:26
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:39
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:162
+msgid "E-mail"
+msgstr ""
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:79
+#: .\Hotel\templates\Hotel\kontakt.html.py:25
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:34
+msgid "Telefon"
+msgstr "Phone"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:84
+#: .\Hotel\templates\Hotel\archiwum.html.py:94
+#: .\Hotel\templates\Hotel\archiwum.html.py:108
+msgid "(nie podano)"
+msgstr "(not given)"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:89
+msgid "Dodatkowe instrukcje"
+msgstr "Additional requests"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:99
+msgid "Kod"
+msgstr "Code"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:103
+msgid "Notatka"
+msgstr "Note"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:113
+msgid "Cena dorosly"
+msgstr "Adult price"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:117
+msgid "Cena dziecko"
+msgstr "Child price"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:121
+msgid "Wartosc rezerwacji"
+msgstr "Booking value"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:127
+msgid "Uslugi"
+msgstr "Services"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:137
+msgid "Brak uslug"
+msgstr "No services"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:143
+#: .\Hotel\templates\Hotel\cennik.html.py:27
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:206
+#: .\Hotel\templates\Hotel\wizualizacja.html.py:22
+msgid "Pokoje"
+msgstr "Rooms"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:148
+msgid "Pokoj"
+msgstr "Room"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:149
+msgid "Doroslych"
+msgstr "Adults"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:150
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:76
+msgid "Dzieci"
+msgstr "Children"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:151
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:208
+msgid "Cena"
+msgstr "Price"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:157
+#, fuzzy, python-format
+msgid "Numer %(numer)s (rozmiar %(rozmiar)s)"
+msgstr "Number %(numer)s (size %(rozmiar)s)"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:167
+msgid "Brak pokojow"
+msgstr "No rooms"
+
+#: .\Hotel\templates\Hotel\cennik.html.py:10
+msgid "Hotel Messiah - Cennik"
+msgstr "Hotel Messiah - Pricing"
+
+#: .\Hotel\templates\Hotel\cennik.html.py:18
+#: .\Hotel\templates\Hotel\header.html.py:38
+msgid "Cennik"
+msgstr "Pricing"
+
+#: .\Hotel\templates\Hotel\cennik.html.py:28
+msgid "Menu"
+msgstr ""
+
+#: .\Hotel\templates\Hotel\cennik.html.py:29
+msgid "Usługi"
+msgstr "Services"
+
+#: .\Hotel\templates\Hotel\cennik.html.py:33
+msgid "Cena za osobę"
+msgstr "Price per person"
+
+#: .\Hotel\templates\Hotel\cennik.html.py:35
+#, python-format
+msgid "Dorosły  --  %(cena_dorosly)s zł"
+msgstr "Adult -- %(cena_dorosly)s zl"
+
+#: .\Hotel\templates\Hotel\cennik.html.py:36
+#, python-format
+msgid "Dziecko  --  %(cena_dziecko)s zł"
+msgstr "Child -- %(cena_dziecko)s zl"
+
+#: .\Hotel\templates\Hotel\cennik.html.py:39
+msgid "Dostępne są pokoje w następujących rozmiarach"
+msgstr "Rooms of following sizes available"
+
+#: .\Hotel\templates\Hotel\cennik.html.py:42
+#, fuzzy, python-format
+msgid "%(rozmiar)s-osobowy  --  %(cena)s zł"
+msgstr "%(rozmiar)s people -- %(cena)s zl"
+
+#: .\Hotel\templates\Hotel\cennik.html.py:82
+msgid "Dostepna"
+msgstr "Available"
+
+#: .\Hotel\templates\Hotel\cennik.html.py:83
+msgid "Niedostepna"
+msgstr "Unavailable"
+
+#: .\Hotel\templates\Hotel\cennik.html.py:86
+msgid "Usługi świadczone przez hotel"
+msgstr "Servicec provided by the hotel"
+
+#: .\Hotel\templates\Hotel\cennik.html.py:105
+msgid "Usługi zewnętrzne"
+msgstr "Outside services"
+
+#: .\Hotel\templates\Hotel\footer.html.py:13
+#: .\Hotel\templates\Hotel\header.html.py:32
+#: .\Hotel\templates\Hotel\index.html.py:13
+msgid "Strona glowna"
+msgstr "Main page"
+
+#: .\Hotel\templates\Hotel\footer.html.py:14
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:13
+msgid "Rezerwacje"
+msgstr "Booking"
+
+#: .\Hotel\templates\Hotel\footer.html.py:15
+#: .\Hotel\templates\Hotel\wizualizacja_galeria.html.py:3
+msgid "Galeria"
+msgstr "Gallery"
+
+#: .\Hotel\templates\Hotel\footer.html.py:16
+#: .\Hotel\templates\Hotel\header.html.py:40
+#: .\Hotel\templates\Hotel\kontakt.html.py:14
+msgid "Kontakt"
+msgstr "Contact"
+
+#: .\Hotel\templates\Hotel\footer.html.py:21
+#, python-format
+msgid "Copyright %(copyright)s; 2013 Hotel Messiah"
+msgstr ""
+
+#: .\Hotel\templates\Hotel\header.html.py:33
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:211
+msgid "Zarezerwuj"
+msgstr "Book"
+
+#: .\Hotel\templates\Hotel\header.html.py:35
+msgid "Mam juz rezerwacje"
+msgstr "Already booked"
+
+#: .\Hotel\templates\Hotel\header.html.py:39
+#: .\Hotel\templates\Hotel\wizualizacja.html.py:14
+msgid "Wizualizacja"
+msgstr "Visualization"
+
+#: .\Hotel\templates\Hotel\index.html.py:4
+msgid "Hotel Messiah"
+msgstr ""
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:6
+msgid "Hotel Messiah - Kontakt"
+msgstr "Hotel Messiah - Contact"
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:24
+msgid "Adres"
+msgstr "Address"
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:42
+msgid "Napisz do nas!"
+msgstr "Write to us!"
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:48
+msgid "Tutaj wpisz treść swojej wiadomości."
+msgstr "Type your message here."
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:51
+msgid "Twoj adres e-mail."
+msgstr "Your e-mail address"
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:54
+msgid "Miejsce na nazwisko."
+msgstr "Room for name"
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:56
+msgid "Wyślij"
+msgstr "Send"
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:88
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:70
+msgid "Wiadomosc zostala wyslana!"
+msgstr "Message sent!"
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:88
+msgid "Dziekujemy za kontakt!"
+msgstr "Thank you for contacting us!"
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:92
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:423
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:74
+msgid "Serwer otrzymal uszkodzone dane."
+msgstr "Server received damaged data."
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:94
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:426
+msgid "Stalo sie cos czego nawet programista nie przewidzial."
+msgstr "Something even programmer didn't predict happened"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:4
+msgid "Hotel Messiah - Rezerwacje"
+msgstr "Hotel Messiah - Booking"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:25
+msgid "Imie i nazwisko"
+msgstr "Name"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:31
+msgid "Pole nie moze byc puste."
+msgstr "Field can't be empty"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:45
+msgid "Bledny format maila"
+msgstr "Wrong e-mail format"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:65
+msgid "Liczba pokoi"
+msgstr "Rooms"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:68
+msgid "1 Pokoj"
+msgstr "1 Room"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:69
+msgid "2 Pokoje"
+msgstr "2 Rooms"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:70
+msgid "3 Pokoje"
+msgstr "3 Rooms"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:75
+msgid "Dorosli"
+msgstr "Adults"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:77
+#, python-format
+msgid "Pokoj 1 - %(adults)s"
+msgstr "Room 1 - %(adults)s"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:101
+#, python-format
+msgid "Pokoj 2 - %(adults)s"
+msgstr "Room 2 - %(adults)s"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:125
+#, python-format
+msgid "Pokoj 3 - %(adults)s"
+msgstr "Room 3 - %(adults)s"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:154
+msgid "Wybierz date wyjazdu"
+msgstr "Select check-out date"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:168
+msgid "Wybierz dodatki"
+msgstr "Select services"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:173
+msgid "Uslugi wewnetrze"
+msgstr "Hotel services"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:187
+msgid "Uslugi zewnetrzne"
+msgstr "Outside services"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:203
+msgid "Twoje zyczenia"
+msgstr "Additional requests"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:205
+msgid "Podsumowanie"
+msgstr "Summary"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:207
+msgid "Noce"
+msgstr "Nights"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:213
+msgid "Anuluj rezerwacje"
+msgstr "Cancel booking"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:234
+msgid "Czy na pewno chcesz anulowac rezrwacje?"
+msgstr "Are you sure you want to cancel this booking?"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:235
+msgid "Tak"
+msgstr "Yes"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:236
+msgid "Nie"
+msgstr "No"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:331
+#, python-format
+msgid "Pokoj %(room)s nie zostal zweryfikowany przez serwer."
+msgstr "Room %(room)s was not verified by the server."
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:333
+#, python-format
+msgid "W pokoju nr %(room_i)s jest wybrane 0 osob."
+msgstr "There's 0 people in room number %(room_i)s."
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:335
+#, python-format
+msgid "Pokoj %(room_i)s - za duzo osob."
+msgstr "Too many people in room %(room_i)s."
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:337
+#, python-format
+msgid "Pokoj %(room_i)s - brak wolnych pokojow."
+msgstr "Room %(room_i)s - no free rooms."
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:339
+msgid "Wystapil blad ktory powinien nie istniec."
+msgstr "There was an error that shouldn't exist"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:347
+#, python-format
+msgid "Pokoj %(room_i)s - blad po stronie serwera."
+msgstr "Room %(room_i)s - server side error."
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:409
+msgid "Udalo sie zarezerwowac!"
+msgstr "Booking successful!"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:413
+#, python-format
+msgid "Twoj kod rezerwacji to: %(code)s"
+msgstr "Code for your booking is: %(code)s"
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:416
+msgid "Serwer nie wyslal kodu rezerwacji!"
+msgstr "Server didn't send your booking code."
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:420
+msgid "Nie mozna zarezerwowac tego pokoju na ten termin."
+msgstr "You can't book this room for this date."
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:455
+msgid "Rezerwacja zostala anulowana."
+msgstr "Booking was canceled."
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:458
+msgid "Nie mozesz anulowac rezrwacji, ktora sie juz rozpoczela."
+msgstr "You can't cancel a booking that has begun."
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:459
+msgid "Skontaktuj sie z pracownikiem hotelu."
+msgstr "Please contact hotel employee."
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:462
+msgid "Wystapil blad podczas anulowania rezerwacji. Sproboj ponownie."
+msgstr "There was an error during cancelling your booking. Try again."
+
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:489
+msgid "Edytuj rezerwacje"
+msgstr "Edit booking"
+
+#: .\Hotel\templates\Hotel\rezerwacje_ist.html.py:4
+msgid "Hotel Messiah - istniejaca rezerwacja"
+msgstr "Hotel Messiah - already booked"
+
+#: .\Hotel\templates\Hotel\rezerwacje_ist.html.py:11
+msgid "Istniejaca rezerwacja"
+msgstr "Already booked"
+
+#: .\Hotel\templates\Hotel\rezerwacje_ist.html.py:17
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:193
+msgid "Wyslij"
+msgstr "Send"
+
+#: .\Hotel\templates\Hotel\rezerwacje_ist.html.py:20
+msgid "Edycja rezerwacji"
+msgstr "Edit booking"
+
+#: .\Hotel\templates\Hotel\rezerwacje_ist.html.py:21
+msgid "Jesli chcesz edytowac istniejaca rezerwacje, podaj swoj kod rezerwacji"
+msgstr "If you want to edit existing booking, please type in your code"
+
+#: .\Hotel\templates\Hotel\rezerwacje_ist.html.py:31
+msgid "Przypomnienie kodu"
+msgstr "Code reminder"
+
+#: .\Hotel\templates\Hotel\rezerwacje_ist.html.py:32
+msgid "Jesli zapomniales swoj kod rezerwacji, podaj swoj e-mail"
+msgstr "If you forgot your booking code, please type in your e-mail"
+
+#: .\Hotel\templates\Hotel\rezerwacje_ist.html.py:51
+msgid "Nie podano kodu."
+msgstr "No code given."
+
+#: .\Hotel\templates\Hotel\rezerwacje_ist.html.py:53
+#: .\Hotel\templates\Hotel\rezerwacje_ist.html.py:76
+msgid "Rezerwacja o podanym kodzie nie istnieje."
+msgstr "No booking with this code found."
+
+#: .\Hotel\templates\Hotel\rezerwacje_ist.html.py:87
+#, fuzzy
+msgid "Nie podano e-maila."
+msgstr "No e-mail given."
+
+#: .\Hotel\templates\Hotel\rezerwacje_ist.html.py:91
+msgid "Niepoprawny adres e-mail."
+msgstr "Invalid e-mail address"
+
+#: .\Hotel\templates\Hotel\rezerwacje_ist.html.py:108
+msgid "Nie znaleziono rezerwacji na podany adres e-mail."
+msgstr "No booking with this e-mail found."
+
+#: .\Hotel\templates\Hotel\rezerwacje_message.html.py:5
+#, python-format
+msgid "Wybrano pokoj numer %(pokoj)s"
+msgstr "Room number %(pokoj)s selected"
+
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:6
+msgid "Znaleziono nastepujace rezerwacje"
+msgstr "Following bookings found"
+
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:9
+#, python-format
+msgid ""
+"\n"
+"%(rooms)s pokoj,\n"
+msgid_plural ""
+"\n"
+"%(rooms)s pokoje,\n"
+msgstr[0] ""
+"\n"
+"%(rooms)s room,\n"
+msgstr[1] ""
+"\n"
+"%(rooms)s rooms,\n"
+
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:22
+msgid "i"
+msgstr "and"
+
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:28
+msgid "osobowy"
+msgstr "people"
+
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:28
+msgid "kod"
+msgstr "code"
+
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:35
+msgid "Twoj kod rezerwacji to"
+msgstr "Your booking code is"
+
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:42
+msgid "Wystapil blad"
+msgstr "There was an error"
+
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:11
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:179
+msgid "Twoja odpowiedz"
+msgstr "Your answer"
+
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:12
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:189
+msgid "Oznacz jako nie odpowiedziane"
+msgstr "Mark as not answered"
+
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:13
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:182
+msgid "Odpowiedz"
+msgstr "Answer"
+
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:14
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:191
+msgid "Oznacz jako odpowiedziane"
+msgstr "Mark as answered"
+
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:77
+msgid "Nie mozesz wyslac pustej wiadomosci!"
+msgstr "You can't send empty message!"
+
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:80
+msgid "Nieprzewidziany blad"
+msgstr "There was some error"
+
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:125
+msgid "Wiadomosci"
+msgstr "Messages"
+
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:135
+msgid "Tresc"
+msgstr "Content"
+
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:136
+msgid "Data"
+msgstr "Date"
+
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:140
+msgid "Od"
+msgstr "From"
+
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:158
+msgid "Wiadomosc od"
+msgstr "Message from"
+
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:174
+msgid "Odpowiedz do"
+msgstr "Answer to"
+
+#: .\Hotel\templates\Hotel\wizualizacja.html.py:26
+#, fuzzy, python-format
+msgid "%(r)s-osobowe"
+msgid_plural "%(r)s-osobowe"
+msgstr[0] "%(r)s person"
+msgstr[1] "%(r)s people"
+
+#: .\Messiah\templates\404.html.py:4 .\Messiah\templates\404.html.py:8
+msgid "Page not found"
+msgstr ""
+
+#: .\Messiah\templates\404.html.py:10
+msgid "We're sorry, but the requested page could not be found."
+msgstr ""
+
+#: .\Messiah\templates\500.html.py:7
+msgid "Server error"
+msgstr ""
+
+#: .\Messiah\templates\500.html.py:11
+msgid "Server error (500)"
+msgstr ""
+
+#: .\Messiah\templates\500.html.py:14
+msgid "Server Error <em>(500)</em>"
+msgstr ""
+
+#: .\Messiah\templates\500.html.py:15
+msgid ""
+"There's been an error. It's been reported to the site administrators via "
+"email and should be fixed shortly. Thanks for your patience."
+msgstr ""
+
+#: .\Messiah\templates\admin\actions.html.py:4
+msgid "Run the selected action"
+msgstr ""
+
+#: .\Messiah\templates\admin\actions.html.py:4
+msgid "Go"
+msgstr ""
+
+#: .\Messiah\templates\admin\actions.html.py:11
+msgid "Click here to select the objects across all pages"
+msgstr ""
+
+#: .\Messiah\templates\admin\actions.html.py:11
+#, python-format
+msgid "Select all %(total_count)s %(module_name)s"
+msgstr ""
+
+#: .\Messiah\templates\admin\actions.html.py:13
+msgid "Clear selection"
+msgstr ""
+
+#: .\Messiah\templates\admin\app_index.html.py:10
+#: .\Messiah\templates\admin\index.html.py:21
+#, python-format
+msgid "%(name)s"
+msgstr ""
+
+#: .\Messiah\templates\admin\base.html.py:32
+msgid "Welcome,"
+msgstr ""
+
+#: .\Messiah\templates\admin\base.html.py:37
+msgid "Documentation"
+msgstr ""
+
+#: .\Messiah\templates\admin\base.html.py:40
+msgid "Change password"
+msgstr ""
+
+#: .\Messiah\templates\admin\base.html.py:42
+msgid "Log out"
+msgstr ""
+
+#: .\Messiah\templates\admin\base_site.html.py:4
+msgid "Django site admin"
+msgstr ""
+
+#: .\Messiah\templates\admin\base_site.html.py:7
+msgid "Hotel administration"
+msgstr ""
+
+#: .\Messiah\templates\admin\change_form.html.py:22
+#: .\Messiah\templates\admin\index.html.py:33
+msgid "Add"
+msgstr ""
+
+#: .\Messiah\templates\admin\change_form.html.py:32
+#: .\Messiah\templates\admin\object_history.html.py:11
+msgid "History"
+msgstr ""
+
+#: .\Messiah\templates\admin\change_form.html.py:33
+msgid "View on site"
+msgstr ""
+
+#: .\Messiah\templates\admin\change_form.html.py:44
+#: .\Messiah\templates\admin\change_list.html.py:67
+#: .\Messiah\templates\admin\login.html.py:17
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\Messiah\templates\admin\change_list.html.py:58
+#, python-format
+msgid "Add %(name)s"
+msgstr ""
+
+#: .\Messiah\templates\admin\change_list.html.py:78
+msgid "Filter"
+msgstr ""
+
+#: .\Messiah\templates\admin\change_list_results.html.py:17
+msgid "Remove from sorting"
+msgstr ""
+
+#: .\Messiah\templates\admin\change_list_results.html.py:18
+#, python-format
+msgid "Sorting priority: %(priority_number)s"
+msgstr ""
+
+#: .\Messiah\templates\admin\change_list_results.html.py:19
+msgid "Toggle sorting"
+msgstr ""
+
+#: .\Messiah\templates\admin\delete_confirmation.html.py:11
+#: .\Messiah\templates\admin\submit_line.html.py:4
+msgid "Delete"
+msgstr ""
+
+#: .\Messiah\templates\admin\delete_confirmation.html.py:18
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would result in deleting "
+"related objects, but your account doesn't have permission to delete the "
+"following types of objects:"
+msgstr ""
+
+#: .\Messiah\templates\admin\delete_confirmation.html.py:26
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would require deleting the "
+"following protected related objects:"
+msgstr ""
+
+#: .\Messiah\templates\admin\delete_confirmation.html.py:34
+#, python-format
+msgid ""
+"Are you sure you want to delete the %(object_name)s \"%(escaped_object)s\"? "
+"All of the following related items will be deleted:"
+msgstr ""
+
+#: .\Messiah\templates\admin\delete_confirmation.html.py:39
+#: .\Messiah\templates\admin\delete_selected_confirmation.html.py:44
+msgid "Yes, I'm sure"
+msgstr ""
+
+#: .\Messiah\templates\admin\delete_selected_confirmation.html.py:10
+msgid "Delete multiple objects"
+msgstr ""
+
+#: .\Messiah\templates\admin\delete_selected_confirmation.html.py:17
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would result in deleting related "
+"objects, but your account doesn't have permission to delete the following "
+"types of objects:"
+msgstr ""
+
+#: .\Messiah\templates\admin\delete_selected_confirmation.html.py:25
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would require deleting the following "
+"protected related objects:"
+msgstr ""
+
+#: .\Messiah\templates\admin\delete_selected_confirmation.html.py:33
+#, python-format
+msgid ""
+"Are you sure you want to delete the selected %(objects_name)s? All of the "
+"following objects and their related items will be deleted:"
+msgstr ""
+
+#: .\Messiah\templates\admin\filter.html.py:2
+#, python-format
+msgid " By %(filter_title)s "
+msgstr ""
+
+#: .\Messiah\templates\admin\index.html.py:20
+#, python-format
+msgid "Models in the %(name)s application"
+msgstr ""
+
+#: .\Messiah\templates\admin\index.html.py:39
+msgid "Change"
+msgstr ""
+
+#: .\Messiah\templates\admin\index.html.py:74
+msgid "You don't have permission to edit anything."
+msgstr ""
+
+#: .\Messiah\templates\admin\index.html.py:82
+msgid "Recent Actions"
+msgstr ""
+
+#: .\Messiah\templates\admin\index.html.py:83
+msgid "My Actions"
+msgstr ""
+
+#: .\Messiah\templates\admin\index.html.py:87
+msgid "None available"
+msgstr ""
+
+#: .\Messiah\templates\admin\index.html.py:101
+msgid "Unknown content"
+msgstr ""
+
+#: .\Messiah\templates\admin\invalid_setup.html.py:12
+msgid ""
+"Something's wrong with your database installation. Make sure the appropriate "
+"database tables have been created, and make sure the database is readable by "
+"the appropriate user."
+msgstr ""
+
+#: .\Messiah\templates\admin\login.html.py:38
+msgid "Password:"
+msgstr ""
+
+#: .\Messiah\templates\admin\login.html.py:45
+msgid "Forgotten your password or username?"
+msgstr ""
+
+#: .\Messiah\templates\admin\login.html.py:49
+msgid "Log in"
+msgstr ""
+
+#: .\Messiah\templates\admin\object_history.html.py:23
+msgid "Date/time"
+msgstr ""
+
+#: .\Messiah\templates\admin\object_history.html.py:24
+msgid "User"
+msgstr ""
+
+#: .\Messiah\templates\admin\object_history.html.py:25
+msgid "Action"
+msgstr ""
+
+#: .\Messiah\templates\admin\object_history.html.py:39
+msgid ""
+"This object doesn't have a change history. It probably wasn't added via this "
+"admin site."
+msgstr ""
+
+#: .\Messiah\templates\admin\pagination.html.py:10
+msgid "Show all"
+msgstr ""
+
+#: .\Messiah\templates\admin\pagination.html.py:11
+#: .\Messiah\templates\admin\submit_line.html.py:3
+msgid "Save"
+msgstr ""
+
+#: .\Messiah\templates\admin\search_form.html.py:7
+msgid "Search"
+msgstr ""
+
+#: .\Messiah\templates\admin\search_form.html.py:9
+#, python-format
+msgid "%(counter)s result"
+msgid_plural "%(counter)s results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\Messiah\templates\admin\search_form.html.py:9
+#, python-format
+msgid "%(full_result_count)s total"
+msgstr ""
+
+#: .\Messiah\templates\admin\submit_line.html.py:5
+msgid "Save as new"
+msgstr ""
+
+#: .\Messiah\templates\admin\submit_line.html.py:6
+msgid "Save and add another"
+msgstr ""
+
+#: .\Messiah\templates\admin\submit_line.html.py:7
+msgid "Save and continue editing"
+msgstr ""

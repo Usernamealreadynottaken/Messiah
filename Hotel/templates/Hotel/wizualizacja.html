@@ -1,6 +1,6 @@
 {% extends "Hotel/base.html" %}
 
-{% load staticfiles %}
+{% load i18n staticfiles %}
 
 {% block title %}Hotel Messiah - Wizualizacja{% endblock %}
 
@@ -11,7 +11,7 @@
 <div id="visualization">
 
     <div class="title">
-        <h1>Wizualizacja</h1>
+        <h1>{% trans 'Wizualizacja' %}</h1>
     </div> <!-- .title -->
     {% csrf_token %}
 
@@ -19,11 +19,11 @@
 
         <div class="rooms">
 
-            <h2>Pokoje</h2>
+            <h2>{% trans 'Pokoje' %}</h2>
 
             {% if pokoje and rozmiary %}
             {% for r in rozmiary %}
-            <h3 class="caption">{{ r }}-osobowe</h3>
+            <h3 class="caption">{% blocktrans count r=r %}{{ r }}-osobowe{% plural %}{{ r }}-osobowe{% endblocktrans %}</h3>
             <ul>{% for p in pokoje %}{% if p.pokoj.rozmiar == r %}{% if not p.zajety %}<!--
 
                 Pokoje wolne najpierw

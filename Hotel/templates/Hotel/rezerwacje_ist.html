@@ -1,23 +1,26 @@
 {% extends 'Hotel/base.html' %}
+{% load i18n staticfiles %}
 
-{% block title %}Hotel Messiah{% endblock %}
+{% block title %}{% trans 'Hotel Messiah - istniejaca rezerwacja' %}{% endblock %}
 
 {% block content %}
 
 <div id="reservations-existing">
 
     <div class="title">
-        <h1>Istniejaca rezerwacja</h1>
+        <h1>{% trans 'Istniejaca rezerwacja' %}</h1>
     </div> <!-- .title -->
 
     <div class="reservations-existing-content">
         {% csrf_token %}
 
+        {% trans 'Wyslij' as send %}
+
         <div class="edit-reservation">
-            <h2>Edycja rezerwacji</h2>
-            <label>Jesli chcesz edytowac istniejaca rezerwacje, podaj swoj kod rezerwacji:</label>
+            <h2>{% trans 'Edycja rezerwacji' %}</h2>
+            <label>{% trans 'Jesli chcesz edytowac istniejaca rezerwacje, podaj swoj kod rezerwacji' %}:</label>
             <input type="text" class="code-input" name="code-input">
-            <a class="code-send">Wyslij</a>
+            <a class="code-send">{{ send }}</a>
             <p class="code-error"></p>
         </div> <!-- .edit-reservation -->
 
@@ -25,10 +28,10 @@
         <hr>
 
         <div class="remind-code">
-            <h2>Przypomnienie kodu</h2>
-            <label>Jesli zapomniales swoj kod rezerwacji, podaj swoj e-mail:</label>
+            <h2>{% trans 'Przypomnienie kodu' %}</h2>
+            <label>{% trans 'Jesli zapomniales swoj kod rezerwacji, podaj swoj e-mail' %}:</label>
             <input type="text" class="email-input" name="email-input">
-            <a class="email-send">Wyslij</a>
+            <a class="email-send">{{ send }}</a>
             <p class="email-error"></p>
         </div>
 
@@ -45,9 +48,9 @@ $(".rezerwacje_istniejace_class").addClass("selected");
 
 $(".code-send").click(function() {
     if ($(".code-input").val().length == 0) {
-        $(".code-error").text("Nie podano kodu.");
+        $(".code-error").text("{% trans 'Nie podano kodu.' %}");
     } else if ($(".code-input").val().length > 12) {
-        $(".code-error").text("Rezerwacja o podanym kodzie nie istnieje.");
+        $(".code-error").text("{% trans 'Rezerwacja o podanym kodzie nie istnieje.' %}");
     } else {
         $(".code-error").text("");
 
@@ -70,7 +73,7 @@ $(".code-send").click(function() {
                     window.location = "{% url 'hotel:rezerwacje' %}" + $(".code-input").val() + "/";
 
                 } else {
-                    $(".code-error").text("Rezerwacja o podanym kodzie nie istnieje.");
+                    $(".code-error").text("{% trans 'Rezerwacja o podanym kodzie nie istnieje.' %}");
                 }
             })
             .fail(function(xhr, textStatus, errorThrown) {
@@ -81,11 +84,11 @@ $(".code-send").click(function() {
 
 $(".email-send").click(function() {
     if ($(".email-input").val().length == 0) {
-        $(".email-error").text("Nie podano e-maila.");
+        $(".email-error").text("{% trans 'Nie podano e-maila.' %}");
     } else {
         var reg = /^[a-zA-Z0-9!#$%&\'*+\-\/=?^_`{|}~]+(\.?[a-zA-Z0-9!#$%&'*+\-\/=?^_`{|}~]+)*@[a-zA-Z0-9]+((\.|\-)?[a-zA-Z0-9]+)*\.[a-zA-Z0-9]+$/;
         if (!reg.test($(".email-input").val())) {
-            $(".email-error").text("Niepoprawny adres e-mail.");
+            $(".email-error").text("{% trans 'Niepoprawny adres e-mail.' %}");
         } else {
             $(".email-error").text("");
 
@@ -102,7 +105,7 @@ $(".email-send").click(function() {
                     if (data != "") {
                         $(".email-error").html(data);
                     } else {
-                        $(".email-error").text("Nie znaleziono rezerwacji na podany adres e-mail.");
+                        $(".email-error").text("{% trans 'Nie znaleziono rezerwacji na podany adres e-mail.' %}");
                     }
                 })
                 .fail(function(xhr, textStatus, errorThrown) {

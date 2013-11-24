@@ -5,6 +5,7 @@ import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 PROJECT_SETTINGS_PATH = os.path.dirname(os.path.abspath(__file__))
+PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 ADMINS = (
     ('Messiah', 'hotel.messiah@gmail.com'),
@@ -49,7 +50,14 @@ TIME_ZONE = 'Europe/Warsaw'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('pl', 'Polish')
+)
+
+LOCALE_PATHS = (PROJECT_PATH + '/locale/', PROJECT_SETTINGS_PATH + '/locale/',)
 
 SITE_ID = 1
 

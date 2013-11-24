@@ -1,5 +1,6 @@
+{% load i18n %}
 {% if error_message %}
     {{ error_message }}
 {% else %}
-    Wybrano pokoj numer {{ pokoj }}
+    {% blocktrans %}Wybrano pokoj numer {{ pokoj }}{% endblocktrans %}
 {% endif %}

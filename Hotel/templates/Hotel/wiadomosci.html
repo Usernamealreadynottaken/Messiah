@@ -8,6 +8,11 @@
 <script src="{% static 'Hotel/js/jquery-1.10.2.js' %}"></script>
 <script src="{% static 'Hotel/js/jquery.form.js' %}"></script>
 
+{% trans 'Twoja odpowiedz' as your_answer %}
+{% trans 'Oznacz jako nie odpowiedziane' as mark_as_not_responded %}
+{% trans 'Odpowiedz' as answer %}
+{% trans 'Oznacz jako odpowiedziane' as mark_as_responded %}
+
 <script>
 
 $( document ).ready(function() {
@@ -16,11 +21,11 @@ $( document ).ready(function() {
         var response = $(".expanded").find(".respond-message-row").find("textarea").val();
         $(".expanded").find(".respond-email-row").slideToggle("medium");
         $(".expanded").find(".respond-message-row").find("textarea").parent().text(response);
-        $(".expanded").find(".respond-message-row > .label").text("Twoja odpowiedz:");
+        $(".expanded").find(".respond-message-row > .label").text("{{ your_answer }}:");
 
         // Zamieniamy przyciski na takie jak w odpowiedzianej wiadomosci
         $(".expanded").find(".buttons-section > .send").slideToggle("medium");
-        $(".expanded").find(".buttons-section > .mark").text("Oznacz jako nie odpowiedziane")
+        $(".expanded").find(".buttons-section > .mark").text("{{ mark_as_not_responded }}")
 
         // Kolor naglowka
         $(".expanded").prev().toggleClass("grey");
@@ -30,11 +35,11 @@ $( document ).ready(function() {
         // Pola
         $(".expanded").find(".respond-email-row").slideToggle("medium");
         $(".expanded").find(".respond-message-row > .field").html("<textarea name='msg'></textarea>");
-        $(".expanded").find(".respond-message-row > .label").text("Odpowiedz");
+        $(".expanded").find(".respond-message-row > .label").text("{{ answer }}");
 
         // Przyciski
         $(".expanded").find(".buttons-section > .send").slideToggle("medium");
-        $(".expanded").find(".buttons-section > .mark").text("Oznacz jako odpowiedziane");
+        $(".expanded").find(".buttons-section > .mark").text("{{ mark_as_responded }}");
 
         // Kolor naglowka
         $(".expanded").prev().toggleClass("grey");
@@ -62,17 +67,17 @@ $( document ).ready(function() {
             .done(function(data) {
 
                 if (data == "success") {
-                    $(".success p").html("Wiadomosc zostala wyslana!<br /><br />");
+                    $(".success p").html("{% trans 'Wiadomosc zostala wyslana!' %}<br /><br />");
                     changeFieldsToResponded();
                 }
                 else if (data == "site_error") {
-                    $(".success p").html("Serwer otrzymal uszkodzone dane.");
+                    $(".success p").html("{% trans 'Serwer otrzymal uszkodzone dane.' %}");
                 }
                 else if (data == "empty_field") {
-                    $(".success p").html("Nie mozesz wyslac pustej wiadomosci!");
+                    $(".success p").html("{% trans 'Nie mozesz wyslac pustej wiadomosci!' %}");
                 }
                 else {
-                    $(".success p").html("Nieprzewidziany blad");
+                    $(".success p").html("{% trans 'Nieprzewidziany blad' %}");
                 }
 
                 $(".success").fadeIn(200);
@@ -127,12 +132,14 @@ $( document ).ready(function() {
 <div id="messages">
 
     {% csrf_token %}
+    {% trans 'Tresc' as m_content %}
+    {% trans 'Data' as m_date %}
     <table class="dropdown-list">
         <thead class="list-head">
             <tr>
-                <th>Od</th>
-                <th>Data</th>
-                <th>Tresc</th>
+                <th>{% trans 'Od' %}</th>
+                <th>{{ m_date }}</th>
+                <th>{{ m_content }}</th>
             </tr>
         </thead>
         <tbody class="list-body">
@@ -148,38 +155,42 @@ $( document ).ready(function() {
                     <div class="object-content-content">
                         <div class="content-section content-single-section">
                             <div class="content-row">
-                                <span class="label">Wiadomosc od: </span>
+                                <span class="label">{% trans 'Wiadomosc od' %}: </span>
                                 <span class="field">{{ wiadomosc.nazwisko }}</span>
                             </div> <!-- .content-row -->
                             <div class="content-row">
-                                <span class="label">E-mail: </span>
+                                <span class="label">{% trans 'E-mail' %}: </span>
                                 <span class="field">{{ wiadomosc.email }}</span>
                             </div> <!-- .content-row -->
                             <div class="content-row">
-                                <span class="label">Tresc: </span>
+                                <span class="label">{{ m_content }}: </span>
                                 <span class="field">{{ wiadomosc.tresc }}</span>
                             </div> <!-- .content-row -->
                             <div class="content-row">
-                                <span class="label">Data: </span>
+                                <span class="label">{{ m_date }}: </span>
                                 <span class="field">{{ wiadomosc.data }}</span>
                             </div> <!-- .content-row -->
                             <div class="content-row respond-email-row" {% if wiadomosc.wyslano_odpowiedz %}style="display: none"{% endif %}>
-                                <span class="label">Odpowiedz do: </span>
+                                <span class="label">{% trans 'Odpowiedz do' %}: </span>
                                 <span class="field"><input type="email" name="email_address" value="{{ wiadomosc.email }}" /></span>
                             </div> <!-- .content-row -->
                             <div class="content-row respond-message-row">
                                 {% if wiadomosc.wyslano_odpowiedz %}
-                                <span class="label">Twoja odpowiedz: </span>
+                                <span class="label">{% trans 'Twoja odpowiedz' %}: </span>
                                 <span class="field">{{ wiadomosc.odpowiedz }}</span>
                                 {% else %}
-                                <span class="label">Odpowiedz: </span>
+                                <span class="label">{% trans 'Odpowiedz' %}: </span>
                                 <span class="field"><textarea name="msg"></textarea></span>
                                 {% endif %}
                             </div> <!-- .content-row -->
                         </div> <!-- .content-section -->
                         <div class="buttons-section">
-                            <a class="mark white-button">Oznacz jako {% if wiadomosc.wyslano_odpowiedz %}nie{% endif %} odpowiedziane</a>
-                            <a class="send important-button" {% if wiadomosc.wyslano_odpowiedz %}style="display: none"{% endif %}>Wyslij</a>
+                            {% if wiadomosc.wyslano_odpowiedz %}
+                            <a class="mark white-button">{% trans 'Oznacz jako nie odpowiedziane' %}</a>
+                            {% else %}
+                            <a class="mark white-button">{% trans 'Oznacz jako odpowiedziane' %}</a>
+                            {% endif %}
+                            <a class="send important-button" {% if wiadomosc.wyslano_odpowiedz %}style="display: none"{% endif %}>{% trans 'Wyslij' %}</a>
                         </div> <!-- .buttons-section -->
                     </div> <!-- .object-content-content -->
                 </td>

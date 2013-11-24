@@ -1,13 +1,13 @@
 {% extends "Hotel/base.html" %}
 
-{% load staticfiles %}
+{% load i18n staticfiles %}
 
 {% block pricing %}
     <link rel="stylesheet" type="text/css" href="{% static 'Hotel/jquery-ui-1.10.3.custom.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'Hotel/jquery.fancybox.css' %}">
 {% endblock %}
 
-{% block title %}Hotel Messiah - Cennik{% endblock %}
+{% block title %}{% trans 'Hotel Messiah - Cennik' %}{% endblock %}
 
 
 {% block content %}
@@ -15,7 +15,7 @@
 
     <div class="title">
 
-        <h1>Cennik</h1>
+        <h1>{% trans 'Cennik' %}</h1>
 
     </div><!-- .title -->
 
@@ -24,22 +24,22 @@
         <div id="tabs">
 
             <ul>
-                <li><a href="#tabs-1">Pokoje</a></li>
-                <li><a href="#tabs-2">Menu</a></li>
-                <li><a href="#tabs-3">Usługi</a></li>
+                <li><a href="#tabs-1">{% trans 'Pokoje' %}</a></li>
+                <li><a href="#tabs-2">{% trans 'Menu' %}</a></li>
+                <li><a href="#tabs-3">{% trans 'Usługi' %}</a></li>
             </ul>
 
             <div id="tabs-1" class="tab-content">
-                <h2>Cena za osobę:</h2>
+                <h2>{% trans 'Cena za osobę' %}:</h2>
                 <ul>
-                    <li><p>Dorosły  --  {{ cena_dorosly }} zł.</p></li>
-                    <li><p>Dziecko  --  {{ cena_dziecko }} zł.</p></li>
+                    <li><p>{% blocktrans %}Dorosły  --  {{ cena_dorosly }} zł{% endblocktrans %}.</p></li>
+                    <li><p>{% blocktrans %}Dziecko  --  {{ cena_dziecko }} zł{% endblocktrans %}.</p></li>
                 </ul>
                 {% if ceny_pokojow %}
-                <h2>Dostępne są pokoje w następujących rozmiarach:</h2>
+                <h2>{% trans 'Dostępne są pokoje w następujących rozmiarach' %}:</h2>
                 <ul>
                     {% for p in ceny_pokojow %}
-                    <li><p>{{ p.rozmiar }}-osobowy  --  {{ p.cena }} zł</p></li>
+                    <li><p>{% blocktrans with rozmiar=p.rozmiar cena=p.cena %}{{ rozmiar }}-osobowy  --  {{ cena }} zł{% endblocktrans %}</p></li>
                     {% endfor %}
                 </ul>
                 {% endif %}
@@ -79,9 +79,11 @@
 
             </div><!-- #tabs-2 -->
 
+            {% trans 'Dostepna' as available %}
+            {% trans 'Niedostepna' as unavailable %}
             <div id="tabs-3" class="tab-content">
 
-                <h2>Usługi świadczone przez hotel:</h2>
+                <h2>{% trans 'Usługi świadczone przez hotel' %}:</h2>
 
                 <div class="wewnetrzne">
 
@@ -92,7 +94,7 @@
                             <div class="nazwa"><p>{{ usluga.nazwa }}</p></div>
                             <div class="cena"><p>{{ usluga.cena }} zł</p></div>
                             <div class="opis"><p>{{ usluga.opis }}</p></div>
-                            <div class="dostepnosc">{% if usluga.dostepnosc %}Dostępna{% else %} Niedostępna {% endif %}</div>
+                            <div class="dostepnosc">{% if usluga.dostepnosc %}{{ available }}{% else %} {{ unavailable }} {% endif %}</div>
                         </li>
 
                         {% endfor %}
@@ -100,7 +102,7 @@
 
                 </div> <!-- .wewnetrzne -->
 
-                <h2>Usługi zewnętrzne:</h2>
+                <h2>{% trans 'Usługi zewnętrzne' %}:</h2>
 
                 <div class="zewnetrzne">
 
@@ -111,7 +113,7 @@
                             <div class="nazwa"><p>{{ usluga.nazwa }}</p></div>
                             <div class="cena"><p>{{ usluga.cena }} zł</p></div>
                             <div class="opis"><p>{{ usluga.opis }}</p></div>
-                            <div class="dostepnosc">{% if usluga.dostepnosc %}Dostępna{% else %} Niedostępna {% endif %}</div>
+                            <div class="dostepnosc">{% if usluga.dostepnosc %}{{ available }}{% else %} {{ unavailable }} {% endif %}</div>
                         </li>
 
                         {% endfor %}
