@@ -275,10 +275,16 @@ body.login {
 
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 750px) {
+            #base-content {
+                padding: 140px 60px 200px 60px !important;
+            }
+        }
+
+        @media (max-width: 520px) {
             #base-content {
                 margin: 0 20px 20px 20px !important;
-                padding: 140px 20px !important;
+                padding: 140px 20px 280px 20px !important;
             }
         }
 
@@ -315,6 +321,16 @@ body.login {
                 display: inline-block;
                 padding: 0;
                 float: none;
+
+                @media (max-width: 620px) {
+                    .inline-group {
+                        .inline-related{
+                            h3 {
+                                padding-bottom: 20px;
+                            }
+                        }
+                    }
+                }
 
                 .selector {
                     width: auto;
@@ -401,6 +417,7 @@ body.login {
                         }
 
                         .results {
+                            margin-right: 0 !important;
 
                             .action-checkbox-column {
                                 background: none;
@@ -460,6 +477,7 @@ body.login {
                             color: black;
                             font-size: 100%;
                             padding: 0 25px;
+                            margin-right: 0 !important;
                         }
 
                         .empty-paginator {
@@ -470,8 +488,21 @@ body.login {
 
                     }
 
+                    @media (max-width: 750px) {
+                        #changelist-filter {
+                            top: 200px !important;
+                        }
+                    }
+
+                    @media (max-width: 650px) {
+                        #changelist-filter {
+                            top: 250px !important;
+                        }
+                    }
+
                     #changelist-filter {
                         background: white;
+                        top: 150px;
 
                         h2 {
                             font-size: 100%;
@@ -552,6 +583,12 @@ body.login {
 
                     }
 
+                    .field-zdjecie {
+                        input {
+                            max-width: 220px;
+                        }
+                    }
+
                 }
 
                 form {
@@ -612,6 +649,12 @@ body.login {
                             }
                         }
 
+                        @media (max-width: 600px) {
+                            tr {
+                                font-size: 10px !important;
+                            }
+                        }
+
                         @media (max-width: 840px) {
                             .form-row {
                                 .selector {
@@ -653,6 +696,10 @@ body.login {
                                 font-size: 14px;
                             }
 
+                            #id_cena {
+                                width: 100px;
+                            }
+
                             .datetime {
                                 padding: 0 0 0 130px;
                             }
@@ -661,8 +708,15 @@ body.login {
                                 font-size: 14px;
                             }
 
+                            @media (max-width: 400px) {
+                                textarea {
+                                    width: 90% !important;
+                                }
+                            }
+
                             textarea {
-                                resize: vertical;
+                                width: 100%;
+                                max-width: 100%;
                             }
 
                             .file-upload {
@@ -680,6 +734,59 @@ body.login {
                                     background-position: 5px center;
                                 }
 
+                            }
+
+                            @media (max-width: 610px) {
+                                select {
+                                    width: 80px;
+                                }
+
+                                .field-cena input {
+                                    width: 80px;
+                                }
+                            }
+
+                            @media (max-width: 400px) {
+
+                                .field-cena input {
+                                    width: 40px;
+                                }
+                            }
+
+                            @media (max-width: 860px) {
+                                .field-pokoj select {
+                                    width: 150px;
+                                }
+                            }
+
+                            @media (max-width: 760px) {
+                                .field-pokoj select {
+                                    width: 100px;
+                                }
+
+                                .field-cena input {
+                                    width: 60px;
+                                }
+                            }
+
+                            @media (max-width: 650px) {
+                                .field-pokoj select {
+                                    width: 50px;
+                                }
+
+                                .field-cena input {
+                                    width: 40px;
+                                }
+
+                                .field-doroslych input, .field-dzieci input {
+                                    width: 20px;
+                                }
+                            }
+
+                            @media (max-width: 400px) {
+                                .field-pokoj select {
+                                    width: 30px;
+                                }
                             }
 
                         }
@@ -738,6 +845,7 @@ body.login {
                     .submit-row {
                         background: none;
                         border: none;
+                        margin-right: -15px;
 
                         .deletelink-box {
                             .gradient-vertical(#fefefe, #e1e1e1);
@@ -751,6 +859,7 @@ body.login {
                         input {
                             font-family: 'alegreyaregular';
                             font-size: 14px;
+                            margin: 0 15px;
                         }
 
                         .default {
