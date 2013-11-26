@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-26 18:46+0100\n"
+"POT-Creation-Date: 2013-11-26 19:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,10 +102,6 @@ msgstr "Rooms"
 #, python-format
 msgid "Numer: %(numer)d, rozmiar: %(rozmiar)d"
 msgstr "Number: %(numer)d, size: %(rozmiar)d"
-
-#: .\Hotel\models.py:50
-msgid "Niedostepny!"
-msgstr "Unavailable!"
 
 #: .\Hotel\models.py:54
 msgid "Jest dostepny?"
@@ -205,10 +201,12 @@ msgstr "Booking"
 msgid "Rezerwacje"
 msgstr "Booking"
 
-#: .\Hotel\models.py:119
-#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:18
-msgid "i"
-msgstr "and"
+#: .\Hotel\models.py:122
+#, python-format
+msgid "%d osoba"
+msgid_plural "%d osoby"
+msgstr[0] "%d person"
+msgstr[1] "%d people"
 
 #: .\Hotel\models.py:128 .\Hotel\models.py:143
 #: .\Hotel\templates\Hotel\archiwum.html.py:46
@@ -224,14 +222,9 @@ msgstr "Adults"
 msgid "Dzieci"
 msgstr "Children"
 
-#: .\Hotel\models.py:142 .\Hotel\models.py:153
+#: .\Hotel\models.py:142
 msgid "Pokoj na rezerwacji"
 msgstr "Booked rooms"
-
-#: .\Hotel\models.py:152
-#, python-format
-msgid "Pokoj %d"
-msgstr "Room %d"
 
 #: .\Hotel\models.py:178
 msgid "Pokoj zostal dodany wiecej niz raz."
@@ -241,18 +234,13 @@ msgstr "Room was added more than once."
 msgid "Ten pokoj jest zajety w tym terminie."
 msgstr "This room is already booked on this date."
 
-#: .\Hotel\models.py:202 .\Hotel\models.py:211
+#: .\Hotel\models.py:202
 msgid "Usluga na rezerwacji"
 msgstr "Booked service"
 
 #: .\Hotel\models.py:203
 msgid "Uslugi na rezerwacji"
 msgstr "Booked services"
-
-#: .\Hotel\models.py:210
-#, python-format
-msgid "Usluga %d"
-msgstr "Service %d"
 
 #: .\Hotel\models.py:231
 msgid "Kategoria jedzenia"
@@ -784,6 +772,10 @@ msgid_plural "%(rooms)s pokoje,"
 msgstr[0] "%(rooms)s room,"
 msgstr[1] "%(rooms)s rooms,"
 
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:18
+msgid "i"
+msgstr "and"
+
 #: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:24
 msgid "osobowy"
 msgstr "people"
@@ -1132,6 +1124,15 @@ msgstr ""
 #: .\Messiah\templates\admin\submit_line.html.py:7
 msgid "Save and continue editing"
 msgstr ""
+
+#~ msgid "Niedostepny!"
+#~ msgstr "Unavailable!"
+
+#~ msgid "Pokoj %d"
+#~ msgstr "Room %d"
+
+#~ msgid "Usluga %d"
+#~ msgstr "Service %d"
 
 #~ msgid "Kategoria"
 #~ msgstr "Category"

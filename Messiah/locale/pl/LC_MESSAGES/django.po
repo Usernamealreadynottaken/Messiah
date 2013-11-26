@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-26 18:46+0100\n"
+"POT-Creation-Date: 2013-11-26 19:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -103,10 +103,6 @@ msgstr ""
 #: .\Hotel\models.py:48
 #, python-format
 msgid "Numer: %(numer)d, rozmiar: %(rozmiar)d"
-msgstr ""
-
-#: .\Hotel\models.py:50
-msgid "Niedostepny!"
 msgstr ""
 
 #: .\Hotel\models.py:54
@@ -207,10 +203,13 @@ msgstr ""
 msgid "Rezerwacje"
 msgstr ""
 
-#: .\Hotel\models.py:119
-#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:18
-msgid "i"
-msgstr ""
+#: .\Hotel\models.py:122
+#, python-format
+msgid "%d osoba"
+msgid_plural "%d osoby"
+msgstr[0] "%d osoba"
+msgstr[1] "%d osoby"
+msgstr[2] "%d osob"
 
 #: .\Hotel\models.py:128 .\Hotel\models.py:143
 #: .\Hotel\templates\Hotel\archiwum.html.py:46
@@ -226,13 +225,8 @@ msgstr ""
 msgid "Dzieci"
 msgstr ""
 
-#: .\Hotel\models.py:142 .\Hotel\models.py:153
+#: .\Hotel\models.py:142
 msgid "Pokoj na rezerwacji"
-msgstr ""
-
-#: .\Hotel\models.py:152
-#, python-format
-msgid "Pokoj %d"
 msgstr ""
 
 #: .\Hotel\models.py:178
@@ -243,17 +237,12 @@ msgstr ""
 msgid "Ten pokoj jest zajety w tym terminie."
 msgstr ""
 
-#: .\Hotel\models.py:202 .\Hotel\models.py:211
+#: .\Hotel\models.py:202
 msgid "Usluga na rezerwacji"
 msgstr ""
 
 #: .\Hotel\models.py:203
 msgid "Uslugi na rezerwacji"
-msgstr ""
-
-#: .\Hotel\models.py:210
-#, python-format
-msgid "Usluga %d"
 msgstr ""
 
 #: .\Hotel\models.py:231
@@ -786,6 +775,10 @@ msgid_plural "%(rooms)s pokoje,"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:18
+msgid "i"
+msgstr ""
 
 #: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:24
 msgid "osobowy"

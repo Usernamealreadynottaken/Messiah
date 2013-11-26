@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.db.models import Q
-from django.utils.translation import ugettext_lazy as _, ungettext_lazy as __
+from django.utils.translation import ugettext_lazy as _, ungettext_lazy as __, ugettext as _u, ungettext
 
 # Rzeczy do dodania do modelu:
 # - rezerwacja - cos jak boolean czy jest aktywna czy nie
@@ -47,7 +47,7 @@ class Pokoj(models.Model):
     def __unicode__(self):
         ret = _('Numer: %(numer)d, rozmiar: %(rozmiar)d') % {'numer': self.numer, 'rozmiar': self.rozmiar, }
         if not self.dostepnosc:
-            ret += ' (' + _('Niedostepny!') + ')'
+            ret += ' (' + _u('Niedostepny!') + ')'
         return ret
 
     dostepnosc.boolean = True
@@ -116,10 +116,10 @@ class Rezerwacja(models.Model):
             if 0 < i < self.pokojnarezerwacji_set.count() - 1:
                 pv += ', '
             elif i == self.pokojnarezerwacji_set.count() - 1 and not i == 0:
-                pv += ' ' + _('i') + ' '
+                pv += ' ' + _u('i') + ' '
 
             pv += '%d (' % (pnr.pokoj.numer,)
-            pv += __('%d osoba', '%d osoby', pnr.osob()) % (pnr.osob(),)
+            pv += ungettext('%d osoba', '%d osoby', pnr.osob()) % (pnr.osob(),)
             pv += ')'
             i += 1
 
@@ -149,8 +149,8 @@ class PokojNaRezerwacji(models.Model):
         if pnr:
             for i in range(0, len(pnr)):
                 if pnr[i] == self:
-                    return _('Pokoj %d') % (i+1,)
-        return _('Pokoj na rezerwacji')
+                    return _u('Pokoj %d') % (i+1,)
+        return _u('Pokoj na rezerwacji')
 
     def osob(self):
         return self.doroslych + self.dzieci
@@ -207,8 +207,8 @@ class UslugaNaRezerwacji(models.Model):
         if unr:
             for i in range(0, len(unr)):
                 if unr[i] == self:
-                    return _('Usluga %d') % (i+1,)
-        return _('Usluga na rezerwacji')
+                    return _u('Usluga %d') % (i+1,)
+        return _u('Usluga na rezerwacji')
 
     def clean(self):
         # Jesli uzytkownik zostawi pusta cene to ustawiamy na 0 zeby nie wyskoczylo ze cena

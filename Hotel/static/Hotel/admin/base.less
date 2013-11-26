@@ -715,8 +715,8 @@ body.login {
                             }
 
                             textarea {
-                                width: 100%;
-                                max-width: 100%;
+                                width: 80%;
+                                resize: vertical;
                             }
 
                             .file-upload {
@@ -734,6 +734,24 @@ body.login {
                                     background-position: 5px center;
                                 }
 
+                            }
+
+                            @media (max-width: 915px) {
+                                textarea {
+                                    width: 75%;
+                                }
+                            }
+
+                            @media (max-width: 785px) {
+                                textarea {
+                                    width: 70%;
+                                }
+                            }
+
+                            @media (max-width: 785px) {
+                                textarea {
+                                    width: 95%;
+                                }
                             }
 
                             @media (max-width: 610px) {
@@ -945,6 +963,12 @@ body.login {
 
             }
 
+            ul {
+                li {
+                    font-size: 100%;
+                }
+            }
+
         }
 
     }
@@ -1030,10 +1054,12 @@ body.login {
                 border-bottom: 1px solid #eeeeee;
 
                 textarea {
-                    width: 550px;
+                    width: 90%;
                     height: 100px;
                     resize: vertical;
                 }
+
+                @media
 
             }
 
