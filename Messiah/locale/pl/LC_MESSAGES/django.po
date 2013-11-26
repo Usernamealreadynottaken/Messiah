@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-24 19:18+0100\n"
+"POT-Creation-Date: 2013-11-26 15:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,19 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
+#: .\Hotel\views.py:285
+msgid "Twoje pytanie"
+msgstr ""
+
+#: .\Hotel\views.py:286
+msgid "Nasza odpowiedz"
+msgstr ""
+
 #: .\Hotel\templates\Hotel\archiwum.html.py:24
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:123
 #: .\Messiah\templates\500.html.py:6
 #: .\Messiah\templates\admin\app_index.html.py:7
-#: .\Messiah\templates\admin\base.html.py:52
+#: .\Messiah\templates\admin\base.html.py:56
 #: .\Messiah\templates\admin\change_form.html.py:19
 #: .\Messiah\templates\admin\change_list.html.py:41
 #: .\Messiah\templates\admin\delete_confirmation.html.py:7
@@ -30,7 +38,7 @@ msgstr ""
 #: .\Messiah\templates\admin\invalid_setup.html.py:6
 #: .\Messiah\templates\admin\object_history.html.py:7
 msgid "Home"
-msgstr ""
+msgstr "Poczatek"
 
 #: .\Hotel\templates\Hotel\archiwum.html.py:25
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:124
@@ -249,6 +257,14 @@ msgstr ""
 #: .\Hotel\templates\Hotel\index.html.py:4
 msgid "Hotel Messiah"
 msgstr ""
+
+#: .\Hotel\templates\Hotel\index.html.py:19
+#, python-format
+msgid "There is %(number)s"
+msgid_plural "There are %(number)s"
+msgstr[0] "Jest %(number)s"
+msgstr[1] "Sa %(number)s"
+msgstr[2] "Jest %(number)s"
 
 #: .\Hotel\templates\Hotel\kontakt.html.py:6
 msgid "Hotel Messiah - Kontakt"
@@ -520,33 +536,29 @@ msgstr ""
 
 #: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:9
 #, python-format
-msgid ""
-"\n"
-"%(rooms)s pokoj,\n"
-msgid_plural ""
-"\n"
-"%(rooms)s pokoje,\n"
+msgid "%(rooms)s pokoj,"
+msgid_plural "%(rooms)s pokoje,"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:22
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:18
 msgid "i"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:28
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:24
 msgid "osobowy"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:28
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:24
 msgid "kod"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:35
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:31
 msgid "Twoj kod rezerwacji to"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:42
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:38
 msgid "Wystapil blad"
 msgstr ""
 
@@ -604,58 +616,60 @@ msgstr ""
 
 #: .\Hotel\templates\Hotel\wizualizacja.html.py:26
 #, python-format
-msgid "%(r)s-osobowe"
-msgid_plural "%(r)s-osobowe"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgid "%(rooms)s-osobowe"
+msgid_plural "%(rooms)s-osobowe_PL"
+msgstr[0] "%(rooms)s-osobowe"
+msgstr[1] "%(rooms)s-osobowe"
+msgstr[2] "%(rooms)s-osobowe"
 
 #: .\Messiah\templates\404.html.py:4 .\Messiah\templates\404.html.py:8
 msgid "Page not found"
-msgstr ""
+msgstr "Nie znaleziono strony"
 
 #: .\Messiah\templates\404.html.py:10
 msgid "We're sorry, but the requested page could not be found."
-msgstr ""
+msgstr "Zadana strona nie zostala znaleziona."
 
 #: .\Messiah\templates\500.html.py:7
 msgid "Server error"
-msgstr ""
+msgstr "Blad serwera"
 
 #: .\Messiah\templates\500.html.py:11
 msgid "Server error (500)"
-msgstr ""
+msgstr "Blad serwera (500)"
 
 #: .\Messiah\templates\500.html.py:14
 msgid "Server Error <em>(500)</em>"
-msgstr ""
+msgstr "Blad serwera <em>(500)</em>"
 
 #: .\Messiah\templates\500.html.py:15
 msgid ""
 "There's been an error. It's been reported to the site administrators via "
 "email and should be fixed shortly. Thanks for your patience."
 msgstr ""
+"Wystapil blad. Zostal gloszony administratorowi za pomoca emaila i zostanie "
+"niedlugo naprawiony. Dziekujemy za cierpliwosc."
 
 #: .\Messiah\templates\admin\actions.html.py:4
 msgid "Run the selected action"
-msgstr ""
+msgstr "Wykonaj wybrane akcje"
 
 #: .\Messiah\templates\admin\actions.html.py:4
 msgid "Go"
-msgstr ""
+msgstr "Wykonaj"
 
 #: .\Messiah\templates\admin\actions.html.py:11
 msgid "Click here to select the objects across all pages"
-msgstr ""
+msgstr "Kliknij tutaj zeby wybrac wszystkie obiekty na wszystkich stronach"
 
 #: .\Messiah\templates\admin\actions.html.py:11
 #, python-format
 msgid "Select all %(total_count)s %(module_name)s"
-msgstr ""
+msgstr "Wybierz wszystkie %(total_count)s %(module_name)s"
 
 #: .\Messiah\templates\admin\actions.html.py:13
 msgid "Clear selection"
-msgstr ""
+msgstr "Wyczysc zaznaczenie"
 
 #: .\Messiah\templates\admin\app_index.html.py:10
 #: .\Messiah\templates\admin\index.html.py:21
@@ -663,78 +677,78 @@ msgstr ""
 msgid "%(name)s"
 msgstr ""
 
-#: .\Messiah\templates\admin\base.html.py:32
+#: .\Messiah\templates\admin\base.html.py:36
 msgid "Welcome,"
-msgstr ""
+msgstr "Witaj,"
 
-#: .\Messiah\templates\admin\base.html.py:37
+#: .\Messiah\templates\admin\base.html.py:41
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentacja"
 
-#: .\Messiah\templates\admin\base.html.py:40
+#: .\Messiah\templates\admin\base.html.py:44
 msgid "Change password"
-msgstr ""
+msgstr "Zmiana hasla"
 
-#: .\Messiah\templates\admin\base.html.py:42
+#: .\Messiah\templates\admin\base.html.py:46
 msgid "Log out"
-msgstr ""
+msgstr "Wyloguj sie"
 
 #: .\Messiah\templates\admin\base_site.html.py:4
 msgid "Django site admin"
-msgstr ""
+msgstr "Strona administratora Django"
 
 #: .\Messiah\templates\admin\base_site.html.py:7
 msgid "Hotel administration"
-msgstr ""
+msgstr "Administracja hotelem"
 
 #: .\Messiah\templates\admin\change_form.html.py:22
 #: .\Messiah\templates\admin\index.html.py:33
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 #: .\Messiah\templates\admin\change_form.html.py:32
 #: .\Messiah\templates\admin\object_history.html.py:11
 msgid "History"
-msgstr ""
+msgstr "Historia"
 
 #: .\Messiah\templates\admin\change_form.html.py:33
 msgid "View on site"
-msgstr ""
+msgstr "Pokaz na stronie"
 
 #: .\Messiah\templates\admin\change_form.html.py:44
 #: .\Messiah\templates\admin\change_list.html.py:67
 #: .\Messiah\templates\admin\login.html.py:17
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Zaznacz blad ponizej."
+msgstr[1] "Zaznacz bledy ponizej"
 
 #: .\Messiah\templates\admin\change_list.html.py:58
 #, python-format
 msgid "Add %(name)s"
-msgstr ""
+msgstr "Dodaj %(name)s"
 
 #: .\Messiah\templates\admin\change_list.html.py:78
 msgid "Filter"
-msgstr ""
+msgstr "Filtr"
 
 #: .\Messiah\templates\admin\change_list_results.html.py:17
 msgid "Remove from sorting"
-msgstr ""
+msgstr "Nie sortuj"
 
 #: .\Messiah\templates\admin\change_list_results.html.py:18
 #, python-format
 msgid "Sorting priority: %(priority_number)s"
-msgstr ""
+msgstr "Priorytet sortowania: %(priority_number)s"
 
 #: .\Messiah\templates\admin\change_list_results.html.py:19
 msgid "Toggle sorting"
-msgstr ""
+msgstr "Wlacz/wylacz sortowanie"
 
 #: .\Messiah\templates\admin\delete_confirmation.html.py:11
 #: .\Messiah\templates\admin\submit_line.html.py:4
 msgid "Delete"
-msgstr ""
+msgstr "Usun"
 
 #: .\Messiah\templates\admin\delete_confirmation.html.py:18
 #, python-format
@@ -743,6 +757,8 @@ msgid ""
 "related objects, but your account doesn't have permission to delete the "
 "following types of objects:"
 msgstr ""
+"Usuwanie %(object_name)s '%(escaped_object)s' usuneloby zalezne obiekty, ale "
+"twoje konto nie posiada uprawnien do usuwania nastepujacych typow obiektow:"
 
 #: .\Messiah\templates\admin\delete_confirmation.html.py:26
 #, python-format
@@ -750,6 +766,8 @@ msgid ""
 "Deleting the %(object_name)s '%(escaped_object)s' would require deleting the "
 "following protected related objects:"
 msgstr ""
+"Usuwanie %(object_name)s '%(escaped_object)s' spowoduje usuniecie "
+"nastepujacych chronionych zaleznych obiektow:"
 
 #: .\Messiah\templates\admin\delete_confirmation.html.py:34
 #, python-format
@@ -757,6 +775,8 @@ msgid ""
 "Are you sure you want to delete the %(object_name)s \"%(escaped_object)s\"? "
 "All of the following related items will be deleted:"
 msgstr ""
+"Czy na pewno chcesz usunac %(object_name)s \"%(escaped_object)s\"? "
+"Nastepujace zalezne obiekty zostana usuniete:"
 
 #: .\Messiah\templates\admin\delete_confirmation.html.py:39
 #: .\Messiah\templates\admin\delete_selected_confirmation.html.py:44

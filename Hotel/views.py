@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
+from django.utils.translation import ugettext as _
 from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
 from django.http import HttpResponseRedirect
@@ -281,8 +282,8 @@ def wyslij_email(request, pk):
         subject = 'Hotel Messiah'
         try:
             message = request.GET['message']
-            message_html = "<h3>Twoje pytanie: </h3><p>" + wiadomosc.tresc + \
-                "</p><h3>Nasza odpowiedz: </h3><p>" + request.GET['message'] + "</p>"
+            message_html = '<h3>' + _('Twoje pytanie') + ': </h3><p>' + wiadomosc.tresc + \
+                '</p><h3>' + _('Nasza odpowiedz') + ': </h3><p>' + request.GET['message'] + "</p>"
             from_email = 'hotel.messiah@gmail.com'
             to_email = request.GET['email_address']
             if subject and message and from_email:
@@ -290,7 +291,7 @@ def wyslij_email(request, pk):
                     # send_mail(subject, message, from_email, [to_email])
                     msg = EmailMessage(subject, message_html, from_email, [to_email])
                     msg.content_subtype = "html"
-                    # msg.send()
+                    msg.send()
                 except KeyError:
                     response_message = "site_error"
             else:

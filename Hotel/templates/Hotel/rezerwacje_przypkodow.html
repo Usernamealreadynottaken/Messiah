@@ -6,11 +6,7 @@
 {% trans 'Znaleziono nastepujace rezerwacje' %}:<br />
 {% for rezerwacja in rezerwacje %}
 {{ rezerwacja.poczatek_pobytu }} - {{ rezerwacja.koniec_pobytu }}
-({% blocktrans count rooms=rezerwacja.pokojnarezerwacji_set.count %}
-{{ rooms }} pokoj,
-{% plural %}
-{{ rooms }} pokoje,
-{% endblocktrans %}
+({% blocktrans count rooms=rezerwacja.pokojnarezerwacji_set.count %}{{ rooms }} pokoj,{% plural %}{{ rooms }} pokoje,{% endblocktrans %}
 
 {% for pnr in rezerwacja.pokojnarezerwacji_set.all %}
 

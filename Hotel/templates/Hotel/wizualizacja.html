@@ -23,7 +23,7 @@
 
             {% if pokoje and rozmiary %}
             {% for r in rozmiary %}
-            <h3 class="caption">{% blocktrans count r=r %}{{ r }}-osobowe{% plural %}{{ r }}-osobowe{% endblocktrans %}</h3>
+            <h3 class="caption">{% blocktrans count rooms=r %}{{ rooms }}-osobowe{% plural %}{{ rooms }}-osobowe_PL{% endblocktrans %}</h3>
             <ul>{% for p in pokoje %}{% if p.pokoj.rozmiar == r %}{% if not p.zajety %}<!--
 
                 Pokoje wolne najpierw

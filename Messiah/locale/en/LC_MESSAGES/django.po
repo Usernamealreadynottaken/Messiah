@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-24 19:18+0100\n"
+"POT-Creation-Date: 2013-11-26 15:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,11 +16,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: .\Hotel\views.py:285
+msgid "Twoje pytanie"
+msgstr "Your question"
+
+#: .\Hotel\views.py:286
+msgid "Nasza odpowiedz"
+msgstr "Our answer"
+
 #: .\Hotel\templates\Hotel\archiwum.html.py:24
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:123
 #: .\Messiah\templates\500.html.py:6
 #: .\Messiah\templates\admin\app_index.html.py:7
-#: .\Messiah\templates\admin\base.html.py:52
+#: .\Messiah\templates\admin\base.html.py:56
 #: .\Messiah\templates\admin\change_form.html.py:19
 #: .\Messiah\templates\admin\change_list.html.py:41
 #: .\Messiah\templates\admin\delete_confirmation.html.py:7
@@ -247,6 +255,13 @@ msgstr "Visualization"
 #: .\Hotel\templates\Hotel\index.html.py:4
 msgid "Hotel Messiah"
 msgstr ""
+
+#: .\Hotel\templates\Hotel\index.html.py:19
+#, python-format
+msgid "There is %(number)s"
+msgid_plural "There are %(number)s"
+msgstr[0] ""
+msgstr[1] ""
 
 #: .\Hotel\templates\Hotel\kontakt.html.py:6
 msgid "Hotel Messiah - Kontakt"
@@ -519,36 +534,28 @@ msgstr "Following bookings found"
 
 #: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:9
 #, python-format
-msgid ""
-"\n"
-"%(rooms)s pokoj,\n"
-msgid_plural ""
-"\n"
-"%(rooms)s pokoje,\n"
-msgstr[0] ""
-"\n"
-"%(rooms)s room,\n"
-msgstr[1] ""
-"\n"
-"%(rooms)s rooms,\n"
+msgid "%(rooms)s pokoj,"
+msgid_plural "%(rooms)s pokoje,"
+msgstr[0] "%(rooms)s room,"
+msgstr[1] "%(rooms)s rooms,"
 
-#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:22
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:18
 msgid "i"
 msgstr "and"
 
-#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:28
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:24
 msgid "osobowy"
 msgstr "people"
 
-#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:28
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:24
 msgid "kod"
 msgstr "code"
 
-#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:35
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:31
 msgid "Twoj kod rezerwacji to"
 msgstr "Your booking code is"
 
-#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:42
+#: .\Hotel\templates\Hotel\rezerwacje_przypkodow.html.py:38
 msgid "Wystapil blad"
 msgstr "There was an error"
 
@@ -605,11 +612,11 @@ msgid "Odpowiedz do"
 msgstr "Answer to"
 
 #: .\Hotel\templates\Hotel\wizualizacja.html.py:26
-#, fuzzy, python-format
-msgid "%(r)s-osobowe"
-msgid_plural "%(r)s-osobowe"
-msgstr[0] "%(r)s person"
-msgstr[1] "%(r)s people"
+#, python-format
+msgid "%(rooms)s-osobowe"
+msgid_plural "%(rooms)s-osobowe_PL"
+msgstr[0] "%(rooms)s person"
+msgstr[1] "%(rooms)s people"
 
 #: .\Messiah\templates\404.html.py:4 .\Messiah\templates\404.html.py:8
 msgid "Page not found"
@@ -664,19 +671,19 @@ msgstr ""
 msgid "%(name)s"
 msgstr ""
 
-#: .\Messiah\templates\admin\base.html.py:32
+#: .\Messiah\templates\admin\base.html.py:36
 msgid "Welcome,"
 msgstr ""
 
-#: .\Messiah\templates\admin\base.html.py:37
+#: .\Messiah\templates\admin\base.html.py:41
 msgid "Documentation"
 msgstr ""
 
-#: .\Messiah\templates\admin\base.html.py:40
+#: .\Messiah\templates\admin\base.html.py:44
 msgid "Change password"
 msgstr ""
 
-#: .\Messiah\templates\admin\base.html.py:42
+#: .\Messiah\templates\admin\base.html.py:46
 msgid "Log out"
 msgstr ""
 
