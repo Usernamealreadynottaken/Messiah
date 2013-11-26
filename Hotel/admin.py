@@ -1,4 +1,5 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
 import datetime
 
 from Hotel.models import Rezerwacja, Pokoj, Usluga, UslugaNaRezerwacji, PokojNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
@@ -35,12 +36,12 @@ class RezerwacjaAdmin(admin.ModelAdmin):
 
 # JEDZENIE
 
-class JedzenieInline(admin.StackedInline):
+class JedzenieInline(TranslationStackedInline):
     model = Jedzenie
     extra = 1
 
 
-class KategoriaJedzeniaAdmin(admin.ModelAdmin):
+class KategoriaJedzeniaAdmin(TranslationAdmin):
     inlines = [JedzenieInline]
 
 
@@ -51,14 +52,14 @@ class ZdjecieInline(admin.StackedInline):
     extra = 2
 
 
-class PokojAdmin(admin.ModelAdmin):
+class PokojAdmin(TranslationAdmin):
     inlines = [ZdjecieInline]
     list_display = ('__unicode__', 'dostepnosc')
 
 
 # OPIS HOTELU
 
-class OpisHoteluAdmin(admin.ModelAdmin):
+class OpisHoteluAdmin(TranslationAdmin):
     fieldsets = [
         ('Opis hotelu', {'fields': ['opis_hotelu', 'zdjecie', 'opis_google']}),
         ('Naglowek', {'fields': ['logo', 'tekst_logo', 'tekst_logo_widoczny', 'uklad']}),
@@ -76,7 +77,7 @@ class OpisHoteluAdmin(admin.ModelAdmin):
 
 # USLUGI
 
-class UslugaAdmin(admin.ModelAdmin):
+class UslugaAdmin(TranslationAdmin):
     list_display = ('nazwa', 'wewnetrzna', 'dostepnosc')
 
 

@@ -1,1153 +1,1446 @@
 [
-  {
-    "model": "Hotel.KategoriaJedzenia",
-    "pk": 1,
-    "fields": {
-      "nazwa": "Przystawki"
-    }
-  },
-  {
-    "model": "Hotel.KategoriaJedzenia",
-    "pk": 2,
-    "fields": {
-      "nazwa": "Zupy"
-    }
-  },
-  {
-    "model": "Hotel.KategoriaJedzenia",
-    "pk": 3,
-    "fields": {
-      "nazwa": "Dania Główne"
-    }
-  },
-  {
-    "model": "Hotel.KategoriaJedzenia",
-    "pk": 4,
-    "fields": {
-      "nazwa": "Dodatki"
-    }
-  },
-  {
-    "model": "Hotel.KategoriaJedzenia",
-    "pk": 5,
-    "fields": {
-      "nazwa": "Surówki"
-    }
-  },
-  {
-    "model": "Hotel.KategoriaJedzenia",
-    "pk": 6,
-    "fields": {
-      "nazwa": "Desery"
-    }
-  },
-  {
-    "model": "Hotel.KategoriaJedzenia",
-    "pk": 7,
-    "fields": {
-      "nazwa": "Napoje"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 1,
-    "fields": {
-      "nazwa": "Róża z łososia na zielonej sałacie",
-      "cena": "8.00",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "jedzenie/roza_z_lososia_na_salacie.jpg",
-      "kategoria": "1"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 2,
-    "fields": {
-      "nazwa": "Caprese",
-      "cena": "7.00",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "jedzenie/caprese.jpg",
-      "kategoria": "1"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 3,
-    "fields": {
-      "nazwa": "Zapiekany camembert z żurawiną i grzankami",
-      "cena": "9.50",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "jedzenie/Zapiekany_camembert.jpg",
-      "kategoria": "1"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 4,
-    "fields": {
-      "nazwa": "Schab w galarecie",
-      "cena": "6.50",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "jedzenie/Schab_w_galarecie.jpg",
-      "kategoria": "1"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 5,
-    "fields": {
-      "nazwa": "Mix kolorowych sałat z grilowanym kurczakiem i serem pleśniowym",
-      "cena": "12.50",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "jedzenie/Mix_sałat.jpg",
-      "kategoria": "1"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 6,
-    "fields": {
-      "nazwa": "Rosół z makaronem",
-      "cena": "5.00",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "jedzenie/Rosół_z_makaronem.jpg",
-      "kategoria": "2"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 7,
-    "fields": {
-      "nazwa": "Rosół z jajkiem przepiórczym i szynką",
-      "cena": "7.00",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "jedzenie/Rosół_z_jajkiem_szynką.jpg",
-      "kategoria": "2"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 8,
-    "fields": {
-      "nazwa": "Zupa grzybowa w czarce chlebowej",
-      "cena": "7.60",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "jedzenie/zupa_grzybowa.jpg",
-      "kategoria": "2"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 9,
-    "fields": {
-      "nazwa": "Krem z brokułów/ zielonego groszku/ selera z prażonymi migdałami",
-      "cena": "4.70",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "jedzenie/krem_z_brokułów.jpg",
-      "kategoria": "2"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 10,
-    "fields": {
-      "nazwa": "Zupa serowa z grzankami",
-      "cena": "6.70",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "jedzenie/Zupa_serowa_grzanki.jpg",
-      "kategoria": "2"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 11,
-    "fields": {
-      "nazwa": "Schab pieczony w sosie własnym",
-      "cena": "8.70",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "jedzenie/Schab_w_sosie.jpg",
-      "kategoria": "3"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 12,
-    "fields": {
-      "nazwa": "Filet z pstrąga w sosie cytrynowym",
-      "cena": "9.70",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "jedzenie/Filet_w_sosie.jpg",
-      "kategoria": "3"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 13,
-    "fields": {
-      "nazwa": "Polędwiczki wieprzowe w sosie borowikowym",
-      "cena": "10.70",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "jedzenie/Polędwiczki_w_sosie.jpg",
-      "kategoria": "3"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 14,
-    "fields": {
-      "nazwa": "Plater 3 mięs",
-      "cena": "12.90",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "3"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 15,
-    "fields": {
-      "nazwa": "Rolada z indyka nadziewana szpinakiem i serem feta",
-      "cena": "14.20",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "3"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 16,
-    "fields": {
-      "nazwa": "Cielęce zrazy zawijane",
-      "cena": "9.20",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "3"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 17,
-    "fields": {
-      "nazwa": "Kotlet po szwajcarsku nadziewany serem i szynką",
-      "cena": "15.00",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "3"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 18,
-    "fields": {
-      "nazwa": "Ziemniaki gotowane",
-      "cena": "3.00",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "4"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 19,
-    "fields": {
-      "nazwa": "Ziemniaki opiekane",
-      "cena": "4.00",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "4"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 20,
-    "fields": {
-      "nazwa": "Frytki",
-      "cena": "5.50",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "4"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 21,
-    "fields": {
-      "nazwa": "Dufinki",
-      "cena": "6.00",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "4"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 22,
-    "fields": {
-      "nazwa": "Kopytka",
-      "cena": "5.40",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "4"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 23,
-    "fields": {
-      "nazwa": "Kluski śląskie",
-      "cena": "4.40",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "4"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 24,
-    "fields": {
-      "nazwa": "Ryż",
-      "cena": "4.00",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "4"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 25,
-    "fields": {
-      "nazwa": "Jarzyny gotowane lub grillowanie",
-      "cena": "7.00",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "4"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 26,
-    "fields": {
-      "nazwa": "Mizeria",
-      "cena": "3.50",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "5"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 27,
-    "fields": {
-      "nazwa": "Seler",
-      "cena": "2.50",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "5"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 28,
-    "fields": {
-      "nazwa": "Marchewka z jabłkiem",
-      "cena": "3.20",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "5"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 29,
-    "fields": {
-      "nazwa": "Wiosenna",
-      "cena": "5.20",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "5"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 30,
-    "fields": {
-      "nazwa": "Biała kapusta",
-      "cena": "4.00",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "5"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 31,
-    "fields": {
-      "nazwa": "Czerwona Kapusta",
-      "cena": "4.50",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "5"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 32,
-    "fields": {
-      "nazwa": "Kapusta zasmażana",
-      "cena": "5.20",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "5"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 33,
-    "fields": {
-      "nazwa": "Ćwikła z chrzanem",
-      "cena": "3.40",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "5"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 34,
-    "fields": {
-      "nazwa": "Buraczki zasmażane",
-      "cena": "4.40",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "5"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 35,
-    "fields": {
-      "nazwa": "Lody z owocami i bitą śmietaną",
-      "cena": "3.50",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "6"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 36,
-    "fields": {
-      "nazwa": "Szarlotka z polewą",
-      "cena": "5.50",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "6"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 37,
-    "fields": {
-      "nazwa": "Szarlotka na ciepło z sosem waniliowym i gałką lodów",
-      "cena": "6.00",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "6"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 38,
-    "fields": {
-      "nazwa": "Galaretka ze świeżymi owocami",
-      "cena": "3.00",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "6"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 39,
-    "fields": {
-      "nazwa": "Panacotta z sosem malinowym",
-      "cena": "4.00",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "6"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 40,
-    "fields": {
-      "nazwa": "Koktajl ze świeżych owoców",
-      "cena": "5.40",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "6"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 41,
-    "fields": {
-      "nazwa": "Napoje gorące (kawa, herbata) nielimitowane",
-      "cena": "5.50",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "7"
-    }
-  },
-  {
-    "model": "Hotel.Jedzenie",
-    "pk": 42,
-    "fields": {
-      "nazwa": "Napoje zimne (soki, woda mineralna, Coca cola, Fanta, Sprite) nielimitowane",
-      "cena": "6.50",
-      "opis": "To jest opis tego jedzenia. Powinien on znajdować się w kolejnej linijce.",
-      "zdjecie": "",
-      "kategoria": "7"
-    }
-  },
-  {
-    "model": "Hotel.Usluga",
-    "pk": 1,
-    "fields": {
-      "nazwa": "Pralnia",
-      "cena": "10.00",
-      "opis": "Podana cena dotyczy udostępnienia jednej pralki na czas jednego prania.",
-      "dostepnosc": "True",
-      "zewnetrzna": "False"
-    }
-  },
-  {
-    "model": "Hotel.Usluga",
-    "pk": 2,
-    "fields": {
-      "nazwa": "Opieka nad dziećmi",
-      "cena": "10.00",
-      "opis": "Podana cena, to cena za godzine opieki.",
-      "dostepnosc": "True",
-      "zewnetrzna": "False"
-    }
-  },
-  {
-    "model": "Hotel.Usluga",
-    "pk": 3,
-    "fields": {
-      "nazwa": "Sejf/Depozyt",
-      "cena": "5.00",
-      "opis": "Cena zależna od wielkości przedmiotu. Podana cena dotyczy przechowywania przedmiotu wielkości dużego jabłka przez okres jednego dnia.",
-      "dostepnosc": "True",
-      "zewnetrzna": "False"
-    }
-  },
-  {
-    "model": "Hotel.Usluga",
-    "pk": 4,
-    "fields": {
-      "nazwa": "Sauna",
-      "cena": "12.00",
-      "opis": "Cena za godzinę przebywania w Saunie. Sauna znajduje się 200 metrów od naszego hotelu.",
-      "dostepnosc": "True",
-      "zewnetrzna": "True"
-    }
-  },
-  {
-    "model": "Hotel.Usluga",
-    "pk": 5,
-    "fields": {
-      "nazwa": "Basen",
-      "cena": "10.00",
-      "opis": "Cena za godzinę przebywania na terenie basenu. Jest to basen kryty. Basen znajduje się w odległości 300 metrów od naszego hotelu.",
-      "dostepnosc": "True",
-      "zewnetrzna": "True"
-    }
-  },
-  {
-    "model": "Hotel.Usluga",
-    "pk": 6,
-    "fields": {
-      "nazwa": "Kort tenisowy",
-      "cena": "20.00",
-      "opis": "Cena za wynajęcie kortu na godzinę. Niezależna od ilości graczy. Korty znajdują się 500 metrów od naszego hotelu.",
-      "dostepnosc": "True",
-      "zewnetrzna": "True"
-    }
-  },
-  {
-    "model": "Hotel.Pokoj",
-    "pk": 1,
-    "fields": {
-      "numer": "1",
-      "rozmiar": "2",
-      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
-      "opis_combo": "Duża łazienka, dobry widok",
-      "dostepnosc": "True"
-    }
-  },
-  {
-    "model": "Hotel.Pokoj",
-    "pk": 2,
-    "fields": {
-      "numer": "2",
-      "rozmiar": "1",
-      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
-      "opis_combo": "Mała łazienka, 50 calowy tv",
-      "dostepnosc": "True"
-    }
-  },
-  {
-    "model": "Hotel.Pokoj",
-    "pk": 3,
-    "fields": {
-      "numer": "3",
-      "rozmiar": "3",
-      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
-      "opis_combo": "Świeżo malowany, kołyska",
-      "dostepnosc": "True"
-    }
-  },
-  {
-    "model": "Hotel.Pokoj",
-    "pk": 4,
-    "fields": {
-      "numer": "4",
-      "rozmiar": "2",
-      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
-      "opis_combo": "Tani, nowe łóżka",
-      "dostepnosc": "True"
-    }
-  },
-  {
-    "model": "Hotel.Pokoj",
-    "pk": 5,
-    "fields": {
-      "numer": "5",
-      "rozmiar": "2",
-      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
-      "opis_combo": "Łazienka z wanną, kuchnia",
-      "dostepnosc": "True"
-    }
-  },
-  {
-    "model": "Hotel.Pokoj",
-    "pk": 6,
-    "fields": {
-      "numer": "6",
-      "rozmiar": "4",
-      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
-      "opis_combo": "2 pomieszczenia sypialne",
-      "dostepnosc": "True"
-    }
-  },
-  {
-    "model": "Hotel.Pokoj",
-    "pk": 7,
-    "fields": {
-      "numer": "7",
-      "rozmiar": "2",
-      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
-      "opis_combo": "Obrazy, ładny wystrój",
-      "dostepnosc": "True"
-    }
-  },
-  {
-    "model": "Hotel.Pokoj",
-    "pk": 8,
-    "fields": {
-      "numer": "8",
-      "rozmiar": "2",
-      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
-      "opis_combo": "Nowoczesny pokój dla dwojga",
-      "dostepnosc": "True"
-    }
-  },
-  {
-    "model": "Hotel.Pokoj",
-    "pk": 9,
-    "fields": {
-      "numer": "9",
-      "rozmiar": "2",
-      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
-      "opis_combo": "Pokój z wyższej półki dla 2",
-      "dostepnosc": "True"
-    }
-  },
-  {
-    "model": "Hotel.Pokoj",
-    "pk": 10,
-    "fields": {
-      "numer": "10",
-      "rozmiar": "3",
-      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
-      "opis_combo": "Ładny widok, pokój na parterze",
-      "dostepnosc": "True"
-    }
-  },
-  {
-    "model": "Hotel.Pokoj",
-    "pk": 11,
-    "fields": {
-      "numer": "11",
-      "rozmiar": "1",
-      "opis": "Rozmiar określa ilość osób, które komfortowo pomieszą się w tym pokoju. Podana cena dotyczy wynajęcia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest ceną brutto.",
-      "opis_combo": "Najlepszy wybór dla singla",
-      "dostepnosc": "False"
-    }
-  },
-  {
-    "model": "Hotel.CenaPokoju",
-    "pk": 1,
-    "fields": {
-      "rozmiar": "1",
-      "cena": "100.00"
-    }
-  },
-  {
-    "model": "Hotel.CenaPokoju",
-    "pk": 2,
-    "fields": {
-      "rozmiar": "2",
-      "cena": "120.00"
-    }
-  },
-  {
-    "model": "Hotel.CenaPokoju",
-    "pk": 3,
-    "fields": {
-      "rozmiar": "3",
-      "cena": "150.00"
-    }
-  },
-  {
-    "model": "Hotel.CenaPokoju",
-    "pk": 4,
-    "fields": {
-      "rozmiar": "4",
-      "cena": "200.00"
-    }
-  },
-  {
-    "model": "Hotel.Wiadomosc",
-    "pk": 1,
-    "fields": {
-      "email": "xxx69@op.pl",
-      "nazwisko": "Nowak",
-      "tresc": "Witam, proszę o opisanie wielkości łóżek w pokoju numer 4.",
-      "odpowiedz": "Witam serdecznie, wymiary łóżek w tym pokoju wynoszą: wysokość - 40c, szerokość - 90cm, długość - 190cm. Pozdrawiam i zapraszam. ",
-      "wyslano_odpowiedz": "True"
-    }
-  },
-  {
-    "model": "Hotel.Wiadomosc",
-    "pk": 2,
-    "fields": {
-      "email": "dziadzia@gmail.com",
-      "nazwisko": "Dziadek",
-      "tresc": "Chciałbym się dowiedzieć jakie kanały są dostępne w tv. Chodzi o pokój numer 2.",
-      "odpowiedz": "Witam, W pokoju numer 2 dostępne są wszystkie kanały dostępne w ofercie Cyfrowy Polsat. Pozdrawiam i zapraszam.",
-      "wyslano_odpowiedz": "True"
-    }
-  },
-  {
-    "model": "Hotel.Wiadomosc",
-    "pk": 3,
-    "fields": {
-      "email": "wielki_misio@o2.pl",
-      "nazwisko": "",
-      "tresc": "Chciałbym się dowiedzieć, czy jest możliwość wyścielenia łóżka różami przed moim przyjazdem do hotelu? Oczywiście zapłacę.",
-      "odpowiedz": "Witam, oczywiście możemy to zrobić na życzenie klienta. Proszę mi tylko podać dane do swojej rezerwacji.",
-      "wyslano_odpowiedz": "True"
-    }
-  },
-  {
-    "model": "Hotel.Wiadomosc",
-    "pk": 4,
-    "fields": {
-      "email": "",
-      "nazwisko": "",
-      "tresc": "Dół waszej strony źle wyświetla się na moim telefonie - samsung galaxy 4. Defaultowa przeglądarka z jej aktualną wersją.",
-      "odpowiedz": "",
-      "wyslano_odpowiedz": "False"
-    }
-  },
-  {
-    "model": "Hotel.OpisHotelu",
-    "pk": 1,
-    "fields": {
-      "cena_dorosly": "40.00",
-      "cena_dziecko": "25.00",
-      "opis_hotelu": "Hotel Messiah położony jest w Krakowie przy ulicy Aleksandry 30, przy trasie międzynarodowej E4 i obwodnicy krakowskiej. Hotel posiada dogodne i szybkie połączenia z Wawelem (6 km), Wieliczką (3 km), Kazimierzem (4 km) i Portem Lotniczym w Balicach (22 km). Położenie Hotelu XXXXX umożliwia wygodne planowanie dalszych wycieczek turystycznych do m.in. Zakopanego, Oświęcimia i Częstochowy oraz doskonałe połączenie tramwajowe i autobusowe z ważniejszymi częściami Krakowa. Obiekt usytuowany jest wśród zieleni, co gwarantuje naszym Gościom indywidualnym, biznesowym oraz grupom turystycznym, wypoczynek w ciszy i spokoju, z dala od ulicznego zgiełku i hałasu, o każdej porze roku. Gwarantujemy miłą, profesjonalną obsługę oraz wygodę i domową atmosferę. Recepcja służy Państwu pomocą 24h/dobę. Hotel oferuje standard 3-gwiazdkowy plus w cenie 2-gwiazdkowej.",
-      "zdjecie": "hotel/hotel.jpg",
-      "opis_google": "Hotel",
-      "adres": "Kraków, ul. Aleksandry 30, 30-837",
-      "telefon": "884-244-633",
-      "skype": "hotel messiah",
-      "gadu_gadu": "12345678",
-      "email": "hotel.messiah@gmail.com",
-      "facebook": "https://www.facebook.com/Messiah",
-      "twitter": "https://twitter.com/Messiah",
-      "wyswietlaj_mape": "True",
-      "html_mapy_google": "",
-      "logo": "",
-      "tekst_logo": "Nowy Tani 3 Gwiazdkowy Hotel",
-      "tekst_logo_widoczny": "True",
-      "uklad": "ML"
-    }
-  },
-  {
-    "model": "Hotel.Rezerwacja",
-    "pk": 1,
-    "fields": {
-      "poczatek_pobytu": "2013-10-17",
-      "koniec_pobytu": "2013-10-20",
-      "email": "random_email@gmail.com",
-      "telefon": "111234528",
-      "nazwisko": "Kowalski",
-      "dodatkowe_instrukcje": "Proszę o wysypanie wiadra cukierków - krówek - na łóżko",
-      "kod": "1f5Tf78Wmm91",
-      "notatka": "Wiadro wysypane, wszystko gotowe. Cena uzgodniona z klientem.",
-      "cena_dorosly": "40.00",
-      "cena_dziecko": "25.00"
-    }
-  },
-  {
-    "model": "Hotel.Rezerwacja",
-    "pk": 2,
-    "fields": {
-      "poczatek_pobytu": "2013-10-24",
-      "koniec_pobytu": "2013-10-30",
-      "email": "randomszx_email@op.pl",
-      "telefon": "124235633",
-      "nazwisko": "Nowak",
-      "dodatkowe_instrukcje": "Proszę o przygotowanie różnego rodzaju olejków do kąpieli w łazience.",
-      "kod": "T2s44Ghj812c",
-      "notatka": "Dodatkowa porcja olejków naszykowana w pokoju.",
-      "cena_dorosly": "40.00",
-      "cena_dziecko": "25.00"
-    }
-  },
-  {
-    "model": "Hotel.Rezerwacja",
-    "pk": 3,
-    "fields": {
-      "poczatek_pobytu": "2013-11-02",
-      "koniec_pobytu": "2013-11-05",
-      "email": "prawdziwymail@hotmail.com",
-      "telefon": "",
-      "nazwisko": "Czosnek",
-      "dodatkowe_instrukcje": "",
-      "kod": "sau72N9aA9md",
-      "notatka": "",
-      "cena_dorosly": "40.00",
-      "cena_dziecko": "25.00"
-    }
-  },
-  {
-    "model": "Hotel.Rezerwacja",
-    "pk": 4,
-    "fields": {
-      "poczatek_pobytu": "2013-09-01",
-      "koniec_pobytu": "2013-09-04",
-      "email": "mojmail@hotmail.com",
-      "telefon": "212578933",
-      "nazwisko": "Brzoza",
-      "dodatkowe_instrukcje": "",
-      "kod": "as9dmaAdd219",
-      "notatka": "",
-      "cena_dorosly": "40.00",
-      "cena_dziecko": "25.00"
-    }
-  },
-  {
-    "model": "Hotel.Rezerwacja",
-    "pk": 5,
-    "fields": {
-      "poczatek_pobytu": "2013-08-12",
-      "koniec_pobytu": "2013-08-15",
-      "email": "mariusz.jankowski@hotmail.com",
-      "telefon": "712939152",
-      "nazwisko": "Janowski",
-      "dodatkowe_instrukcje": "Domagam się różowych zasłon!",
-      "kod": "Axi8291oaAAx",
-      "notatka": "Różowe zasłony zawieszone.",
-      "cena_dorosly": "40.00",
-      "cena_dziecko": "25.00"
-    }
-  },
-  {
-    "model": "Hotel.Rezerwacja",
-    "pk": 6,
-    "fields": {
-      "poczatek_pobytu": "2013-11-02",
-      "koniec_pobytu": "2013-11-05",
-      "email": "emilia.cwierk@hotmail.com",
-      "telefon": "",
-      "nazwisko": "Ćwierk",
-      "dodatkowe_instrukcje": "",
-      "kod": "2i9XaZ01su2I",
-      "notatka": "",
-      "cena_dorosly": "40.00",
-      "cena_dziecko": "25.00"
-    }
-  },
-  {
-    "model": "Hotel.Rezerwacja",
-    "pk": 7,
-    "fields": {
-      "poczatek_pobytu": "2013-11-06",
-      "koniec_pobytu": "2013-11-15",
-      "email": "piotr.ziele@hotmail.com",
-      "telefon": "880124512",
-      "nazwisko": "Ziele",
-      "dodatkowe_instrukcje": "",
-      "kod": "si2maAx2kA1d",
-      "notatka": "",
-      "cena_dorosly": "40.00",
-      "cena_dziecko": "25.00"
-    }
-  },
-  {
-    "model": "Hotel.Rezerwacja",
-    "pk": 8,
-    "fields": {
-      "poczatek_pobytu": "2013-07-08",
-      "koniec_pobytu": "2013-07-11",
-      "email": "bogdan.sienkiewicz@hotmail.com",
-      "telefon": "235235623623",
-      "nazwisko": "Sienkiewicz",
-      "dodatkowe_instrukcje": "",
-      "kod": "op01mS91am22",
-      "notatka": "",
-      "cena_dorosly": "40.00",
-      "cena_dziecko": "25.00"
-    }
-  },
-  {
-    "model": "Hotel.Rezerwacja",
-    "pk": 9,
-    "fields": {
-      "poczatek_pobytu": "2013-07-22",
-      "koniec_pobytu": "2013-07-25",
-      "email": "toberus@gmail.com",
-      "telefon": "",
-      "nazwisko": "Tober",
-      "dodatkowe_instrukcje": "",
-      "kod": "25kax0La1Xa1",
-      "notatka": "",
-      "cena_dorosly": "40.00",
-      "cena_dziecko": "25.00"
-    }
-  },
-  {
-    "model": "Hotel.Rezerwacja",
-    "pk": 10,
-    "fields": {
-      "poczatek_pobytu": "2013-12-02",
-      "koniec_pobytu": "2013-12-05",
-      "email": "turkos555@hotmail.com",
-      "telefon": "4256626243246",
-      "nazwisko": "Turkos",
-      "dodatkowe_instrukcje": "",
-      "kod": "91mx9am1ssja",
-      "notatka": "",
-      "cena_dorosly": "40.00",
-      "cena_dziecko": "25.00"
-    }
-  },
-  {
-    "model": "Hotel.UslugaNaRezerwacji",
-    "pk": 1,
-    "fields": {
-      "rezerwacja": "1",
-      "usluga": "3",
-      "cena": "40.00"
-    }
-  },
-  {
-    "model": "Hotel.UslugaNaRezerwacji",
-    "pk": 2,
-    "fields": {
-      "rezerwacja": "1",
-      "usluga": "1",
-      "cena": "10.00"
-    }
-  },
-  {
-    "model": "Hotel.UslugaNaRezerwacji",
-    "pk": 3,
-    "fields": {
-      "rezerwacja": "2",
-      "usluga": "4",
-      "cena": "36.00"
-    }
-  },
-  {
-    "model": "Hotel.UslugaNaRezerwacji",
-    "pk": 4,
-    "fields": {
-      "rezerwacja": "3",
-      "usluga": "5",
-      "cena": "30.00"
-    }
-  },
-  {
-    "model": "Hotel.UslugaNaRezerwacji",
-    "pk": 5,
-    "fields": {
-      "rezerwacja": "4",
-      "usluga": "6",
-      "cena": "40.00"
-    }
-  },
-  {
-    "model": "Hotel.UslugaNaRezerwacji",
-    "pk": 6,
-    "fields": {
-      "rezerwacja": "5",
-      "usluga": "2",
-      "cena": "50.00"
-    }
-  },
-  {
-    "model": "Hotel.UslugaNaRezerwacji",
-    "pk": 7,
-    "fields": {
-      "rezerwacja": "6",
-      "usluga": "5",
-      "cena": "30.00"
-    }
-  },
-  {
-    "model": "Hotel.UslugaNaRezerwacji",
-    "pk": 8,
-    "fields": {
-      "rezerwacja": "6",
-      "usluga": "4",
-      "cena": "12.00"
-    }
-  },
-  {
-    "model": "Hotel.PokojNaRezerwacji",
-    "pk": 1,
-    "fields": {
-      "rezerwacja": "1",
-      "pokoj": "1",
-      "doroslych": "1",
-      "dzieci": "1",
-      "cena": "270.00"
-    }
-  },
-  {
-    "model": "Hotel.PokojNaRezerwacji",
-    "pk": 2,
-    "fields": {
-      "rezerwacja": "2",
-      "pokoj": "8",
-      "doroslych": "2",
-      "dzieci": "0",
-      "cena": "900.00"
-    }
-  },
-  {
-    "model": "Hotel.PokojNaRezerwacji",
-    "pk": 3,
-    "fields": {
-      "rezerwacja": "3",
-      "pokoj": "2",
-      "doroslych": "1",
-      "dzieci": "0",
-      "cena": "225.00"
-    }
-  },
-  {
-    "model": "Hotel.PokojNaRezerwacji",
-    "pk": 4,
-    "fields": {
-      "rezerwacja": "4",
-      "pokoj": "3",
-      "doroslych": "3",
-      "dzieci": "0",
-      "cena": "480.00"
-    }
-  },
-  {
-    "model": "Hotel.PokojNaRezerwacji",
-    "pk": 5,
-    "fields": {
-      "rezerwacja": "5",
-      "pokoj": "9",
-      "doroslych": "2",
-      "dzieci": "0",
-      "cena": "510.00"
-    }
-  },
-  {
-    "model": "Hotel.PokojNaRezerwacji",
-    "pk": 6,
-    "fields": {
-      "rezerwacja": "6",
-      "pokoj": "5",
-      "doroslych": "2",
-      "dzieci": "0",
-      "cena": "420.00"
-    }
-  },
-  {
-    "model": "Hotel.PokojNaRezerwacji",
-    "pk": 7,
-    "fields": {
-      "rezerwacja": "7",
-      "pokoj": "2",
-      "doroslych": "1",
-      "dzieci": "0",
-      "cena": "675.00"
-    }
-  },
-  {
-    "model": "Hotel.PokojNaRezerwacji",
-    "pk": 8,
-    "fields": {
-      "rezerwacja": "8",
-      "pokoj": "10",
-      "doroslych": "2",
-      "dzieci": "1",
-      "cena": "450.00"
-    }
-  },
-  {
-    "model": "Hotel.PokojNaRezerwacji",
-    "pk": 9,
-    "fields": {
-      "rezerwacja": "9",
-      "pokoj": "1",
-      "doroslych": "2",
-      "dzieci": "0",
-      "cena": "360.00"
-    }
-  },
-  {
-    "model": "Hotel.PokojNaRezerwacji",
-    "pk": 10,
-    "fields": {
-      "rezerwacja": "10",
-      "pokoj": "2",
-      "doroslych": "1",
-      "dzieci": "0",
-      "cena": "225.00"
-    }
-  },
-  {
-    "model": "Hotel.PokojNaRezerwacji",
-    "pk": 11,
-    "fields": {
-      "rezerwacja": "10",
-      "pokoj": "9",
-      "doroslych": "2",
-      "dzieci": "0",
-      "cena": "510.00"
-    }
+{
+  "pk": 1, 
+  "model": "Hotel.usluga", 
+  "fields": {
+    "nazwa_pl": "Pralnia", 
+    "nazwa_en": "Laundry", 
+    "zewnetrzna": false, 
+    "opis": "Price is for one laundry machine for one laundry.", 
+    "opis_en": "Price is for one laundry machine for one laundry.", 
+    "nazwa": "Laundry", 
+    "dostepnosc": true, 
+    "cena": "10.00", 
+    "opis_pl": "Podana cena dotyczy udost\u0119pnienia jednej pralki na czas jednego prania."
   }
+},
+{
+  "pk": 2, 
+  "model": "Hotel.usluga", 
+  "fields": {
+    "nazwa_pl": "Opieka nad dzie\u0107mi", 
+    "nazwa_en": "Babysitting", 
+    "zewnetrzna": false, 
+    "opis": "Price is for one hour of babysitting.", 
+    "opis_en": "Price is for one hour of babysitting.", 
+    "nazwa": "Babysitting", 
+    "dostepnosc": true, 
+    "cena": "10.00", 
+    "opis_pl": "Podana cena, to cena za godzine opieki."
+  }
+},
+{
+  "pk": 3, 
+  "model": "Hotel.usluga", 
+  "fields": {
+    "nazwa_pl": "Sejf/Depozyt", 
+    "nazwa_en": "Safe", 
+    "zewnetrzna": false, 
+    "opis": "Price depends on size of the item. Given price is for depositing one item the size of large apple for one day.", 
+    "opis_en": "Price depends on size of the item. Given price is for depositing one item the size of large apple for one day.", 
+    "nazwa": "Safe", 
+    "dostepnosc": true, 
+    "cena": "5.00", 
+    "opis_pl": "Cena zale\u017cna od wielko\u015bci przedmiotu. Podana cena dotyczy przechowywania przedmiotu wielko\u015bci du\u017cego jab\u0142ka przez okres jednego dnia."
+  }
+},
+{
+  "pk": 4, 
+  "model": "Hotel.usluga", 
+  "fields": {
+    "nazwa_pl": "Sauna", 
+    "nazwa_en": "", 
+    "zewnetrzna": true, 
+    "opis": "Price is for one hour of using sauna. Sauna is located 200 meters from the hotel.", 
+    "opis_en": "Price is for one hour of using sauna. Sauna is located 200 meters from the hotel.", 
+    "nazwa": "Sauna", 
+    "dostepnosc": true, 
+    "cena": "12.00", 
+    "opis_pl": "Cena za godzin\u0119 przebywania w Saunie. Sauna znajduje si\u0119 200 metr\u00f3w od naszego hotelu."
+  }
+},
+{
+  "pk": 5, 
+  "model": "Hotel.usluga", 
+  "fields": {
+    "nazwa_pl": "Basen", 
+    "nazwa_en": "Swimming pool", 
+    "zewnetrzna": true, 
+    "opis": "Price is for one hour of using swimming pool. It's an inside swimming pool. Swimming pool is located 300 meters from the hotel.", 
+    "opis_en": "Price is for one hour of using swimming pool. It's an inside swimming pool. Swimming pool is located 300 meters from the hotel.", 
+    "nazwa": "Swimming pool", 
+    "dostepnosc": true, 
+    "cena": "10.00", 
+    "opis_pl": "Cena za godzin\u0119 przebywania na terenie basenu. Jest to basen kryty. Basen znajduje si\u0119 w odleg\u0142o\u015bci 300 metr\u00f3w od naszego hotelu."
+  }
+},
+{
+  "pk": 6, 
+  "model": "Hotel.usluga", 
+  "fields": {
+    "nazwa_pl": "Kort tenisowy", 
+    "nazwa_en": "Tennis court", 
+    "zewnetrzna": true, 
+    "opis": "Price for one our of using tennis court. Does not depend on number of people. Courts are located 500 meters from the hotel.", 
+    "opis_en": "Price for one our of using tennis court. Does not depend on number of people. Courts are located 500 meters from the hotel.", 
+    "nazwa": "Tennis court", 
+    "dostepnosc": true, 
+    "cena": "20.00", 
+    "opis_pl": "Cena za wynaj\u0119cie kortu na godzin\u0119. Niezale\u017cna od ilo\u015bci graczy. Korty znajduj\u0105 si\u0119 500 metr\u00f3w od naszego hotelu."
+  }
+},
+{
+  "pk": 1, 
+  "model": "Hotel.pokoj", 
+  "fields": {
+    "opis_combo_pl": "Du\u017ca \u0142azienka, dobry widok", 
+    "opis_combo_en": "Large bathroom, nice view", 
+    "numer": 1, 
+    "opis_combo": "Large bathroom, nice view", 
+    "opis": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "opis_en": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "dostepnosc": true, 
+    "rozmiar": 2, 
+    "opis_pl": "Rozmiar okre\u015bla ilo\u015b\u0107 os\u00f3b, kt\u00f3re komfortowo pomiesz\u0105 si\u0119 w tym pokoju. Podana cena dotyczy wynaj\u0119cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen\u0105 brutto."
+  }
+},
+{
+  "pk": 2, 
+  "model": "Hotel.pokoj", 
+  "fields": {
+    "opis_combo_pl": "Ma\u0142a \u0142azienka, 50 calowy tv", 
+    "opis_combo_en": "Small bathroom, 50 inch tv", 
+    "numer": 2, 
+    "opis_combo": "Small bathroom, 50 inch tv", 
+    "opis": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "opis_en": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "dostepnosc": true, 
+    "rozmiar": 1, 
+    "opis_pl": "Rozmiar okre\u015bla ilo\u015b\u0107 os\u00f3b, kt\u00f3re komfortowo pomiesz\u0105 si\u0119 w tym pokoju. Podana cena dotyczy wynaj\u0119cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen\u0105 brutto."
+  }
+},
+{
+  "pk": 3, 
+  "model": "Hotel.pokoj", 
+  "fields": {
+    "opis_combo_pl": "\u015awie\u017co malowany, ko\u0142yska", 
+    "opis_combo_en": "Freshly painted, crib", 
+    "numer": 3, 
+    "opis_combo": "Freshly painted, crib", 
+    "opis": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "opis_en": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "dostepnosc": true, 
+    "rozmiar": 3, 
+    "opis_pl": "Rozmiar okre\u015bla ilo\u015b\u0107 os\u00f3b, kt\u00f3re komfortowo pomiesz\u0105 si\u0119 w tym pokoju. Podana cena dotyczy wynaj\u0119cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen\u0105 brutto."
+  }
+},
+{
+  "pk": 4, 
+  "model": "Hotel.pokoj", 
+  "fields": {
+    "opis_combo_pl": "Tani, nowe \u0142\u00f3\u017cka", 
+    "opis_combo_en": "Cheap, new beds", 
+    "numer": 4, 
+    "opis_combo": "Cheap, new beds", 
+    "opis": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "opis_en": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "dostepnosc": true, 
+    "rozmiar": 2, 
+    "opis_pl": "Rozmiar okre\u015bla ilo\u015b\u0107 os\u00f3b, kt\u00f3re komfortowo pomiesz\u0105 si\u0119 w tym pokoju. Podana cena dotyczy wynaj\u0119cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen\u0105 brutto."
+  }
+},
+{
+  "pk": 5, 
+  "model": "Hotel.pokoj", 
+  "fields": {
+    "opis_combo_pl": "\u0141azienka z wann\u0105, kuchnia", 
+    "opis_combo_en": "Bathroom with tub, kitchen", 
+    "numer": 5, 
+    "opis_combo": "Bathroom with tub, kitchen", 
+    "opis": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "opis_en": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "dostepnosc": true, 
+    "rozmiar": 2, 
+    "opis_pl": "Rozmiar okre\u015bla ilo\u015b\u0107 os\u00f3b, kt\u00f3re komfortowo pomiesz\u0105 si\u0119 w tym pokoju. Podana cena dotyczy wynaj\u0119cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen\u0105 brutto."
+  }
+},
+{
+  "pk": 6, 
+  "model": "Hotel.pokoj", 
+  "fields": {
+    "opis_combo_pl": "2 pomieszczenia sypialne", 
+    "opis_combo_en": "2 bedrooms", 
+    "numer": 6, 
+    "opis_combo": "2 bedrooms", 
+    "opis": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "opis_en": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "dostepnosc": true, 
+    "rozmiar": 4, 
+    "opis_pl": "Rozmiar okre\u015bla ilo\u015b\u0107 os\u00f3b, kt\u00f3re komfortowo pomiesz\u0105 si\u0119 w tym pokoju. Podana cena dotyczy wynaj\u0119cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen\u0105 brutto."
+  }
+},
+{
+  "pk": 7, 
+  "model": "Hotel.pokoj", 
+  "fields": {
+    "opis_combo_pl": "Obrazy, \u0142adny wystr\u00f3j", 
+    "opis_combo_en": "Paintings, nice interior", 
+    "numer": 7, 
+    "opis_combo": "Paintings, nice interior", 
+    "opis": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "opis_en": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "dostepnosc": true, 
+    "rozmiar": 2, 
+    "opis_pl": "Rozmiar okre\u015bla ilo\u015b\u0107 os\u00f3b, kt\u00f3re komfortowo pomiesz\u0105 si\u0119 w tym pokoju. Podana cena dotyczy wynaj\u0119cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen\u0105 brutto."
+  }
+},
+{
+  "pk": 8, 
+  "model": "Hotel.pokoj", 
+  "fields": {
+    "opis_combo_pl": "Nowoczesny pok\u00f3j dla dwojga", 
+    "opis_combo_en": "Modern room for two", 
+    "numer": 8, 
+    "opis_combo": "Modern room for two", 
+    "opis": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "opis_en": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "dostepnosc": true, 
+    "rozmiar": 2, 
+    "opis_pl": "Rozmiar okre\u015bla ilo\u015b\u0107 os\u00f3b, kt\u00f3re komfortowo pomiesz\u0105 si\u0119 w tym pokoju. Podana cena dotyczy wynaj\u0119cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen\u0105 brutto."
+  }
+},
+{
+  "pk": 9, 
+  "model": "Hotel.pokoj", 
+  "fields": {
+    "opis_combo_pl": "Pok\u00f3j z wy\u017cszej p\u00f3\u0142ki dla 2", 
+    "opis_combo_en": "High class room for 2", 
+    "numer": 9, 
+    "opis_combo": "High class room for 2", 
+    "opis": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "opis_en": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "dostepnosc": true, 
+    "rozmiar": 2, 
+    "opis_pl": "Rozmiar okre\u015bla ilo\u015b\u0107 os\u00f3b, kt\u00f3re komfortowo pomiesz\u0105 si\u0119 w tym pokoju. Podana cena dotyczy wynaj\u0119cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen\u0105 brutto."
+  }
+},
+{
+  "pk": 10, 
+  "model": "Hotel.pokoj", 
+  "fields": {
+    "opis_combo_pl": "\u0141adny widok, pok\u00f3j na parterze", 
+    "opis_combo_en": "Nice view, room on first floor", 
+    "numer": 10, 
+    "opis_combo": "Nice view, room on first floor", 
+    "opis": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "opis_en": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "dostepnosc": true, 
+    "rozmiar": 3, 
+    "opis_pl": "Rozmiar okre\u015bla ilo\u015b\u0107 os\u00f3b, kt\u00f3re komfortowo pomiesz\u0105 si\u0119 w tym pokoju. Podana cena dotyczy wynaj\u0119cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen\u0105 brutto."
+  }
+},
+{
+  "pk": 11, 
+  "model": "Hotel.pokoj", 
+  "fields": {
+    "opis_combo_pl": "Najlepszy wyb\u00f3r dla singla", 
+    "opis_combo_en": "Best choice for single", 
+    "numer": 11, 
+    "opis_combo": "Best choice for single", 
+    "opis": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "opis_en": "Size is number of people fit comfortably in the room. Price is for 24h (from 15.00 to 13.00 the next day). Price is brutto.", 
+    "dostepnosc": false, 
+    "rozmiar": 1, 
+    "opis_pl": "Rozmiar okre\u015bla ilo\u015b\u0107 os\u00f3b, kt\u00f3re komfortowo pomiesz\u0105 si\u0119 w tym pokoju. Podana cena dotyczy wynaj\u0119cia pokoju na 24h (od 15.00 - do 13.00 kolejnego dnia). Cena jest cen\u0105 brutto."
+  }
+},
+{
+  "pk": 1, 
+  "model": "Hotel.cenapokoju", 
+  "fields": {
+    "cena": "100.00", 
+    "rozmiar": 1
+  }
+},
+{
+  "pk": 2, 
+  "model": "Hotel.cenapokoju", 
+  "fields": {
+    "cena": "120.00", 
+    "rozmiar": 2
+  }
+},
+{
+  "pk": 3, 
+  "model": "Hotel.cenapokoju", 
+  "fields": {
+    "cena": "150.00", 
+    "rozmiar": 3
+  }
+},
+{
+  "pk": 4, 
+  "model": "Hotel.cenapokoju", 
+  "fields": {
+    "cena": "200.00", 
+    "rozmiar": 4
+  }
+},
+{
+  "pk": 1, 
+  "model": "Hotel.rezerwacja", 
+  "fields": {
+    "nazwisko": "Kowalski", 
+    "poczatek_pobytu": "2013-10-17", 
+    "koniec_pobytu": "2013-10-20", 
+    "dodatkowe_instrukcje": "Prosz\u0119 o wysypanie wiadra cukierk\u00f3w - kr\u00f3wek - na \u0142\u00f3\u017cko", 
+    "telefon": "111234528", 
+    "kod": "1f5Tf78Wmm91", 
+    "notatka": "Wiadro wysypane, wszystko gotowe. Cena uzgodniona z klientem.", 
+    "cena_dorosly": "40.00", 
+    "zarchiwizowany": false, 
+    "email": "random_email@gmail.com", 
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 2, 
+  "model": "Hotel.rezerwacja", 
+  "fields": {
+    "nazwisko": "Nowak", 
+    "poczatek_pobytu": "2013-10-24", 
+    "koniec_pobytu": "2013-10-30", 
+    "dodatkowe_instrukcje": "Prosz\u0119 o przygotowanie r\u00f3\u017cnego rodzaju olejk\u00f3w do k\u0105pieli w \u0142azience.", 
+    "telefon": "124235633", 
+    "kod": "T2s44Ghj812c", 
+    "notatka": "Dodatkowa porcja olejk\u00f3w naszykowana w pokoju.", 
+    "cena_dorosly": "40.00", 
+    "zarchiwizowany": false, 
+    "email": "randomszx_email@op.pl", 
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 3, 
+  "model": "Hotel.rezerwacja", 
+  "fields": {
+    "nazwisko": "Czosnek", 
+    "poczatek_pobytu": "2013-11-02", 
+    "koniec_pobytu": "2013-11-05", 
+    "dodatkowe_instrukcje": "", 
+    "telefon": "", 
+    "kod": "sau72N9aA9md", 
+    "notatka": "", 
+    "cena_dorosly": "40.00", 
+    "zarchiwizowany": false, 
+    "email": "prawdziwymail@hotmail.com", 
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 4, 
+  "model": "Hotel.rezerwacja", 
+  "fields": {
+    "nazwisko": "Brzoza", 
+    "poczatek_pobytu": "2013-09-01", 
+    "koniec_pobytu": "2013-09-04", 
+    "dodatkowe_instrukcje": "", 
+    "telefon": "212578933", 
+    "kod": "as9dmaAdd219", 
+    "notatka": "", 
+    "cena_dorosly": "40.00", 
+    "zarchiwizowany": false, 
+    "email": "mojmail@hotmail.com", 
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 5, 
+  "model": "Hotel.rezerwacja", 
+  "fields": {
+    "nazwisko": "Janowski", 
+    "poczatek_pobytu": "2013-08-12", 
+    "koniec_pobytu": "2013-08-15", 
+    "dodatkowe_instrukcje": "Domagam si\u0119 r\u00f3\u017cowych zas\u0142on!", 
+    "telefon": "712939152", 
+    "kod": "Axi8291oaAAx", 
+    "notatka": "R\u00f3\u017cowe zas\u0142ony zawieszone.", 
+    "cena_dorosly": "40.00", 
+    "zarchiwizowany": false, 
+    "email": "mariusz.jankowski@hotmail.com", 
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 6, 
+  "model": "Hotel.rezerwacja", 
+  "fields": {
+    "nazwisko": "\u0106wierk", 
+    "poczatek_pobytu": "2013-11-02", 
+    "koniec_pobytu": "2013-11-05", 
+    "dodatkowe_instrukcje": "", 
+    "telefon": "", 
+    "kod": "2i9XaZ01su2I", 
+    "notatka": "", 
+    "cena_dorosly": "40.00", 
+    "zarchiwizowany": false, 
+    "email": "emilia.cwierk@hotmail.com", 
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 7, 
+  "model": "Hotel.rezerwacja", 
+  "fields": {
+    "nazwisko": "Ziele", 
+    "poczatek_pobytu": "2013-11-06", 
+    "koniec_pobytu": "2013-11-15", 
+    "dodatkowe_instrukcje": "", 
+    "telefon": "880124512", 
+    "kod": "si2maAx2kA1d", 
+    "notatka": "", 
+    "cena_dorosly": "40.00", 
+    "zarchiwizowany": false, 
+    "email": "piotr.ziele@hotmail.com", 
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 8, 
+  "model": "Hotel.rezerwacja", 
+  "fields": {
+    "nazwisko": "Sienkiewicz", 
+    "poczatek_pobytu": "2013-07-08", 
+    "koniec_pobytu": "2013-07-11", 
+    "dodatkowe_instrukcje": "", 
+    "telefon": "235235623623", 
+    "kod": "op01mS91am22", 
+    "notatka": "", 
+    "cena_dorosly": "40.00", 
+    "zarchiwizowany": false, 
+    "email": "bogdan.sienkiewicz@hotmail.com", 
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 9, 
+  "model": "Hotel.rezerwacja", 
+  "fields": {
+    "nazwisko": "Tober", 
+    "poczatek_pobytu": "2013-07-22", 
+    "koniec_pobytu": "2013-07-25", 
+    "dodatkowe_instrukcje": "", 
+    "telefon": "", 
+    "kod": "25kax0La1Xa1", 
+    "notatka": "", 
+    "cena_dorosly": "40.00", 
+    "zarchiwizowany": false, 
+    "email": "toberus@gmail.com", 
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 10, 
+  "model": "Hotel.rezerwacja", 
+  "fields": {
+    "nazwisko": "Turkos", 
+    "poczatek_pobytu": "2013-12-02", 
+    "koniec_pobytu": "2013-12-05", 
+    "dodatkowe_instrukcje": "", 
+    "telefon": "4256626243246", 
+    "kod": "91mx9am1ssja", 
+    "notatka": "", 
+    "cena_dorosly": "40.00", 
+    "zarchiwizowany": false, 
+    "email": "turkos555@hotmail.com", 
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 1, 
+  "model": "Hotel.pokojnarezerwacji", 
+  "fields": {
+    "rezerwacja": 1, 
+    "pokoj": 1, 
+    "dzieci": 1, 
+    "cena": "270.00", 
+    "doroslych": 1
+  }
+},
+{
+  "pk": 2, 
+  "model": "Hotel.pokojnarezerwacji", 
+  "fields": {
+    "rezerwacja": 2, 
+    "pokoj": 8, 
+    "dzieci": 0, 
+    "cena": "900.00", 
+    "doroslych": 2
+  }
+},
+{
+  "pk": 3, 
+  "model": "Hotel.pokojnarezerwacji", 
+  "fields": {
+    "rezerwacja": 3, 
+    "pokoj": 2, 
+    "dzieci": 0, 
+    "cena": "225.00", 
+    "doroslych": 1
+  }
+},
+{
+  "pk": 4, 
+  "model": "Hotel.pokojnarezerwacji", 
+  "fields": {
+    "rezerwacja": 4, 
+    "pokoj": 3, 
+    "dzieci": 0, 
+    "cena": "480.00", 
+    "doroslych": 3
+  }
+},
+{
+  "pk": 5, 
+  "model": "Hotel.pokojnarezerwacji", 
+  "fields": {
+    "rezerwacja": 5, 
+    "pokoj": 9, 
+    "dzieci": 0, 
+    "cena": "510.00", 
+    "doroslych": 2
+  }
+},
+{
+  "pk": 6, 
+  "model": "Hotel.pokojnarezerwacji", 
+  "fields": {
+    "rezerwacja": 6, 
+    "pokoj": 5, 
+    "dzieci": 0, 
+    "cena": "420.00", 
+    "doroslych": 2
+  }
+},
+{
+  "pk": 7, 
+  "model": "Hotel.pokojnarezerwacji", 
+  "fields": {
+    "rezerwacja": 7, 
+    "pokoj": 2, 
+    "dzieci": 0, 
+    "cena": "675.00", 
+    "doroslych": 1
+  }
+},
+{
+  "pk": 8, 
+  "model": "Hotel.pokojnarezerwacji", 
+  "fields": {
+    "rezerwacja": 8, 
+    "pokoj": 10, 
+    "dzieci": 1, 
+    "cena": "450.00", 
+    "doroslych": 2
+  }
+},
+{
+  "pk": 9, 
+  "model": "Hotel.pokojnarezerwacji", 
+  "fields": {
+    "rezerwacja": 9, 
+    "pokoj": 1, 
+    "dzieci": 0, 
+    "cena": "360.00", 
+    "doroslych": 2
+  }
+},
+{
+  "pk": 10, 
+  "model": "Hotel.pokojnarezerwacji", 
+  "fields": {
+    "rezerwacja": 10, 
+    "pokoj": 2, 
+    "dzieci": 0, 
+    "cena": "225.00", 
+    "doroslych": 1
+  }
+},
+{
+  "pk": 11, 
+  "model": "Hotel.pokojnarezerwacji", 
+  "fields": {
+    "rezerwacja": 10, 
+    "pokoj": 9, 
+    "dzieci": 0, 
+    "cena": "510.00", 
+    "doroslych": 2
+  }
+},
+{
+  "pk": 1, 
+  "model": "Hotel.usluganarezerwacji", 
+  "fields": {
+    "rezerwacja": 1, 
+    "cena": "40.00", 
+    "usluga": 3
+  }
+},
+{
+  "pk": 2, 
+  "model": "Hotel.usluganarezerwacji", 
+  "fields": {
+    "rezerwacja": 1, 
+    "cena": "10.00", 
+    "usluga": 1
+  }
+},
+{
+  "pk": 3, 
+  "model": "Hotel.usluganarezerwacji", 
+  "fields": {
+    "rezerwacja": 2, 
+    "cena": "36.00", 
+    "usluga": 4
+  }
+},
+{
+  "pk": 4, 
+  "model": "Hotel.usluganarezerwacji", 
+  "fields": {
+    "rezerwacja": 3, 
+    "cena": "30.00", 
+    "usluga": 5
+  }
+},
+{
+  "pk": 5, 
+  "model": "Hotel.usluganarezerwacji", 
+  "fields": {
+    "rezerwacja": 4, 
+    "cena": "40.00", 
+    "usluga": 6
+  }
+},
+{
+  "pk": 6, 
+  "model": "Hotel.usluganarezerwacji", 
+  "fields": {
+    "rezerwacja": 5, 
+    "cena": "50.00", 
+    "usluga": 2
+  }
+},
+{
+  "pk": 7, 
+  "model": "Hotel.usluganarezerwacji", 
+  "fields": {
+    "rezerwacja": 6, 
+    "cena": "30.00", 
+    "usluga": 5
+  }
+},
+{
+  "pk": 8, 
+  "model": "Hotel.usluganarezerwacji", 
+  "fields": {
+    "rezerwacja": 6, 
+    "cena": "12.00", 
+    "usluga": 4
+  }
+},
+{
+  "pk": 1, 
+  "model": "Hotel.kategoriajedzenia", 
+  "fields": {
+    "nazwa_pl": "Przystawki", 
+    "nazwa_en": "Appetizers", 
+    "opis": "", 
+    "opis_en": "", 
+    "nazwa": "Appetizers", 
+    "opis_pl": ""
+  }
+},
+{
+  "pk": 2, 
+  "model": "Hotel.kategoriajedzenia", 
+  "fields": {
+    "nazwa_pl": "Zupy", 
+    "nazwa_en": "Soups", 
+    "opis": "", 
+    "opis_en": "", 
+    "nazwa": "Soups", 
+    "opis_pl": ""
+  }
+},
+{
+  "pk": 3, 
+  "model": "Hotel.kategoriajedzenia", 
+  "fields": {
+    "nazwa_pl": "Dania G\u0142\u00f3wne", 
+    "nazwa_en": "Main Courses", 
+    "opis": "", 
+    "opis_en": "", 
+    "nazwa": "Main Courses", 
+    "opis_pl": ""
+  }
+},
+{
+  "pk": 4, 
+  "model": "Hotel.kategoriajedzenia", 
+  "fields": {
+    "nazwa_pl": "Dodatki", 
+    "nazwa_en": "Additions", 
+    "opis": "", 
+    "opis_en": "", 
+    "nazwa": "Additions", 
+    "opis_pl": ""
+  }
+},
+{
+  "pk": 5, 
+  "model": "Hotel.kategoriajedzenia", 
+  "fields": {
+    "nazwa_pl": "Sur\u00f3wki", 
+    "nazwa_en": "Salads", 
+    "opis": "", 
+    "opis_en": "", 
+    "nazwa": "Salads", 
+    "opis_pl": ""
+  }
+},
+{
+  "pk": 6, 
+  "model": "Hotel.kategoriajedzenia", 
+  "fields": {
+    "nazwa_pl": "Desery", 
+    "nazwa_en": "Desserts", 
+    "opis": "", 
+    "opis_en": "", 
+    "nazwa": "Desserts", 
+    "opis_pl": ""
+  }
+},
+{
+  "pk": 7, 
+  "model": "Hotel.kategoriajedzenia", 
+  "fields": {
+    "nazwa_pl": "Napoje", 
+    "nazwa_en": "Drinks", 
+    "opis": "", 
+    "opis_en": "", 
+    "nazwa": "Drinks", 
+    "opis_pl": ""
+  }
+},
+{
+  "pk": 1, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "R\u00f3\u017ca z \u0142ososia na zielonej sa\u0142acie", 
+    "nazwa_en": "Salmon on green salad", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "jedzenie/roza_z_lososia_na_salacie.jpg", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Salmon on green salad", 
+    "kategoria": 1, 
+    "cena": "8.00", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 2, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Caprese", 
+    "nazwa_en": "", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "jedzenie/caprese.jpg", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Caprese", 
+    "kategoria": 1, 
+    "cena": "7.00", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 3, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Zapiekany camembert z \u017curawin\u0105 i grzankami", 
+    "nazwa_en": "Roasted camembert with cranberry and toast", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "jedzenie/Zapiekany_camembert.jpg", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Roasted camembert with cranberry and toast", 
+    "kategoria": 1, 
+    "cena": "9.50", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 4, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Schab w galarecie", 
+    "nazwa_en": "Pork in gelatin", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "jedzenie/Schab_w_galarecie.jpg", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Pork in gelatin", 
+    "kategoria": 1, 
+    "cena": "6.50", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 5, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Mix kolorowych sa\u0142at z grilowanym kurczakiem i serem ple\u015bniowym", 
+    "nazwa_en": "Salad mix with grilled chicken and moldy cheese", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "jedzenie/Mix_sa\u0142at.jpg", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Salad mix with grilled chicken and moldy cheese", 
+    "kategoria": 1, 
+    "cena": "12.50", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 6, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Ros\u00f3\u0142 z makaronem", 
+    "nazwa_en": "Chicken soup with noodles", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "jedzenie/Ros\u00f3\u0142_z_makaronem.jpg", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Chicken soup with noodles", 
+    "kategoria": 2, 
+    "cena": "5.00", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 7, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Ros\u00f3\u0142 z jajkiem przepi\u00f3rczym i szynk\u0105", 
+    "nazwa_en": "Chicken soup with quail egg and ham", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "jedzenie/Ros\u00f3\u0142_z_jajkiem_szynk\u0105.jpg", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Chicken soup with quail egg and ham", 
+    "kategoria": 2, 
+    "cena": "7.00", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 8, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Zupa grzybowa w czarce chlebowej", 
+    "nazwa_en": "Mushroom soup in bread bowl", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "jedzenie/zupa_grzybowa.jpg", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Mushroom soup in bread bowl", 
+    "kategoria": 2, 
+    "cena": "7.60", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 9, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Krem z broku\u0142\u00f3w/ zielonego groszku/ selera z pra\u017conymi migda\u0142ami", 
+    "nazwa_en": "Broccoli/green peas/celery cream with roasted almonds", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "jedzenie/krem_z_broku\u0142\u00f3w.jpg", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Broccoli/green peas/celery cream with roasted almonds", 
+    "kategoria": 2, 
+    "cena": "4.70", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 10, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Zupa serowa z grzankami", 
+    "nazwa_en": "Cheese soup with toast", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "jedzenie/Zupa_serowa_grzanki.jpg", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Cheese soup with toast", 
+    "kategoria": 2, 
+    "cena": "6.70", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 11, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Schab pieczony w sosie w\u0142asnym", 
+    "nazwa_en": "Pork", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "jedzenie/Schab_w_sosie.jpg", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Pork", 
+    "kategoria": 3, 
+    "cena": "8.70", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 12, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Filet z pstr\u0105ga w sosie cytrynowym", 
+    "nazwa_en": "Trout fillet with lemon juice", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "jedzenie/Filet_w_sosie.jpg", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Trout fillet with lemon juice", 
+    "kategoria": 3, 
+    "cena": "9.70", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 13, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Pol\u0119dwiczki wieprzowe w sosie borowikowym", 
+    "nazwa_en": "Pork tenderloin in boletus sauce", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "jedzenie/Pol\u0119dwiczki_w_sosie.jpg", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Pork tenderloin in boletus sauce", 
+    "kategoria": 3, 
+    "cena": "10.70", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 14, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Plater 3 mi\u0119s", 
+    "nazwa_en": "Meat platter", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Meat platter", 
+    "kategoria": 3, 
+    "cena": "12.90", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 15, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Rolada z indyka nadziewana szpinakiem i serem feta", 
+    "nazwa_en": "Turkey roulade with spinach and feta cheese", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Turkey roulade with spinach and feta cheese", 
+    "kategoria": 3, 
+    "cena": "14.20", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 16, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Ciel\u0119ce zrazy zawijane", 
+    "nazwa_en": "Lamb roulade", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Lamb roulade", 
+    "kategoria": 3, 
+    "cena": "9.20", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 17, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Kotlet po szwajcarsku nadziewany serem i szynk\u0105", 
+    "nazwa_en": "Swiss cutlet with cheese and ham", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Swiss cutlet with cheese and ham", 
+    "kategoria": 3, 
+    "cena": "15.00", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 18, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Ziemniaki gotowane", 
+    "nazwa_en": "Boiled potatoes", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Boiled potatoes", 
+    "kategoria": 4, 
+    "cena": "3.00", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 19, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Ziemniaki opiekane", 
+    "nazwa_en": "Fried potatoes", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Fried potatoes", 
+    "kategoria": 4, 
+    "cena": "4.00", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 20, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Frytki", 
+    "nazwa_en": "French fries", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "French fries", 
+    "kategoria": 4, 
+    "cena": "5.50", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 21, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Dufinki", 
+    "nazwa_en": "", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Dufinki", 
+    "kategoria": 4, 
+    "cena": "6.00", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 22, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Kopytka", 
+    "nazwa_en": "", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Kopytka", 
+    "kategoria": 4, 
+    "cena": "5.40", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 23, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Kluski \u015bl\u0105skie", 
+    "nazwa_en": "Silesian dumplings", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Silesian dumplings", 
+    "kategoria": 4, 
+    "cena": "4.40", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 24, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Ry\u017c", 
+    "nazwa_en": "Rice", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Rice", 
+    "kategoria": 4, 
+    "cena": "4.00", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 25, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Jarzyny gotowane lub grillowanie", 
+    "nazwa_en": "Boiled or fried vegetables", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Boiled or fried vegetables", 
+    "kategoria": 4, 
+    "cena": "7.00", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 26, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Mizeria", 
+    "nazwa_en": "Cucumber salad", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Cucumber salad", 
+    "kategoria": 5, 
+    "cena": "3.50", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 27, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Seler", 
+    "nazwa_en": "Celery", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Celery", 
+    "kategoria": 5, 
+    "cena": "2.50", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 28, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Marchewka z jab\u0142kiem", 
+    "nazwa_en": "Carrot with apple", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Carrot with apple", 
+    "kategoria": 5, 
+    "cena": "3.20", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 29, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Wiosenna", 
+    "nazwa_en": "Spring salad", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Spring salad", 
+    "kategoria": 5, 
+    "cena": "5.20", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 30, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Bia\u0142a kapusta", 
+    "nazwa_en": "White cabbage", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "White cabbage", 
+    "kategoria": 5, 
+    "cena": "4.00", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 31, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Czerwona Kapusta", 
+    "nazwa_en": "Red cabbage", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Red cabbage", 
+    "kategoria": 5, 
+    "cena": "4.50", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 32, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Kapusta zasma\u017cana", 
+    "nazwa_en": "Fried cabbage", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Fried cabbage", 
+    "kategoria": 5, 
+    "cena": "5.20", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 33, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "\u0106wik\u0142a z chrzanem", 
+    "nazwa_en": "", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "\u0106wik\u0142a z chrzanem", 
+    "kategoria": 5, 
+    "cena": "3.40", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 34, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Buraczki zasma\u017cane", 
+    "nazwa_en": "Fried beta", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Fried beta", 
+    "kategoria": 5, 
+    "cena": "4.40", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 35, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Lody z owocami i bit\u0105 \u015bmietan\u0105", 
+    "nazwa_en": "Ice cream with fruit and whipped cream", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Ice cream with fruit and whipped cream", 
+    "kategoria": 6, 
+    "cena": "3.50", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 36, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Szarlotka z polew\u0105", 
+    "nazwa_en": "Glazed apple pie", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Glazed apple pie", 
+    "kategoria": 6, 
+    "cena": "5.50", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 37, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Szarlotka na ciep\u0142o z sosem waniliowym i ga\u0142k\u0105 lod\u00f3w", 
+    "nazwa_en": "Warm apple pie with vanilla sauce and ice cream", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Warm apple pie with vanilla sauce and ice cream", 
+    "kategoria": 6, 
+    "cena": "6.00", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 38, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Galaretka ze \u015bwie\u017cymi owocami", 
+    "nazwa_en": "Gelatin dessert with fresh fruit", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Gelatin dessert with fresh fruit", 
+    "kategoria": 6, 
+    "cena": "3.00", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 39, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Panacotta z sosem malinowym", 
+    "nazwa_en": "Panacotta with raspberry sauce", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Panacotta with raspberry sauce", 
+    "kategoria": 6, 
+    "cena": "4.00", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 40, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Koktajl ze \u015bwie\u017cych owoc\u00f3w", 
+    "nazwa_en": "Fresh fruit coctail", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Fresh fruit coctail", 
+    "kategoria": 6, 
+    "cena": "5.40", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 41, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Napoje gor\u0105ce (kawa, herbata) nielimitowane", 
+    "nazwa_en": "Hot drinks (coffee, tea) unlimited", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Hot drinks (coffee, tea) unlimited", 
+    "kategoria": 7, 
+    "cena": "5.50", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 42, 
+  "model": "Hotel.jedzenie", 
+  "fields": {
+    "nazwa_pl": "Napoje zimne (soki, woda mineralna, Coca cola, Fanta, Sprite) nielimitowane", 
+    "nazwa_en": "Cold drinks (juices, mineral water, Coca Cola, Fanta, Sprite) unlimited", 
+    "opis": "This is food description. It should be in the next line.", 
+    "zdjecie": "", 
+    "opis_en": "This is food description. It should be in the next line.", 
+    "nazwa": "Cold drinks (juices, mineral water, Coca Cola, Fanta, Sprite) unlimited", 
+    "kategoria": 7, 
+    "cena": "6.50", 
+    "opis_pl": "To jest opis tego jedzenia. Powinien on znajdowa\u0107 si\u0119 w kolejnej linijce."
+  }
+},
+{
+  "pk": 1, 
+  "model": "Hotel.opishotelu", 
+  "fields": {
+    "tekst_logo_pl": "Nowy Tani 3 Gwiazdkowy Hotel", 
+    "adres": "Cracow, Aleksandry St. 30, 30-837", 
+    "twitter": "https://twitter.com/Messiah", 
+    "gadu_gadu": "12345678", 
+    "telefon": "884-244-633", 
+    "opis_google": "Hotel", 
+    "cena_dorosly": "40.00", 
+    "skype": "hotel messiah", 
+    "logo": "hotel/logo/640px-2000px-Disneys_Hollywood_Hotel_logo_2.png", 
+    "uklad": "ML", 
+    "tekst_logo": "Cheap 3 Star Hotel", 
+    "tekst_logo_en": "Cheap 3 Star Hotel", 
+    "email": "hotel.messiah@gmail.com", 
+    "tekst_logo_widoczny": true, 
+    "opis_google_pl": "Hotel", 
+    "opis_hotelu_en": "Hotel Messiah is located in Cracow on Aleksandry St. 30, near international road E4 and Cracow ring road. Hotel has comfortable and fast connection to Wawel (6 km), Wieliczka (3 km), Kazimierz (4 km) and airport in Balice (22 km). The location of Hotel Messiah helps with planning of tourist trips to - for example - Zakopane, Auschwitz and Czestochowa and has excellent tram and bus connections with important parts of Cracow. Hotel is located on the suburbs what guarantess our business and idividual guests, as well as tourist groups rest in quiet away from the noises of the city, any time of year. We guarantee nice and professional service and at-home feel. Employees are available 24/7. Hotel offers standard 3-star standard at 2-star price.", 
+    "opis_hotelu": "Hotel Messiah is located in Cracow on Aleksandry St. 30, near international road E4 and Cracow ring road. Hotel has comfortable and fast connection to Wawel (6 km), Wieliczka (3 km), Kazimierz (4 km) and airport in Balice (22 km). The location of Hotel Messiah helps with planning of tourist trips to - for example - Zakopane, Auschwitz and Czestochowa and has excellent tram and bus connections with important parts of Cracow. Hotel is located on the suburbs what guarantess our business and idividual guests, as well as tourist groups rest in quiet away from the noises of the city, any time of year. We guarantee nice and professional service and at-home feel. Employees are available 24/7. Hotel offers standard 3-star standard at 2-star price.", 
+    "html_mapy_google": "", 
+    "adres_en": "Cracow, Aleksandry St. 30, 30-837", 
+    "facebook": "https://www.facebook.com/Messiah", 
+    "wyswietlaj_mape": true, 
+    "opis_google_en": "", 
+    "opis_hotelu_pl": "Hotel Messiah po\u0142o\u017cony jest w Krakowie przy ulicy Aleksandry 30, przy trasie mi\u0119dzynarodowej E4 i obwodnicy krakowskiej. Hotel posiada dogodne i szybkie po\u0142\u0105czenia z Wawelem (6 km), Wieliczk\u0105 (3 km), Kazimierzem (4 km) i Portem Lotniczym w Balicach (22 km). Po\u0142o\u017cenie Hotelu Messiah umo\u017cliwia wygodne planowanie dalszych wycieczek turystycznych do m.in. Zakopanego, O\u015bwi\u0119cimia i Cz\u0119stochowy oraz doskona\u0142e po\u0142\u0105czenie tramwajowe i autobusowe z wa\u017cniejszymi cz\u0119\u015bciami Krakowa. Obiekt usytuowany jest w\u015br\u00f3d zieleni, co gwarantuje naszym Go\u015bciom indywidualnym, biznesowym oraz grupom turystycznym, wypoczynek w ciszy i spokoju, z dala od ulicznego zgie\u0142ku i ha\u0142asu, o ka\u017cdej porze roku. Gwarantujemy mi\u0142\u0105, profesjonaln\u0105 obs\u0142ug\u0119 oraz wygod\u0119 i domow\u0105 atmosfer\u0119. Recepcja s\u0142u\u017cy Pa\u0144stwu pomoc\u0105 24h/dob\u0119. Hotel oferuje standard 3-gwiazdkowy plus w cenie 2-gwiazdkowej.", 
+    "zdjecie": "hotel/hotel.jpg", 
+    "adres_pl": "Krak\u00f3w, ul. Aleksandry 30, 30-837", 
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 1, 
+  "model": "Hotel.wiadomosc", 
+  "fields": {
+    "nazwisko": "Nowak", 
+    "data": null, 
+    "wyslano_odpowiedz": true, 
+    "odpowiedz": "Witam serdecznie, wymiary \u0142\u00f3\u017cek w tym pokoju wynosz\u0105: wysoko\u015b\u0107 - 40c, szeroko\u015b\u0107 - 90cm, d\u0142ugo\u015b\u0107 - 190cm. Pozdrawiam i zapraszam. ", 
+    "tresc": "Witam, prosz\u0119 o opisanie wielko\u015bci \u0142\u00f3\u017cek w pokoju numer 4.", 
+    "email": "xxx69@op.pl"
+  }
+},
+{
+  "pk": 2, 
+  "model": "Hotel.wiadomosc", 
+  "fields": {
+    "nazwisko": "Dziadek", 
+    "data": null, 
+    "wyslano_odpowiedz": true, 
+    "odpowiedz": "Witam, W pokoju numer 2 dost\u0119pne s\u0105 wszystkie kana\u0142y dost\u0119pne w ofercie Cyfrowy Polsat. Pozdrawiam i zapraszam.", 
+    "tresc": "Chcia\u0142bym si\u0119 dowiedzie\u0107 jakie kana\u0142y s\u0105 dost\u0119pne w tv. Chodzi o pok\u00f3j numer 2.", 
+    "email": "dziadzia@gmail.com"
+  }
+},
+{
+  "pk": 3, 
+  "model": "Hotel.wiadomosc", 
+  "fields": {
+    "nazwisko": "", 
+    "data": null, 
+    "wyslano_odpowiedz": true, 
+    "odpowiedz": "Witam, oczywi\u015bcie mo\u017cemy to zrobi\u0107 na \u017cyczenie klienta. Prosz\u0119 mi tylko poda\u0107 dane do swojej rezerwacji.", 
+    "tresc": "Chcia\u0142bym si\u0119 dowiedzie\u0107, czy jest mo\u017cliwo\u015b\u0107 wy\u015bcielenia \u0142\u00f3\u017cka r\u00f3\u017cami przed moim przyjazdem do hotelu? Oczywi\u015bcie zap\u0142ac\u0119.", 
+    "email": "wielki_misio@o2.pl"
+  }
+},
+{
+  "pk": 4, 
+  "model": "Hotel.wiadomosc", 
+  "fields": {
+    "nazwisko": "", 
+    "data": null, 
+    "wyslano_odpowiedz": false, 
+    "odpowiedz": "", 
+    "tresc": "D\u00f3\u0142 waszej strony \u017ale wy\u015bwietla si\u0119 na moim telefonie - samsung galaxy 4. Defaultowa przegl\u0105darka z jej aktualn\u0105 wersj\u0105.", 
+    "email": ""
+  }
+}
 ]

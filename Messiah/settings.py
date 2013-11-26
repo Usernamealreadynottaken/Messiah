@@ -57,6 +57,8 @@ LANGUAGES = (
     ('pl', 'Polish')
 )
 
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'pl'
+
 LOCALE_PATHS = (PROJECT_PATH + '/locale/', PROJECT_SETTINGS_PATH + '/locale/',)
 
 SITE_ID = 1
@@ -151,7 +153,10 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     # Our hotel application:
-    'Hotel'
+    'Hotel',
+
+    # App for translating models:
+    'modeltranslation'
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

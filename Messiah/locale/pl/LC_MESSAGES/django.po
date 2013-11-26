@@ -699,7 +699,7 @@ msgstr "Strona administratora Django"
 
 #: .\Messiah\templates\admin\base_site.html.py:7
 msgid "Hotel administration"
-msgstr "Administracja hotelem"
+msgstr "Administracja hotelu"
 
 #: .\Messiah\templates\admin\change_form.html.py:22
 #: .\Messiah\templates\admin\index.html.py:33
