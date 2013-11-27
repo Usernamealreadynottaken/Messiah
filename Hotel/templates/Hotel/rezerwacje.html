@@ -1,8 +1,7 @@
 {% extends "Hotel/base.html" %}
+{% load i18n staticfiles %}
 
-{% load staticfiles %}
-
-{% block title %}Hotel Messiah - Rezerwacje{% endblock %}
+{% block title %}{% trans 'Hotel Messiah - Rezerwacje' %}{% endblock %}
 
 {% block content %}
 
@@ -11,7 +10,7 @@
 <div id="reservations">
 
     <div class="title">
-        <h1>Rezerwacje</h1>
+        <h1>{% trans 'Rezerwacje' %}</h1>
     </div> <!-- .title -->
 
     <div class="reservations-content">
@@ -20,57 +19,62 @@
             {% csrf_token %}
 
             <table>
+                {% trans 'Poczatek pobytu' as check_in_date %}
+                {% trans 'Koniec pobytu' as chack_out_date %}
                 <tr>
-                    <td>Imie i nazwisko:</td>
+                    <td>{% trans 'Imie i nazwisko' %}:</td>
                     <td colspan="3"><div><input type="text" name="name"
                             {% if rezerwacja_do_edycji %} value="{{ rezerwacja_do_edycji.nazwisko }}"{% endif %}
                             required autofocus></div></td>
                 </tr>
                 <tr class="error-row">
-                    <td colspan="4"><p class="name-error">Pole nie moze byc puste.</p></td>
+                    <td colspan="4"><p class="name-error">{% trans 'Pole nie moze byc puste.' %}</p></td>
                 </tr>
                 <tr>
-                    <td>Telefon:</td>
+                    <td>{% trans 'Telefon' %}:</td>
                     <td colspan="3"><input type="tel" name="tel"
                             {% if rezerwacja_do_edycji %} value="{{ rezerwacja_do_edycji.telefon }}"{% endif %}></td>
                 </tr>
                 <tr>
-                    <td>E-mail:</td>
+                    <td>{% trans 'E-mail' %}:</td>
                     <td colspan="3"><div><input type="email" name="email" placeholder="mail@domain.com"
                             {% if rezerwacja_do_edycji %} value="{{ rezerwacja_do_edycji.email }}"{% endif %}
                             required></div></td>
                 </tr>
                 <tr class="error-row">
-                    <td colspan="4"><p class="email-error">Bledny format maila</p></td>
+                    <td colspan="4"><p class="email-error">{% trans 'Bledny format maila' %}</p></td>
                 </tr>
                 <tr>
-                    <td>Poczatek pobytu:</td>
-                    <td colspan="3"><div><input class="date-from" type="text" name="date-from" required></div></td>
+                    <td>{% trans 'Poczatek pobytu' %}:</td>
+                    <td colspan="3"><div><input class="date-from" type="text" name="date-from" required>
+                    <div class="from-overlay"></div></div></td>
                 </tr>
                 <tr class="error-row">
                     <td colspan="4"><p class="dateFrom-error"></p></td>
                 </tr>
                 <tr>
-                    <td>Koniec pobytu:</td>
+                    <td>{% trans 'Koniec pobytu' %}:</td>
                     <td colspan="3"><div><input class="date-to" type="text" name="date-to"
                             {% if koniec_pobytu %} value="{{ koniec_pobytu }}"{% endif %}
-                            required></div></td>
+                            required><div class="to-overlay"></div></div></td>
                 </tr>
                 <tr class="error-row">
                     <td colspan="4"><p class="dateTo-error"></p></td>
                 </tr>
                 <tr>
-                    <td>Liczba pokoi:</td>
+                    <td>{% trans 'Liczba pokoi' %}:</td>
                     <td colspan="3">
                         <select class="rooms rooms-select" name="rooms">
-                            <option value="1">1 Pokoj</option>
-                            <option value="2">2 Pokoje</option>
-                            <option value="3">3 Pokoje</option>
+                            <option value="1">{% trans '1 Pokoj' %}</option>
+                            <option value="2">{% trans '2 Pokoje' %}</option>
+                            <option value="3">{% trans '3 Pokoje' %}</option>
                         </select>
                     </td>
                 </tr>
                 <tr class="room1">
-                    <td>Pokoj 1 - Dorosli:</td>
+                    {% trans 'Dorosli' as adults %}
+                    {% trans 'Dzieci' as kids %}
+                    <td>{% blocktrans %}Pokoj 1 - {{ adults }}{% endblocktrans %}:</td>
                     <td>
                         <select class="adults1 rooms-select" name="adults1">
                             <option value="0">0</option>
@@ -81,7 +85,7 @@
                             <option value="5">5</option>
                         </select>
                     </td>
-                    <td>Dzieci:</td>
+                    <td>{{ kids }}:</td>
                     <td>
                         <select class="kids1 rooms-select" name="kids1">
                             <option value="0">0</option>
@@ -94,7 +98,7 @@
                     </td>
                 </tr>
                 <tr class="room2">
-                    <td>Pokoj 2 - Dorosli:</td>
+                    <td>{% blocktrans %}Pokoj 2 - {{ adults }}{% endblocktrans %}:</td>
                     <td>
                         <select class="adults2 rooms-select" name="adults2">
                             <option value="0">0</option>
@@ -105,7 +109,7 @@
                             <option value="5">5</option>
                         </select>
                     </td>
-                    <td>Dzieci:</td>
+                    <td>{{ kids }}:</td>
                     <td>
                         <select class="kids2 rooms-select" name="kids2">
                             <option value="0">0</option>
@@ -118,7 +122,7 @@
                     </td>
                 </tr>
                 <tr class="room3">
-                    <td>Pokoj 3 - Dorosli:</td>
+                    <td>{% blocktrans %}Pokoj 3 - {{ adults }}{% endblocktrans %}:</td>
                     <td>
                         <select class="adults3 rooms-select" name="adults3">
                             <option value="0">0</option>
@@ -129,7 +133,7 @@
                             <option value="5">5</option>
                         </select>
                     </td>
-                    <td>Dzieci:</td>
+                    <td>{{ kids }}:</td>
                     <td>
                         <select class="kids3 rooms-select" name="kids3">
                             <option value="0">0</option>
@@ -147,13 +151,13 @@
             </table>
 
             <div class="calendars">
-                <span class="change-calendar">Wybierz date wyjazdu</span>
+                <span class="change-calendar">{% trans 'Wybierz date wyjazdu' %}</span>
                 <div class="calendar-from">
-                    <p>Poczatek pobytu:</p>
+                    <p>{% trans 'Poczatek pobytu' %}:</p>
                     <div class="datepicker-from"></div>
                 </div>
                 <div class="calendar-to">
-                    <p>Koniec pobytu:</p>
+                    <p>{% trans 'Koniec pobytu' %}:</p>
                     <div class="datepicker-to"></div>
                 </div>
 
@@ -161,12 +165,12 @@
 
             {% if uslugi_all %}
             <div class="additions">
-                <h2>Wybierz dodatki
+                <h2>{% trans 'Wybierz dodatki' %}
                     <img src="{% static 'Hotel/img/arrow.png' %}" alt="arrow"/></h2>
 
                 {% if uslugi_wewnetrzne %}
                 <div class="in">
-                    <h3>Uslugi wewnetrze: </h3>
+                    <h3>{% trans 'Uslugi wewnetrze' %}: </h3>
                     <ul>
                         {% for usluga in uslugi_wewnetrzne %}
                         <label>
@@ -180,7 +184,7 @@
 
                 {% if uslugi_zewnetrzne %}
                 <div class="out">
-                    <h3>Uslugi zewnetrzne: </h3>
+                    <h3>{% trans 'Uslugi zewnetrzne' %}: </h3>
                     <ul>
                         {% for usluga in uslugi_zewnetrzne %}
                         <label>
@@ -196,17 +200,17 @@
             {% endif %} {# if uslugi_all #}
 
             <div class="summary">
-                <h3>Twoje zyczenia</h3>
+                <h3>{% trans 'Twoje zyczenia' %}</h3>
                 <textarea name="requests" rows="4" cols="50">{% if rezerwacja_do_edycji %}{{ rezerwacja_do_edycji.dodatkowe_instrukcje }}{% endif %}</textarea>
-                <h3>Podsumowanie</h3>
-                <p>Pokoje: <span class="NoRooms">x</span></br>
-                    Noce: <span class="NoNights">y</span></br>
-                    Cena: <span class="price">1</span> zl</p>
+                <h3>{% trans 'Podsumowanie' %}</h3>
+                <p>{% trans 'Pokoje' %}: <span class="NoRooms">x</span></br>
+                    {% trans 'Noce' %}: <span class="NoNights">y</span></br>
+                    {% trans 'Cena' %}: <span class="price">1</span> zl</p>
 
                 <div class="buttons">
-                <a class="button send">Zarezerwuj</a>
+                <a class="button send">{% trans 'Zarezerwuj' %}</a>
                 {% if rezerwacja_do_edycji %}
-                <a class="button cancel">Anuluj rezerwacje</a>
+                <a class="button cancel">{% trans 'Anuluj rezerwacje' %}</a>
                 {% endif %}
                 </div> <!-- .buttons -->
             </div> <!-- .summary -->
@@ -227,9 +231,9 @@
 {% if rezerwacja_do_edycji %}
 <div class="cancel-confirm">
 
-    <p>Czy na pewno chcesz anulowac rezrwacje?</p>
-    <a class="button confirm-yes">Tak</a>
-    <a class="button confirm-no">Nie</a>
+    <p>{% trans 'Czy na pewno chcesz anulowac rezrwacje?' %}</p>
+    <a class="button confirm-yes">{% trans 'Tak' %}</a>
+    <a class="button confirm-no">{% trans 'Nie' %}</a>
 
 </div> <!-- .cancel-confirm -->
 {% endif %}
@@ -256,7 +260,7 @@ $(document).ready(function() {
     var dateFrom = new Date(years, months, days);
     if (currentDate >= dateFrom) {
         datePassed = true;
-        $(".date-from").prop("disabled", true);
+        $(".from-overlay").css("display", "block");
         $(".datepicker-from").datepicker("disable");
     } else {
         datePassed = false;
@@ -324,15 +328,15 @@ function sprawdzPoprawnosc() {
                                 // Jesli w otrzymanym JSONie pod haslem 'pokojN' nie ma liczby (pk pokoju)
                                 // to znaczy ze jest jakis blad, wiec wypisujemy stosowny message
                                 if (parsed[cur_pokoj] == "not_checked") {
-                                    error += "Pokoj " + i + " nie zostal zweryfikowany przez serwer.<br />";
+                                    error += "{% blocktrans with room_i='" + i + "' %}Pokoj {{ room }} nie zostal zweryfikowany przez serwer.{% endblocktrans %}<br />";
                                 } else if (parsed[cur_pokoj] == "zero_selected") {
-                                    error += "W pokoju nr " + i + " jest wybrane 0 osob.<br />";
+                                    error += "{% blocktrans with room_i='" + i + "' %}W pokoju nr {{ room_i }} jest wybrane 0 osob.{% endblocktrans %}<br />";
                                 } else if (parsed[cur_pokoj] == "over_max_capacity") {
-                                    error += "Pokoj " + i + " - za duzo osob.<br />";
+                                    error += "{% blocktrans with room_i='" + i + "' %}Pokoj {{ room_i }} - za duzo osob.{% endblocktrans %}<br />";
                                 } else if (parsed[cur_pokoj] == "no_free_rooms") {
-                                    error += "Pokoj " + i + " - brak wolnych pokojow.<br />";
+                                    error += "{% blocktrans with room_i='" + i + "' %}Pokoj {{ room_i }} - brak wolnych pokojow.{% endblocktrans %}<br />";
                                 } else {
-                                    error += "Wystapil blad ktory powinien nie istniec.<br />";
+                                    error += "{% trans 'Wystapil blad ktory powinien nie istniec.' %}<br />";
                                 }
 
                             }
@@ -340,7 +344,7 @@ function sprawdzPoprawnosc() {
                         } else {
                             // Mimo zaznaczonej ilosci pokojow z jakiegos powodu nie dostalismy w ogole
                             // informacji o n-tym pokoju od serwera
-                            error += "Pokoj " + i + " - blad po stronie serwera.<br />"
+                            error += "{% blocktrans with room_i='" + i + "' %}Pokoj {{ room_i }} - blad po stronie serwera.{% endblocktrans %}<br />"
                         }
                     }
 
@@ -390,8 +394,9 @@ function sprawdzPoprawnosc() {
     }
 }
 
-$(".send").click(function() {
+$(".send").click(function(e) {
     if (sprawdzPoprawnosc() && validateName($('input[name=name]')) && validateEmail($('input[name=email]'))) {
+
         {% if rezerwacja_do_edycji %}
         $("form").ajaxForm(function(data) {
             // alert(data);
@@ -401,24 +406,28 @@ $(".send").click(function() {
         $("form").ajaxForm(function(data) {
             var parsed = $.parseJSON(data);
 
+            {% trans 'Udalo sie zarezerwowac!' as booking_successful %}
             if (parsed["message"] && parsed["message"] == "success") {
                 if (parsed["kod"]) {
-                    $(".success p").html("Udalo sie zarezerwowac!<br /><br >Twoj kod rezerwacji to: <span>" + parsed["kod"] + "</span>");
+                    $(".success p").html("{{ booking_successful }}<br />" +
+                        "<br />{% blocktrans with code='<span>" + parsed["kod"] + "</span>' %}Twoj kod rezerwacji to: {{ code }}{% endblocktrans %}");
                 } else {
-                    $(".success p").html("Udalo sie zarezerwowac!<br /><br >Serwer nie wyslal kodu rezerwacji!");
+                    $(".success p").html("{{ booking_successful }}<br />" +
+                        "<br >{% trans 'Serwer nie wyslal kodu rezerwacji!' %}");
                 }
                 $(".close").attr("class", "close");
             } else if (parsed["message"] && parsed["message"] == "validation_error") {
-                $(".success p").html("Nie mozna zarezerwowac tego pokoju na ten termin.");
+                $(".success p").html("{% trans 'Nie mozna zarezerwowac tego pokoju na ten termin.' %}");
                 $(".close").attr("class", "close no-reload");
             } else if (parsed["message"] && parsed["message"] == "site_error") {
-                $(".success p").html("Serwer otrzymal uszkodzone dane.");
+                $(".success p").html("{% trans 'Serwer otrzymal uszkodzone dane.' %}");
                 $(".close").attr("class", "close no-reload");
             } else {
-                $(".success p").html("Stalo sie cos czego nawet programista nie przewidzial.");
+                $(".success p").html("{% trans 'Stalo sie cos czego nawet programista nie przewidzial.' %}");
                 $(".close").attr("class", "close no-reload");
             }
             $(".success").fadeIn(200);
+            $(".overlay").fadeIn(200);
         });
         {% endif %}
         $("form").submit();
@@ -427,6 +436,7 @@ $(".send").click(function() {
 {% if rezerwacja_do_edycji %}
 $(".cancel").click(function() {
     $(".cancel-confirm").fadeIn(200);
+    $(".overlay").fadeIn(200);
 });
 
 $(".confirm-yes").click(function() {
@@ -442,13 +452,14 @@ $(".confirm-yes").click(function() {
         .done(function(data) {
             $(".cancel-confirm").fadeOut(200);
             if (data == "success") {
-                $(".success p").html("Rezerwacja zostala anulowana.");
+                $(".success p").html("{% trans 'Rezerwacja zostala anulowana.' %}");
                 $(".close").attr("class", "close");
             } else if (data == "date") {
-                $(".success p").html("Nie mozesz anulowac rezrwacji, ktora sie juz rozpoczela.<br />Skontaktuj sie z pracownikiem hotelu.");
+                $(".success p").html("{% trans 'Nie mozesz anulowac rezrwacji, ktora sie juz rozpoczela.' %}" +
+                    "<br />{% trans 'Skontaktuj sie z pracownikiem hotelu.' %}");
                 $(".close").attr("class", "close no-reload");
             } else {
-                $(".success p").html("Wystapil blad podczas anulowania rezerwacji. Sproboj ponownie.");
+                $(".success p").html("{% trans 'Wystapil blad podczas anulowania rezerwacji. Sproboj ponownie.' %}");
                 $(".close").attr("class", "close no-reload");
             }
             $(".success").fadeIn(200);
@@ -460,11 +471,13 @@ $(".confirm-yes").click(function() {
 
 $(".confirm-no").click(function() {
     $(".cancel-confirm").fadeOut(200);
+    $(".overlay").fadeOut();
 });
 {% endif %}
 
 $(".close").click(function() {
     $(".success").fadeOut(200);
+    $(".overlay").fadeOut();
     if (!$(".close").hasClass("no-reload")) {
         window.location = "{% url 'hotel:rezerwacje' %}";
     }
@@ -473,7 +486,7 @@ $(".close").click(function() {
 {% if liczba_pokoi or uslugi or rezerwacja_do_edycji %}
 $(document).ready(function() {
     $(".rooms").val("{{ liczba_pokoi }}").trigger("change");
-    $(".send").html( "Edytuj rezerwacje" );
+    $(".send").html( "{% trans 'Edytuj rezerwacje' %}" );
 
     {% if uslugi %}
     $(".additions h2").trigger("click");
@@ -521,34 +534,44 @@ $(document).ready(function() {
 })
 {% endif %}
 
-$(".date-from").focus(function() {
+$(".date-from").parent().click(function() {
     var w = $(".reservations-content").width();
     if (w < 634) {
         $(".calendar-from").fadeIn();
+        $(".overlay").fadeIn();
     }
 });
 
-$(".date-to").focus(function() {
+$(".date-to").parent().click(function() {
     var w = $(".reservations-content").width();
     if (w < 634) {
         $(".calendar-to").fadeIn();
+        $(".overlay").fadeIn();
     }
+});
+
+function hideCalendars() {
+    var w = $(".reservations-content").width();
+    if (w < 634) {
+        $(".calendar-from").fadeOut();
+        $(".calendar-to").fadeOut();
+        $(".overlay").fadeOut();
+    }
+}
+
+$(".overlay").click(function() {
+    hideCalendars();
+    $(".success").fadeOut();
+    $(".cancel-confirm").fadeOut();
+    $(".overlay").fadeOut();
 });
 
 $(".date-from").focusout(function() {
     sprawdzPoprawnosc();
-    var w = $(".reservations-content").width();
-    if (w < 634) {
-        $(".calendar-from").fadeOut();
-    }
 });
 
 $(".date-to").focusout(function() {
     sprawdzPoprawnosc();
-    var w = $(".reservations-content").width();
-    if (w < 634) {
-        $(".calendar-to").fadeOut();
-    }
 });
 
 {% if poczatek_pobytu %}
@@ -563,6 +586,7 @@ $(".datepicker-from").datepicker({
     onSelect: function() {
         sprawdzPoprawnosc();
         updateNights();
+        hideCalendars();
     },
     {% if poczatek_pobytu %}defaultDate:  poczatek_pobytu,{% endif %}
     altField: ".date-from",
@@ -571,6 +595,7 @@ $(".datepicker-to").datepicker({
     onSelect: function() {
         sprawdzPoprawnosc();
         updateNights();
+        hideCalendars();
     },
     defaultDate: +1,
     {% if koniec_pobytu %}defaultDate: koniec_pobytu,{% endif %}

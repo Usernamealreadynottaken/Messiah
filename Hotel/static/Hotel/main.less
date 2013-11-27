@@ -65,6 +65,15 @@ img {
     border: none;
 }
 
+.overlay {
+    display: none;
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+}
+
 .page {
     margin: 0 auto;
     max-width: 1000px;
@@ -492,7 +501,6 @@ img {
             font-size: 23px;
             color: #e59e52;
             text-shadow: 0px 0px 4px #000000;
-            filter: dropshadow(color=#000000, offx=0, offy=0);
         }
     }
 
@@ -526,7 +534,6 @@ img {
 
         @media (max-width: 720px) {
             form {
-                text-align: center;
                 text-align: center;
             }
         }
@@ -568,6 +575,7 @@ img {
 
 
             table input {
+                background: white;
                 padding: 1px 18px 1px 2px;
                 width: 184px;
                 height: 20px;
@@ -610,6 +618,22 @@ img {
                 input {
                     border-color: red;
                 }
+            }
+
+            .from-overlay {
+                display: none;
+                width: 100%;
+                height: 26px;
+                position: absolute;
+                top: 0;
+            }
+
+            .to-overlay {
+                display: none;
+                width: 100%;
+                height: 26px;
+                position: absolute;
+                top: 0;
             }
 
             .error-row {
@@ -668,6 +692,7 @@ img {
                 display: inline-block;
                 margin: 0 0 0 20px;
                 position: relative;
+                z-index: 10;
 
                 .change-calendar {
                     display: none;
@@ -696,6 +721,7 @@ img {
 
                     & {
                         margin: 0 !important;
+                        z-index: 15 !important;
                     }
 
                     .change-calendar {
@@ -781,6 +807,7 @@ img {
         }
 
         .summary {
+            text-align: left;
 
             p {
                 font-size: 20px;
@@ -792,7 +819,7 @@ img {
 
             @media (max-width: 550px) {
                 textarea {
-                    max-width: 80% !important;
+                    max-width: 97% !important;
                 }
             }
 
@@ -833,6 +860,13 @@ img {
     }
 }
 
+@media (max-width: 500px) {
+    .success {
+        width: 280px !important;
+        margin: 0 0 0 -140px !important;
+    }
+}
+
 .success {
     display: none;
     border: 3px solid black;
@@ -843,7 +877,7 @@ img {
     left: 50%;
     width: 400px;
     margin: 0 0 0 -200px;
-    z-index: 5;
+    z-index: 25;
     font-size: 20px;
     -webkit-box-shadow:  5px 5px 25px 5px rgba(0, 0, 0, 1);
     box-shadow:  5px 5px 25px 5px rgba(0, 0, 0, 1);
@@ -864,6 +898,13 @@ img {
     }
 }
 
+@media (max-width: 500px) {
+    .cancel-confirm {
+        width: 280px !important;
+        margin: 0 0 0 -140px !important;
+    }
+}
+
 .cancel-confirm {
     display: none;
     border: 3px solid black;
@@ -874,7 +915,7 @@ img {
     left: 50%;
     width: 400px;
     margin: 0 0 0 -200px;
-    z-index: 5;
+    z-index: 25;
     font-size: 20px;
     -webkit-box-shadow:  5px 5px 25px 5px rgba(0, 0, 0, 1);
     box-shadow:  5px 5px 25px 5px rgba(0, 0, 0, 1);
@@ -950,7 +991,7 @@ img {
             padding: 80px 30px 30px 30px;
 
             h2 {
-                margin: 0 0 50px 100px;
+                margin: 0 0 50px 0;
                 font-size: 40px;
                 text-align: center;
             }
@@ -964,7 +1005,7 @@ img {
                 ul li {
                     width: 30% !important;
 
-                    img {
+                    .gallery-image {
                         width: 100% !important;
                         height: 100% !important;
                     }
@@ -1023,10 +1064,12 @@ img {
                         display: none;
                     }
 
-                    &>img {
+                    &>.gallery-image {
                         cursor: pointer;
                         height: 75px;
                         width: 150px;
+                        overflow: hidden;
+                        word-wrap: break-word;
                     }
 
                     @media (max-width: 800px) {
@@ -1034,7 +1077,13 @@ img {
                             width: 300px !important;
                             bottom: auto !important;
 
-                            img {
+                            div.gallery-popup-image {
+                                width: 85% !important;
+                                display: block !important;
+                                float: none !important;
+                            }
+
+                            .gallery-popup-image  {
                                 width: 90% !important;
                                 display: block !important;
                                 float: none !important;
@@ -1049,6 +1098,11 @@ img {
                     @media (max-width: 500px) {
                         .desc {
                             width: 200px !important;
+
+                            div.gallery-popup-image {
+                                width: 78% !important;
+                            }
+
                         }
                     }
 
@@ -1065,7 +1119,15 @@ img {
                         border: 2px solid #800000;
                         text-align: left;
 
-                        img {
+                        div.gallery-popup-image {
+                            border-style: solid;
+                            border-width: 1px;
+                            margin: 10px;
+                            height: 130px;
+                            width: 280px;
+                        }
+
+                        .gallery-popup-image {
                             display: inline-block;
                             float: left;
                             height: 150px;
@@ -1192,6 +1254,7 @@ img {
         }
 
         .tab-content{
+            font-family: "alegreyaregular";
 
             ul{
                 list-style-type: none;
@@ -1294,7 +1357,7 @@ img {
                     font-weight: bold;
                     margin: 0 10px 0 10px;
                     color: blue;
-                    font-family: "devroyeregular";
+                    font-family: "alegreyaregular";
                     color: #333333;
                 }
             }
@@ -1642,10 +1705,10 @@ img {
 
             p{
             font-weight: 400;
-            font-family: "devroyeregular";
+            font-family: "alegreyaregular";
 
                 a{
-                    font-family: "devroyeregular";
+                    font-family: "alegreyaregular";
                     text-decoration: none;
                     font-weight: 400;
                     color: #333333;
@@ -1736,7 +1799,7 @@ img {
         text-align: left;
 
         h2{
-            font-family: "devroyeregular";
+            font-family: "alegreyaregular";
         }
 
         textarea{

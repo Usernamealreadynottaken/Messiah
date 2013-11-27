@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load i18n staticfiles %}
 <div id="footer">
 
     <div class="footer-wrapper">
@@ -10,15 +10,15 @@
         </ul>
 
         <ul class="submenu">
-            <li><a href="{% url 'hotel:glowna' %}">Strona glowna</a></li>
-            <li><a href="{% url 'hotel:rezerwacje' %}">Rezerwacje</a></li>
-            <li><a href="{% url 'hotel:wizualizacja' %}">Galeria</a></li>
-            <li><a href="{% url 'hotel:kontakt' %}">Kontakt</a></li>
+            <li><a href="{% url 'hotel:glowna' %}">{% trans 'Strona glowna' %}</a></li>
+            <li><a href="{% url 'hotel:rezerwacje' %}">{% trans 'Rezerwacje' %}</a></li>
+            <li><a href="{% url 'hotel:wizualizacja' %}">{% trans 'Galeria' %}</a></li>
+            <li><a href="{% url 'hotel:kontakt' %}">{% trans 'Kontakt' %}</a></li>
         </ul>
 
         <div class="socials">
 
-            <p>Copyright &copy; 2013 Hotel Messiah</p>
+            <p>{% blocktrans with copyright='&copy' %}Copyright {{ copyright }}; 2013 Hotel Messiah{% endblocktrans %}</p>
         </div>
 
     </div>

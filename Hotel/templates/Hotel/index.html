@@ -1,8 +1,7 @@
 {% extends "Hotel/base.html" %}
+{% load i18n staticfiles %}
 
-{% load staticfiles %}
-
-{% block title %}Hotel Messiah{% endblock %}
+{% block title %}{% trans 'Hotel Messiah' %}{% endblock %}
 
 {% block content %}
 
@@ -11,7 +10,7 @@
 <div id="main">
 
     <div class="title">
-        <h1>Strona glowna</h1>
+        <h1>{% trans "Strona glowna" %}</h1>
     </div> <!-- .title -->
 
     <div class="main-content">

@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
+from django.utils.translation import ugettext as _
 from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
 from django.http import HttpResponseRedirect
@@ -116,35 +117,38 @@ def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje, kod=''):
 
 
 def include_header_footer(context={}):
-    oh = OpisHotelu.objects.filter()[0]
+    try:
+        oh = OpisHotelu.objects.filter()[0]
 
-    logo_rozmiar = ''
-    if oh.uklad == 'DD' or oh.uklad == 'DG':
-        logo_rozmiar = 'logo-duze'
-    else:
-        logo_rozmiar = 'logo-male'
+        logo_rozmiar = ''
+        if oh.uklad == 'DD' or oh.uklad == 'DG':
+            logo_rozmiar = 'logo-duze'
+        else:
+            logo_rozmiar = 'logo-male'
 
-    tekst_polozenie = ''
-    if oh.uklad == 'ML':
-        tekst_polozenie = 'tekst-lewa'
-    elif oh.uklad == 'MP':
-        tekst_polozenie = 'tekst-prawa'
-    elif oh.uklad == 'DD':
-        tekst_polozenie = 'tekst-dol'
-    elif oh.uklad == 'DG':
-        tekst_polozenie = 'tekst-gora'
+        tekst_polozenie = ''
+        if oh.uklad == 'ML':
+            tekst_polozenie = 'tekst-lewa'
+        elif oh.uklad == 'MP':
+            tekst_polozenie = 'tekst-prawa'
+        elif oh.uklad == 'DD':
+            tekst_polozenie = 'tekst-dol'
+        elif oh.uklad == 'DG':
+            tekst_polozenie = 'tekst-gora'
 
-    hf = {'header_logo': oh.logo, 'header_logo_rozmiar': logo_rozmiar, 'header_tekst': oh.tekst_logo, 'header_tekst_polozenie': tekst_polozenie,
-          'header_tekst_widoczny': oh.tekst_logo_widoczny, 'header_uklad': oh.uklad, 'footer_adres': oh.adres, 'footer_telefon': oh.telefon,
-          'footer_email': oh.email}
-    return dict(context, **hf)
+        hf = {'header_logo': oh.logo, 'header_logo_rozmiar': logo_rozmiar, 'header_tekst': oh.tekst_logo, 'header_tekst_polozenie': tekst_polozenie,
+              'header_tekst_widoczny': oh.tekst_logo_widoczny, 'header_uklad': oh.uklad, 'footer_adres': oh.adres, 'footer_telefon': oh.telefon,
+              'footer_email': oh.email}
+        return dict(context, **hf)
+    except IndexError:
+        return context
 
 
 # WIDOKI
 
 @login_required
 def wiadomosci(request):
-    return render(request, 'hotel/wiadomosci.html', {'wiadomosci': Wiadomosc.objects.all()})
+    return render(request, 'hotel/wiadomosci.html', {'wiadomosci': Wiadomosc.objects.all().order_by('wyslano_odpowiedz', 'data')})
 
 
 @login_required
@@ -276,30 +280,49 @@ def wyslij_email(request, pk):
 
         wiadomosc = Wiadomosc.objects.get(id=pk)
         subject = 'Hotel Messiah'
-        message = request.GET['message']
-        messageHTML = "<h3>Twoje pytanie: </h3><p>" + wiadomosc.tresc + \
-            "</p><h3>Nasza odpowiedz: </h3><p>" + request.GET['message'] + "</p>"
-        from_email = 'hotel.messiah@gmail.com'
-        to_email = request.GET['email_address']
-        if subject and message and from_email:
-            try:
-                # send_mail(subject, message, from_email, [to_email])
-                msg = EmailMessage(subject, messageHTML, from_email, [to_email])
-                msg.content_subtype = "html"
-                msg.send()
-                pass
-            except KeyError:
-                response_message = "site_error"
-        else:
-            response_message = "empty_field"
+        try:
+            message = request.GET['message']
+            message_html = '<h3>' + _('Twoje pytanie') + ': </h3><p>' + wiadomosc.tresc + \
+                '</p><h3>' + _('Nasza odpowiedz') + ': </h3><p>' + request.GET['message'] + "</p>"
+            from_email = 'hotel.messiah@gmail.com'
+            to_email = request.GET['email_address']
+            if subject and message and from_email:
+                try:
+                    # send_mail(subject, message, from_email, [to_email])
+                    msg = EmailMessage(subject, message_html, from_email, [to_email])
+                    msg.content_subtype = "html"
+                    msg.send()
+                except KeyError:
+                    response_message = "site_error"
+            else:
+                response_message = "empty_field"
 
-        if response_message == "success":
-            wiadomosc.wyslano_odpowiedz = True
-            wiadomosc.odpowiedz = message
-            wiadomosc.save()
+            if response_message == "success":
+                wiadomosc.wyslano_odpowiedz = True
+                wiadomosc.odpowiedz = message
+                wiadomosc.save()
+        except KeyError:
+            raise Http404
 
-        response = response_message
-        return HttpResponse(response)
+        return HttpResponse(response_message)
+    else:
+        raise Http404
+
+
+def wiadomosci_oznacz(request, pk):
+    if request.is_ajax():
+        try:
+            w = Wiadomosc.objects.get(pk=pk)
+            if w.wyslano_odpowiedz:
+                w.wyslano_odpowiedz = False
+                response = 'false'
+            else:
+                w.wyslano_odpowiedz = True
+                response = 'true'
+            w.save()
+            return HttpResponse(response)
+        except ObjectDoesNotExist:
+            pass
     else:
         raise Http404
 

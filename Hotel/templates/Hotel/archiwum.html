@@ -8,9 +8,11 @@
 
 <script>
 $(document).ready(function() {
-    $(".menu > li > a").click(function() {
-        $(".expanded > a").not(this).parent().toggleClass("expanded").toggleClass("collapsed").find("> .rezerwacja-content").slideToggle("medium");
-        $(this).parent().toggleClass("expanded").toggleClass("collapsed").find("> .rezerwacja-content").slideToggle("medium");
+    $(".dropdown-list > .list-body > .object-header").click(function() {
+        $(".expanded").prev().not(this).next().toggleClass("expanded").toggleClass("collapsed")
+            .find(".object-content-content").slideToggle("medium");
+        $(this).next().toggleClass("collapsed").toggleClass("expanded")
+            .find(".object-content-content").slideToggle("medium");
     });
 });
 </script>
@@ -26,61 +28,154 @@ $(document).ready(function() {
 
 {% endblock %}
 
-{% block content_title %}<h1>Archiwum</h1>{% endblock %}
+{% block content_title %}<h1>{% trans 'Archiwum' %}</h1>{% endblock %}
 
 {% block content %}
 
 <div id="archive">
 
-    {% if rezerwacje %}
-    <ul class="menu">
+    {% trans 'Nazwisko' as name %}
+    {% trans 'Poczatek pobytu' as check_in_date %}
+    {% trans 'Koniec pobytu' as check_out_date %}
+    <table class="dropdown-list">
+        <thead class="list-head">
+            <tr>
+                <th>{{ name }}</th>
+                <th>{{ check_in_date }}</th>
+                <th>{{ check_out_date }}</th>
+                <th>{% trans 'Pokoje na rezerwacji' %}</th>
+            </tr>
+        </thead>
+        <tbody class="list-body">
+        {% if rezerwacje %}
         {% for rezerwacja in rezerwacje %}
-        <li class="collapsed"><a>Costam o rezerwacji</a>
-            <div class="rezerwacja-content">
-                <div class="rezerwacja">
-                    <p>Poczatek pobytu: {{ rezerwacja.poczatek_pobytu }}</p>
-                    <p>Koniec pobytu: {{ rezerwacja.koniec_pobytu }}</p>
-                    <p>E-mail: {{ rezerwacja.email }}</p>
-                    <p>Telefon: {{ rezerwacja.telefon }}</p>
-                    <p>Nazwisko: {{ rezerwacja.nazwisko }}</p>
-                    <p>Dodatkowe instrukcje: {{ rezerwacja.dodatkowe_instrukcje }}</p>
-                    <p>Kod: {{ rezerwacja.kod }}</p>
-                    <p>Notatka: {{ rezerwacja.notatka }}</p>
-                    <p>Cena dorosly: {{ rezerwacja.cena_dorosly }}</p>
-                    <p>Cena dziecko: {{ rezerwacja.cena_dziecko }}</p>
-                    <p>Wartosc rezerwacji: {{ rezerwacja.wartosc_rezerwacji }}</p>
-                </div>
-                <div class="uslugi">
-                    <h2>Uslugi</h2>
-                    {% if rezerwacja.usluganarezerwacji_set.all %}
-                    {% for usluga in rezerwacja.usluganarezerwacji_set.all %}
-                    <p>{{ usluga.usluga.nazwa }}{% if usluga.cena %}, cena - {{ usluga.cena }}{% endif %}</p>
-                    {% endfor %}
-                    {% else %}
-                    <p>Brak uslug</p>
-                    {% endif %}
-                </div>
-                <div class="pokoje">
-                    <h2>Pokoje</h2>
-                    {% if rezerwacja.pokojnarezerwacji_set.all %}
-                    {% for pokoj in rezerwacja.pokojnarezerwacji_set.all %}
-                    <p>Numer {{ pokoj.pokoj.numer }} (rozmiar {{ pokoj.pokoj.rozmiar }})</p>
-                    <p>doroslych - {{ pokoj.doroslych }}</p>
-                    <p>dzieci - {{ pokoj.dzieci }}</p>
-                    <p>cena - {{ pokoj.cena }}</p>
-                    {% endfor %}
-                    {% else %}
-                    <p>Brak pokojow</p>
-                    {% endif %}
-                </div>
-            </div>
-        </li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>Archiwum jest puste</p>
-    {% endif %}
+            <tr class="object-header">
+                <td>{{ rezerwacja.nazwisko }}</td>
+                <td>{{ rezerwacja.poczatek_pobytu }}</td>
+                <td>{{ rezerwacja.koniec_pobytu }}</td>
+                <td>{{ rezerwacja.pokoje_verbose }}</td>
+            </tr>
+            <tr class="object-content collapsed">
+                <td colspan="4">
+                    <div class="object-content-content">
+                        <div class="rezerwacja content-section content-top-section">
+                            <div class="content-row">
+                                <span class="label">{{ check_in_date }}: </span>
+                                <span class="field">{{ rezerwacja.poczatek_pobytu }}</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">{{ check_out_date }}: </span>
+                                <span class="field">{{ rezerwacja.koniec_pobytu }}</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">{{ name }}: </span>
+                                <span class="field">{{ rezerwacja.nazwisko }}</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">{% trans 'E-mail' %}: </span>
+                                <span class="field">{{ rezerwacja.email }}</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">{% trans 'Telefon' %}: </span>
+                                <span class="field {% if not rezerwacja.telefon %}empty{% endif %}">
+                                    {% if rezerwacja.telefon %}
+                                    {{ rezerwacja.telefon }}
+                                    {% else %}
+                                    {% trans '(nie podano)' %}
+                                    {% endif %}
+                                </span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">{% trans 'Dodatkowe instrukcje' %}: </span>
+                                <span class="field {% if not rezerwacja.dodatkowe_instrukcje %}empty{% endif %}">
+                                    {% if rezerwacja.dodatkowe_instrukcje %}
+                                    {{ rezerwacja.dodatkowe_instrukcje }}
+                                    {% else %}
+                                    {% trans '(nie podano)' %}
+                                    {% endif %}
+                                </span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">{% trans 'Kod' %}: </span>
+                                <span class="field">{{ rezerwacja.kod }}</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">{% trans 'Notatka' %}: </span>
+                                <span class="field {% if not rezerwacja.notatka %}empty{% endif %}">
+                                    {% if rezerwacja.notatka %}
+                                    {{ rezerwacja.notatka }}
+                                    {% else %}
+                                    {% trans '(nie podano)' %}
+                                    {% endif %}
+                                </span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">{% trans 'Cena dorosly' %}: </span>
+                                <span class="field">{{ rezerwacja.cena_dorosly }} zl</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">{% trans 'Cena dziecko' %}: </span>
+                                <span class="field">{{ rezerwacja.cena_dziecko }} zl</span>
+                            </div> <!-- .content-row -->
+                            <div class="content-row">
+                                <span class="label">{% trans 'Wartosc rezerwacji' %}: </span>
+                                <span class="field">{{ rezerwacja.wartosc_rezerwacji }} zl</span>
+                            </div> <!-- .content-row -->
+                        </div> <!-- .rezerwacja -->
 
-</div> <!-- archive -->
+                        <div class="uslugi content-section">
+                            <h2>{% trans 'Uslugi' %}</h2>
+                            {% if rezerwacja.usluganarezerwacji_set.all %}
+                            {% for usluga in rezerwacja.usluganarezerwacji_set.all %}
+                            <div class="content-row">
+                                <span class="label">{{ usluga.usluga.nazwa }}: </span>
+                                <span class="field">{% if usluga.cena %}{{ usluga.cena }}{% else %}0{% endif %} zl</span>
+                            </div> <!-- .content-row -->
+                            {% endfor %}
+                            {% else %}
+                            <div class="content-row">
+                                <span class="field empty">{% trans 'Brak uslug' %}</span>
+                            </div>
+                            {% endif %}
+                        </div> <!-- .uslugi -->
+
+                        <div class="pokoje content-section">
+                            <h2>{% trans 'Pokoje' %}</h2>
+                            {% if rezerwacja.pokojnarezerwacji_set.all %}
+                            <table class="content-table">
+                                <thead>
+                                    <tr>
+                                        <th class="label-column">{% trans 'Pokoj' %}</th>
+                                        <th>{% trans 'Doroslych' %}</th>
+                                        <th>{% trans 'Dzieci' %}</th>
+                                        <th>{% trans 'Cena' %}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for pokoj in rezerwacja.pokojnarezerwacji_set.all %}
+                                    <tr>
+                                        <td class="label">{% blocktrans with numer=pokoj.pokoj.numer rozmiar=pokoj.pokoj.rozmiar%}Numer {{ numer }} (rozmiar {{ rozmiar }}){% endblocktrans %}:</td>
+                                        <td class="people">{{ pokoj.doroslych }}</td>
+                                        <td class="people">{{ pokoj.dzieci }}</td>
+                                        <td class="price">{{ pokoj.cena }} zl</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            {% else %}
+                            <div class="content-row">
+                                <span class="field empty">{% trans 'Brak pokojow' %}</span>
+                            </div>
+                            {% endif %}
+                        </div> <!-- .pokoje -->
+                    </div> <!-- .rezerwacja-content-content -->
+                </td>
+            </tr>
+        {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+
+</div> <!-- #archive -->
 
 {% endblock %}

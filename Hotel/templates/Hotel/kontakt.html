@@ -1,9 +1,9 @@
 {% extends "Hotel/base.html" %}
 
-{% load staticfiles %}
+{% load i18n staticfiles %}
 
 
-{% block title %}Hotel Messiah - Kontakt{% endblock %}
+{% block title %}{% trans 'Hotel Messiah - Kontakt' %}{% endblock %}
 
 
 {% block content %}
@@ -11,7 +11,7 @@
 
     <div class="title">
 
-        <h1>Kontakt</h1>
+        <h1>{% trans 'Kontakt' %}</h1>
 
     </div><!-- .title -->
 
@@ -21,9 +21,9 @@
 
             <div class="contact-info">
 
-                {% if adres %}<p><strong>Adres:</strong> {{ adres }}</p>{% endif %}
-                {% if telefon %}<p><strong>Telefon:</strong> {{ telefon }}</p>{% endif %}
-                {% if email %}<p><strong>E-mail:</strong> <a href="mailto:{{ email }}">{{ email }}</a></p>{% endif %}
+                {% if adres %}<p><strong>{% trans 'Adres' %}:</strong> {{ adres }}</p>{% endif %}
+                {% if telefon %}<p><strong>{% trans 'Telefon' %}:</strong> {{ telefon }}</p>{% endif %}
+                {% if email %}<p><strong>{% trans 'E-mail' %}:</strong> <a href="mailto:{{ email }}">{{ email }}</a></p>{% endif %}
                 {% if facebook %}<p><strong>Facebook:</strong> <a href="{{ facebook }}">{{ facebook }}</a></p>{% endif %}
                 {% if twitter %}<p><strong>Twitter:</strong> <a href="{{ twitter }}">{{ twitter }}</a></p>{% endif %}
                 {% if skype %}<p><strong>Skype:</strong> {{ skype }}</p>{% endif %}
@@ -39,21 +39,21 @@
 
         <div class="message">
 
-            <h2>Napisz do nas!</h2>
+            <h2>{% trans 'Napisz do nas!' %}</h2>
 
              <form action="{% url 'hotel:wiadomosc_wyslij' %}" method="post">
                 {% csrf_token %}
 
                 <div class="textarea-wrapper">
-                    <textarea name="tresc" cols="" rows="" id="messagebox" placeholder="Tutaj wpisz treść swojej wiadomości." required ></textarea>
+                    <textarea name="tresc" cols="" rows="" id="messagebox" placeholder="{% trans 'Tutaj wpisz treść swojej wiadomości.' %}" required ></textarea>
                 </div><!-- .textarea-wrapper -->
                 <div class="field-wrapper">
-                    <div><input type="email" name="email" placeholder="Twoj adres e-mail." required /></div>
+                    <div><input type="email" name="email" placeholder="{% trans 'Twoj adres e-mail.' %}" required /></div>
                 </div><!-- .field-wrapper -->
                 <div class="field-wrapper">
-                    <div><input type="text" name="name" placeholder="Miejsce na nazwisko." required /></div>
+                    <div><input type="text" name="name" placeholder="{% trans 'Miejsce na nazwisko.' %}" required /></div>
                 </div><!-- .field-wrapper -->
-                <a class="send">Wyślij</a>
+                <a class="send">{% trans 'Wyślij' %}</a>
 
              </form>
 
@@ -85,22 +85,29 @@ $(".send").click(function() {
             var parsed = $.parseJSON(data);
 
             if(parsed["message"] && parsed["message"] == "success") {
-                $(".success p").html("Wiadomosc zostala wyslana!<br /><br />Dziekujemy za kontakt!");
+                $(".success p").html("{% trans 'Wiadomosc zostala wyslana!' %}<br /><br />{% trans 'Dziekujemy za kontakt!' %}");
                 $('textarea[name=tresc], input[name=name], input[name=email]').val('');
             }
             else if (parsed["message"] && parsed["message"] == "site_error") {
-                $(".success p").html("Serwer otrzymal uszkodzone dane.");
+                $(".success p").html("{% trans 'Serwer otrzymal uszkodzone dane.' %}");
             } else {
-                $(".success p").html("Stalo sie cos czego nawet programista nie przewidzial.");
+                $(".success p").html("{% trans 'Stalo sie cos czego nawet programista nie przewidzial.' %}");
             }
             $(".success").fadeIn(200);
+            $(".overlay").fadeIn(200);
         });
         $("form").submit();
     }
 });
 
+$(".overlay").click(function() {
+    $(".success").fadeOut(200);
+    $(".overlay").fadeOut(200);
+});
+
 $(".close").click(function() {
     $(".success").fadeOut(200);
+    $(".overlay").fadeOut(200);
 });
 
 $(".kontakt_class").addClass("selected");

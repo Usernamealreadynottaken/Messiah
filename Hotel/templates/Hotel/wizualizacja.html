@@ -1,6 +1,6 @@
 {% extends "Hotel/base.html" %}
 
-{% load staticfiles %}
+{% load i18n staticfiles %}
 
 {% block title %}Hotel Messiah - Wizualizacja{% endblock %}
 
@@ -11,7 +11,7 @@
 <div id="visualization">
 
     <div class="title">
-        <h1>Wizualizacja</h1>
+        <h1>{% trans 'Wizualizacja' %}</h1>
     </div> <!-- .title -->
     {% csrf_token %}
 
@@ -19,18 +19,26 @@
 
         <div class="rooms">
 
-            <h2>Pokoje</h2>
+            <h2>{% trans 'Pokoje' %}</h2>
 
             {% if pokoje and rozmiary %}
             {% for r in rozmiary %}
-            <h3 class="caption">{{ r }}-osobowe</h3>
+            <h3 class="caption">{% blocktrans count rooms=r %}{{ rooms }}-osobowe{% plural %}{{ rooms }}-osobowe_PL{% endblocktrans %}</h3>
             <ul>{% for p in pokoje %}{% if p.pokoj.rozmiar == r %}{% if not p.zajety %}<!--
 
                 Pokoje wolne najpierw
                 --><li class="room-image room{{ p.pokoj.pk }}">
-                    <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room"  />
+                    {% if p.zdjecie.url %}
+                    <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="{{ p.pokoj.opis_combo }}" class="gallery-image" />
+                    {% else %}
+                    <div class="gallery-image">{{ p.pokoj.opis_combo }}</div>
+                    {% endif %}
                     <div class="desc">
-                        <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room"/>
+                        {% if p.zdjecie.url %}
+                        <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="{{ p.pokoj.opis_combo }}" class="gallery-popup-image"/>
+                        {% else %}
+                        <div class="gallery-popup-image">{{ p.pokoj.opis_combo }}</div>
+                        {% endif %}
                         <p>{{ p.pokoj.opis }}</p>
                     </div>
                 </li>{% endif %}{% endif %}{% endfor %}<!--
@@ -38,9 +46,9 @@
                 Pokoje zajete po wolnych
                 -->{% for p in pokoje %}{% if p.pokoj.rozmiar == r %}{% if p.zajety %}<!--
                 --><li class="room-image room{{ p.pokoj.pk }} disabled">
-                    <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room" class="room-image room{{ p.pokoj.pk }}" />
+                    <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="{{ p.pokoj.opis_combo }}" class="room-image room{{ p.pokoj.pk }}" />
                     <div class="desc">
-                        <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="room"/>
+                        <img src="{% if p.zdjecie %}{{ p.zdjecie.url }}{% endif %}" alt="{{ p.pokoj.opis_combo }}"/>
                         <p>{{ p.pokoj.opis }}</p>
                     </div>
                 </li>{% endif %}{% endif %}{% endfor %}
