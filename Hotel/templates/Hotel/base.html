@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 {% load i18n staticfiles %}
-<html>
+<!--[if lt IE 9]> <html class="ie8"> <![endif]-->
+<!--[if lt IE 10]> <html class="ie9"> <![endif]-->
+<!--[if IE 10]><!--> <html>         <!--<![endif]-->
 <head>
     <title>{% block title %}{% endblock %}</title>
     <meta name="keywords" content="Hotel, Messiah" />
     <meta name="description" content="Opis hotelu TODO" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=1" />
     <link rel="stylesheet/less" type="text/css" href="{% static 'Hotel/main.less' %}" />
+    <script src="{% static 'Hotel/js/es5-shim.js' %}"></script>
     <script src="{% static 'Hotel/js/jquery-1.10.2.js' %}"></script>
+    <!-- [if lt IE 10]>
+    <script src="{% static 'Hotel/js/PIE.js' %}"></script>
+    <![endif -->
     {% block pricing %}{% endblock %}
 </head>
 
