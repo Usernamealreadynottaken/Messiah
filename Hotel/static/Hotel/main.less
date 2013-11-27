@@ -23,7 +23,7 @@
 }
 
 .gradient-vertical(@from: #000000, @to: #ffffff) {
-    background: #1e5799;
+    background: @from;
     background: -moz-linear-gradient(top,  @from 0%, @to 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@from), color-stop(100%,@to));
     background: -webkit-linear-gradient(top,  @from 0%,@to 100%);
@@ -33,7 +33,7 @@
 }
 
 .gradient-horizontal(@from: #000000, @to: #ffffff) {
-    background: #1e5799;
+    background: @from;
     background: -moz-linear-gradient(left,  @from 0%, @to 100%);
     background: -webkit-gradient(linear, left top, right top, color-stop(0%,@from), color-stop(100%,@to));
     background: -webkit-linear-gradient(left,  @from 0%,@to 100%);
