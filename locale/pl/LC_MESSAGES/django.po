@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-26 19:29+0100\n"
+"POT-Creation-Date: 2013-11-28 15:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,19 +22,23 @@ msgstr ""
 msgid "Opis hotelu"
 msgstr ""
 
-#: .\Hotel\admin.py:66
-msgid "Naglowek"
+#: .\Hotel\admin.py:66 .\Hotel\models.py:296 .\Hotel\models.py:300
+msgid "Ustawienia"
 msgstr ""
 
 #: .\Hotel\admin.py:67
-msgid "Mapa"
+msgid "Naglowek"
 msgstr ""
 
 #: .\Hotel\admin.py:68
-msgid "Informacje kontaktowe"
+msgid "Mapa"
 msgstr ""
 
 #: .\Hotel\admin.py:69
+msgid "Informacje kontaktowe"
+msgstr ""
+
+#: .\Hotel\admin.py:70
 msgid "Portale spolecznosciowe"
 msgstr ""
 
@@ -314,10 +318,6 @@ msgstr ""
 msgid "Uklad"
 msgstr ""
 
-#: .\Hotel\models.py:296 .\Hotel\models.py:300
-msgid "Ustawienia"
-msgstr ""
-
 #: .\Hotel\models.py:307
 msgid "Zdjecie hotelu"
 msgstr ""
@@ -413,7 +413,7 @@ msgid "Hotel Messiah - Cennik"
 msgstr ""
 
 #: .\Hotel\templates\Hotel\cennik.html.py:18
-#: .\Hotel\templates\Hotel\header.html.py:38
+#: .\Hotel\templates\Hotel\header.html.py:49
 msgid "Cennik"
 msgstr ""
 
@@ -465,7 +465,7 @@ msgid "Usługi zewnętrzne"
 msgstr ""
 
 #: .\Hotel\templates\Hotel\footer.html.py:13
-#: .\Hotel\templates\Hotel\header.html.py:32
+#: .\Hotel\templates\Hotel\header.html.py:43
 #: .\Hotel\templates\Hotel\index.html.py:13
 msgid "Strona glowna"
 msgstr ""
@@ -476,7 +476,7 @@ msgid "Galeria"
 msgstr ""
 
 #: .\Hotel\templates\Hotel\footer.html.py:16
-#: .\Hotel\templates\Hotel\header.html.py:40
+#: .\Hotel\templates\Hotel\header.html.py:51
 #: .\Hotel\templates\Hotel\kontakt.html.py:14
 msgid "Kontakt"
 msgstr ""
@@ -486,16 +486,16 @@ msgstr ""
 msgid "Copyright %(copyright)s; 2013 Hotel Messiah"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\header.html.py:33
+#: .\Hotel\templates\Hotel\header.html.py:44
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:211
 msgid "Zarezerwuj"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\header.html.py:35
+#: .\Hotel\templates\Hotel\header.html.py:46
 msgid "Mam juz rezerwacje"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\header.html.py:39
+#: .\Hotel\templates\Hotel\header.html.py:50
 #: .\Hotel\templates\Hotel\wizualizacja.html.py:14
 msgid "Wizualizacja"
 msgstr ""
@@ -538,13 +538,13 @@ msgid "Dziekujemy za kontakt!"
 msgstr ""
 
 #: .\Hotel\templates\Hotel\kontakt.html.py:92
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:423
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:422
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:74
 msgid "Serwer otrzymal uszkodzone dane."
 msgstr ""
 
 #: .\Hotel\templates\Hotel\kontakt.html.py:94
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:426
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:425
 msgid "Stalo sie cos czego nawet programista nie przewidzial."
 msgstr ""
 
@@ -643,69 +643,69 @@ msgstr ""
 msgid "Nie"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:331
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:330
 #, python-format
 msgid "Pokoj %(room)s nie zostal zweryfikowany przez serwer."
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:333
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:332
 #, python-format
 msgid "W pokoju nr %(room_i)s jest wybrane 0 osob."
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:335
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:334
 #, python-format
 msgid "Pokoj %(room_i)s - za duzo osob."
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:337
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:336
 #, python-format
 msgid "Pokoj %(room_i)s - brak wolnych pokojow."
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:339
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:338
 msgid "Wystapil blad ktory powinien nie istniec."
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:347
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:346
 #, python-format
 msgid "Pokoj %(room_i)s - blad po stronie serwera."
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:409
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:408
 msgid "Udalo sie zarezerwowac!"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:413
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:412
 #, python-format
 msgid "Twoj kod rezerwacji to: %(code)s"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:416
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:415
 msgid "Serwer nie wyslal kodu rezerwacji!"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:420
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:419
 msgid "Nie mozna zarezerwowac tego pokoju na ten termin."
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:455
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:454
 msgid "Rezerwacja zostala anulowana."
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:458
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:457
 msgid "Nie mozesz anulowac rezrwacji, ktora sie juz rozpoczela."
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:459
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:458
 msgid "Skontaktuj sie z pracownikiem hotelu."
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:462
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:461
 msgid "Wystapil blad podczas anulowania rezerwacji. Sproboj ponownie."
 msgstr ""
 
-#: .\Hotel\templates\Hotel\rezerwacje.html.py:489
+#: .\Hotel\templates\Hotel\rezerwacje.html.py:488
 msgid "Edytuj rezerwacje"
 msgstr ""
 

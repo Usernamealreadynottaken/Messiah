@@ -50,7 +50,7 @@ TIME_ZONE = 'Europe/Warsaw'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'pl'
 
 LANGUAGES = (
     ('en', 'English'),
@@ -126,6 +126,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Tranlation
+    'django.middleware.locale.LocaleMiddleware'
 )
 
 ROOT_URLCONF = 'Messiah.urls'

@@ -244,7 +244,6 @@
 
 <script src="{% static 'Hotel/js/jquery.form.js' %}"></script>
 <script src="{% static 'Hotel/js/rezerwacje.js' %}"></script>
-<script src="{% static 'Hotel/js/jquery-ui.js' %}"></script>
 
 <script>
 var datePassed = false;
@@ -398,12 +397,12 @@ $(".send").click(function(e) {
     if (sprawdzPoprawnosc() && validateName($('input[name=name]')) && validateEmail($('input[name=email]'))) {
 
         {% if rezerwacja_do_edycji %}
-        $("form").ajaxForm(function(data) {
+        $(".resform").ajaxForm(function(data) {
             // alert(data);
         });
 
         {% else %}
-        $("form").ajaxForm(function(data) {
+        $(".resform").ajaxForm(function(data) {
             var parsed = $.parseJSON(data);
 
             {% trans 'Udalo sie zarezerwowac!' as booking_successful %}
@@ -430,7 +429,7 @@ $(".send").click(function(e) {
             $(".overlay").fadeIn(200);
         });
         {% endif %}
-        $("form").submit();
+        $(".resform").submit();
     }
 });
 {% if rezerwacja_do_edycji %}
@@ -529,7 +528,7 @@ $(document).ready(function() {
     {% endif %}
 
     {% if rezerwacja_do_edycji %}
-    $("form").attr("action", "{% url 'hotel:rezerwacje_wyslij' %}" + "{{ rezerwacja_do_edycji.kod }}" + "/");
+    $(".resform").attr("action", "{% url 'hotel:rezerwacje_wyslij' %}" + "{{ rezerwacja_do_edycji.kod }}" + "/");
     {% endif %}
 })
 {% endif %}
