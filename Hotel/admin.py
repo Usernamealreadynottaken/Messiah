@@ -4,7 +4,7 @@ from django.utils.translation import ugettext as _
 import datetime
 
 from Hotel.models import Rezerwacja, Pokoj, Usluga, UslugaNaRezerwacji, PokojNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
-    ZdjeciaPokojow, CenaPokoju, OpisHotelu, ZdjeciaHotelu
+    ZdjeciaPokojow, CenaPokoju, OpisHotelu, ZdjeciaHotelu, Newsletter
 
 
 # REZERWACJE
@@ -89,6 +89,7 @@ admin.site.register(Usluga, UslugaAdmin)
 admin.site.register(KategoriaJedzenia, KategoriaJedzeniaAdmin)
 admin.site.register(OpisHotelu, OpisHoteluAdmin)
 admin.site.register(ZdjeciaHotelu)
+admin.site.register(Newsletter)
 
 # Wiadomosci finalnie nie beda edytowane w panelu admina tylko bedziemy mieli ta strone dla pracownika
 # w ktorej pracownike bedzie odpowiadal na wiadomosci i tyle, ale obecnie dodaje to do panelu

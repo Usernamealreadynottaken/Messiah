@@ -10,3 +10,4 @@ DROP TABLE IF EXISTS "Hotel_usluganarezerwacji";
 DROP TABLE IF EXISTS "Hotel_usluga";
 DROP TABLE IF EXISTS "Hotel_rezerwacja";
 DROP TABLE IF EXISTS "Hotel_cenapokoju";
+DROP TABLE IF EXISTS "Hotel_newsletter";

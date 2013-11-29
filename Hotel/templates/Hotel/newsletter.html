@@ -1,0 +1,85 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block title %}Newsletter{% endblock %}
+
+{% block extrahead %}
+
+    <script src="{% static 'Hotel/js/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'Hotel/js/jquery.form.js' %}"></script>
+    <script type="text/javascript" src="{% static 'Hotel/tinymce/tinymce.min.js' %}"></script>
+
+    <script type="text/javascript">
+        tinymce.init({selector:'textarea'});
+    </script>
+
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $(".send").click(function() {
+
+                var toSend = {
+                    csrfmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val(),
+                    message: tinyMCE.activeEditor.getContent(),
+                };
+
+                $.ajax({
+                    type: "GET",
+                    // dataType: "html",
+                    url: "{% url 'admin_custom:wyslij_biuletyn' %}",
+                    data: toSend
+                })
+                    .done(function(data) {
+
+                        if (data == "success") {
+                            $(".success p").html("{% trans 'Biuletyn zostal wyslany!' %}<br /><br />");
+                        }
+                        else if (data == "site_error") {
+                            $(".success p").html("{% trans 'Serwer otrzymal uszkodzone dane.' %}");
+                        }
+                        else if (data == "empty_field") {
+                            $(".success p").html("{% trans 'Nie mozesz wyslac pustej wiadomosci!' %}");
+                        }
+                        else {
+                            $(".success p").html("{% trans 'Nieprzewidziany blad' %}");
+                        }
+
+                        $(".success").fadeIn(200);
+                    });
+
+                console.log(toSend);
+            });
+
+            $(".close").click(function() {
+                $(".success").fadeOut(200);
+            });
+        });
+    </script>
+
+{% endblock %}
+
+{% block breadcrumbs %}
+
+    <div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> &rsaquo;
+    <a href="../">{% trans 'Hotel' %}</a> &rsaquo;
+    {% trans 'Biuletyn' %}
+    </div>
+
+{% endblock %}
+
+{% block content %}
+    <div class="newsletter">
+        {% csrf_token %}
+
+        <textarea class="message"></textarea>
+        <a class="send">{% trans 'Wyślij' %}</a>
+
+    </div><!-- .newsletter -->
+
+<div class="success">
+
+    <p></p>
+    <span class="close"/>
+
+</div> <!-- .success -->
+{% endblock %}

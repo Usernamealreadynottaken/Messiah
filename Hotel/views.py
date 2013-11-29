@@ -20,7 +20,7 @@ from django.http import HttpResponse, Http404
 
 # Nasze modele
 from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
-    ZdjeciaPokojow, CenaPokoju, ZdjeciaHotelu
+    ZdjeciaPokojow, CenaPokoju, ZdjeciaHotelu, Newsletter
 
 
 # FUNKCJE (NIE-WIDOKI)
@@ -147,6 +147,11 @@ def include_header_footer(context={}):
 # WIDOKI
 
 @login_required
+def biuletyn(request):
+    return render(request, 'hotel/newsletter.html', {})
+
+
+@login_required
 def wiadomosci(request):
     return render(request, 'hotel/wiadomosci.html', {'wiadomosci': Wiadomosc.objects.all().order_by('wyslano_odpowiedz', 'data')})
 
@@ -250,6 +255,59 @@ def kontakt(request):
         'telefon': OpisHotelu.objects.filter()[0].telefon,
         'adres': OpisHotelu.objects.filter()[0].adres
     }))
+
+
+#Zapisanie sie na newsletter przez zainteresowane osoby
+def newsletter(request):
+    if request.is_ajax():
+        response_message = "success"
+        try:
+            if Newsletter.objects.filter(news_email=request.GET['email']).count():
+                response_message = "already_signed"
+            else:
+                nowy_email = Newsletter(news_email=request.GET['email'])
+                nowy_email.save()
+
+        except ValueError:
+            response_message = "site_error"
+
+        except KeyError:
+            raise Http404
+
+        return HttpResponse(response_message)
+
+    else:
+        raise Http404
+
+
+#Wysylaie biuletynu do chetnych osob ze strony admina .do zmiany.
+def wyslij_biuletyn(request):
+    if request.is_ajax():
+        response_message = "success"
+
+        subject = 'Hotel Messiah Newsletter!'
+        try:
+            message_html = request.GET['message']
+            from_email = 'hotel.messiah@gmail.com'
+            to_email = 'hotel.messiah@gmail.com'
+            to_email_bcc = Newsletter.objects.values_list('news_email', flat=True)
+            if subject and message_html and from_email:
+                try:
+                    msg = EmailMessage(subject, message_html, from_email, [to_email], to_email_bcc)
+                    msg.content_subtype = "html"
+                    msg.send()
+                except KeyError:
+                    response_message = "site_error"
+            else:
+                response_message = "empty_field"
+
+        except KeyError:
+            raise Http404
+
+        return HttpResponse(response_message)
+    else:
+        raise Http404
+
 
 
 # Wysylanie wiadomosci ze strony kontaktowej

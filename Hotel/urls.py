@@ -6,6 +6,8 @@ urlpatterns = patterns('',
     url(r'^$', views.glowna, name='glowna'),
     url(r'^cennik/$', views.cennik, name='cennik'),
 
+    url(r'^cennik/newsletter/$', views.newsletter, name='newsletter'),
+
     url(r'^kontakt/$', views.kontakt, name='kontakt'),
     url(r'^kontakt/wyslij/$', views.wiadomosc_wyslij, name='wiadomosc_wyslij'),
 

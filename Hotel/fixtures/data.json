@@ -1442,5 +1442,19 @@
     "tresc": "D\u00f3\u0142 waszej strony \u017ale wy\u015bwietla si\u0119 na moim telefonie - samsung galaxy 4. Defaultowa przegl\u0105darka z jej aktualn\u0105 wersj\u0105.", 
     "email": ""
   }
+},
+{
+  "pk": 1,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "altihion@gmail.com"
+  }
+},
+{
+  "pk": 2,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "grzesiek_dlugosz@o2.pl"
+  }
 }
 ]

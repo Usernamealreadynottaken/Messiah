@@ -59,6 +59,21 @@
 
         </div><!-- .message -->
 
+        <div class="newsletter">
+            {% csrf_token %}
+
+            <p><strong>{% trans 'Biuletyn' %}</strong> {% trans 'promocje i aktualności' %}</p>
+
+            <div class="field-wrapper">
+
+                <div><input class="newsmail" type="email" name="news-email" placeholder="{% trans 'Twoj adres e-mail.' %}" required /></div>
+
+            </div><!-- .field-wrapper -->
+
+            <a class="send-newsletter">{% trans 'Zapisz' %}</a>
+
+        </div><!-- .newsletter -->
+
     </div><!-- .wrapper -->
 
 </div><!-- #contact -->
@@ -76,6 +91,46 @@
 
 <script src="{% static 'Hotel/js/jquery.form.js' %}"></script>
 <script src="{% static 'Hotel/js/wiadomosc.js' %}"></script>
+<script src="{% static 'Hotel/js/newsletter.js' %}"></script>
+
+<script>
+$(document).ready(function() {
+    $(".send-newsletter").click(function() {
+        if(validateEmail($('input[name=news-email]'))){
+            var toSend = {
+                csrfmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val(),
+                email: $(".newsmail").val(),
+            };
+
+            $.ajax({
+                type: "GET",
+                // dataType: "html",
+                url: "{% url 'hotel:newsletter' %}",
+                data: toSend
+            })
+                .done(function(data) {
+
+                    if (data == "success") {
+                        $(".success p").html("{% trans 'Zostales zapisany na newsletter!' %}<br /><br />");
+                    }
+                    else if (data == "site_error") {
+                        $(".success p").html("{% trans 'Serwer otrzymal uszkodzone dane.' %}");
+                    }
+                    else if (data == "already_signed") {
+                        $(".success p").html("{% trans 'Jestes juz zapisany na nasz newsletter!' %}");
+                    }
+                    else {
+                        $(".success p").html("{% trans 'Nieprzewidziany blad' %}");
+                    }
+
+                    $(".success").fadeIn(200);
+                    $(".overlay").fadeIn(200);
+                });
+        }
+    });
+
+});
+</script>
 
 <script>
 
