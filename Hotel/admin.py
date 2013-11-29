@@ -1,6 +1,6 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 import datetime
 
 from Hotel.models import Rezerwacja, Pokoj, Usluga, UslugaNaRezerwacji, PokojNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
@@ -63,6 +63,7 @@ class PokojAdmin(TranslationAdmin):
 class OpisHoteluAdmin(TranslationAdmin):
     fieldsets = [
         (_('Opis hotelu'), {'fields': ['opis_hotelu', 'zdjecie', 'opis_google']}),
+        (_('Ustawienia'), {'fields': ['cena_dorosly', 'cena_dziecko']}),
         (_('Naglowek'), {'fields': ['logo', 'tekst_logo', 'tekst_logo_widoczny', 'uklad']}),
         (_('Mapa'), {'fields': ['html_mapy_google', 'wyswietlaj_mape']}),
         (_('Informacje kontaktowe'), {'fields': ['email', 'skype', 'gadu_gadu', 'adres', 'telefon']}),
