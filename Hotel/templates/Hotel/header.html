@@ -2,6 +2,17 @@
 <div id="header">
 
     <div class="header-wrapper {{ header_logo_rozmiar }} {{ header_tekst_polozenie }}">
+        <div class="language-selection">
+            <form class="language-form" action="/i18n/setlang/" method="post">
+                {% csrf_token %}
+                {% if LANGUAGE_CODE = 'en' %}
+                <input type="hidden" name="language" value="pl" /><a class="language-send"><img class="flag" src="{% static 'Hotel/img/lang-pl.png' %}" alt="Polish"></a>
+                {% else %}
+                <input type="hidden" name="language" value="en" /><a class="language-send"><img class="flag" src="{% static 'Hotel/img/lang-en.png' %}" alt="English"></a>
+                {% endif %}
+            </form>
+        </div> <!-- .language-selection -->
+
         {% if header_tekst_widoczny %}
         {% if header_tekst_polozenie == 'tekst-gora' or header_tekst_polozenie == 'tekst-lewa' %}
         <div class="logo-text {{ header_tekst_polozenie }}">

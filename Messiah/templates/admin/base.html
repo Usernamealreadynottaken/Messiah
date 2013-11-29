@@ -10,10 +10,15 @@
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
 
 <script src="{% static 'Hotel/js/jquery-1.10.2.js' %}" type="text/javascript"></script>
+<script src="{% static 'Hotel/js/es5-shim.js' %}"></script>
 <link rel="stylesheet/less" type="text/css" href="{% static 'Hotel/admin/base.less' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'Hotel/responsive-tables.css' %}" />
 <script src="{% static 'Hotel/js/less.js' %}" type="text/javascript"></script>
 <script src="{% static 'Hotel/js/responsive-tables.js' %}" type="text/javascript"></script>
+
+<!-- [if lt IE 10]>
+<script src="{% static 'Hotel/js/PIE.js' %}"></script>
+<![endif -->
 
 {% block extrahead %}{% endblock %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}

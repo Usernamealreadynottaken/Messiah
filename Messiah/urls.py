@@ -4,9 +4,11 @@ from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^admin/Hotel/', include('Hotel.urls_admin', namespace='admin_custom')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'i18n/', include('django.conf.urls.i18n')),
     url(r'^', include('Hotel.urls', namespace='hotel'))
 )
 
