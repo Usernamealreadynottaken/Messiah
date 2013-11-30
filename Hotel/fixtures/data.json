@@ -1447,14 +1447,16 @@
   "pk": 1,
   "model": "Hotel.newsletter",
   "fields": {
-    "news_email": "altihion@gmail.com"
+    "news_email": "altihion@gmail.com",
+    "news_kod": "5ZBcuIZ7ihRi"
   }
 },
 {
   "pk": 2,
   "model": "Hotel.newsletter",
   "fields": {
-    "news_email": "grzesiek_dlugosz@o2.pl"
+    "news_email": "grzesiek_dlugosz@o2.pl",
+    "news_kod": "VXbuTogrcEi8"
   }
 }
 ]

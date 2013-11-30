@@ -1,0 +1,25 @@
+{% extends "Hotel/base.html" %}
+
+{% load i18n staticfiles %}
+
+
+{% block title %}{% trans 'Hotel Messiah - Anuluj Subskrypcje' %}{% endblock %}
+
+
+{% block content %}
+<div class="newsletter_anuluj">
+
+    <div class="title">
+
+        <h1>{% trans 'Biuletyn' %}</h1>
+
+    </div><!-- .title -->
+
+    <div class="wrapper">
+
+        <h2>{% trans 'Subscrypcja została anulowana' %}</h2>
+
+    </div><!-- .wrapper -->
+
+</div>
+{% endblock %}
