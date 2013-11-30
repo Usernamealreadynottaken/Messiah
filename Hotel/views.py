@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
 from django.utils.translation import ugettext as _
+from django.core import mail
+from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
 from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
@@ -304,7 +306,7 @@ def newsletter_anuluj(request, code):
         subscription = Newsletter.objects.get(news_kod=code)
         if subscription:
             subscription.delete()
-            return kontakt(request)# tak ??
+            return render(request, 'hotel/newsletter_anuluj.html', include_header_footer())
 
         else:
             raise Http404#zwraca?
@@ -315,31 +317,36 @@ def newsletter_anuluj(request, code):
 #Wysylaie biuletynu do chetnych osob ze strony admina .do zmiany.
 def wyslij_biuletyn(request):
     if request.is_ajax():
+        subscribers = Newsletter.objects.all()
         response_message = "success"
-
+        from_email = 'hotel.messiah@gmail.com'
+        connection = mail.get_connection()
+        connection.open()
         subject = 'Hotel Messiah Newsletter!'
-        try:
-            message_html = request.GET['message']
-            from_email = 'hotel.messiah@gmail.com'
-            to_email = 'hotel.messiah@gmail.com'
-            to_email_bcc = Newsletter.objects.values_list('news_email', flat=True)
-            if subject and message_html and from_email:
-                try:
-                    msg = EmailMessage(subject, message_html, from_email, [to_email], to_email_bcc)
-                    msg.content_subtype = "html"
-                    msg.send()
-                except KeyError:
-                    response_message = "site_error"
-            else:
-                response_message = "empty_field"
 
-        except KeyError:
-            raise Http404
 
+        for subscriber in subscribers:
+            try:
+                message_html = request.GET['message']+"<a href='"+request.build_absolute_uri(reverse('hotel:newsletter_anuluj', args=[subscriber.news_kod]))+"'>"+"Anuluj newsletter"+"</a>"
+                to_email = subscriber.news_email
+                #to_email_bcc = Newsletter.objects.values_list('news_email', flat=True)
+                if subject and message_html and from_email:
+                    try:
+                        msg = EmailMessage(subject, message_html, from_email, [to_email])
+                        msg.content_subtype = "html"
+                        msg.send()
+                    except KeyError:
+                        response_message = "site_error"
+                else:
+                    response_message = "empty_field"
+
+            except KeyError:
+                raise Http404
+
+        connection.close()
         return HttpResponse(response_message)
     else:
         raise Http404
-
 
 
 # Wysylanie wiadomosci ze strony kontaktowej
