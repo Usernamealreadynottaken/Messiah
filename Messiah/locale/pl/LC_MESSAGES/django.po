@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-29 15:01+0100\n"
+"POT-Creation-Date: 2013-11-30 16:28+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 
 #: .\Hotel\models.py:13 .\Hotel\models.py:59 .\Hotel\models.py:139
 #: .\Hotel\models.py:199 .\Hotel\models.py:228 .\Hotel\models.py:240
-#: .\Hotel\templates\Hotel\archiwum.html.py:151
+#: .\Hotel\templates\Hotel\archiwum.html.py:215
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:208
 msgid "Cena"
 msgstr ""
@@ -69,7 +69,7 @@ msgstr ""
 msgid "Usluga"
 msgstr ""
 
-#: .\Hotel\models.py:20 .\Hotel\templates\Hotel\archiwum.html.py:127
+#: .\Hotel\models.py:20 .\Hotel\templates\Hotel\archiwum.html.py:191
 msgid "Uslugi"
 msgstr ""
 
@@ -93,11 +93,11 @@ msgstr ""
 msgid "Krotki opis"
 msgstr ""
 
-#: .\Hotel\models.py:43 .\Hotel\templates\Hotel\archiwum.html.py:148
+#: .\Hotel\models.py:43 .\Hotel\templates\Hotel\archiwum.html.py:212
 msgid "Pokoj"
 msgstr ""
 
-#: .\Hotel\models.py:44 .\Hotel\templates\Hotel\archiwum.html.py:143
+#: .\Hotel\models.py:44 .\Hotel\templates\Hotel\archiwum.html.py:207
 #: .\Hotel\templates\Hotel\cennik.html.py:27
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:206
 #: .\Hotel\templates\Hotel\wizualizacja.html.py:22
@@ -139,14 +139,14 @@ msgstr ""
 msgid "Zdjecia pokojow"
 msgstr ""
 
-#: .\Hotel\models.py:80 .\Hotel\templates\Hotel\archiwum.html.py:38
+#: .\Hotel\models.py:80 .\Hotel\templates\Hotel\archiwum.html.py:102
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:22
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:48
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:156
 msgid "Poczatek pobytu"
 msgstr ""
 
-#: .\Hotel\models.py:81 .\Hotel\templates\Hotel\archiwum.html.py:39
+#: .\Hotel\models.py:81 .\Hotel\templates\Hotel\archiwum.html.py:103
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:23
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:56
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:160
@@ -154,7 +154,7 @@ msgid "Koniec pobytu"
 msgstr ""
 
 #: .\Hotel\models.py:82 .\Hotel\models.py:272 .\Hotel\models.py:312
-#: .\Hotel\models.py:325 .\Hotel\templates\Hotel\archiwum.html.py:75
+#: .\Hotel\models.py:325 .\Hotel\templates\Hotel\archiwum.html.py:139
 #: .\Hotel\templates\Hotel\kontakt.html.py:26
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:39
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:162
@@ -162,26 +162,27 @@ msgid "E-mail"
 msgstr ""
 
 #: .\Hotel\models.py:83 .\Hotel\models.py:267
-#: .\Hotel\templates\Hotel\archiwum.html.py:79
+#: .\Hotel\templates\Hotel\archiwum.html.py:143
 #: .\Hotel\templates\Hotel\kontakt.html.py:25
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:34
 msgid "Telefon"
 msgstr ""
 
 #: .\Hotel\models.py:84 .\Hotel\models.py:313
-#: .\Hotel\templates\Hotel\archiwum.html.py:37
+#: .\Hotel\templates\Hotel\archiwum.html.py:101
 msgid "Nazwisko"
 msgstr ""
 
-#: .\Hotel\models.py:85 .\Hotel\templates\Hotel\archiwum.html.py:89
+#: .\Hotel\models.py:85 .\Hotel\templates\Hotel\archiwum.html.py:153
 msgid "Dodatkowe instrukcje"
 msgstr ""
 
-#: .\Hotel\models.py:86 .\Hotel\templates\Hotel\archiwum.html.py:99
+#: .\Hotel\models.py:86 .\Hotel\models.py:326
+#: .\Hotel\templates\Hotel\archiwum.html.py:163
 msgid "Kod"
 msgstr ""
 
-#: .\Hotel\models.py:87 .\Hotel\templates\Hotel\archiwum.html.py:103
+#: .\Hotel\models.py:87 .\Hotel\templates\Hotel\archiwum.html.py:167
 msgid "Notatka"
 msgstr ""
 
@@ -190,11 +191,11 @@ msgid "Zarchiwizowany"
 msgstr ""
 
 #: .\Hotel\models.py:90 .\Hotel\models.py:256
-#: .\Hotel\templates\Hotel\archiwum.html.py:113
+#: .\Hotel\templates\Hotel\archiwum.html.py:177
 msgid "Cena dorosly"
 msgstr ""
 
-#: .\Hotel\models.py:91 .\Hotel\templates\Hotel\archiwum.html.py:117
+#: .\Hotel\models.py:91 .\Hotel\templates\Hotel\archiwum.html.py:181
 msgid "Cena dziecko"
 msgstr ""
 
@@ -216,15 +217,15 @@ msgstr[1] "%d osoby"
 msgstr[2] "%d osob"
 
 #: .\Hotel\models.py:128 .\Hotel\models.py:143
-#: .\Hotel\templates\Hotel\archiwum.html.py:46
+#: .\Hotel\templates\Hotel\archiwum.html.py:110
 msgid "Pokoje na rezerwacji"
 msgstr ""
 
-#: .\Hotel\models.py:137 .\Hotel\templates\Hotel\archiwum.html.py:149
+#: .\Hotel\models.py:137 .\Hotel\templates\Hotel\archiwum.html.py:213
 msgid "Doroslych"
 msgstr ""
 
-#: .\Hotel\models.py:138 .\Hotel\templates\Hotel\archiwum.html.py:150
+#: .\Hotel\models.py:138 .\Hotel\templates\Hotel\archiwum.html.py:214
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:76
 msgid "Dzieci"
 msgstr ""
@@ -352,24 +353,24 @@ msgstr ""
 msgid "Wiadomosci"
 msgstr ""
 
-#: .\Hotel\models.py:328
+#: .\Hotel\models.py:329
 msgid "Biuletyn - lista"
 msgstr ""
 
-#: .\Hotel\views.py:343
+#: .\Hotel\views.py:376
 msgid "Twoje pytanie"
 msgstr ""
 
-#: .\Hotel\views.py:344
+#: .\Hotel\views.py:377
 msgid "Nasza odpowiedz"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\archiwum.html.py:24
-#: .\Hotel\templates\Hotel\newsletter.html.py:63
+#: .\Hotel\templates\Hotel\archiwum.html.py:82
+#: .\Hotel\templates\Hotel\newsletter.html.py:66
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:123
 #: .\Messiah\templates\500.html.py:6
 #: .\Messiah\templates\admin\app_index.html.py:7
-#: .\Messiah\templates\admin\base.html.py:56
+#: .\Messiah\templates\admin\base.html.py:61
 #: .\Messiah\templates\admin\change_form.html.py:19
 #: .\Messiah\templates\admin\change_list.html.py:41
 #: .\Messiah\templates\admin\delete_confirmation.html.py:7
@@ -379,38 +380,47 @@ msgstr ""
 msgid "Home"
 msgstr "Poczatek"
 
-#: .\Hotel\templates\Hotel\archiwum.html.py:25
-#: .\Hotel\templates\Hotel\newsletter.html.py:64
+#: .\Hotel\templates\Hotel\archiwum.html.py:83
+#: .\Hotel\templates\Hotel\newsletter.html.py:67
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:124
 msgid "Hotel"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\archiwum.html.py:26
-#: .\Hotel\templates\Hotel\archiwum.html.py:31
+#: .\Hotel\templates\Hotel\archiwum.html.py:84
+#: .\Hotel\templates\Hotel\archiwum.html.py:89
 #: .\Messiah\templates\admin\index.html.py:63
 msgid "Archiwum"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\archiwum.html.py:84
-#: .\Hotel\templates\Hotel\archiwum.html.py:94
-#: .\Hotel\templates\Hotel\archiwum.html.py:108
+#: .\Hotel\templates\Hotel\archiwum.html.py:97
+#, fuzzy
+msgid "Filtruj"
+msgstr "Filtr"
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:98
+msgid "Reset"
+msgstr ""
+
+#: .\Hotel\templates\Hotel\archiwum.html.py:148
+#: .\Hotel\templates\Hotel\archiwum.html.py:158
+#: .\Hotel\templates\Hotel\archiwum.html.py:172
 msgid "(nie podano)"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\archiwum.html.py:121
+#: .\Hotel\templates\Hotel\archiwum.html.py:185
 msgid "Wartosc rezerwacji"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\archiwum.html.py:137
+#: .\Hotel\templates\Hotel\archiwum.html.py:201
 msgid "Brak uslug"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\archiwum.html.py:157
+#: .\Hotel\templates\Hotel\archiwum.html.py:221
 #, python-format
 msgid "Numer %(numer)s (rozmiar %(rozmiar)s)"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\archiwum.html.py:167
+#: .\Hotel\templates\Hotel\archiwum.html.py:231
 msgid "Brak pokojow"
 msgstr ""
 
@@ -532,12 +542,12 @@ msgid "Miejsce na nazwisko."
 msgstr ""
 
 #: .\Hotel\templates\Hotel\kontakt.html.py:56
-#: .\Hotel\templates\Hotel\newsletter.html.py:75
+#: .\Hotel\templates\Hotel\newsletter.html.py:78
 msgid "Wyślij"
 msgstr ""
 
 #: .\Hotel\templates\Hotel\kontakt.html.py:65
-#: .\Hotel\templates\Hotel\newsletter.html.py:65
+#: .\Hotel\templates\Hotel\newsletter.html.py:68
 #: .\Messiah\templates\admin\index.html.py:69
 msgid "Biuletyn"
 msgstr ""
@@ -556,7 +566,7 @@ msgstr ""
 
 #: .\Hotel\templates\Hotel\kontakt.html.py:117
 #: .\Hotel\templates\Hotel\kontakt.html.py:147
-#: .\Hotel\templates\Hotel\newsletter.html.py:37
+#: .\Hotel\templates\Hotel\newsletter.html.py:40
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:422
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:74
 msgid "Serwer otrzymal uszkodzone dane."
@@ -567,7 +577,7 @@ msgid "Jestes juz zapisany na nasz newsletter!"
 msgstr ""
 
 #: .\Hotel\templates\Hotel\kontakt.html.py:123
-#: .\Hotel\templates\Hotel\newsletter.html.py:43
+#: .\Hotel\templates\Hotel\newsletter.html.py:46
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:80
 msgid "Nieprzewidziany blad"
 msgstr ""
@@ -586,11 +596,11 @@ msgstr ""
 msgid "Stalo sie cos czego nawet programista nie przewidzial."
 msgstr ""
 
-#: .\Hotel\templates\Hotel\newsletter.html.py:34
+#: .\Hotel\templates\Hotel\newsletter.html.py:37
 msgid "Biuletyn zostal wyslany!"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\newsletter.html.py:40
+#: .\Hotel\templates\Hotel\newsletter.html.py:43
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:77
 msgid "Nie mozesz wyslac pustej wiadomosci!"
 msgstr ""
@@ -933,19 +943,19 @@ msgstr "Wyczysc zaznaczenie"
 msgid "%(name)s"
 msgstr ""
 
-#: .\Messiah\templates\admin\base.html.py:36
+#: .\Messiah\templates\admin\base.html.py:41
 msgid "Welcome,"
 msgstr "Witaj,"
 
-#: .\Messiah\templates\admin\base.html.py:41
+#: .\Messiah\templates\admin\base.html.py:46
 msgid "Documentation"
 msgstr "Dokumentacja"
 
-#: .\Messiah\templates\admin\base.html.py:44
+#: .\Messiah\templates\admin\base.html.py:49
 msgid "Change password"
 msgstr "Zmiana hasla"
 
-#: .\Messiah\templates\admin\base.html.py:46
+#: .\Messiah\templates\admin\base.html.py:51
 msgid "Log out"
 msgstr "Wyloguj sie"
 
