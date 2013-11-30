@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-28 15:14+0100\n"
+"POT-Creation-Date: 2013-11-29 15:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,7 +154,7 @@ msgid "Koniec pobytu"
 msgstr ""
 
 #: .\Hotel\models.py:82 .\Hotel\models.py:272 .\Hotel\models.py:312
-#: .\Hotel\templates\Hotel\archiwum.html.py:75
+#: .\Hotel\models.py:325 .\Hotel\templates\Hotel\archiwum.html.py:75
 #: .\Hotel\templates\Hotel\kontakt.html.py:26
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:39
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:162
@@ -352,15 +352,20 @@ msgstr ""
 msgid "Wiadomosci"
 msgstr ""
 
-#: .\Hotel\views.py:285
+#: .\Hotel\models.py:328
+msgid "Biuletyn - lista"
+msgstr ""
+
+#: .\Hotel\views.py:343
 msgid "Twoje pytanie"
 msgstr ""
 
-#: .\Hotel\views.py:286
+#: .\Hotel\views.py:344
 msgid "Nasza odpowiedz"
 msgstr ""
 
 #: .\Hotel\templates\Hotel\archiwum.html.py:24
+#: .\Hotel\templates\Hotel\newsletter.html.py:63
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:123
 #: .\Messiah\templates\500.html.py:6
 #: .\Messiah\templates\admin\app_index.html.py:7
@@ -375,6 +380,7 @@ msgid "Home"
 msgstr "Poczatek"
 
 #: .\Hotel\templates\Hotel\archiwum.html.py:25
+#: .\Hotel\templates\Hotel\newsletter.html.py:64
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:124
 msgid "Hotel"
 msgstr ""
@@ -517,6 +523,7 @@ msgid "Tutaj wpisz treść swojej wiadomości."
 msgstr ""
 
 #: .\Hotel\templates\Hotel\kontakt.html.py:51
+#: .\Hotel\templates\Hotel\kontakt.html.py:69
 msgid "Twoj adres e-mail."
 msgstr ""
 
@@ -525,27 +532,67 @@ msgid "Miejsce na nazwisko."
 msgstr ""
 
 #: .\Hotel\templates\Hotel\kontakt.html.py:56
+#: .\Hotel\templates\Hotel\newsletter.html.py:75
 msgid "Wyślij"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\kontakt.html.py:88
-#: .\Hotel\templates\Hotel\wiadomosci.html.py:70
-msgid "Wiadomosc zostala wyslana!"
+#: .\Hotel\templates\Hotel\kontakt.html.py:65
+#: .\Hotel\templates\Hotel\newsletter.html.py:65
+#: .\Messiah\templates\admin\index.html.py:69
+msgid "Biuletyn"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\kontakt.html.py:88
-msgid "Dziekujemy za kontakt!"
+#: .\Hotel\templates\Hotel\kontakt.html.py:65
+msgid "promocje i aktualności"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\kontakt.html.py:92
+#: .\Hotel\templates\Hotel\kontakt.html.py:73
+msgid "Zapisz"
+msgstr ""
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:114
+msgid "Zostales zapisany na newsletter!"
+msgstr ""
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:117
+#: .\Hotel\templates\Hotel\kontakt.html.py:147
+#: .\Hotel\templates\Hotel\newsletter.html.py:37
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:422
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:74
 msgid "Serwer otrzymal uszkodzone dane."
 msgstr ""
 
-#: .\Hotel\templates\Hotel\kontakt.html.py:94
+#: .\Hotel\templates\Hotel\kontakt.html.py:120
+msgid "Jestes juz zapisany na nasz newsletter!"
+msgstr ""
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:123
+#: .\Hotel\templates\Hotel\newsletter.html.py:43
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:80
+msgid "Nieprzewidziany blad"
+msgstr ""
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:143
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:70
+msgid "Wiadomosc zostala wyslana!"
+msgstr ""
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:143
+msgid "Dziekujemy za kontakt!"
+msgstr ""
+
+#: .\Hotel\templates\Hotel\kontakt.html.py:149
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:425
 msgid "Stalo sie cos czego nawet programista nie przewidzial."
+msgstr ""
+
+#: .\Hotel\templates\Hotel\newsletter.html.py:34
+msgid "Biuletyn zostal wyslany!"
+msgstr ""
+
+#: .\Hotel\templates\Hotel\newsletter.html.py:40
+#: .\Hotel\templates\Hotel\wiadomosci.html.py:77
+msgid "Nie mozesz wyslac pustej wiadomosci!"
 msgstr ""
 
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:4
@@ -811,14 +858,6 @@ msgstr ""
 msgid "Oznacz jako odpowiedziane"
 msgstr ""
 
-#: .\Hotel\templates\Hotel\wiadomosci.html.py:77
-msgid "Nie mozesz wyslac pustej wiadomosci!"
-msgstr ""
-
-#: .\Hotel\templates\Hotel\wiadomosci.html.py:80
-msgid "Nieprzewidziany blad"
-msgstr ""
-
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:140
 msgid "Od"
 msgstr ""
@@ -1044,23 +1083,23 @@ msgstr ""
 msgid "Bez edycji"
 msgstr ""
 
-#: .\Messiah\templates\admin\index.html.py:74
+#: .\Messiah\templates\admin\index.html.py:80
 msgid "You don't have permission to edit anything."
 msgstr ""
 
-#: .\Messiah\templates\admin\index.html.py:82
+#: .\Messiah\templates\admin\index.html.py:88
 msgid "Recent Actions"
 msgstr ""
 
-#: .\Messiah\templates\admin\index.html.py:83
+#: .\Messiah\templates\admin\index.html.py:89
 msgid "My Actions"
 msgstr ""
 
-#: .\Messiah\templates\admin\index.html.py:87
+#: .\Messiah\templates\admin\index.html.py:93
 msgid "None available"
 msgstr ""
 
-#: .\Messiah\templates\admin\index.html.py:101
+#: .\Messiah\templates\admin\index.html.py:107
 msgid "Unknown content"
 msgstr ""
 

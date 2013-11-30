@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
 from django.utils.translation import ugettext as _
+from django.shortcuts import redirect
 from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
 from django.http import HttpResponseRedirect
@@ -30,6 +31,23 @@ def kod_rezerwacji():
     kody = []
     for r in Rezerwacja.objects.all():
         kody.append(r.kod)
+
+    symbols = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+    kod = ''
+    while True:
+        for i in range(0, 12):
+            kod += random.choice(symbols)
+        if not kod in kody:
+            break
+
+    return kod
+
+
+def kod_newsletter():
+    # Najpierw zbierzmy wszystkie kody jakie zostaly juz przydzielone
+    kody = []
+    for r in Newsletter.objects.all():
+        kody.append(r.news_kod)
 
     symbols = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
     kod = ''
@@ -265,7 +283,8 @@ def newsletter(request):
             if Newsletter.objects.filter(news_email=request.GET['email']).count():
                 response_message = "already_signed"
             else:
-                nowy_email = Newsletter(news_email=request.GET['email'])
+                nowy_email = Newsletter(news_email=request.GET['email'],
+                                        news_kod=kod_newsletter())
                 nowy_email.save()
 
         except ValueError:
@@ -278,6 +297,19 @@ def newsletter(request):
 
     else:
         raise Http404
+
+
+def newsletter_anuluj(request, code):
+    try:
+        subscription = Newsletter.objects.get(news_kod=code)
+        if subscription:
+            subscription.delete()
+            return kontakt(request)# tak ??
+
+        else:
+            raise Http404#zwraca?
+    except ObjectDoesNotExist:
+            raise Http404
 
 
 #Wysylaie biuletynu do chetnych osob ze strony admina .do zmiany.
