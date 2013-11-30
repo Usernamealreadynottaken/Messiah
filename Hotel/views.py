@@ -59,6 +59,7 @@ def kod_newsletter():
             kod += random.choice(symbols)
         if not kod in kody:
             break
+        kod = ''
 
     return kod
 
