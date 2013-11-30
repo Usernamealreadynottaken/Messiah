@@ -14,6 +14,65 @@ $(document).ready(function() {
         $(this).next().toggleClass("collapsed").toggleClass("expanded")
             .find(".object-content-content").slideToggle("medium");
     });
+
+    $(".filter").click(function() {
+        // Zamknijmy wszystko co jest otworzone
+        $(".expanded").toggleClass("collapsed").toggleClass("expanded").find(".object-content-content").toggle()
+
+        // Pokazujemy wszystko co bylo ukryte do tej pory
+        // Jesli ktos filtruje drugi raz powinien dostac wyniki nie z tego co jest obecnie ale ze wszystkiego
+        $(".object-header").show();
+        $(".object-content").show();
+
+        if ($(".filter-term").val().length != 0) {
+            $(".object-content").each(function() {
+                var found = false;
+
+                // Szukamy podanej wartosci w polach rezerwacji
+                $(this).find(".rezerwacja").find(".field").each(function() {
+                    if ($(this).text().toUpperCase().indexOf($(".filter-term").val().toUpperCase()) != -1) {
+                        found = true;
+
+                        // Zwrocenie false breakuje each. Jak znajdziemy szukana wartosc to nie przelatujemy bez sensu
+                        // reszty pol
+                        return false;
+                    }
+                });
+
+                // Szukamy wartosci w nazwach uslug
+                $(this).find(".uslugi").find(".label").each(function() {
+                    if ($(this).text().toUpperCase().indexOf($(".filter-term").val().toUpperCase()) != -1) {
+                        found = true;
+
+                        // Return false j/w
+                        return false;
+                    }
+                });
+
+                // Szukamy wartosci w pokojach (tam gdzie jest numer - rozmiar pokoju)
+                $(this).find(".pokoje").find(".label").each(function() {
+                    if ($(this).text().toUpperCase().indexOf($(".filter-term").val().toUpperCase()) != -1) {
+                        found = true
+
+                        // Return false j/w
+                        return false;
+                    }
+                });
+
+                // Jesli fraza nie zostala znaleziona to ukrywamy calkowicie dana rezerwacje
+                if (!found) {
+                    $(this).hide()
+                    $(this).prev().hide()
+                }
+            });
+        }
+    });
+
+    $(".reset").click(function() {
+        $(".expanded").toggleClass("collapsed").toggleClass("expanded").find(".object-content-content").toggle()
+        $(".object-header").show();
+        $(".object-content").show();
+    });
 });
 </script>
 {% endblock %}
@@ -33,6 +92,12 @@ $(document).ready(function() {
 {% block content %}
 
 <div id="archive">
+
+    <div class="search-filter-wrapper">
+        <input class="filter-term">
+        <button class="filter">{% trans 'Filtruj' %}</button>
+        <button class="reset">{% trans 'Reset' %}</button>
+    </div>
 
     {% trans 'Nazwisko' as name %}
     {% trans 'Poczatek pobytu' as check_in_date %}
@@ -154,7 +219,7 @@ $(document).ready(function() {
                                 <tbody>
                                     {% for pokoj in rezerwacja.pokojnarezerwacji_set.all %}
                                     <tr>
-                                        <td class="label">{% blocktrans with numer=pokoj.pokoj.numer rozmiar=pokoj.pokoj.rozmiar%}Numer {{ numer }} (rozmiar {{ rozmiar }}){% endblocktrans %}:</td>
+                                        <td class="label">{% blocktrans with numer=pokoj.pokoj.numer rozmiar=pokoj.pokoj.rozmiar %}Numer {{ numer }} (rozmiar {{ rozmiar }}){% endblocktrans %}:</td>
                                         <td class="people">{{ pokoj.doroslych }}</td>
                                         <td class="people">{{ pokoj.dzieci }}</td>
                                         <td class="price">{{ pokoj.cena }} zl</td>
