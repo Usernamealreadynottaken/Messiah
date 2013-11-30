@@ -1,13 +1,27 @@
 {% load i18n staticfiles %}
 <div id="footer">
 
+    <script type="text/javascript">var switchTo5x=false;</script>
+    <script type="text/javascript" src="{% static 'Hotel/js/buttons.js' %}"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "ur-c54d422b-43db-5748-2ac2-c0a019ccb9dd",
+            doNotHash: true, doNotCopy: true,
+            hashAddressBar: false
+        });
+    </script>
+
     <div class="footer-wrapper">
+
+        {% if footer_adres %}
 
         <ul class="address">
             <li>{{ footer_adres }}</li>
             <li>tel. {{ footer_telefon }}</li>
             <li>e-mail: {{ footer_email }}</li>
         </ul>
+
+        {% endif %}
 
         <ul class="submenu">
             <li><a href="{% url 'hotel:glowna' %}">{% trans 'Strona glowna' %}</a></li>
@@ -17,7 +31,9 @@
         </ul>
 
         <div class="socials">
-
+            <span class='st_facebook_large' displayText='Facebook'></span>
+            <span class='st_twitter_large' displayText='Tweet'></span>
+            <span class='st_pinterest_large' displayText='Pinterest'></span>
             <p>{% blocktrans with copyright='&copy' %}Copyright {{ copyright }}; 2013 Hotel Messiah{% endblocktrans %}</p>
         </div>
 

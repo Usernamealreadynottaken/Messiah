@@ -1,12 +1,25 @@
-{% extends "admin/base_site.html" %}
+{% extends "../../Hotel/templates/Hotel/base.html" %}
 {% load i18n %}
 
 {% block title %}{% trans 'Page not found' %}{% endblock %}
 
 {% block content %}
 
-<h2>{% trans 'Page not found' %}</h2>
+<div id="error">
 
-<p>{% trans "We're sorry, but the requested page could not be found." %}</p>
+    <div class="title">
 
+        <h1>{% trans 'Missing page' %}</h1>
+
+    </div><!-- .title -->
+
+    <div class="error-content">
+
+        <h2>{% trans 'The page you requested does not exist.' %}</h2>
+
+        <p>{% trans "Seriously, there's nothing here. Please, use menu to find what you are looking for." %}</p>
+
+    </div> <!-- .error-content -->
+
+</div> <!-- #404 -->
 {% endblock %}
