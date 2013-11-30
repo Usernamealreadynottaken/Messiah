@@ -340,8 +340,14 @@
 	background: url(img/label-cennik.jpg) no-repeat,
 	    url(img/label-cennik.jpg) right -100px no-repeat,
 	    url(img/label-cennik.jpg) 0 -50px repeat;
+    -pie-background: url(img/label-cennik.jpg) no-repeat,
+	    url(img/label-cennik.jpg) right -100px no-repeat,
+	    url(img/label-cennik.jpg) 0 -50px repeat;
 	color: #ffffff;
 	font-weight: bold;
+	position: relative;
+	zoom: 1;
+	behavior: url(PIE.htc);
 }
 .ui-widget-header a {
 	color: #ffffff;
