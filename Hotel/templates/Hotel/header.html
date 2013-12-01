@@ -24,6 +24,8 @@
 
         {% if header_logo %}
         <a href="{% url 'hotel:glowna' %}" class="{{ header_logo_rozmiar }}"><img src="{{ header_logo.url }}"/></a>
+        {% else %}
+        <a href="{% url 'hotel:glowna' %}"><img src="{% static 'Hotel/img/logo.png' %}"/></a>
         {% endif %}
 
         {% if header_tekst_widoczny %}

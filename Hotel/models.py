@@ -319,3 +319,15 @@ class Wiadomosc(models.Model):
     class Meta:
         verbose_name = _('Wiadomosc')
         verbose_name_plural = _('Wiadomosci')
+
+
+class Newsletter(models.Model):
+    news_email = models.EmailField(_('E-mail'), max_length=254)
+    news_kod = models.CharField(_('Kod'), max_length=12)
+
+    class Meta:
+        verbose_name = _('Biuletyn - lista')
+        verbose_name_plural = verbose_name
+
+    def __unicode__(self):
+        return self.news_email
