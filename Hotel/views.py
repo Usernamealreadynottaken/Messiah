@@ -21,7 +21,7 @@ from django.template.loader import get_template
 #
 # Ok okazuje sie ze powyzsze to nie prawda i jakos teraz mi dziala
 # jak zwracam ajaxowi sam render
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, HttpResponseServerError, Http404
 
 # Nasze modele
 from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
@@ -29,6 +29,21 @@ from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacj
 
 
 # FUNKCJE (NIE-WIDOKI)
+
+# Decorator ktory sprawdza czy istnieje obiekt OpisHotelu i rzuca 500 jesli nie istnieje
+def wymagany_opis_hotelu(view_func):
+    def _decorated(request, *args, **kwargs):
+        exception_message = 'Database error'
+        if OpisHotelu.objects.count() < 1:
+            raise Exception(exception_message)
+        else:
+            o = OpisHotelu.objects.filter()[0]
+            if not o.cena_dorosly or not o.cena_dziecko or not o.opis_hotelu or not o.logo:
+                raise Exception(exception_message)
+        return view_func(request, *args, **kwargs)
+
+    return _decorated
+
 
 def kod_rezerwacji():
     # Najpierw zbierzmy wszystkie kody jakie zostaly juz przydzielone
@@ -140,6 +155,7 @@ def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje, kod=''):
     return return_status
 
 
+@wymagany_opis_hotelu
 def include_header_footer(context={}):
     try:
         oh = OpisHotelu.objects.filter()[0]
@@ -198,6 +214,7 @@ def archiwum(request):
     return render(request, 'hotel/archiwum.html', {'rezerwacje': rez})
 
 
+@wymagany_opis_hotelu
 def glowna(request):
     opis_hotelu = OpisHotelu.objects.filter()[0].opis_hotelu
     zdjecie = OpisHotelu.objects.filter()[0].zdjecie
@@ -210,6 +227,7 @@ def glowna(request):
     return render(request, 'hotel/index.html', include_header_footer(context))
 
 
+@wymagany_opis_hotelu
 def wizualizacja(request):
     class PokojeWizualizacja:
         zdjecie = None
@@ -252,6 +270,7 @@ def wizualizacja_galeria(request, pk):
         raise Http404
 
 
+@wymagany_opis_hotelu
 def rezerwacje(request):
     uslugi_wewnetrzne = Usluga.objects.filter(zewnetrzna=False)
     uslugi_zewnetrzne = Usluga.objects.filter(zewnetrzna=True)
@@ -262,6 +281,7 @@ def rezerwacje(request):
     }))
 
 
+@wymagany_opis_hotelu
 def cennik(request):
     uslugi_wewnetrzne = Usluga.objects.filter(zewnetrzna=False)
     uslugi_zewnetrzne = Usluga.objects.filter(zewnetrzna=True)
@@ -277,6 +297,7 @@ def cennik(request):
     }))
 
 
+@wymagany_opis_hotelu
 def kontakt(request):
 
     return render(request, 'hotel/kontakt.html', include_header_footer({
