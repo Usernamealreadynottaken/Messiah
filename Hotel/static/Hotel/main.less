@@ -1666,6 +1666,16 @@ img {
             z-index: 1;
         }
 
+        @media(max-width: 685px) {
+            .edit-reservation {
+                padding-bottom: 30px !important;
+
+                &:after {
+                    display: none;
+                }
+            }
+        }
+
         @media (max-width: 500px) {
             .edit-reservation {
                 padding: 30px !important;
@@ -1678,8 +1688,20 @@ img {
                 display: block;
             }
 
-            padding: 60px 60px 30px 60px;
+            padding: 60px 60px 60px 60px;
             text-align: center;
+
+            &:after {
+                background-image: url('img/linia.png');
+                background-repeat: no-repeat;
+                margin-left: -300px;
+                margin-top: 30px;
+                content: " ";
+                width: 600px;
+                height: 40px;
+                position: absolute;
+                z-index: 1;
+            }
 
         }
 

@@ -24,9 +24,6 @@
             <p class="code-error"></p>
         </div> <!-- .edit-reservation -->
 
-        <!-- hr jest wysoce tymczasowy, fajnie by bylo zeby miec jakas wlasna grafike -->
-        <hr>
-
         <div class="remind-code">
             <h2>{% trans 'Przypomnienie kodu' %}</h2>
             <label>{% trans 'Jesli zapomniales swoj kod rezerwacji, podaj swoj e-mail' %}:</label>
@@ -90,7 +87,7 @@ $(".email-send").click(function() {
         if (!reg.test($(".email-input").val())) {
             $(".email-error").text("{% trans 'Niepoprawny adres e-mail.' %}");
         } else {
-            $(".email-error").text("");
+            $(".email-error").text("{% trans 'Prosze czekac...' %}");
 
             var toSend = {
                 csrfdmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
@@ -103,7 +100,7 @@ $(".email-send").click(function() {
             })
                 .done(function(data) {
                     if (data != "") {
-                        $(".email-error").html(data);
+                        $(".email-error").html("{% trans 'Wyslano kod na podany adres e-mail' %}");
                     } else {
                         $(".email-error").text("{% trans 'Nie znaleziono rezerwacji na podany adres e-mail.' %}");
                     }

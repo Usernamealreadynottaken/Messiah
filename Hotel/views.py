@@ -13,6 +13,8 @@ from django.shortcuts import redirect
 from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
 from django.http import HttpResponseRedirect
+from django.template import Context
+from django.template.loader import get_template
 
 # Zeby skorzystac z ajaxa potrzebujemy zwrocic HttpResponse object.
 # Jesli korzystamy ze skrotu ajax po prostu zwraca error.
@@ -164,6 +166,17 @@ def include_header_footer(context={}):
         return dict(context, **hf)
     except IndexError:
         return context
+
+
+def send_email(subject, to_email, template_name, context):
+    plaintext = get_template('hotel/' + template_name + '.txt')
+    html = get_template('hotel/' + template_name + '.html')
+    from_email = 'hotel.messiah@gmail.com'
+    text_content = plaintext.render(Context(context))
+    html_content = html.render(Context(context))
+    msg = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
+    msg.attach_alternative(html_content, 'text/html')
+    msg.send()
 
 
 # WIDOKI
@@ -522,6 +535,12 @@ def rezerwacje_wyslij(request):
     if response_message == 'success':
         response += ', "kod": "' + nowa_rezerwacja.kod + '"'
     response += '}'
+
+    if response_message == 'success':
+        context = {'kod': nowa_rezerwacja.kod}
+        # TODO
+        # send_email(_('Rezerwacja pokoju'), request.POST['email'], 'rezerwacja_confirm_email', context)
+
     return HttpResponse(response)
 
 
@@ -790,7 +809,9 @@ def rezerwacje_sprawdz_email(request, email):
         res = Rezerwacja.objects.filter(zarchiwizowany=False, koniec_pobytu__gt=datetime.date.today())
         res = res.filter(email=email)
         if res:
-            return render(request, 'hotel/rezerwacje_przypkodow.html', {'rezerwacje': res})
+            # TODO
+            # send_email(_('Przypomnienie kodow rezerwacji'), email, 'rezerwacje_remind_email', {'rezerwacje': res})
+            return HttpResponse('success')
         else:
             return HttpResponse('')
     else:
