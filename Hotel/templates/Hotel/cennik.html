@@ -62,6 +62,21 @@
 
                 {% for zarcie in jedzenie %}
                 {% if zarcie.kategoria == kategoria %}
+
+                <div class="food">
+                    {% if zarcie.zdjecie %}
+                    <div class="food-pic"><a class="fancybox" href="{{ zarcie.zdjecie.url }}" rel="lightbox" ><img src="{{ zarcie.zdjecie.url }}"></a></div>
+                    {% endif %}
+                    <div class="food-text">
+                        <div class="food-header">
+                            <div class="food-name">{{ zarcie.nazwa }}</div>
+                            <div class="food-price">{{ zarcie.cena }} zl</div>
+                        </div>
+                        <div class="food-description">{{ zarcie.opis }}</div>
+                    </div>
+                </div>
+
+                {% comment %}
                 <ul>
                     <li class="inline-block"><p>{{ zarcie.nazwa }} -</p></li>
                     <li class="inline-block"><p>{{ zarcie.cena }} zł</p></li>
@@ -72,6 +87,8 @@
                     <li class="pic"><a class="fancybox" href="{{ zarcie.zdjecie.url }}" rel="lightbox" ><img src="{{ zarcie.zdjecie.url }}"></a></li>
                     {% endif %}
                 </ul>
+                {% endcomment %}
+
                 {% endif %}
                 {% endfor %}
 
