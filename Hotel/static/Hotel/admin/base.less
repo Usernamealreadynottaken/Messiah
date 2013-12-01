@@ -23,7 +23,7 @@
 }
 
 .gradient-vertical(@from: #000000, @to: #ffffff) {
-    background: #1e5799;
+    background: @from;
     background: -moz-linear-gradient(top,  @from 0%, @to 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@from), color-stop(100%,@to));
     background: -webkit-linear-gradient(top,  @from 0%,@to 100%);
@@ -33,7 +33,7 @@
 }
 
 .gradient-horizontal(@from: #000000, @to: #ffffff) {
-    background: #1e5799;
+    background: @from;
     background: -moz-linear-gradient(left,  @from 0%, @to 100%);
     background: -webkit-gradient(linear, left top, right top, color-stop(0%,@from), color-stop(100%,@to));
     background: -webkit-linear-gradient(left,  @from 0%,@to 100%);
@@ -45,7 +45,7 @@
 body {
     background-repeat: no-repeat;
     margin: 0;
-    background: #1e5799;
+    background: #eda14a;
     background: -moz-linear-gradient(left, #eda14a 0%, #eac78f 50%, #eac78f 50%, #eda14a 100%);
     background: -webkit-gradient(linear, left top, right top, color-stop(0%,#eda14a), color-stop(50%,#eac78f),
                 color-stop(50%,#eac78f), color-stop(100%,#eda14a));
@@ -61,7 +61,7 @@ body {
 body.login {
     background-repeat: no-repeat;
     margin: 0;
-    background: #1e5799;
+    background: #eda14a;
     background: -moz-linear-gradient(left, #eda14a 0%, #eac78f 50%, #eac78f 50%, #eda14a 100%);
     background: -webkit-gradient(linear, left top, right top, color-stop(0%,#eda14a), color-stop(50%,#eac78f),
                 color-stop(50%,#eac78f), color-stop(100%,#eda14a));

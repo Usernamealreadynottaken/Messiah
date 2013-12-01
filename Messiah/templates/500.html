@@ -1,17 +1,25 @@
-{% extends "admin/base_site.html" %}
+{% extends "../../Hotel/templates/Hotel/base.html" %}
 {% load i18n %}
 
-{% block breadcrumbs %}
-<div class="breadcrumbs">
-<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
-&rsaquo; {% trans 'Server error' %}
-</div>
-{% endblock %}
-
-{% block title %}{% trans 'Server error (500)' %}{% endblock %}
+{% block title %}{% trans 'Page not found' %}{% endblock %}
 
 {% block content %}
-<h1>{% trans 'Server Error <em>(500)</em>' %}</h1>
-<p>{% trans "There's been an error. It's been reported to the site administrators via email and should be fixed shortly. Thanks for your patience." %}</p>
 
+<div id="error">
+
+    <div class="title">
+
+        <h1>{% trans 'Server error' %}</h1>
+
+    </div><!-- .title -->
+
+    <div class="error-content">
+
+        <h2>{% trans 'Something horribly wrong is going on.' %}</h2>
+
+        <p>{% trans "An error occured on the server side. But fear not. Special forces have been informed to take care of it." %}</p>
+
+    </div> <!-- .error-content -->
+
+</div> <!-- #error -->
 {% endblock %}
