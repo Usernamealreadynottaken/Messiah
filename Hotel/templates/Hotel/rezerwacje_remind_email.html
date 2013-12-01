@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load i18n %}
+<html>
+<body>
+{% if rezerwacje %}
+
+{% if rezerwacje.count > 1 %}
+
+{% trans 'Znaleziono nastepujace rezerwacje' %}:<br />
+{% for rezerwacja in rezerwacje %}
+{{ rezerwacja.poczatek_pobytu }} - {{ rezerwacja.koniec_pobytu }}
+({% blocktrans count rooms=rezerwacja.pokojnarezerwacji_set.count %}{{ rooms }} pokoj,{% plural %}{{ rooms }} pokoje,{% endblocktrans %}
+
+{% for pnr in rezerwacja.pokojnarezerwacji_set.all %}
+
+{% if rezerwacja.pokojnarezerwacji_set.count = 3 and forloop.first %}
+{{ pnr.osob }},
+{% elif rezerwacja.pokojnarezerwacji_set.count = 2 and forloop.first %}
+{{ pnr.osob }}
+{% elif rezerwacja.pokojnarezerwacji_set.count > 1 and forloop.last %}
+{% trans 'i' %} {{ pnr.osob }}
+{% else %}
+{{ pnr.osob }}
+{% endif %}
+
+{% endfor %}
+{% trans 'osobowy' %}), {% trans 'kod' %}: {{ rezerwacja.kod }}<br />
+
+{% endfor %}
+
+{% else %}
+
+{% for rezerwacja in rezerwacje %}
+{% trans 'Twoj kod rezerwacji to' %}:<br />
+{{ rezerwacja.kod }}
+{% endfor %}
+
+{% endif %}
+
+{% else %}
+{% trans 'Wystapil blad' %}.
+{% endif %}
+</body>
+</html>

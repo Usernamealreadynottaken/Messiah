@@ -28,7 +28,7 @@ class Tests1(LiveServerTestCase):
         self.browser.quit()
 
     # TODO: enable test
-    def _test_booking_page_load(self):
+    def test_booking_page_load(self):
         browser = self.browser
         browser.get(self.server + 'rezerwacje/')
         body = browser.find_element_by_tag_name('body')
@@ -47,39 +47,39 @@ class Tests1(LiveServerTestCase):
 
         # Miesiac wiekszy niz 12
         date.clear()
-        date.send_keys('14/%d/%d' % (datetime.date.today().day, datetime.date.today().year,))
+        date.send_keys('14/%02d/%d' % (datetime.date.today().day, datetime.date.today().year,))
         out.click()
         self.assertTrue(date_error.is_displayed())
 
         # Dzien wiekszy niz 31
         date.clear()
-        date.send_keys('%d/54/%d' % (datetime.date.today().month, datetime.date.today().year,))
+        date.send_keys('%02d/54/%d' % (datetime.date.today().month, datetime.date.today().year,))
         out.click()
         self.assertTrue(date_error.is_displayed())
 
         # Format
         date.clear()
-        date.send_keys('123/%d/%d' % (datetime.date.today().day, datetime.date.today().year,))
+        date.send_keys('123/%02d/%d' % (datetime.date.today().day, datetime.date.today().year,))
         out.click()
         self.assertTrue(date_error.is_displayed())
 
         date.clear()
-        date.send_keys('%d/123/%d' % (datetime.date.today().month, datetime.date.today().year,))
+        date.send_keys('%02d/123/%d' % (datetime.date.today().month, datetime.date.today().year,))
         out.click()
         self.assertTrue(date_error.is_displayed())
 
         date.clear()
-        date.send_keys('%d-%d-%d' % (datetime.date.today().month, datetime.date.today().day, datetime.date.today().year,))
+        date.send_keys('%02d-%02d-%d' % (datetime.date.today().month, datetime.date.today().day, datetime.date.today().year,))
         out.click()
         self.assertTrue(date_error.is_displayed())
 
         date.clear()
-        date.send_keys('%d.%d.%d' % (datetime.date.today().month, datetime.date.today().day, datetime.date.today().year,))
+        date.send_keys('%02d.%02d.%d' % (datetime.date.today().month, datetime.date.today().day, datetime.date.today().year,))
         out.click()
         self.assertTrue(date_error.is_displayed())
 
     # TODO: enable test
-    def _test_booking_field_validation(self):
+    def test_booking_field_validation(self):
         browser = self.browser
         browser.get(self.server + 'rezerwacje/')
         wait = ui.WebDriverWait(browser, 2)
@@ -224,7 +224,7 @@ class Tests1(LiveServerTestCase):
         self.date_validation(date_from, date_from_error, phone)
 
         date_from.clear()
-        date_from.send_keys('%d/%d/%d' % (datetime.date.today().month, datetime.date.today().day, datetime.date.today().year,))
+        date_from.send_keys('%02d/%02d/%d' % (datetime.date.today().month, datetime.date.today().day, datetime.date.today().year,))
         phone.click()
         wait.until_not(lambda tag_to_wait_for: date_from_error.is_displayed())
 
@@ -234,53 +234,77 @@ class Tests1(LiveServerTestCase):
         date_to.clear()
         date_to.send_keys('1/23/2014')
         phone.click()
-        self.assertTrue(date_to_error.is_displayed())
+        try:
+            wait.until_not(lambda item_to_wait_for: date_to.is_displayed())
+            raise Exception('Incorrect date accepted')
+        except TimeoutException:
+            pass
 
         date_to.clear()
         date_to.send_keys('02/30/2014')
         phone.click()
-        self.assertTrue(date_to_error.is_displayed())
+        try:
+            wait.until_not(lambda item_to_wait_for: date_to.is_displayed())
+            raise Exception('Incorrect date accepted')
+        except TimeoutException:
+            pass
 
         date_to.clear()
         date_to.send_keys('04/31/2014')
         phone.click()
-        self.assertTrue(date_to_error.is_displayed())
+        try:
+            wait.until_not(lambda item_to_wait_for: date_to.is_displayed())
+            raise Exception('Incorrect date accepted')
+        except TimeoutException:
+            pass
 
         date_to.clear()
         date_to.send_keys('01/1/2014')
         phone.click()
-        self.assertTrue(date_to_error.is_displayed())
+        try:
+            wait.until_not(lambda item_to_wait_for: date_to.is_displayed())
+            raise Exception('Incorrect date accepted')
+        except TimeoutException:
+            pass
 
         # Data koncowa < data poczatkowa
         temp_date = datetime.date.today() - datetime.timedelta(days=3)
         date_to.clear()
-        date_to.send_keys('%d/%d/%d' % (temp_date.month, temp_date.day, temp_date.year,))
+        date_to.send_keys('%02d/%02d/%d' % (temp_date.month, temp_date.day, temp_date.year,))
         phone.click()
-        self.assertTrue(date_to_error.is_displayed())
+        try:
+            wait.until_not(lambda item_to_wait_for: date_to.is_displayed())
+            raise Exception('Incorrect date accepted')
+        except TimeoutException:
+            pass
 
         # Data koncowa = data poczatkowa
         date_to.clear()
         date_to.send_keys(date_from.get_attribute('value'))
         phone.click()
-        self.assertTrue(date_to_error.is_displayed())
+        try:
+            wait.until_not(lambda item_to_wait_for: date_to.is_displayed())
+            raise Exception('Incorrect date accepted')
+        except TimeoutException:
+            pass
 
         # Data poczatkowa < today
         temp_date = datetime.date.today() + datetime.timedelta(days=1)
         date_to.clear()
-        date_to.send_keys('%d/%d/%d' % (temp_date.month, temp_date.day, temp_date.year,))
+        date_to.send_keys('%02d/%02d/%d' % (temp_date.month, temp_date.day, temp_date.year,))
         phone.click()
         wait.until_not(lambda tag_to_wait_for: date_to_error.is_displayed())
 
         temp_date = datetime.date.today() - datetime.timedelta(days=2)
         date_from.clear()
-        date_from.send_keys('%d/%d/%d' % (temp_date.month, temp_date.day, temp_date.year,))
+        date_from.send_keys('%02d/%02d/%d' % (temp_date.month, temp_date.day, temp_date.year,))
         phone.click()
         self.assertTrue(date_from_error.is_displayed())
 
         # Wprowadzamy dobra date i patrzymy czy sie waliduje
         temp_date = datetime.date.today()
         date_from.clear()
-        date_from.send_keys('%d/%d/%d' % (temp_date.month, temp_date.day, temp_date.year,))
+        date_from.send_keys('%02d/%02d/%d' % (temp_date.month, temp_date.day, temp_date.year,))
         phone.click()
         wait.until_not(lambda tag_to_wait_for: date_from_error.is_displayed())
 
@@ -325,7 +349,7 @@ class Tests1(LiveServerTestCase):
         browser.find_element_by_class_name('close').click()
 
     # TODO: enable test
-    def _test_main_page_and_menu(self):
+    def test_main_page_and_menu(self):
         browser = self.browser
         wait = ui.WebDriverWait(browser, 10)
 
@@ -392,6 +416,35 @@ class Tests1(LiveServerTestCase):
         browser.find_element_by_class_name('kontakt_class').click()
         wait.until(lambda item_to_wait_for: browser.find_element_by_class_name('title').text == 'Contact')
 
+    # TODO: enable test
     def test_contact_validation(self):
         browser = self.browser
         browser.get(self.server + 'kontakt/')
+
+        text_area_wrapper = browser.find_element_by_class_name('textarea-wrapper')
+        text_area = text_area_wrapper.find_element_by_id('messagebox')
+
+        email_wrapper = browser.find_elements_by_class_name('field-wrapper')[0]
+        name_wrapper = browser.find_elements_by_class_name('field-wrapper')[1]
+        email = email_wrapper.find_element_by_name('email')
+        name = name_wrapper.find_element_by_name('name')
+
+        text_area.click()
+        email.click()
+        name.click()
+        text_area.click()
+
+        # Po przeklikaniu przez puste elementy zaden nie powinien przejsc walidacji
+        self.assertTrue('negative-input' in text_area_wrapper.get_attribute('class').split(' '))
+        email_ni = email_wrapper.find_element_by_class_name('negative-input')
+        name_ni = name_wrapper.find_element_by_class_name('negative-input')
+
+        # Wpiszemy dane i sprawdzimy walidacje jeszcze raz
+        text_area.send_keys('Some text message')
+        email.send_keys('email@domain.com')
+        name.send_keys('Test name')
+        text_area.click()
+
+        self.assertFalse('negative-input' in text_area_wrapper.get_attribute('class').split(' '))
+        self.assertFalse('negative-input' in email_ni.get_attribute('class').split(' '))
+        self.assertFalse('negative-input' in name_ni.get_attribute('class').split(' '))

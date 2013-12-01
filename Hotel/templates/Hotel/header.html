@@ -44,9 +44,8 @@
         <ul class="outside">
             <li><a class="main_page_class" href="{% url 'hotel:glowna' %}">{% trans 'Strona glowna' %}</a></li><!--
             --><li><a class="rezerwacje_class" href="{% url 'hotel:rezerwacje' %}">{% trans 'Zarezerwuj' %}</a><!--
-                --><ul>
-                    <li><a class="rezerwacje_istniejace_class" href="{% url 'hotel:rezerwacje_istnieje' %}">{% trans 'Mam juz rezerwacje' %}</a></li><!--
-                --></ul>
+            --><li class="rezerwacje_istniejace">
+                <a class="rezerwacje_istniejace_class" href="{% url 'hotel:rezerwacje_istnieje' %}">{% trans 'Mam juz rezerwacje' %}</a>
             </li><!--
             --><li><a class="cennik_class" href="{% url 'hotel:cennik' %}">{% trans 'Cennik' %}</a></li><!--
             --><li><a class="wizualizacja_class" href="{% url 'hotel:wizualizacja' %}">{% trans 'Wizualizacja' %}</a></li><!--
@@ -54,5 +53,16 @@
         </ul>
 
     </div> <!-- .menu-wrapper -->
+
+    <script>
+
+        $(".rezerwacje_class, .rezerwacje_istniejace_class").hover(function() {
+            $(".rezerwacje_istniejace").css("display", "block");
+          }, function() {
+            $(".rezerwacje_istniejace").css("display", "none");
+          }
+        );
+
+    </script>
 
 </div> <!-- #header -->
