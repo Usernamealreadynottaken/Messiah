@@ -23,7 +23,7 @@ class Tests2(LiveServerTestCase):
         self.browser.close()
         self.browser.quit()
 
-    #TODO: enable test
+    # TODO: enable test
     def _test_booking_page_load(self):
         browser = self.browser
         browser.get(self.server + 'rezerwacje/')

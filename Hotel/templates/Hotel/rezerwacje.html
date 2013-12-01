@@ -373,7 +373,7 @@ function sprawdzPoprawnosc() {
             $(".date-to").parent().removeClass("positive-input");
             $(".date-to").parent().addClass("negative-input");
             if ($(".dateTo-error").text() == "") {
-                $(".dateTo-error").text("Za wczesna data wyjazdu.");
+                $(".dateTo-error").text("{% trans 'Za wczesna data wyjazdu.' %}");
             }
             $(".dateTo-error").animate({
                 "height": "28px",
@@ -384,7 +384,7 @@ function sprawdzPoprawnosc() {
         $(".date-from").parent().removeClass("positive-input");
         $(".date-from").parent().addClass("negative-input");
         if ($(".dateFrom-error").text() == "") {
-            $(".dateFrom-error").text("Za wczesna data przyjazdu.");
+            $(".dateFrom-error").text("{% trans 'Za wczesna data przyjazdu.' %}");
         }
         $(".dateFrom-error").animate({
             "height": "28px",
