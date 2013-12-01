@@ -93,6 +93,7 @@ $(document).ready(function() {
 
 <div id="archive">
 
+    {% if rezerwacje %}
     <div class="search-filter-wrapper">
         <input class="filter-term">
         <button class="filter">{% trans 'Filtruj' %}</button>
@@ -112,7 +113,6 @@ $(document).ready(function() {
             </tr>
         </thead>
         <tbody class="list-body">
-        {% if rezerwacje %}
         {% for rezerwacja in rezerwacje %}
             <tr class="object-header">
                 <td>{{ rezerwacja.nazwisko }}</td>
@@ -237,9 +237,11 @@ $(document).ready(function() {
                 </td>
             </tr>
         {% endfor %}
-        {% endif %}
         </tbody>
     </table>
+    {% else %}
+    <div class="no-archive">{% trans '0 Rezerwacji' %}</div>
+    {% endif %}
 
 </div> <!-- #archive -->
 

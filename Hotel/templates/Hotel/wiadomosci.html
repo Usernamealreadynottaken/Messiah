@@ -132,6 +132,7 @@ $( document ).ready(function() {
 <div id="messages">
 
     {% csrf_token %}
+    {% if wiadomosci %}
     {% trans 'Tresc' as m_content %}
     {% trans 'Data' as m_date %}
     <table class="dropdown-list">
@@ -143,7 +144,6 @@ $( document ).ready(function() {
             </tr>
         </thead>
         <tbody class="list-body">
-        {% if wiadomosci %}
         {% for wiadomosc in wiadomosci %}
             <tr class="object-header {% if wiadomosc.wyslano_odpowiedz %}grey{% endif %}">
                 <td>{{ wiadomosc.nazwisko }}</td>
@@ -196,9 +196,11 @@ $( document ).ready(function() {
                 </td>
             </tr>
         {% endfor %}
-        {% endif %}
         </tbody>
     </table>
+    {% else %}
+    <div class="no-messages">{% trans '0 Wiadomosci' %}</div>
+    {% endif %}
 
 </div>
 
