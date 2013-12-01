@@ -13,13 +13,15 @@ from django.shortcuts import redirect
 from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
 from django.http import HttpResponseRedirect
+from django.template import Context
+from django.template.loader import get_template
 
 # Zeby skorzystac z ajaxa potrzebujemy zwrocic HttpResponse object.
 # Jesli korzystamy ze skrotu ajax po prostu zwraca error.
 #
 # Ok okazuje sie ze powyzsze to nie prawda i jakos teraz mi dziala
 # jak zwracam ajaxowi sam render
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, HttpResponseServerError, Http404
 
 # Nasze modele
 from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
@@ -27,6 +29,21 @@ from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacj
 
 
 # FUNKCJE (NIE-WIDOKI)
+
+# Decorator ktory sprawdza czy istnieje obiekt OpisHotelu i rzuca 500 jesli nie istnieje
+def wymagany_opis_hotelu(view_func):
+    def _decorated(request, *args, **kwargs):
+        exception_message = 'Database error'
+        if OpisHotelu.objects.count() < 1:
+            raise Exception(exception_message)
+        else:
+            o = OpisHotelu.objects.filter()[0]
+            if not o.cena_dorosly or not o.cena_dziecko or not o.opis_hotelu or not o.logo:
+                raise Exception(exception_message)
+        return view_func(request, *args, **kwargs)
+
+    return _decorated
+
 
 def kod_rezerwacji():
     # Najpierw zbierzmy wszystkie kody jakie zostaly juz przydzielone
@@ -166,6 +183,17 @@ def include_header_footer(context={}):
         return context
 
 
+def send_email(subject, to_email, template_name, context):
+    plaintext = get_template('hotel/' + template_name + '.txt')
+    html = get_template('hotel/' + template_name + '.html')
+    from_email = 'hotel.messiah@gmail.com'
+    text_content = plaintext.render(Context(context))
+    html_content = html.render(Context(context))
+    msg = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
+    msg.attach_alternative(html_content, 'text/html')
+    msg.send()
+
+
 # WIDOKI
 
 @login_required
@@ -185,6 +213,7 @@ def archiwum(request):
     return render(request, 'hotel/archiwum.html', {'rezerwacje': rez})
 
 
+@wymagany_opis_hotelu
 def glowna(request):
     opis_hotelu = OpisHotelu.objects.filter()[0].opis_hotelu
     zdjecie = OpisHotelu.objects.filter()[0].zdjecie
@@ -197,6 +226,7 @@ def glowna(request):
     return render(request, 'hotel/index.html', include_header_footer(context))
 
 
+@wymagany_opis_hotelu
 def wizualizacja(request):
     class PokojeWizualizacja:
         zdjecie = None
@@ -239,6 +269,7 @@ def wizualizacja_galeria(request, pk):
         raise Http404
 
 
+@wymagany_opis_hotelu
 def rezerwacje(request):
     uslugi_wewnetrzne = Usluga.objects.filter(zewnetrzna=False)
     uslugi_zewnetrzne = Usluga.objects.filter(zewnetrzna=True)
@@ -249,6 +280,7 @@ def rezerwacje(request):
     }))
 
 
+@wymagany_opis_hotelu
 def cennik(request):
     uslugi_wewnetrzne = Usluga.objects.filter(zewnetrzna=False)
     uslugi_zewnetrzne = Usluga.objects.filter(zewnetrzna=True)
@@ -264,6 +296,7 @@ def cennik(request):
     }))
 
 
+@wymagany_opis_hotelu
 def kontakt(request):
 
     return render(request, 'hotel/kontakt.html', include_header_footer({
@@ -522,6 +555,12 @@ def rezerwacje_wyslij(request):
     if response_message == 'success':
         response += ', "kod": "' + nowa_rezerwacja.kod + '"'
     response += '}'
+
+    if response_message == 'success':
+        context = {'kod': nowa_rezerwacja.kod}
+        # TODO
+        # send_email(_('Rezerwacja pokoju'), request.POST['email'], 'rezerwacja_confirm_email', context)
+
     return HttpResponse(response)
 
 
@@ -790,7 +829,9 @@ def rezerwacje_sprawdz_email(request, email):
         res = Rezerwacja.objects.filter(zarchiwizowany=False, koniec_pobytu__gt=datetime.date.today())
         res = res.filter(email=email)
         if res:
-            return render(request, 'hotel/rezerwacje_przypkodow.html', {'rezerwacje': res})
+            # TODO
+            # send_email(_('Przypomnienie kodow rezerwacji'), email, 'rezerwacje_remind_email', {'rezerwacje': res})
+            return HttpResponse('success')
         else:
             return HttpResponse('')
     else:

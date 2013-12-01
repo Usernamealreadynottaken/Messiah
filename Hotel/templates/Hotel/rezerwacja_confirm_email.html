@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% load i18n %}
+<html>
+
+<body>
+    <b>{% trans 'Potwierdzenie rezerwacji pokoju' %}</b><br>
+    {% blocktrans %}Twoj kod rezerwacji to: {{ kod }}{% endblocktrans %}<br>
+    <br>
+    {% trans 'Aby przejrzec lub edytowac rezerwacje ' %}
+    <a href="{{ request.META.HTTP_HOST }}/{% url 'hotel:rezerwacje' %}{{ kod }}/">{% trans 'kliknij tutaj' %}</a>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+{% load i18n %}
+{% trans 'Potwierdzenie rezerwacji pokoju' %}
+{% blocktrans %}Twoj kod rezerwacji to: {{ kod }}{% endblocktrans %}
+
+{% trans 'Aby przejrzec lub edytowac rezerwacje skopiuj ponizszy link do przegladarki:' %}
+{{ request.META.HTTP_HOST }}/{% url 'hotel:rezerwacje' %}{{ kod }}/
