@@ -155,7 +155,6 @@ def wyszukaj_pokoje(poczatek_pobytu, koniec_pobytu, wymagane_pokoje, kod=''):
     return return_status
 
 
-@wymagany_opis_hotelu
 def include_header_footer(context={}):
     try:
         oh = OpisHotelu.objects.filter()[0]
