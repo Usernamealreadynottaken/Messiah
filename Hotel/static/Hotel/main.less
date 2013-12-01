@@ -102,6 +102,7 @@ img {
         padding: 0 50px;
 
         .language-selection {
+            padding: 10px;
             width: 100%;
             text-align: right;
             height: 40px;
@@ -308,11 +309,16 @@ img {
         }
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 800px) {
         ul.outside {
 
-            ul {
-                width: 150% !important;
+            .rezerwacje_istniejace {
+                display: inline-block !important;
+                position: static !important;
+            }
+
+            li {
+                width:50% !important;
             }
         }
     }
@@ -323,31 +329,20 @@ img {
             li {
                 width: 100% !important;
             }
-            ul {
-                display: block !important;
-                position: relative !important;
-                width: 100% !important;
-            }
         }
+
     }
 
     ul.outside {
         margin: 0;
         padding: 0;
 
-        ul {
-            position: absolute;
-            margin: 0;
-            padding: 0;
-            z-index: 3;
+        .rezerwacje_istniejace {
             display: none;
-
-            li {
-                display: inline;
-                margin: 0;
-                padding: 0;
-            }
-
+            position: absolute;
+            left: 20%;
+            bottom: -50px;
+            z-index: 5;
         }
 
         li {
@@ -1287,7 +1282,6 @@ img {
 
     .pricing-content{
         background-image: url(img/content-pattern.jpg);
-        text-align: center;
         width: 90%;
         margin: 0 auto;
         position: relative;
@@ -1380,6 +1374,7 @@ img {
 
                 .cena {
                     width: 30% !important;
+                    text-align: center;
                 }
 
                 .opis {
@@ -1396,7 +1391,7 @@ img {
 
             @media (max-width: 450px) {
                 div {
-                    margin: 5px 0 !important;
+                    margin: 50px 0 5px 0 !important;
                 }
             }
 
@@ -1425,7 +1420,7 @@ img {
             }
 
             .nav{
-                margin: 50px 0 100px 0;
+                margin: 50px 0 50px 0;
 
                 a{
                     text-decoration: underline;
@@ -1434,6 +1429,7 @@ img {
                     color: blue;
                     font-family: "alegreyaregular";
                     color: #333333;
+                    white-space: nowrap;
                 }
             }
         }
@@ -1447,14 +1443,14 @@ img {
     }
 
     .scroll-up{
-        width: 98px;
-        height: 98px;
+        width: 75px;
+        height: 75px;
         position: fixed;
         bottom: 100px;
         right: 20px;
         display: none;
         text-indent: -99999px;
-        background: url(img/scroll-up.png) no-repeat;
+        background: url(img/kolko.png) no-repeat;
         background-color: none;
         z-index: 999;
     }
