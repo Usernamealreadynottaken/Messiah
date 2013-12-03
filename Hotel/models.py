@@ -307,6 +307,9 @@ class ZdjeciaHotelu(models.Model):
         verbose_name = _('Zdjecie hotelu')
         verbose_name_plural = _('Zdjecia hotelu')
 
+    def __unicode__(self):
+        return self.zdjecie.name
+
 
 class Wiadomosc(models.Model):
     email = models.EmailField(_('E-mail'), max_length=254)
