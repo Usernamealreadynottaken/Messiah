@@ -258,12 +258,15 @@ def wizualizacja(request):
     class PokojeWizualizacja:
         zdjecie = None
         zajety = False
+        niedostepny = False
 
         def __init__(self, pokoj):
             self.pokoj = pokoj
             zp = ZdjeciaPokojow.objects.filter(pokoj=pokoj)
             if zp:
                 self.zdjecie = zp[0].zdjecie
+            if not p.dostepnosc:
+                self.niedostepny = True
 
             dzisiaj = datetime.date.today()
             for r in Rezerwacja.objects.all():
@@ -313,7 +316,7 @@ def cennik(request):
     uslugi_zewnetrzne = Usluga.objects.filter(zewnetrzna=True)
 
     return render(request, 'hotel/cennik.html', include_header_footer({
-        'kategorie': KategoriaJedzenia.objects.all(),
+        'kategorie': KategoriaJedzenia.objects.all().order_by('nazwa'),
         'jedzenie': Jedzenie.objects.all(),
         'uslugi_wewnetrzne': uslugi_wewnetrzne,
         'uslugi_zewnetrzne': uslugi_zewnetrzne,
