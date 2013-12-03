@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-03 17:27+0100\n"
+"POT-Creation-Date: 2013-12-03 19:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -357,11 +357,11 @@ msgstr ""
 msgid "Biuletyn - lista"
 msgstr ""
 
-#: .\Hotel\views.py:444
+#: .\Hotel\views.py:447
 msgid "Twoje pytanie"
 msgstr ""
 
-#: .\Hotel\views.py:445
+#: .\Hotel\views.py:448
 msgid "Nasza odpowiedz"
 msgstr ""
 
@@ -1192,6 +1192,10 @@ msgstr ""
 #: .\Messiah\templates\admin\index.html.py:20
 #, python-format
 msgid "Models in the %(name)s application"
+msgstr ""
+
+#: .\Messiah\templates\admin\index.html.py:21
+msgid "Uwiezytelnianie"
 msgstr ""
 
 #: .\Messiah\templates\admin\index.html.py:39
