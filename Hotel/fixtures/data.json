@@ -457,6 +457,1621 @@
   }
 },
 {
+  "pk": 11,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Gurtatowski",
+    "poczatek_pobytu": "2011-01-01",
+    "koniec_pobytu": "2011-01-05",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256626243246",
+    "kod": "s23gQpoz1111",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "gurtatowski@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 12,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Darwin",
+    "poczatek_pobytu": "2011-01-01",
+    "koniec_pobytu": "2011-01-05",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256626243246",
+    "kod": "sRxhQpoz2111",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "marcin.darwin@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 13,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Gulbinowicz",
+    "poczatek_pobytu": "2011-01-06",
+    "koniec_pobytu": "2011-01-07",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256626243421",
+    "kod": "sRtgQpoz1112",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "gulba@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 14,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Grula",
+    "poczatek_pobytu": "2011-01-08",
+    "koniec_pobytu": "2011-01-09",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256236243246",
+    "kod": "sRtgQpoz1113",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "grula@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 15,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Cizio",
+    "poczatek_pobytu": "2011-01-10",
+    "koniec_pobytu": "2011-01-11",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4916626243246",
+    "kod": "sRtgQpoz1114",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "cizio@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 16,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Ucher",
+    "poczatek_pobytu": "2011-01-12",
+    "koniec_pobytu": "2011-01-13",
+    "dodatkowe_instrukcje": "",
+    "telefon": "1156626243246",
+    "kod": "sRtgQpoz1115",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "ucher@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 17,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Kleist",
+    "poczatek_pobytu": "2011-01-14",
+    "koniec_pobytu": "2011-01-15",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256626113246",
+    "kod": "sRtgQpoz1116",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "kleist@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 18,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Gembal",
+    "poczatek_pobytu": "2011-01-16",
+    "koniec_pobytu": "2011-01-17",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256622243246",
+    "kod": "sRtgQpoz1117",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "gembal@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 19,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Ulas",
+    "poczatek_pobytu": "2011-01-18",
+    "koniec_pobytu": "2011-01-19",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256625543246",
+    "kod": "sRtgQpoz1118",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "ulas@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 20,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Gadacz",
+    "poczatek_pobytu": "2011-01-20",
+    "koniec_pobytu": "2011-01-21",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1119",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "gadacz@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 21,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Puziak",
+    "poczatek_pobytu": "2011-01-22",
+    "koniec_pobytu": "2011-01-23",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243299",
+    "kod": "sRtgQpoz1121",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "puziak@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 22,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Pikosz",
+    "poczatek_pobytu": "2011-01-24",
+    "koniec_pobytu": "2011-01-25",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996143241",
+    "kod": "sRtgQpoz1122",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "pikosz@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 23,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Kmin",
+    "poczatek_pobytu": "2011-01-26",
+    "koniec_pobytu": "2011-01-27",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1123",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "kmin@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 24,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Chanas",
+    "poczatek_pobytu": "2011-01-28",
+    "koniec_pobytu": "2011-01-29",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1124",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "gadacz@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 25,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Stachel",
+    "poczatek_pobytu": "2011-02-01",
+    "koniec_pobytu": "2011-02-02",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1125",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "gadacz@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 26,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Jasny",
+    "poczatek_pobytu": "2011-02-03",
+    "koniec_pobytu": "2011-02-04",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1126",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "jasny13@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 27,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Bayer",
+    "poczatek_pobytu": "2011-02-05",
+    "koniec_pobytu": "2011-02-06",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1127",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "bayer@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 28,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Leppert",
+    "poczatek_pobytu": "2011-02-07",
+    "koniec_pobytu": "2011-02-08",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1128",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "leppert1980@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 29,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Czyszek",
+    "poczatek_pobytu": "2011-02-09",
+    "koniec_pobytu": "2011-02-10",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1129",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "czyszek@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 30,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Rega",
+    "poczatek_pobytu": "2011-02-11",
+    "koniec_pobytu": "2011-02-12",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1131",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "rega@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 31,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Durawa",
+    "poczatek_pobytu": "2011-02-13",
+    "koniec_pobytu": "2011-02-14",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1132",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "durawa@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 32,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Doczekalski",
+    "poczatek_pobytu": "2011-02-14",
+    "koniec_pobytu": "2011-02-15",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1133",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "doczekalski.miroslaw@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 33,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Dajcz",
+    "poczatek_pobytu": "2011-02-16",
+    "koniec_pobytu": "2011-02-17",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1134",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "dajcz.antonin@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 34,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Weryszko",
+    "poczatek_pobytu": "2011-02-18",
+    "koniec_pobytu": "2011-02-19",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1135",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "weryszko.fredryk@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 35,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Synal",
+    "poczatek_pobytu": "2011-02-20",
+    "koniec_pobytu": "2011-02-21",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1136",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "synal.derek@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 36,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Praga",
+    "poczatek_pobytu": "2011-02-22",
+    "koniec_pobytu": "2011-02-23",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1137",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "praga.jedrzej@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 37,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Netkowski",
+    "poczatek_pobytu": "2011-02-24",
+    "koniec_pobytu": "2011-02-25",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1138",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "netkowski.dariusz@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 38,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Mederski",
+    "poczatek_pobytu": "2011-02-26",
+    "koniec_pobytu": "2011-02-27",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1139",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "krzysztof.mederski@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 39,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Marjanik",
+    "poczatek_pobytu": "2011-03-01",
+    "koniec_pobytu": "2011-03-02",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996243246",
+    "kod": "sRtgQpoz1141",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "anastazja.marjanik@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 40,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Bem",
+    "poczatek_pobytu": "2011-03-03",
+    "koniec_pobytu": "2011-03-04",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4248626243246",
+    "kod": "sRtgQpoz1142",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "bem@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 41,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Olkiewicz",
+    "poczatek_pobytu": "2011-03-04",
+    "koniec_pobytu": "2011-03-05",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256991111246",
+    "kod": "sRtgQpoz1143",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "olkiewicz.patrycja@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 42,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Kaiser",
+    "poczatek_pobytu": "2011-03-06",
+    "koniec_pobytu": "2011-03-07",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256222243246",
+    "kod": "sRtgQpoz1144",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "mariusz.kaiser@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 43,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Szefer",
+    "poczatek_pobytu": "2011-03-08",
+    "koniec_pobytu": "2011-03-09",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256333333246",
+    "kod": "sRtgQpoz1145",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "szefer.andzelika@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 44,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Kluk",
+    "poczatek_pobytu": "2011-03-10",
+    "koniec_pobytu": "2011-03-11",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256555553246",
+    "kod": "sRtgQpoz1146",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "kluk.damian@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 45,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Grygier",
+    "poczatek_pobytu": "2011-03-12",
+    "koniec_pobytu": "2011-03-13",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256966663246",
+    "kod": "sRtgQpoz1147",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "grygier124@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 46,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Abramek",
+    "poczatek_pobytu": "2011-03-14",
+    "koniec_pobytu": "2011-03-15",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256996277776",
+    "kod": "sRtgQpoz1148",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "abramek90@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 47,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Papierz",
+    "poczatek_pobytu": "2011-03-16",
+    "koniec_pobytu": "2011-03-17",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4256998888246",
+    "kod": "sRtgQpoz1149",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "papierz127@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 48,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Molik",
+    "poczatek_pobytu": "2011-03-18",
+    "koniec_pobytu": "2011-03-19",
+    "dodatkowe_instrukcje": "",
+    "telefon": "1111996243246",
+    "kod": "sRtgQpoz1151",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "molik.iwona@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 49,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Komosa",
+    "poczatek_pobytu": "2011-03-20",
+    "koniec_pobytu": "2011-03-21",
+    "dodatkowe_instrukcje": "",
+    "telefon": "2222996243246",
+    "kod": "sRtgQpoz1152",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": true,
+    "email": "komosa.danuta@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 50,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Bargiel",
+    "poczatek_pobytu": "2014-01-01",
+    "koniec_pobytu": "2014-01-02",
+    "dodatkowe_instrukcje": "",
+    "telefon": "3312346243246",
+    "kod": "sRtgQpoz1154",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "bargiel540@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 51,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Wodnicki",
+    "poczatek_pobytu": "2014-01-03",
+    "koniec_pobytu": "2014-01-04",
+    "dodatkowe_instrukcje": "",
+    "telefon": "3323456243246",
+    "kod": "sRtgQpoz1155",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "wodnicki.kazimierz@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 52,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Gawlas",
+    "poczatek_pobytu": "2014-01-05",
+    "koniec_pobytu": "2014-01-06",
+    "dodatkowe_instrukcje": "",
+    "telefon": "3334566243246",
+    "kod": "sRtgQpoz1156",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "gawlas.pawel@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 53,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Adler",
+    "poczatek_pobytu": "2014-01-07",
+    "koniec_pobytu": "2014-01-08",
+    "dodatkowe_instrukcje": "",
+    "telefon": "3345676243246",
+    "kod": "sRtgQpoz1157",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "adler.marian@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 54,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Piasek",
+    "poczatek_pobytu": "2014-01-09",
+    "koniec_pobytu": "2014-01-10",
+    "dodatkowe_instrukcje": "",
+    "telefon": "3356786243246",
+    "kod": "sRtgQpoz1158",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "piasek.kamil@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 55,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Kruszyna",
+    "poczatek_pobytu": "2014-01-11",
+    "koniec_pobytu": "2014-01-12",
+    "dodatkowe_instrukcje": "",
+    "telefon": "3367896243246",
+    "kod": "sRtgQpoz1159",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "kruszyna1970@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 56,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Perzyna",
+    "poczatek_pobytu": "2014-01-13",
+    "koniec_pobytu": "2014-01-14",
+    "dodatkowe_instrukcje": "",
+    "telefon": "3378916243246",
+    "kod": "sRtgQpoz1161",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "perzyna@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 57,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Szczyrba",
+    "poczatek_pobytu": "2014-01-15",
+    "koniec_pobytu": "2014-01-16",
+    "dodatkowe_instrukcje": "",
+    "telefon": "3333996241234",
+    "kod": "sRtgQpoz1162",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "szczyrba20@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 58,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Sierocki",
+    "poczatek_pobytu": "2014-01-17",
+    "koniec_pobytu": "2014-01-18",
+    "dodatkowe_instrukcje": "",
+    "telefon": "3333996242345",
+    "kod": "sRtgQpoz1163",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "sierocki@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 59,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Gzik",
+    "poczatek_pobytu": "2014-01-19",
+    "koniec_pobytu": "2014-01-20",
+    "dodatkowe_instrukcje": "",
+    "telefon": "3333996243456",
+    "kod": "sRtgQpoz1164",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "gzik@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 60,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Tryba",
+    "poczatek_pobytu": "2014-02-01",
+    "koniec_pobytu": "2014-02-02",
+    "dodatkowe_instrukcje": "",
+    "telefon": "1122996244567",
+    "kod": "sRtgQpoz1165",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "tryba.filip@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 61,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Jaskot",
+    "poczatek_pobytu": "2014-02-03",
+    "koniec_pobytu": "2014-02-06",
+    "dodatkowe_instrukcje": "",
+    "telefon": "2233996244567",
+    "kod": "sRtgQpoz1166",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "jaskot.filip@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 62,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Korzec",
+    "poczatek_pobytu": "2014-02-07",
+    "koniec_pobytu": "2014-02-10",
+    "dodatkowe_instrukcje": "",
+    "telefon": "3355996244567",
+    "kod": "sRtgQpoz1167",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "korzec.dariusz@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 63,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Toporowski",
+    "poczatek_pobytu": "2014-02-11",
+    "koniec_pobytu": "2014-02-16",
+    "dodatkowe_instrukcje": "",
+    "telefon": "1945996244567",
+    "kod": "sRtgQpoz1168",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "michael.toporowski@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 64,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Knitter",
+    "poczatek_pobytu": "2014-02-17",
+    "koniec_pobytu": "2014-02-23",
+    "dodatkowe_instrukcje": "",
+    "telefon": "7845996244567",
+    "kod": "sRtgQpoz1169",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "knitter.witold@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 65,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Danielczyk",
+    "poczatek_pobytu": "2014-03-01",
+    "koniec_pobytu": "2014-03-05",
+    "dodatkowe_instrukcje": "",
+    "telefon": "8877996244567",
+    "kod": "sRtgQpoz1171",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "danielczyk.malgorzata@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 66,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Bekier",
+    "poczatek_pobytu": "2014-03-06",
+    "koniec_pobytu": "2014-03-08",
+    "dodatkowe_instrukcje": "",
+    "telefon": "6655996244567",
+    "kod": "sRtgQpoz1172",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "bekier.ewa@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 67,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Komor",
+    "poczatek_pobytu": "2014-03-10",
+    "koniec_pobytu": "2014-03-12",
+    "dodatkowe_instrukcje": "",
+    "telefon": "4433996244567",
+    "kod": "sRtgQpoz1173",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "komor.kasia@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 68,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Szal",
+    "poczatek_pobytu": "2014-03-13",
+    "koniec_pobytu": "2014-03-16",
+    "dodatkowe_instrukcje": "",
+    "telefon": "3322996244567",
+    "kod": "sRtgQpoz1174",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "szal.ala@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 69,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Bula",
+    "poczatek_pobytu": "2014-03-17",
+    "koniec_pobytu": "2014-03-20",
+    "dodatkowe_instrukcje": "",
+    "telefon": "2211996244567",
+    "kod": "sRtgQpoz1175",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "bula.magda@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 70,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Joniec",
+    "poczatek_pobytu": "2013-12-04",
+    "koniec_pobytu": "2013-12-07",
+    "dodatkowe_instrukcje": "",
+    "telefon": "222333444",
+    "kod": "sRtgQpoz1176",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "joniec.lukasz@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 71,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Jachimowski",
+    "poczatek_pobytu": "2013-12-04",
+    "koniec_pobytu": "2013-12-08",
+    "dodatkowe_instrukcje": "",
+    "telefon": "333444555",
+    "kod": "sRtgQpoz1177",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "jachimowski.dan@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 72,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Gontarczyk",
+    "poczatek_pobytu": "2013-12-04",
+    "koniec_pobytu": "2013-12-10",
+    "dodatkowe_instrukcje": "",
+    "telefon": "555666777",
+    "kod": "sRtgQpoz1178",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "emil.gontarczyk@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 73,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Aftyka",
+    "poczatek_pobytu": "2013-12-04",
+    "koniec_pobytu": "2013-12-12",
+    "dodatkowe_instrukcje": "",
+    "telefon": "777888555",
+    "kod": "sRtgQpoz1179",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "amanda.aftyka@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 74,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Skop",
+    "poczatek_pobytu": "2013-12-05",
+    "koniec_pobytu": "2013-12-07",
+    "dodatkowe_instrukcje": "",
+    "telefon": "222145795",
+    "kod": "sRtgQpoz1181",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "skop@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 75,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Ploch",
+    "poczatek_pobytu": "2013-12-15",
+    "koniec_pobytu": "2013-12-17",
+    "dodatkowe_instrukcje": "",
+    "telefon": "846292743",
+    "kod": "sRtgQpoz1182",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "urszula.ploch@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 76,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Kamecki",
+    "poczatek_pobytu": "2013-12-16",
+    "koniec_pobytu": "2013-12-19",
+    "dodatkowe_instrukcje": "",
+    "telefon": "123579346",
+    "kod": "sRtgQpoz1183",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "kamecki.jedrzej@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 77,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Siuta",
+    "poczatek_pobytu": "2013-12-19",
+    "koniec_pobytu": "2013-12-27",
+    "dodatkowe_instrukcje": "",
+    "telefon": "887456622",
+    "kod": "sRtgQpoz1184",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "siuta.dorota@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 78,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Rabenda",
+    "poczatek_pobytu": "2013-12-22",
+    "koniec_pobytu": "2013-12-27",
+    "dodatkowe_instrukcje": "",
+    "telefon": "456226644",
+    "kod": "sRtgQpoz1185",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "rabenda.michal@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 79,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Nakonieczna",
+    "poczatek_pobytu": "2014-04-22",
+    "koniec_pobytu": "2014-04-27",
+    "dodatkowe_instrukcje": "",
+    "telefon": "112555333",
+    "kod": "sRtgQpoz1186",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "nakonieczna@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 80,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Homa",
+    "poczatek_pobytu": "2014-05-22",
+    "koniec_pobytu": "2014-05-27",
+    "dodatkowe_instrukcje": "",
+    "telefon": "888022275",
+    "kod": "sRtgQpoz1187",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "homa@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 81,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Gliwa",
+    "poczatek_pobytu": "2014-06-01",
+    "koniec_pobytu": "2014-06-27",
+    "dodatkowe_instrukcje": "",
+    "telefon": "888022212",
+    "kod": "sRtgQpoz1188",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "grzegorz.gliwa@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 82,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Fuks",
+    "poczatek_pobytu": "2014-06-02",
+    "koniec_pobytu": "2014-05-03",
+    "dodatkowe_instrukcje": "",
+    "telefon": "888022223",
+    "kod": "sRtgQpoz1189",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "ewelina.fuks@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 83,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Bylica",
+    "poczatek_pobytu": "2014-06-04",
+    "koniec_pobytu": "2014-06-05",
+    "dodatkowe_instrukcje": "",
+    "telefon": "888022234",
+    "kod": "sRtgQpoz1191",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "bylica@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 84,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Ziarkowski",
+    "poczatek_pobytu": "2014-06-06",
+    "koniec_pobytu": "2014-06-07",
+    "dodatkowe_instrukcje": "",
+    "telefon": "888022245",
+    "kod": "sRtgQpoz1192",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "ziarkowski.przemyslaw@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 85,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Rybakowski",
+    "poczatek_pobytu": "2014-06-08",
+    "koniec_pobytu": "2014-06-10",
+    "dodatkowe_instrukcje": "",
+    "telefon": "888022256",
+    "kod": "sRtgQpoz1193",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "przemyslaw.rybakowski@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 86,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Suwalski",
+    "poczatek_pobytu": "2014-06-11",
+    "koniec_pobytu": "2014-06-13",
+    "dodatkowe_instrukcje": "",
+    "telefon": "888022267",
+    "kod": "sRtgQpoz1194",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "suwalski.piotr@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 87,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Rogaczewski",
+    "poczatek_pobytu": "2014-06-14",
+    "koniec_pobytu": "2014-06-16",
+    "dodatkowe_instrukcje": "",
+    "telefon": "888022278",
+    "kod": "sRtgQpoz1195",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "rogaczewski@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 88,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Sztuka",
+    "poczatek_pobytu": "2014-06-18",
+    "koniec_pobytu": "2014-06-19",
+    "dodatkowe_instrukcje": "",
+    "telefon": "888022289",
+    "kod": "sRtgQpoz1196",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "halina.sztuka@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 89,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Dolny",
+    "poczatek_pobytu": "2014-06-21",
+    "koniec_pobytu": "2014-06-22",
+    "dodatkowe_instrukcje": "",
+    "telefon": "888022222",
+    "kod": "sRtgQpoz1197",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "dolny1243@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 90,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Taras",
+    "poczatek_pobytu": "2014-06-25",
+    "koniec_pobytu": "2014-06-27",
+    "dodatkowe_instrukcje": "",
+    "telefon": "888022233",
+    "kod": "sRtgQpoz1198",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "taras.dariusz@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 91,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Zalas",
+    "poczatek_pobytu": "2014-07-01",
+    "koniec_pobytu": "2014-07-02",
+    "dodatkowe_instrukcje": "",
+    "telefon": "345522102",
+    "kod": "sRtgQpoz1199",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "zalas.karolina@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 92,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Krogulec",
+    "poczatek_pobytu": "2014-07-03",
+    "koniec_pobytu": "2014-07-05",
+    "dodatkowe_instrukcje": "",
+    "telefon": "345522101",
+    "kod": "sRtgQpoz1211",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "berta/krogulec@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 93,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Malarz",
+    "poczatek_pobytu": "2014-07-06",
+    "koniec_pobytu": "2014-07-07",
+    "dodatkowe_instrukcje": "",
+    "telefon": "345522103",
+    "kod": "sRtgQpoz1212",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "bogna.malarz@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 94,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Telega",
+    "poczatek_pobytu": "2014-07-08",
+    "koniec_pobytu": "2014-07-09",
+    "dodatkowe_instrukcje": "",
+    "telefon": "345522104",
+    "kod": "sRtgQpoz1213",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "telega.donata@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 95,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Skierski",
+    "poczatek_pobytu": "2014-07-10",
+    "koniec_pobytu": "2014-07-11",
+    "dodatkowe_instrukcje": "",
+    "telefon": "345522105",
+    "kod": "sRtgQpoz1214",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "skierski.eryk@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 96,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Kryszak",
+    "poczatek_pobytu": "2014-07-12",
+    "koniec_pobytu": "2014-07-14",
+    "dodatkowe_instrukcje": "",
+    "telefon": "345522106",
+    "kod": "sRtgQpoz1215",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "kryszak.felicja@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 97,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Kryger",
+    "poczatek_pobytu": "2014-07-15",
+    "koniec_pobytu": "2014-07-17",
+    "dodatkowe_instrukcje": "",
+    "telefon": "345522107",
+    "kod": "sRtgQpoz1216",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "kryger.flora@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 98,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Prusaczyk",
+    "poczatek_pobytu": "2014-07-18",
+    "koniec_pobytu": "2014-07-20",
+    "dodatkowe_instrukcje": "",
+    "telefon": "345522108",
+    "kod": "sRtgQpoz1217",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "prusaczyk.helena@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 99,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Majcherek",
+    "poczatek_pobytu": "2014-07-21",
+    "koniec_pobytu": "2014-07-23",
+    "dodatkowe_instrukcje": "",
+    "telefon": "345522109",
+    "kod": "sRtgQpoz1218",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "majcherek.jana@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 100,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Dobrzeniecki",
+    "poczatek_pobytu": "2014-07-25",
+    "koniec_pobytu": "2014-07-27",
+    "dodatkowe_instrukcje": "",
+    "telefon": "345222102",
+    "kod": "sRtgQpoz1219",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "dobrzeniecki.jacek@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 101,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Reda",
+    "poczatek_pobytu": "2014-08-03",
+    "koniec_pobytu": "2014-08-07",
+    "dodatkowe_instrukcje": "",
+    "telefon": "333522102",
+    "kod": "sRtgQpoz1221",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "reda.kaja@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 102,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Polowczyk",
+    "poczatek_pobytu": "2014-08-07",
+    "koniec_pobytu": "2014-08-10",
+    "dodatkowe_instrukcje": "",
+    "telefon": "311522102",
+    "kod": "sRtgQpoz1222",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "polowczyk.leonora@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 103,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Kusak",
+    "poczatek_pobytu": "2014-08-12",
+    "koniec_pobytu": "2014-08-14",
+    "dodatkowe_instrukcje": "",
+    "telefon": "346622102",
+    "kod": "sRtgQpoz1223",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "kusak.marcela@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 104,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Krzysztofiak",
+    "poczatek_pobytu": "2014-08-15",
+    "koniec_pobytu": "2014-08-27",
+    "dodatkowe_instrukcje": "",
+    "telefon": "349922102",
+    "kod": "sRtgQpoz1224",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "krzysztofiak.miranda@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
+  "pk": 105,
+  "model": "Hotel.rezerwacja",
+  "fields": {
+    "nazwisko": "Siekiera",
+    "poczatek_pobytu": "2014-09-01",
+    "koniec_pobytu": "2014-09-24",
+    "dodatkowe_instrukcje": "",
+    "telefon": "345522132",
+    "kod": "sRtgQpoz1225",
+    "notatka": "",
+    "cena_dorosly": "40.00",
+    "zarchiwizowany": false,
+    "email": "siekiera.rachela@hotmail.com",
+    "cena_dziecko": "25.00"
+  }
+},
+{
   "pk": 1, 
   "model": "Hotel.pokojnarezerwacji", 
   "fields": {
@@ -1423,7 +3038,7 @@
   "pk": 3, 
   "model": "Hotel.wiadomosc", 
   "fields": {
-    "nazwisko": "", 
+    "nazwisko": "Michalewska",
     "data": null, 
     "wyslano_odpowiedz": true, 
     "odpowiedz": "Witam, oczywi\u015bcie mo\u017cemy to zrobi\u0107 na \u017cyczenie klienta. Prosz\u0119 mi tylko poda\u0107 dane do swojej rezerwacji.", 
@@ -1435,12 +3050,1224 @@
   "pk": 4, 
   "model": "Hotel.wiadomosc", 
   "fields": {
-    "nazwisko": "", 
+    "nazwisko": "Piotrowski",
     "data": null, 
     "wyslano_odpowiedz": false, 
     "odpowiedz": "", 
     "tresc": "D\u00f3\u0142 waszej strony \u017ale wy\u015bwietla si\u0119 na moim telefonie - samsung galaxy 4. Defaultowa przegl\u0105darka z jej aktualn\u0105 wersj\u0105.", 
+    "email": "piotrowski@gmail.com"
+  }
+},
+{
+  "pk": 5,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Wanda",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jak wyglada dostepnosc pokojw w czasie swiat wielkanocnych?",
+    "email": "wanda.misiak@hotmail.com"
+  }
+},
+{
+  "pk": 6,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Nowak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Potrzebujecie moze wiecej pracownikow?",
     "email": ""
+  }
+},
+{
+  "pk": 7,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Wozniak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Gdzie kupowaliscie tapety do pokoju 9?",
+    "email": "wozniak.paula@o2.pl"
+  }
+},
+{
+  "pk": 8,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Mazur",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy moglbym dostac przepis na wasza zupe grzybowa?",
+    "email": "mazur.piotr@gmail.com"
+  }
+},
+{
+  "pk": 9,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Krawczyk",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "How you Doin?",
+    "email": "krawczyk.zbigniew@op.pl"
+  }
+},
+{
+  "pk": 10,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Grabowski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy moglbym dostac kontakt do waszych programistow?",
+    "email": "grabowski.andrzej@gmail.com"
+  }
+},
+{
+  "pk": 11,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Dudek",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Podczas ostatniego pobytu zgubilem u was moj czerwony recznik w misiaczki. Znalazl sie moze?",
+    "email": "dudek.michal@op.pl"
+  }
+},
+{
+  "pk": 12,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Adamczyk",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy do waszego hotelu mozna wprowadzac zwierzeta?",
+    "email": "adamczyk.krzysztof@gmail.com"
+  }
+},
+{
+  "pk": 13,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Majewski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy obnizka ceny za tydzien wynajecia 1 pokoju 1 osobowego wchodzi w gre?",
+    "email": "majewski.piotr@gmail.com"
+  }
+},
+{
+  "pk": 14,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Jaworski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Prosze mi powiedziec czy hotel jest przystosowany dla osob niepelnosprawnych",
+    "email": "jaworski.jaroslaw@gmail.com"
+  }
+},
+{
+  "pk": 15,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Pawlak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy oferujecie jakies promocje dla stalych klientow?",
+    "email": "pawlak.pawel@gmail.com"
+  }
+},
+{
+  "pk": 16,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Witkowski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Szukam pracy jako sprzataczka",
+    "email": "witskowski.witold@gmail.com"
+  }
+},
+{
+  "pk": 17,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Rutkowski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Chetnie stworze wam nowe logo po promocyjnej cenie.",
+    "email": "rutkowski.michal@gmail.com"
+  }
+},
+{
+  "pk": 18,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Michalak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "W jaki sposob moge wypisac sie z waszego biuletynu ?",
+    "email": "michalak.miroslaw@gmail.com"
+  }
+},
+{
+  "pk": 19,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Sikora",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Rozwiazuje zadanie z matematyki - szkola podstawowa. plosze mi pomoc. ile wynosi 2x2 ?",
+    "email": "sikora.bozena@gmail.com"
+  }
+},
+{
+  "pk": 20,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Ostrowski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy oferujecie mozliwosc zamawiania jedzenia spoza waszego menu ?",
+    "email": "ostrowski.andrzej@gmail.com"
+  }
+},
+{
+  "pk": 21,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Baran",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Prosze nie przesylac mi wiecej biuletynu - moj mail to xxxx69@gmail.com",
+    "email": "baranek@gmail.com"
+  }
+},
+{
+  "pk": 22,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Duda",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Prosze mi powiedziec jak dokladnie wyglada u was usluga - opieka nad dziecmi",
+    "email": "duda1992@gmail.com"
+  }
+},
+{
+  "pk": 23,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Szewczyk",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "D\u00f3\u0142 waszej strony \u017ale wy\u015bwietla si\u0119 na moim telefonie - samsung galaxy s3. Defaultowa przegl\u0105darka z jej aktualn\u0105 wersj\u0105.",
+    "email": "szewczyk.miroslaw@gmail.com"
+  }
+},
+{
+  "pk": 24,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Tomaszewski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jaka bylaby cena za wynajecie calego hotelu w terminie 10.12.2013 - 21.12.2013 ? Czy wchodzi w gre jakas promocja?",
+    "email": "tomek.tomaszewski@gmail.com"
+  }
+},
+{
+  "pk": 25,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Pietrzak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Chcialbym tylko napisac ze jestem bardzo zadowolony z wizyty w waszym hotelu. Dziekuje za wspamiala obluge. Z pewnoscia polece go znajomym.",
+    "email": "pietrzak1912@gmail.com"
+  }
+},
+{
+  "pk": 26,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Marciniak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy mozna u was placic karta Visa Electron ?",
+    "email": "marciniak@gmail.com"
+  }
+},
+{
+  "pk": 27,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Kania",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy mozna u was placic karta Visa ?",
+    "email": "kania@gmail.com"
+  }
+},
+{
+  "pk": 28,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Kozak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Przyjmujecie czeki ?",
+    "email": "kozak90@gmail.com"
+  }
+},
+{
+  "pk": 29,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Tomczak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy mozna u was placic na raty?",
+    "email": "Tomczask30@gmail.com"
+  }
+},
+{
+  "pk": 30,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Tomczyk",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Chcialbym sie dowiedziec kiedy dokladnie wynajmowalem u was pokoj. Prosze o szybka odpowiedz.",
+    "email": "tomczyk@gmail.com"
+  }
+},
+{
+  "pk": 31,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Kurek",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy w poblizu waszego hotelu znajduje sie jakas silownia?",
+    "email": "kurek.marian@gmail.com"
+  }
+},
+{
+  "pk": 32,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Stasiak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy w poblizu waszego hotelu mozna pograc w squasha?",
+    "email": "stasiak.mariusz@gmail.com"
+  }
+},
+{
+  "pk": 33,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Piasecki",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy w poblizu waszego hotelu mozna pograc w tenisa?",
+    "email": "piasek320@gmail.com"
+  }
+},
+{
+  "pk": 34,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Kruk",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy w poblizu waszego hotelu znajduje sie jakies kino?",
+    "email": "kruk.pawel@gmail.com"
+  }
+},
+{
+  "pk": 35,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Polak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jak daleko jest od was do dworca glownego?",
+    "email": "polak1981@gmail.com"
+  }
+},
+{
+  "pk": 36,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Maj",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy w poblizu hotelu znajduje sie postoj taxi?",
+    "email": "maj.elzbieta@gmail.com"
+  }
+},
+{
+  "pk": 37,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Socha",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Szukacie moze kucharzy?",
+    "email": "sochamariusz@gmail.com"
+  }
+},
+{
+  "pk": 38,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Czajka",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Witam, moja firma zajmuje sie sprzedaza dywanow w niskiej cenie. Czy jestescie zainteresowani?",
+    "email": "czaju19@gmail.com"
+  }
+},
+{
+  "pk": 39,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Marek",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy ktos z waszego zespolu znalazl moze zgubione przeze mnie klucze?",
+    "email": "marek.markowski@gmail.com"
+  }
+},
+{
+  "pk": 40,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Zych",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy przy dluzszym wynajeciu pokoju. Mam na mysli ponad miesiac, dostane jakas znizke?",
+    "email": "zychu@gmail.com"
+  }
+},
+{
+  "pk": 41,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Sroka",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy mozna u was placic karta Visa Electron ?",
+    "email": "sroka.ewelina@gmail.com"
+  }
+},
+{
+  "pk": 42,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Matysiak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy wasz hotel przyjmuje aktualnie nowych pracownikow?",
+    "email": "matysiak1330@gmail.com"
+  }
+},
+{
+  "pk": 43,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Lewicki",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy w wynajetym u was pokoju moga byc przetrzymywane zwierzeta?",
+    "email": "lewicki.marek@gmail.com"
+  }
+},
+{
+  "pk": 44,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Niewiadomski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy mozna u was placic karta Visa Electron ?",
+    "email": "mariusz.niewiadomski@gmail.com"
+  }
+},
+{
+  "pk": 45,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Barnach",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy wasz hotel posiada winde?",
+    "email": "barnach2013@gmail.com"
+  }
+},
+{
+  "pk": 46,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Antczak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy hotel jest przystosowany dla inwalidow?",
+    "email": "antczak.paulina1986@gmail.com"
+  }
+},
+{
+  "pk": 47,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Janiak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy hotel posiada wlasny parking?",
+    "email": "kuba.janiak@gmail.com"
+  }
+},
+{
+  "pk": 48,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Bartczak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy parking o ktorym piszecie na waszej stronie jest platny dla klientow hotelu ?",
+    "email": "bartczak.bartek@gmail.com"
+  }
+},
+{
+  "pk": 49,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Rakowska",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy ceny podane na waszej stronie zawieraja juz podatek VAT?",
+    "email": "rakowska.zofia@gmail.com"
+  }
+},
+{
+  "pk": 50,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Janus",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Prosze o wiecej zdjec pokoju numer 9.",
+    "email": "janus.janusz@gmail.com"
+  }
+},
+{
+  "pk": 51,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Jurek",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Wesolych swiat! Wasz staly klient Jerzy Jurek!",
+    "email": "jerzy.jurek@gmail.com"
+  }
+},
+{
+  "pk": 52,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Tkaczyk",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy osoba niepelnoletnia moze wynajac u was pokoj?",
+    "email": "tkaczyk.tadeusz@gmail.com"
+  }
+},
+{
+  "pk": 53,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Grzegorczyk",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Przjmujecie gotowke?",
+    "email": "grzegorz.grzegorczyk@gmail.com"
+  }
+},
+{
+  "pk": 54,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Wojtczak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jestem ciekaw, a nie moge nigdzie znalezc. Jak stary jest budynek w ktorym znajduje sie hotel?",
+    "email": "wojtczak@gmail.com"
+  }
+},
+{
+  "pk": 55,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Kula",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy jestescie zainteresowani uslugami dekoratora?",
+    "email": "kula119@gmail.com"
+  }
+},
+{
+  "pk": 56,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Kubik",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy okna w pokojach maj zaluzje?",
+    "email": "kubik@gmail.com"
+  }
+},
+{
+  "pk": 57,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Flis",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jaka jest najwieksza zaleta waszego hotelu?",
+    "email": "flis@gmail.com"
+  }
+},
+{
+  "pk": 58,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Filipek",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jaka jest najwieksza wada waszego hotelu? Od tej odpowiedzi zalezy czy wynajme u was pokoj czy nie.",
+    "email": "filipek@gmail.com"
+  }
+},
+{
+  "pk": 59,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Wnuk",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Nie macie nic przeciwko niemowlakom w hotelu, prawda?",
+    "email": "wnuk.andrew@gmail.com"
+  }
+},
+{
+  "pk": 60,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Bielawski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy jest szansa na wstawienie kołyski do jednego z waszych pokojów?",
+    "email": "bielawski@gmail.com"
+  }
+},
+{
+  "pk": 61,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Nowaczyk",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jakie metody płatności akceptujecie?",
+    "email": "nowaczyk11@gmail.com"
+  }
+},
+{
+  "pk": 62,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Dziuba",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy wasz personel mówi w języku angielskim?",
+    "email": "dziubamarcin@gmail.com"
+  }
+},
+{
+  "pk": 63,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Borek",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy wasz personel mówi w języku francuskim?",
+    "email": "borekborek@gmail.com"
+  }
+},
+{
+  "pk": 64,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Krakowiak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy ceny w swieta sa takie same?",
+    "email": "marcin.krakowiak@gmail.com"
+  }
+},
+{
+  "pk": 65,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Jasota",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy menu znajdujace sie na waszej stronie jest aktualne?",
+    "email": "jasotamalgorzata19@gmail.com"
+  }
+},
+{
+  "pk": 66,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Lasota",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy w hotelu znajduje sie jakis ochroniarz?",
+    "email": "lasotek12@gmail.com"
+  }
+},
+{
+  "pk": 67,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Mika",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jest mozliwosc placenia w innej walucie niz zlotowki?",
+    "email": "mika.dariusz@gmail.com"
+  }
+},
+{
+  "pk": 68,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Sobieraj",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "W jakich walutach mozna placic?",
+    "email": "sobekk@gmail.com"
+  }
+},
+{
+  "pk": 69,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Dubiel",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy jest mozliwoscprzemeblowania pokoju?",
+    "email": "dubiel.rafal@gmail.com"
+  }
+},
+{
+  "pk": 70,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Janas",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Nadchodzi zima, jakich temperatur minimalnych mozna sie spodziewac w waszym hotelu?",
+    "email": "janas1119@gmail.com"
+  }
+},
+{
+  "pk": 71,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Jakubiak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy wystepuja u was braki energii elektrycznej? Jesli tak to jak czesto i dlugo trwaja?",
+    "email": "jakubiak.grzegorz@gmail.com"
+  }
+},
+{
+  "pk": 72,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Twardowski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy mozna sie u was spodziewac cieplej wody caly dzien?",
+    "email": "twardowski.michal@gmail.com"
+  }
+},
+{
+  "pk": 73,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Bilski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy szukacie moze pracownikow do recepcji?",
+    "email": "bilski.bill@gmail.com"
+  }
+},
+{
+  "pk": 74,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Kmiecik",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Mam problemy z otworzeniem waszej strony na moim IE 6.",
+    "email": "kmiecik@gmail.com"
+  }
+},
+{
+  "pk": 75,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Kubacki",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Kiedy najpozniej moge odebrac rezerwacje zaczynajaca sie 21.12.2013?",
+    "email": "kubacki@gmail.com"
+  }
+},
+{
+  "pk": 76,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Pilarski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jak wyglada sposob zaplaty za pokoj w waszym hotelu. Rozumiem ze place za wszystko na koniec?",
+    "email": "pilarski@gmail.com"
+  }
+},
+{
+  "pk": 77,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Gutowski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Mozecie mi opisac rozlozenie waszych pokojow? Chodzi mi o pietro na ktorym sie znajduja poszczegolne pokoje.",
+    "email": "gutowski@gmail.com"
+  }
+},
+{
+  "pk": 78,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Misiak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy w poblizu hotelu znajduje sie jakas ksiegarnia?",
+    "email": "misiak@gmail.com"
+  }
+},
+{
+  "pk": 79,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Tarnowski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jak czesto sprzatacie pokoje?",
+    "email": "tarnowski@gmail.com"
+  }
+},
+{
+  "pk": 80,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Bartosik",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Prosze mi opisac zabezpieczenia znajdujace sie w hotelu.",
+    "email": "bartosik@gmail.com"
+  }
+},
+{
+  "pk": 81,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Mierzejewski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Przjmujecie gotowke?",
+    "email": "mierzejewski.jaroslaw@gmail.com"
+  }
+},
+{
+  "pk": 82,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Jakubiak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Prosze mi powiedziec jak dokladnie wyglada u was usluga - opieka nad dziecmi",
+    "email": "jakubiak.wieslaw@gmail.com"
+  }
+},
+{
+  "pk": 83,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Twardowski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Prosze napisac mi najwazniejsza zalete waszego hotelu.",
+    "email": "twardowski.tadeusz@gmail.com"
+  }
+},
+{
+  "pk": 84,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Zielonka",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy moge gdzies zobaczyc opinie o waszym hotelu?",
+    "email": "zielonka@gmail.com"
+  }
+},
+{
+  "pk": 85,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Jezierski",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jak szybko moge dostac sie z waszego hotelu na lotniska jadac taxi?",
+    "email": "zbigniew.jezierski@gmail.com"
+  }
+},
+{
+  "pk": 86,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Jurkiewicz",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jak daleko od hotelu znajduje sie stacja kolejowa?",
+    "email": "jurkiewicz.adam@gmail.com"
+  }
+},
+{
+  "pk": 87,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Florczak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy istnieje mozliwosc placenia w euro?",
+    "email": "florczak@gmail.com"
+  }
+},
+{
+  "pk": 88,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Janas",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy oferujecie tylko uslugi ktore sa wymienione na stronie?",
+    "email": "janas@gmail.com"
+  }
+},
+{
+  "pk": 89,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Stec",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy osoby niepelnoletnie moga wynajac u was pokoj?",
+    "email": "stec.dawid@gmail.com"
+  }
+},
+{
+  "pk": 90,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Dudziak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Kiedy sie placi za poszczegolne uslugi? Po calym pobycie?",
+    "email": "dudziak.michal@gmail.com"
+  }
+},
+{
+  "pk": 91,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Skoczylas",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jak dlugo hotel prowadzi swoja dzialalnosc?",
+    "email": "skoczylas@gmail.com"
+  }
+},
+{
+  "pk": 92,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Cholewa",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jak czesto zdarzaja sie wypadki w hotelu?",
+    "email": "cholewa@gmail.com"
+  }
+},
+{
+  "pk": 93,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Matuszak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy do hotelu moge wejsc o dowolnej godzinie?",
+    "email": "matuszak@gmail.com"
+  }
+},
+{
+  "pk": 94,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Pasternak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy w pokoju numer 4 znajduje sie kuchnia?",
+    "email": "pasternak.patryk@gmail.com"
+  }
+},
+{
+  "pk": 95,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Matuszak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jakie jest wyposazenie kuchni w pokoju numer 5?",
+    "email": "matuszak.malgorzata@gmail.com"
+  }
+},
+{
+  "pk": 96,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Filipowicz",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy w lazienkach znajduja sie przygotowane przez was reczniki?",
+    "email": "filip.filipowicz12@gmail.com"
+  }
+},
+{
+  "pk": 97,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Adamus",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Rozumiem, ze faktyczna ilosc osob mieszkajacych w pokoju zalezy od wynajmujacego?",
+    "email": "adrian.adamus@gmail.com"
+  }
+},
+{
+  "pk": 98,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Olczak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jak duzy jest telewizor w pokoju numer 9",
+    "email": "olczak.aleksandra@gmail.com"
+  }
+},
+{
+  "pk": 99,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Koza",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Na ktorym pietrze znajduje sie pokoj 3?",
+    "email": "koza@gmail.com"
+  }
+},
+{
+  "pk": 100,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Stanek",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Czy w hotelu jest winda?",
+    "email": "stanek@gmail.com"
+  }
+},
+{
+  "pk": 101,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Prokop",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jak duzy jest pokoj numer 5?",
+    "email": "dariusz.prokop@gmail.com"
+  }
+},
+{
+  "pk": 102,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Dawidczak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jak duzy jest pokoj numer 1?",
+    "email": "dawidczak.blazej@gmail.com"
+  }
+},
+{
+  "pk": 103,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Elkanowicz",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Jak wielu kucharzy zatrudniacie?",
+    "email": "elkanowicz1811@gmail.com"
+  }
+},
+{
+  "pk": 104,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Frak",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Uwazam ze wasze ceny sa zbyt wysokie. Czy wchodzi w gre obnizenie ich przy dlugim pobycie?",
+    "email": "fraczek19@gmail.com"
+  }
+},
+{
+  "pk": 105,
+  "model": "Hotel.wiadomosc",
+  "fields": {
+    "nazwisko": "Rebel",
+    "data": null,
+    "wyslano_odpowiedz": false,
+    "odpowiedz": "",
+    "tresc": "Witam, poszukuje pracy jako recepcjonista. Czy potrzebujecie moze kogos?",
+    "email": "daniel.rebel@gmail.com"
   }
 },
 {
@@ -1457,6 +4284,854 @@
   "fields": {
     "news_email": "grzesiek_dlugosz@o2.pl",
     "news_kod": "VXbuTogrcEi8"
+  }
+},
+{
+  "pk": 3,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "misiu@o2.pl",
+    "news_kod": "VXbuTogrcEi7"
+  }
+},
+{
+  "pk": 4,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "krystyna@gmail.com",
+    "news_kod": "VXbuTogrcEi6"
+  }
+},
+{
+  "pk": 5,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "maciek@o2.pl",
+    "news_kod": "VXbuTogrcEi5"
+  }
+},
+{
+  "pk": 6,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "weronika@hotmail.com",
+    "news_kod": "VXbuTogrcEi4"
+  }
+},
+{
+  "pk": 7,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "daniel@o2.pl",
+    "news_kod": "VXbuTogrcEi3"
+  }
+},
+{
+  "pk": 8,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "dawid@gmail.com",
+    "news_kod": "VXbuTogrcEi2"
+  }
+},
+{
+  "pk": 9,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "eustachy@gmail.com",
+    "news_kod": "VXbuTogrcEi1"
+  }
+},
+{
+  "pk": 10,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "agataz@gmail.com",
+    "news_kod": "VXbuTogrcEi0"
+  }
+},
+{
+  "pk": 11,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "Krzysztofr@gmail.com",
+    "news_kod": "1XbuTogrcEi2"
+  }
+},
+{
+  "pk": 12,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "martynas@gmail.com",
+    "news_kod": "2XbuTogrcEi2"
+  }
+},
+{
+  "pk": 13,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "anastazjab@gmail.com",
+    "news_kod": "3XbuTogrcEi2"
+  }
+},
+{
+  "pk": 14,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "alicjao@gmail.com",
+    "news_kod": "4XbuTogrcEi2"
+  }
+},
+{
+  "pk": 15,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "magdalenaw@gmail.com",
+    "news_kod": "5XbuTogrcEi2"
+  }
+},
+{
+  "pk": 16,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "elzbietap@gmail.com",
+    "news_kod": "6XbuTogrcEi2"
+  }
+},
+{
+  "pk": 17,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "wojciech.robak@gmail.com",
+    "news_kod": "7XbuTogrcEi2"
+  }
+},
+{
+  "pk": 18,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "justyna.kot@gmail.com",
+    "news_kod": "8XbuTogrcEi2"
+  }
+},
+{
+  "pk": 19,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "paulina.s@gmail.com",
+    "news_kod": "9XbuTogrcEi2"
+  }
+},
+{
+  "pk": 20,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "ola.kaczka@gmail.com",
+    "news_kod": "1XbuTogrcEi4"
+  }
+},
+{
+  "pk": 21,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "dominika.januszewska@gmail.com",
+    "news_kod": "1XbuTogrcEi5"
+  }
+},
+{
+  "pk": 22,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "ada.a@hotmail.com",
+    "news_kod": "1aXb8Rka01d1"
+  }
+},
+{
+  "pk": 23,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "adela.b@hotmail.com",
+    "news_kod": "2aXb8Rka01d1"
+  }
+},
+{
+  "pk": 24,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "adelajda.c@hotmail.com",
+    "news_kod": "3aXb8Rka01d1"
+  }
+},
+{
+  "pk": 25,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "agnieszka.d@hotmail.com",
+    "news_kod": "4aXb8Rka01d1"
+  }
+},
+{
+  "pk": 26,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "alma.e@hotmail.com",
+    "news_kod": "5aXb8Rka01d1"
+  }
+},
+{
+  "pk": 27,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "amanda.f@hotmail.com",
+    "news_kod": "6aXb8Rka01d1"
+  }
+},
+{
+  "pk": 28,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "beata.a@hotmail.com",
+    "news_kod": "7aXb8Rka01d1"
+  }
+},
+{
+  "pk": 29,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "beatrycze@hotmail.com",
+    "news_kod": "8aXb8Rka01d1"
+  }
+},
+{
+  "pk": 30,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "berta@hotmail.com",
+    "news_kod": "9aXb8Rka01d1"
+  }
+},
+{
+  "pk": 31,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "blanka@hotmail.com",
+    "news_kod": "1aXb8Rka01d2"
+  }
+},
+{
+  "pk": 32,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "cecylia@hotmail.com",
+    "news_kod": "1aXb8Rka01d3"
+  }
+},
+{
+  "pk": 33,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "celina@hotmail.com",
+    "news_kod": "1aXb8Rka01d4"
+  }
+},
+{
+  "pk": 34,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "dagmara.er@hotmail.com",
+    "news_kod": "1aXb8Rka01d5"
+  }
+},
+{
+  "pk": 35,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "daniela.foka@hotmail.com",
+    "news_kod": "1aXb8Rka01d6"
+  }
+},
+{
+  "pk": 36,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "diana.pomatka@hotmail.com",
+    "news_kod": "1aXb8Rka01d7"
+  }
+},
+{
+  "pk": 37,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "dobroniega@hotmail.com",
+    "news_kod": "1aXb8Rka01d8"
+  }
+},
+{
+  "pk": 38,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "eufemia@hotmail.com",
+    "news_kod": "1aXb8Rka01d9"
+  }
+},
+{
+  "pk": 39,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "ewelina.p@hotmail.com",
+    "news_kod": "1aXb8Rka11d1"
+  }
+},
+{
+  "pk": 40,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "ewa.k@hotmail.com",
+    "news_kod": "1aXb8Rka21d1"
+  }
+},
+{
+  "pk": 41,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "fabia@hotmail.com",
+    "news_kod": "1aXb8Rka31d1"
+  }
+},
+{
+  "pk": 42,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "felicja@hotmail.com",
+    "news_kod": "1aXb8Rka41d1"
+  }
+},
+{
+  "pk": 43,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "fryda@hotmail.com",
+    "news_kod": "1aXb8Rka51d1"
+  }
+},
+{
+  "pk": 44,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "gabriela.z@hotmail.com",
+    "news_kod": "1aXb8Rka61d1"
+  }
+},
+{
+  "pk": 45,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "gertruda.f@hotmail.com",
+    "news_kod": "1aXb8Rka71d1"
+  }
+},
+{
+  "pk": 46,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "gizela.aa@hotmail.com",
+    "news_kod": "1aXb8Rka81d1"
+  }
+},
+{
+  "pk": 47,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "gracjana.oo@hotmail.com",
+    "news_kod": "1aXb8Rka91d1"
+  }
+},
+{
+  "pk": 48,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "greta.gretowska@hotmail.com",
+    "news_kod": "1aXz8Rka01d1"
+  }
+},
+{
+  "pk": 49,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "gustawa.gustawowicz@hotmail.com",
+    "news_kod": "1hXb8Rka01d1"
+  }
+},
+{
+  "pk": 50,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "konstancja.konsantynowicz@hotmail.com",
+    "news_kod": "1aXa8Rha01d1"
+  }
+},
+{
+  "pk": 51,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "ada.a@op.pl",
+    "news_kod": "xCtAuhpa1111"
+  }
+},
+{
+  "pk": 52,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "adela.b@op.pl",
+    "news_kod": "xCtAuhpa1112"
+  }
+},
+{
+  "pk": 53,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "adelajda.c@op.pl",
+    "news_kod": "xCtAuhpa1113"
+  }
+},
+{
+  "pk": 54,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "agnieszka.d@op.pl",
+    "news_kod": "xCtAuhpa1114"
+  }
+},
+{
+  "pk": 55,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "alma.e@op.pl",
+    "news_kod": "xCtAuhpa1115"
+  }
+},
+{
+  "pk": 56,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "amanda.f@op.pl",
+    "news_kod": "xCtAuhpa1116"
+  }
+},
+{
+  "pk": 57,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "beata.a@op.pl",
+    "news_kod": "xCtAuhpa1117"
+  }
+},
+{
+  "pk": 58,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "beatrycze@op.pl",
+    "news_kod": "xCtAuhpa1118"
+  }
+},
+{
+  "pk": 59,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "berta@op.pl",
+    "news_kod": "xCtAuhpa1119"
+  }
+},
+{
+  "pk": 60,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "blanka@op.pl",
+    "news_kod": "xCtAuhpa1121"
+  }
+},
+{
+  "pk": 61,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "cecylia@op.pl",
+    "news_kod": "xCtAuhpa1122"
+  }
+},
+{
+  "pk": 62,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "celina@op.pl",
+    "news_kod": "xCtAuhpa1123"
+  }
+},
+{
+  "pk": 63,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "dagmara.er@op.pl",
+    "news_kod": "xCtAuhpa1124"
+  }
+},
+{
+  "pk": 64,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "daniela.foka@op.pl",
+    "news_kod": "xCtAuhpa1125"
+  }
+},
+{
+  "pk": 65,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "diana.pomatka@op.pl",
+    "news_kod": "xCtAuhpa1126"
+  }
+},
+{
+  "pk": 66,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "dobroniega@op.pl",
+    "news_kod": "xCtAuhpa1127"
+  }
+},
+{
+  "pk": 67,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "eufemia@op.pl",
+    "news_kod": "xCtAuhpa1128"
+  }
+},
+{
+  "pk": 68,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "ewelina.p@op.pl",
+    "news_kod": "xCtAuhpa1129"
+  }
+},
+{
+  "pk": 69,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "ewa.k@op.pl",
+    "news_kod": "xCtAuhpa1131"
+  }
+},
+{
+  "pk": 70,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "fabia@op.pl",
+    "news_kod": "xCtAuhpa1132"
+  }
+},
+{
+  "pk": 71,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "felicja@op.pl",
+    "news_kod": "xCtAuhpa1133"
+  }
+},
+{
+  "pk": 72,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "fryda@op.pl",
+    "news_kod": "xCtAuhpa1134"
+  }
+},
+{
+  "pk": 73,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "gabriela.z@op.pl",
+    "news_kod": "xCtAuhpa1135"
+  }
+},
+{
+  "pk": 74,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "gertruda.f@op.pl",
+    "news_kod": "xCtAuhpa1136"
+  }
+},
+{
+  "pk": 75,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "gizela.aa@op.pl",
+    "news_kod": "xCtAuhpa1137"
+  }
+},
+{
+  "pk": 76,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "gracjana.oo@op.pl",
+    "news_kod": "xCtAuhpa1138"
+  }
+},
+{
+  "pk": 77,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "greta.gretowska@op.pl",
+    "news_kod": "xCtAuhpa1139"
+  }
+},
+{
+  "pk": 78,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "gustawa.gustawowicz@op.pl",
+    "news_kod": "xCtAuhpa1141"
+  }
+},
+{
+  "pk": 79,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "konstancja.konsantynowicz@op.pl",
+    "news_kod": "xCtAuhpa1142"
+  }
+},
+{
+  "pk": 80,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "ada.a@yahoo.com",
+    "news_kod": "xCtAuhpa1143"
+  }
+},
+{
+  "pk": 81,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "adela.b@yahoo.com",
+    "news_kod": "xCtAuhpa1144"
+  }
+},
+{
+  "pk": 82,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "adelajda.c@yahoo.com",
+    "news_kod": "xCtAuhpa1145"
+  }
+},
+{
+  "pk": 83,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "agnieszka.d@yahoo.com",
+    "news_kod": "xCtAuhpa1146"
+  }
+},
+{
+  "pk": 84,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "alma.e@yahoo.com",
+    "news_kod": "xCtAuhpa1147"
+  }
+},
+{
+  "pk": 85,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "amanda.f@yahoo.com",
+    "news_kod": "xCtAuhpa1148"
+  }
+},
+{
+  "pk": 86,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "beata.a@yahoo.com",
+    "news_kod": "xCtAuhpa1149"
+  }
+},
+{
+  "pk": 87,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "beatrycze@yahoo.com",
+    "news_kod": "xCtAuhpa1151"
+  }
+},
+{
+  "pk": 88,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "berta@yahoo.com",
+    "news_kod": "xCtAuhpa1152"
+  }
+},
+{
+  "pk": 89,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "blanka@yahoo.com",
+    "news_kod": "xCtAuhpa1153"
+  }
+},
+{
+  "pk": 90,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "cecylia@yahoo.com",
+    "news_kod": "xCtAuhpa1154"
+  }
+},
+{
+  "pk": 91,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "celina@yahoo.com",
+    "news_kod": "xCtAuhpa1155"
+  }
+},
+{
+  "pk": 92,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "dagmara.er@yahoo.com",
+    "news_kod": "xCtAuhpa1156"
+  }
+},
+{
+  "pk": 93,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "daniela.foka@yahoo.com",
+    "news_kod": "xCtAuhpa1157"
+  }
+},
+{
+  "pk": 94,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "diana.pomatka@yahoo.com",
+    "news_kod": "xCtAuhpa1158"
+  }
+},
+{
+  "pk": 95,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "dobroniega@yahoo.com",
+    "news_kod": "xCtAuhpa1159"
+  }
+},
+{
+  "pk": 96,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "eufemia@yahoo.com",
+    "news_kod": "xCtAuhpa1161"
+  }
+},
+{
+  "pk": 97,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "ewelina.p@yahoo.com",
+    "news_kod": "xCtAuhpa1162"
+  }
+},
+{
+  "pk": 98,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "ewa.k@yahoo.com",
+    "news_kod": "xCtAuhpa1163"
+  }
+},
+{
+  "pk": 99,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "fabia@yahoo.com",
+    "news_kod": "xCtAuhpa1164"
+  }
+},
+{
+  "pk": 100,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "felicja@yahoo.com",
+    "news_kod": "xCtAuhpa1165"
+  }
+},
+{
+  "pk": 101,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "fryda@yahoo.com",
+    "news_kod": "xCtAuhpa1166"
+  }
+},
+{
+  "pk": 102,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "gabriela.z@yahoo.com",
+    "news_kod": "xCtAuhpa1167"
+  }
+},
+{
+  "pk": 103,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "gertruda.f@yahoo.com",
+    "news_kod": "xCtAuhpa1168"
+  }
+},
+{
+  "pk": 104,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "gizela.aa@yahoo.com",
+    "news_kod": "xCtAuhpa1169"
+  }
+},
+{
+  "pk": 105,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "gracjana.oo@yahoo.com",
+    "news_kod": "xCtAuhpa1171"
+  }
+},
+{
+  "pk": 106,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "greta.gretowska@yahoo.com",
+    "news_kod": "xCtAuhpa1172"
+  }
+},
+{
+  "pk": 107,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "gustawa.gustawowicz@yahoo.com",
+    "news_kod": "xCtAuhpa1173"
+  }
+},
+{
+  "pk": 108,
+  "model": "Hotel.newsletter",
+  "fields": {
+    "news_email": "konstancja.konsantynowicz@yahoo.com",
+    "news_kod": "xCtAuhpa1174"
   }
 }
 ]
