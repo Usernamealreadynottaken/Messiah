@@ -208,9 +208,36 @@ def wiadomosci(request):
 
 @login_required
 def archiwum(request):
+    # Usuwamy wszystkie rezerwacje starsze niz 5 lat
+    five_years_ago = datetime.date.today() - datetime.timedelta(days=(365*5))
+    Rezerwacja.objects.filter(koniec_pobytu__lt=five_years_ago).delete()
+
     rez = Rezerwacja.objects.filter(Q(zarchiwizowany=True) | Q(koniec_pobytu__lte=datetime.date.today()))
     rez = rez.order_by('-koniec_pobytu')
     return render(request, 'hotel/archiwum.html', {'rezerwacje': rez})
+
+
+@login_required
+def archiwum_przywroc(request):
+    if request.is_ajax():
+        response = 'success'
+        try:
+            pk = int(request.POST['pk'])
+            r = Rezerwacja.objects.get(pk=pk)
+            r.zarchiwizowany = False
+            r.save()
+            if r.koniec_pobytu < datetime.date.today():
+                response = 'past'
+        except ValueError:
+            print '!! ValueError !!'
+            response = 'parse_error'
+        except ObjectDoesNotExist:
+            print '!! DoesNotExist !!'
+            response = 'not_exist'
+        return HttpResponse(response)
+    else:
+        print '!! not ajax !!'
+        raise Http404
 
 
 @wymagany_opis_hotelu
