@@ -277,21 +277,21 @@ body.login {
 
         @media (max-width: 750px) {
             #base-content {
-                padding: 140px 60px 200px 60px !important;
+                padding: 40px 60px 40px 60px !important;
             }
         }
 
         @media (max-width: 520px) {
             #base-content {
                 margin: 0 20px 20px 20px !important;
-                padding: 140px 20px 280px 20px !important;
+                padding: 40px 20px 40px 20px !important;
             }
         }
 
         #base-content {
             background-image: url(img/content-pattern.jpg);
             margin: 0 50px 20px 50px;
-            padding: 140px 60px 140px 60px;
+            padding: 40px 60px 40px 60px;
             position: relative;
             min-height: 200px;
 
@@ -321,6 +321,8 @@ body.login {
                 display: inline-block;
                 padding: 0;
                 float: none;
+                position: relative;
+                z-index: 2;
 
                 @media (max-width: 620px) {
                     .inline-group {
@@ -968,6 +970,8 @@ body.login {
                 max-width: 220px;
                 padding: 0;
                 margin: 0;
+                position: relative;
+                z-index: 2;
 
                 .module {
 
@@ -1024,6 +1028,8 @@ body.login {
 }
 
 #archive {
+    position: relative;
+    z-index: 2;
 
     .search-filter-wrapper {
         padding: 0 0 5px 5px;
@@ -1038,6 +1044,8 @@ body.login {
 }
 
 #messages {
+    position: relative;
+    z-index: 2;
 
     .no-messages {
         background: white;
@@ -1130,6 +1138,11 @@ body.login {
             .content-row {
                 display: table-row;
                 border-bottom: 1px solid #eeeeee;
+                line-height: 18px;
+
+                .field {
+                    width: 800px;
+                }
 
                 textarea {
                     width: 90%;
