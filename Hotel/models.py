@@ -136,7 +136,7 @@ class PokojNaRezerwacji(models.Model):
 
     doroslych = models.IntegerField(_('Doroslych'), blank=True, null=True)
     dzieci = models.IntegerField(_('Dzieci'), blank=True, null=True)
-    cena = models.DecimalField(_('Cena'), max_digits=6, decimal_places=2)
+    cena = models.DecimalField(_('Cena'), max_digits=6, decimal_places=2, blank=True)
 
     class Meta:
         verbose_name = _('Pokoj na rezerwacji')
@@ -170,6 +170,7 @@ class PokojNaRezerwacji(models.Model):
                 self.cena = CenaPokoju.objects.get(rozmiar=self.pokoj.rozmiar).cena
             except ObjectDoesNotExist:
                 self.cena = 0
+        print self.cena
 
         super(PokojNaRezerwacji, self).clean()
 
