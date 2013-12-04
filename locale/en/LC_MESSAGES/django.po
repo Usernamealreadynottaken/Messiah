@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-03 19:56+0100\n"
+"POT-Creation-Date: 2013-12-04 13:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -345,7 +345,7 @@ msgid "Wiadomosc"
 msgstr "Message"
 
 #: .\Hotel\models.py:324 .\Hotel\templates\Hotel\wiadomosci.html.py:125
-#: .\Messiah\templates\admin\index.html.py:57
+#: .\Messiah\templates\admin\index.html.py:65
 msgid "Wiadomosci"
 msgstr "Messages"
 
@@ -391,7 +391,7 @@ msgstr ""
 
 #: .\Hotel\templates\Hotel\archiwum.html.py:114
 #: .\Hotel\templates\Hotel\archiwum.html.py:119
-#: .\Messiah\templates\admin\index.html.py:63
+#: .\Messiah\templates\admin\index.html.py:47
 msgid "Archiwum"
 msgstr "Archive"
 
@@ -560,7 +560,7 @@ msgstr "Send"
 #: .\Hotel\templates\Hotel\kontakt.html.py:65
 #: .\Hotel\templates\Hotel\newsletter.html.py:68
 #: .\Hotel\templates\Hotel\newsletter_anuluj.html.py:14
-#: .\Messiah\templates\admin\index.html.py:69
+#: .\Messiah\templates\admin\index.html.py:71
 msgid "Biuletyn"
 msgstr "Newsletter"
 
@@ -1190,27 +1190,27 @@ msgstr "Authentication"
 msgid "Change"
 msgstr ""
 
-#: .\Messiah\templates\admin\index.html.py:54
-msgid "Bez edycji"
-msgstr "Not editable"
+#: .\Messiah\templates\admin\index.html.py:62
+msgid "Komunikacja z klientem"
+msgstr "Communication with customer"
 
-#: .\Messiah\templates\admin\index.html.py:80
+#: .\Messiah\templates\admin\index.html.py:82
 msgid "You don't have permission to edit anything."
 msgstr ""
 
-#: .\Messiah\templates\admin\index.html.py:88
+#: .\Messiah\templates\admin\index.html.py:90
 msgid "Recent Actions"
 msgstr ""
 
-#: .\Messiah\templates\admin\index.html.py:89
+#: .\Messiah\templates\admin\index.html.py:91
 msgid "My Actions"
 msgstr ""
 
-#: .\Messiah\templates\admin\index.html.py:93
+#: .\Messiah\templates\admin\index.html.py:95
 msgid "None available"
 msgstr ""
 
-#: .\Messiah\templates\admin\index.html.py:107
+#: .\Messiah\templates\admin\index.html.py:109
 msgid "Unknown content"
 msgstr ""
 
@@ -1287,6 +1287,9 @@ msgstr ""
 #: .\Messiah\templates\admin\submit_line.html.py:7
 msgid "Save and continue editing"
 msgstr ""
+
+#~ msgid "Bez edycji"
+#~ msgstr "Not editable"
 
 #~ msgid "Niedostepny!"
 #~ msgstr "Unavailable!"
