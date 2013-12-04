@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     url(r'^wiadomosci/oznacz/$', views.wiadomosci_oznacz, name='wiadomosci_oznacz'),
     url(r'^wiadomosci/oznacz/(?P<pk>\d+)/$', views.wiadomosci_oznacz, name='wiadomosci_oznacz_pk'),
     url(r'^archiwum/$', views.archiwum, name='archiwum'),
+    url(r'^archiwum/przywroc/$', views.archiwum_przywroc, name='archiwum_przywroc'),
     url(r'^biuletyn/$', views.biuletyn, name='biuletyn'),
     url(r'^biuletyn/wyslij/$', views.wyslij_biuletyn, name='wyslij_biuletyn')
 )

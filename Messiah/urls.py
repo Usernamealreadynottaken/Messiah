@@ -15,5 +15,5 @@ urlpatterns = patterns(
 if settings.DEBUG:
     # static files (images, css, javascript, etc.)
     urlpatterns += patterns('',
-        (r'^Messiah/uploadedimg/(?P<path>.*)$', 'django.views.static.serve', {
+        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': settings.MEDIA_ROOT}))

@@ -165,6 +165,12 @@ class PokojNaRezerwacji(models.Model):
         if not self.dzieci:
             self.dzieci = 0
 
+        if not self.cena:
+            try:
+                self.cena = CenaPokoju.objects.get(rozmiar=self.pokoj.rozmiar).cena
+            except ObjectDoesNotExist:
+                self.cena = 0
+
         super(PokojNaRezerwacji, self).clean()
 
         # Wszystko w try, bo jesli np. uzytkownik wybierze jakis pokoj, wystapi blad (wiec sie nie zapisze)

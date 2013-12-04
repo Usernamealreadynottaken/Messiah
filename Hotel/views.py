@@ -208,9 +208,36 @@ def wiadomosci(request):
 
 @login_required
 def archiwum(request):
+    # Usuwamy wszystkie rezerwacje starsze niz 5 lat
+    five_years_ago = datetime.date.today() - datetime.timedelta(days=(365*5))
+    Rezerwacja.objects.filter(koniec_pobytu__lt=five_years_ago).delete()
+
     rez = Rezerwacja.objects.filter(Q(zarchiwizowany=True) | Q(koniec_pobytu__lte=datetime.date.today()))
     rez = rez.order_by('-koniec_pobytu')
     return render(request, 'hotel/archiwum.html', {'rezerwacje': rez})
+
+
+@login_required
+def archiwum_przywroc(request):
+    if request.is_ajax():
+        response = 'success'
+        try:
+            pk = int(request.POST['pk'])
+            r = Rezerwacja.objects.get(pk=pk)
+            r.zarchiwizowany = False
+            r.save()
+            if r.koniec_pobytu < datetime.date.today():
+                response = 'past'
+        except ValueError:
+            print '!! ValueError !!'
+            response = 'parse_error'
+        except ObjectDoesNotExist:
+            print '!! DoesNotExist !!'
+            response = 'not_exist'
+        return HttpResponse(response)
+    else:
+        print '!! not ajax !!'
+        raise Http404
 
 
 @wymagany_opis_hotelu
@@ -231,12 +258,15 @@ def wizualizacja(request):
     class PokojeWizualizacja:
         zdjecie = None
         zajety = False
+        niedostepny = False
 
         def __init__(self, pokoj):
             self.pokoj = pokoj
             zp = ZdjeciaPokojow.objects.filter(pokoj=pokoj)
             if zp:
                 self.zdjecie = zp[0].zdjecie
+            if not p.dostepnosc:
+                self.niedostepny = True
 
             dzisiaj = datetime.date.today()
             for r in Rezerwacja.objects.all():
@@ -286,7 +316,7 @@ def cennik(request):
     uslugi_zewnetrzne = Usluga.objects.filter(zewnetrzna=True)
 
     return render(request, 'hotel/cennik.html', include_header_footer({
-        'kategorie': KategoriaJedzenia.objects.all(),
+        'kategorie': KategoriaJedzenia.objects.all().order_by('nazwa'),
         'jedzenie': Jedzenie.objects.all(),
         'uslugi_wewnetrzne': uslugi_wewnetrzne,
         'uslugi_zewnetrzne': uslugi_zewnetrzne,

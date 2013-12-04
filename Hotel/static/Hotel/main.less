@@ -605,6 +605,8 @@ img {
 
         form {
             padding: 30px;
+            position: relative;
+            z-index: 2;
 
             a {
                 cursor: pointer;
@@ -1054,7 +1056,7 @@ img {
         }
 
         .rooms {
-            padding: 80px 30px 30px 30px;
+            padding: 30px;
 
             h2 {
                 margin: 0 0 50px 0;
@@ -1080,7 +1082,7 @@ img {
 
             @media (max-width: 500px) {
                 & {
-                    padding: 80px 10px 30px 10px !important;
+                    padding: 30px 10px 30px 10px !important;
                 }
 
                 h3 {
@@ -1114,6 +1116,7 @@ img {
                     &.disabled:after {
                         background-color: rgba(100, 100, 100, 0.75);
                         background-image: url('img/disabled-room.png');
+                        background-size: 100% 100%;
                         content: "";
                         height: 100%;
                         position: absolute;
@@ -1178,6 +1181,7 @@ img {
                         width: 600px;
                         position: absolute;
                         bottom: 100%;
+                        left: -100%;
                         z-index: 2;
                         border-radius: 25px;
                         -moz-border-radius: 25px;
@@ -1355,6 +1359,7 @@ img {
                             width: 70%;
                             display: inline-block;
                             margin: 0 !important;
+                            font-weight: bold;
                         }
 
                         .food-price {
@@ -1662,7 +1667,9 @@ img {
         }
 
         .description {
-            padding: 60px;
+            padding: 30px 60px;
+            position: relative;
+            z-index: 1;
 
             p {
 
@@ -1812,7 +1819,7 @@ img {
                 display: block;
             }
 
-            padding: 60px 60px 60px 60px;
+            padding: 30px 60px;
             text-align: center;
 
             &:after {
@@ -1925,7 +1932,9 @@ img {
 
     .contact-wrapper{
         overflow: hidden;
-        padding: 60px 60px 0 60px;
+        padding: 30px 60px 0 60px;
+        position: relative;
+        z-index: 2;
 
         .contact-info{
             float: left;
@@ -2423,4 +2432,12 @@ img {
 
 .ie8 .in, .ie8 .out {
     padding-bottom: 10px;
+}
+
+input{
+    outline: none !important;
+}
+
+textarea{
+    outline: none !important;
 }

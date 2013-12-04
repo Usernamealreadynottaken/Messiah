@@ -18,7 +18,7 @@
         <table>
         <caption>
             <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">
-                {% blocktrans with name=app.name %}{{ name }}{% endblocktrans %}
+                {% if app.name = 'Auth' %}{% trans 'Uwiezytelnianie' %}{% else %}{% blocktrans with name=app.name %}{{ name }}{% endblocktrans %}{% endif %}
             </a>
         </caption>
         {% for model in app.models %}
@@ -42,6 +42,14 @@
             {% endif %}
             </tr>
         {% endfor %}
+        {% if app.name = 'Hotel' %}
+            <tr>
+                <th scope="row"><a href="{% url 'admin_custom:archiwum' %}">{% trans 'Archiwum' %}</a></th>
+
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        {% endif %}
         </table>
         </div>
     {% endfor %}
@@ -51,16 +59,10 @@
     <div class="module">
     <table>
     <caption>
-        <a href="{{ app.app_url }}" class="section">{% trans 'Bez edycji' %}</a>
+        <a href="{{ app.app_url }}" class="section">{% trans 'Komunikacja z klientem' %}</a>
     </caption>
         <tr>
             <th scope="row"><a href="{% url 'admin_custom:wiadomosci' %}">{% trans 'Wiadomosci' %}</a></th>
-
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <th scope="row"><a href="{% url 'admin_custom:archiwum' %}">{% trans 'Archiwum' %}</a></th>
 
             <td>&nbsp;</td>
             <td>&nbsp;</td>

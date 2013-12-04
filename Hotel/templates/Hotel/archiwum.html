@@ -73,6 +73,35 @@ $(document).ready(function() {
         $(".object-header").show();
         $(".object-content").show();
     });
+
+    $(".restore").click(function() {
+        var clickedTr = $(".expanded");
+        var clickedHeader = clickedTr.prev();
+
+        var toSend = {
+            csrfmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val(),
+            pk: $(".expanded > td").attr("id")
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "{% url 'admin_custom:archiwum_przywroc' %}",
+            data: toSend
+        })
+            .done(function(data) {
+                if (data == "success") {
+                    if (clickedTr.hasClass("expanded")) {
+                        clickedTr.toggleClass("expanded").toggleClass("collapsed");
+                    }
+                    clickedTr.slideToggle("medium");
+                    clickedHeader.slideToggle("medium");
+                } else if (data == "past") {
+                    alert("{% trans 'Nie mozna przywrocic tej rezerwacji, poniewaz sie zakonczyla.' %}");
+                } else {
+                    alert("{% trans 'Wystapil blad.' %}");
+                }
+            });
+    });
 });
 </script>
 {% endblock %}
@@ -103,6 +132,7 @@ $(document).ready(function() {
     {% trans 'Nazwisko' as name %}
     {% trans 'Poczatek pobytu' as check_in_date %}
     {% trans 'Koniec pobytu' as check_out_date %}
+    {% csrf_token %}
     <table class="dropdown-list">
         <thead class="list-head">
             <tr>
@@ -121,7 +151,7 @@ $(document).ready(function() {
                 <td>{{ rezerwacja.pokoje_verbose }}</td>
             </tr>
             <tr class="object-content collapsed">
-                <td colspan="4">
+                <td id="{{ rezerwacja.pk }}" colspan="4">
                     <div class="object-content-content">
                         <div class="rezerwacja content-section content-top-section">
                             <div class="content-row">
@@ -233,6 +263,10 @@ $(document).ready(function() {
                             </div>
                             {% endif %}
                         </div> <!-- .pokoje -->
+
+                        <div class="buttons-section">
+                            <a class="restore white-button">{% trans 'Przywroc' %}</a>
+                        </div> <!-- .buttons-section -->
                     </div> <!-- .rezerwacja-content-content -->
                 </td>
             </tr>
