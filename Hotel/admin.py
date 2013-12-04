@@ -95,4 +95,4 @@ admin.site.register(Newsletter)
 # Wiadomosci finalnie nie beda edytowane w panelu admina tylko bedziemy mieli ta strone dla pracownika
 # w ktorej pracownike bedzie odpowiadal na wiadomosci i tyle, ale obecnie dodaje to do panelu
 # admina zebysmy mogli recznie wstawiac i edytowac wiadomosci do testow
-admin.site.register(Wiadomosc)
+# admin.site.register(Wiadomosc)
