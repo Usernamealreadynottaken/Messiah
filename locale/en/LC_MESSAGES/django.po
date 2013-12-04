@@ -618,9 +618,8 @@ msgid "Nie mozesz wyslac pustej wiadomosci!"
 msgstr "You can't send empty message!"
 
 #: .\Hotel\templates\Hotel\newsletter_anuluj.html.py:6
-#, fuzzy
 msgid "Hotel Messiah - Anuluj Subskrypcje"
-msgstr "Hotel Messiah - Booking"
+msgstr "Hotel Messiah - Cancel Newsletter"
 
 #: .\Hotel\templates\Hotel\newsletter_anuluj.html.py:20
 msgid "Subscrypcja została anulowana"
