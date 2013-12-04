@@ -8,7 +8,7 @@ import datetime
 
 class Tests1(LiveServerTestCase):
     fixtures = ['data.json']
-    server = 'http://127.0.0.1:8000/'
+    server = 'https://localhost/'
 
     def setUp(self):
         # Chrome jest wykomentowany bo nie udalo mi sie zrobic zeby dzialal, ale zostawiam
