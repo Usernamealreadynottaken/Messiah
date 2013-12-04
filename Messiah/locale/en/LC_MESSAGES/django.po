@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-03 15:50+0100\n"
+"POT-Creation-Date: 2013-12-03 19:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -151,8 +151,8 @@ msgstr "Check-in date"
 msgid "Koniec pobytu"
 msgstr "Check-out date"
 
-#: .\Hotel\models.py:82 .\Hotel\models.py:272 .\Hotel\models.py:312
-#: .\Hotel\models.py:325 .\Hotel\templates\Hotel\archiwum.html.py:170
+#: .\Hotel\models.py:82 .\Hotel\models.py:272 .\Hotel\models.py:315
+#: .\Hotel\models.py:328 .\Hotel\templates\Hotel\archiwum.html.py:170
 #: .\Hotel\templates\Hotel\kontakt.html.py:26
 #: .\Hotel\templates\Hotel\rezerwacje.html.py:39
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:162
@@ -166,7 +166,7 @@ msgstr ""
 msgid "Telefon"
 msgstr "Phone"
 
-#: .\Hotel\models.py:84 .\Hotel\models.py:313
+#: .\Hotel\models.py:84 .\Hotel\models.py:316
 #: .\Hotel\templates\Hotel\archiwum.html.py:132
 msgid "Nazwisko"
 msgstr "Name"
@@ -175,7 +175,7 @@ msgstr "Name"
 msgid "Dodatkowe instrukcje"
 msgstr "Additional requests"
 
-#: .\Hotel\models.py:86 .\Hotel\models.py:326
+#: .\Hotel\models.py:86 .\Hotel\models.py:329
 #: .\Hotel\templates\Hotel\archiwum.html.py:194
 msgid "Kod"
 msgstr "Code"
@@ -323,41 +323,41 @@ msgstr "Hotel picture"
 msgid "Zdjecia hotelu"
 msgstr "Hotel pictures"
 
-#: .\Hotel\models.py:314 .\Hotel\templates\Hotel\wiadomosci.html.py:136
+#: .\Hotel\models.py:317 .\Hotel\templates\Hotel\wiadomosci.html.py:136
 msgid "Tresc"
 msgstr "Content"
 
-#: .\Hotel\models.py:315 .\Hotel\templates\Hotel\wiadomosci.html.py:13
+#: .\Hotel\models.py:318 .\Hotel\templates\Hotel\wiadomosci.html.py:13
 #: .\Hotel\templates\Hotel\wiadomosci.html.py:182
 msgid "Odpowiedz"
 msgstr "Answer"
 
-#: .\Hotel\models.py:316
+#: .\Hotel\models.py:319
 msgid "Wyslano odpowiedz"
 msgstr "Answered"
 
-#: .\Hotel\models.py:317 .\Hotel\templates\Hotel\wiadomosci.html.py:137
+#: .\Hotel\models.py:320 .\Hotel\templates\Hotel\wiadomosci.html.py:137
 msgid "Data"
 msgstr "Date"
 
-#: .\Hotel\models.py:320
+#: .\Hotel\models.py:323
 msgid "Wiadomosc"
 msgstr "Message"
 
-#: .\Hotel\models.py:321 .\Hotel\templates\Hotel\wiadomosci.html.py:125
+#: .\Hotel\models.py:324 .\Hotel\templates\Hotel\wiadomosci.html.py:125
 #: .\Messiah\templates\admin\index.html.py:57
 msgid "Wiadomosci"
 msgstr "Messages"
 
-#: .\Hotel\models.py:329
+#: .\Hotel\models.py:332
 msgid "Biuletyn - lista"
 msgstr "Newsletter - list"
 
-#: .\Hotel\views.py:444
+#: .\Hotel\views.py:447
 msgid "Twoje pytanie"
 msgstr "Your question"
 
-#: .\Hotel\views.py:445
+#: .\Hotel\views.py:448
 msgid "Nasza odpowiedz"
 msgstr "Our answer"
 
@@ -439,6 +439,7 @@ msgid "Hotel Messiah - Cennik"
 msgstr "Hotel Messiah - Pricing"
 
 #: .\Hotel\templates\Hotel\cennik.html.py:18
+#: .\Hotel\templates\Hotel\footer.html.py:30
 #: .\Hotel\templates\Hotel\header.html.py:50
 msgid "Cennik"
 msgstr "Pricing"
@@ -496,18 +497,18 @@ msgstr "Outside services"
 msgid "Strona glowna"
 msgstr "Main page"
 
-#: .\Hotel\templates\Hotel\footer.html.py:30
+#: .\Hotel\templates\Hotel\footer.html.py:31
 #: .\Hotel\templates\Hotel\wizualizacja_galeria.html.py:3
 msgid "Galeria"
 msgstr "Gallery"
 
-#: .\Hotel\templates\Hotel\footer.html.py:31
+#: .\Hotel\templates\Hotel\footer.html.py:32
 #: .\Hotel\templates\Hotel\header.html.py:52
 #: .\Hotel\templates\Hotel\kontakt.html.py:14
 msgid "Kontakt"
 msgstr "Contact"
 
-#: .\Hotel\templates\Hotel\footer.html.py:38
+#: .\Hotel\templates\Hotel\footer.html.py:39
 #, python-format
 msgid "Copyright %(copyright)s; 2013 Hotel Messiah"
 msgstr ""
@@ -1180,6 +1181,10 @@ msgstr ""
 #, python-format
 msgid "Models in the %(name)s application"
 msgstr ""
+
+#: .\Messiah\templates\admin\index.html.py:21
+msgid "Uwiezytelnianie"
+msgstr "Authentication"
 
 #: .\Messiah\templates\admin\index.html.py:39
 msgid "Change"
