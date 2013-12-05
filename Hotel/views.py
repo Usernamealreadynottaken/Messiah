@@ -23,9 +23,8 @@ from django.template.loader import get_template
 # jak zwracam ajaxowi sam render
 from django.http import HttpResponse, HttpResponseServerError, Http404
 
-# Nasze modele
-from Hotel.models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
-    ZdjeciaPokojow, CenaPokoju, ZdjeciaHotelu, Newsletter
+from models import Usluga, Pokoj, Rezerwacja, OpisHotelu, PokojNaRezerwacji, UslugaNaRezerwacji, Wiadomosc, KategoriaJedzenia, Jedzenie, \
+    ZdjeciaPokojow, CenaPokoju, ZdjeciaHotelu, Newsletter, kod_rezerwacji
 
 
 # FUNKCJE (NIE-WIDOKI)
@@ -43,24 +42,6 @@ def wymagany_opis_hotelu(view_func):
         return view_func(request, *args, **kwargs)
 
     return _decorated
-
-
-def kod_rezerwacji():
-    # Najpierw zbierzmy wszystkie kody jakie zostaly juz przydzielone
-    kody = []
-    for r in Rezerwacja.objects.all():
-        kody.append(r.kod)
-
-    symbols = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
-    kod = ''
-    while True:
-        for i in range(0, 12):
-            kod += random.choice(symbols)
-        if not kod in kody:
-            break
-        kod = ''
-
-    return kod
 
 
 def kod_newsletter():

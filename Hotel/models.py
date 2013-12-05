@@ -1,3 +1,4 @@
+import random
 from django.db import models
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.db.models import Q
@@ -6,6 +7,27 @@ from django.utils.translation import ugettext_lazy as _, ungettext_lazy as __, u
 # Rzeczy do dodania do modelu:
 # - rezerwacja - cos jak boolean czy jest aktywna czy nie
 # - wiadomosci - data
+
+
+# Przenosze kod_rezerwacji tutaj, poniewaz chce z niego skorzysutac i tutaj i w views,
+# a nie moge zaimportowac views tutaj bo bylby cyclic import.
+# Po prostu importuje ta funkcje w views.
+def kod_rezerwacji():
+    # Najpierw zbierzmy wszystkie kody jakie zostaly juz przydzielone
+    kody = []
+    for r in Rezerwacja.objects.all():
+        kody.append(r.kod)
+
+    symbols = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+    kod = ''
+    while True:
+        for i in range(0, 12):
+            kod += random.choice(symbols)
+        if not kod in kody:
+            break
+        kod = ''
+
+    return kod
 
 
 class Usluga(models.Model):
@@ -83,12 +105,12 @@ class Rezerwacja(models.Model):
     telefon = models.CharField(_('Telefon'), max_length=40, blank=True)
     nazwisko = models.CharField(_('Nazwisko'), max_length=50)
     dodatkowe_instrukcje = models.TextField(_('Dodatkowe instrukcje'), blank=True)
-    kod = models.CharField(_('Kod'), max_length=12)
+    kod = models.CharField(_('Kod'), max_length=12, blank=True)
     notatka = models.TextField(_('Notatka'), blank=True)
     zarchiwizowany = models.BooleanField(_('Zarchiwizowany'), default=False, blank=True)
 
-    cena_dorosly = models.DecimalField(_('Cena dorosly'), max_digits=6, decimal_places=2)
-    cena_dziecko = models.DecimalField(_('Cena dziecko'), max_digits=6, decimal_places=2)
+    cena_dorosly = models.DecimalField(_('Cena dorosly'), max_digits=6, decimal_places=2, blank=True)
+    cena_dziecko = models.DecimalField(_('Cena dziecko'), max_digits=6, decimal_places=2, blank=True)
     uslugi = models.ManyToManyField(Usluga, through='UslugaNaRezerwacji')
     pokoje = models.ManyToManyField(Pokoj, through='PokojNaRezerwacji')
 
@@ -124,6 +146,24 @@ class Rezerwacja(models.Model):
             i += 1
 
         return pv
+
+    def clean(self):
+        if not self.kod:
+            self.kod = kod_rezerwacji()
+
+        if not self.cena_dorosly:
+            if OpisHotelu.objects.count() > 0:
+                self.cena_dorosly = OpisHotelu.objects.filter()[0].cena_dorosly
+            else:
+                self.cena_dorosly = 0
+
+        if not self.cena_dziecko:
+            if OpisHotelu.objects.count() > 0:
+                self.cena_dziecko = OpisHotelu.objects.filter()[0].cena_dziecko
+            else:
+                self.cena_dziecko = 0
+
+        super(Rezerwacja, self).clean()
 
     pokoje_verbose.short_description = _('Pokoje na rezerwacji')
 
